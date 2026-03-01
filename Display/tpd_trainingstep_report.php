@@ -1,0 +1,300 @@
+<?php
+include("../Processing/db_connection.php");
+?>
+<table width="250%" class="table_design_1">
+<tr>
+<th rowspan="2">S.No</th>
+<th rowspan="2">Teacher Code</th>
+<th rowspan="2">Name of Teacher</th>
+<!-- <th rowspan="2">Level</th>-->
+<th rowspan="2">Name of School</th>
+<th rowspan="2">Local Government</th>
+<th rowspan="2">District</th>
+<th rowspan="2">M1</th>
+<th rowspan="2">M2</th>
+<th rowspan="2">M3</th>
+<th colspan="14">P1</th>
+<th colspan="14">P2</th>
+<th rowspan="2">Grand Total</th>
+<th rowspan="2">Percentage</th>
+<th rowspan="2">Division</th>
+<th rowspan="2">Result</th>
+<th rowspan="2">Remark</th>
+</tr>
+<tr>
+<th>Regular Atten</th>
+<th>Creative</th>
+<th>Written</th>
+<th>Planning</th>
+<th>Total Obtain Mark</th>
+<th>Percentage</th>
+<th>Division</th>
+<th>Result</th>
+<th >Start Date</th>
+<th >End Date</th>
+<th >Financial Year</th>
+<th >Venue</th>
+<th>Facilitator</th>
+<th>Remark</th>
+<th>Regular Atten</th>
+<th>Creative</th>
+<th>Written</th>
+<th>Planning</th>
+<th>Total Obtain Mark</th>
+<th>Percentage</th>
+<th>Division</th>
+<th>Result</th>
+<th >Start Date</th>
+<th >End Date</th>
+<th >Financial Year</th>
+<th >Venue</th>
+<th>Facilitator</th>
+<th>Remark</th>
+</tr>
+
+<?php
+$d = $_GET['t'];
+$sn=1;
+if($d<>"")
+	 {
+        $Query = "SELECT DISTINCT tcode FROM tbltpd where trainingstep='$d' ORDER BY tname";
+	    $ExecQuery = MySQLi_query($conn, $Query);
+	    while ($rowt = MySQLi_fetch_array($ExecQuery)) 
+   		{
+       	 echo "<tr>";
+	    echo "<td align=center>". $sn . "</td>";
+        $teachercode=$rowt["tcode"];
+	    echo "<td align=center>" . $teachercode . "</td>";
+        $Query1 = "SELECT tname, teacherlevel, schoolname, logov, district FROM tbltpd where tcode='$teachercode' and trainingstep='$d'";
+	    $ExecQuery1 = MySQLi_query($conn, $Query1);
+	    if ($rowt = MySQLi_fetch_array($ExecQuery1)) 
+   		{
+    	echo "<td>" . $rowt["tname"] . "</td>";
+		//echo "<td align=center>" . $rowt["teacherlevel"] . "</td>";
+		echo "<td>" . $rowt["schoolname"] . "</td>";
+    	echo "<td>" . $rowt["logov"] . "</td>";
+        echo "<td align=center>" . $rowt["district"] . "</td>";
+        }
+        else
+        {
+            echo "<td>-</td>";
+		    echo "<td align=center>-</td>";
+		    echo "<td>-</td>";
+    	    echo "<td>-</td>";
+            echo "<td align=center>-</td>";
+        }
+        $sn++;
+        $QueryM1 = "SELECT * FROM tbltpd where tcode='$teachercode' and tpdstep='M1'";
+	    $ExecQueryM1 = MySQLi_query($conn, $QueryM1);
+   		if ($rowt = MySQLi_fetch_array($ExecQueryM1)) 
+   		{
+             echo "<td align=center>M1</td>";
+        }
+        else
+        {
+            echo "<td align=center>-</td>";
+        }
+        $QueryM2 = "SELECT * FROM tbltpd where tcode='$teachercode' and tpdstep='M2'";
+	    $ExecQueryM2 = MySQLi_query($conn, $QueryM2);
+        if ($rowt = MySQLi_fetch_array($ExecQueryM2)) 
+   		{
+             echo "<td align=center>M2</td>";
+        }
+        else
+        {
+            echo "<td align=center>-</td>";
+        }
+
+        $QueryM3 = "SELECT * FROM tbltpd where tcode='$teachercode' and tpdstep='M3'";
+	    $ExecQueryM3 = MySQLi_query($conn, $QueryM3);
+        if ($rowt = MySQLi_fetch_array($ExecQueryM3)) 
+   		{
+             echo "<td align=center>M3</td>";
+        }
+        else
+        {
+            echo "<td align=center>-</td>";
+        }
+        $totalobtmark=0;
+        $QueryP1 = "SELECT regularatten, creative, written, planning,trainingdate, closingdate, fyear, trainingvenue, facilitator,remark FROM tbltpd where tcode='$teachercode' and tpdstep='P1'";
+	    $ExecQueryP1 = MySQLi_query($conn, $QueryP1);
+        if ($rowt = MySQLi_fetch_array($ExecQueryP1)) 
+   		{
+            echo "<td align=center>" . $rowt["regularatten"] . "</td>";
+            echo "<td align=center>" . $rowt["creative"] . "</td>";
+            echo "<td align=center>" . $rowt["written"] . "</td>";
+            echo "<td align=center>" . $rowt["planning"] . "</td>";
+            $totalobtmark=$rowt["regularatten"]+$rowt["creative"]+$rowt["written"]+$rowt["planning"];
+            echo "<td align=center>" . $totalobtmark . "</td>";
+            $percentage=$totalobtmark/100 * 100;
+            echo "<td align=center>" . $percentage . "</td>";
+            echo "<td align=center>";
+            if($percentage>80)
+            {
+                echo "Distinction";        
+            }
+            elseif($percentage>=60)
+            {
+            echo "First";
+            }
+            elseif($percentage>=60)
+            {
+            echo "Second";
+            }
+            elseif($percentage>=60)
+            {
+            echo "Third";
+            }
+            else
+            {
+            echo "Failed";
+            }
+        echo "</td>";
+        echo "<td align=center>";
+            if($percentage>40)
+            {
+                echo "Passed";        
+            }
+            else
+            {
+                echo "Failed";
+            }
+            echo "</td>";
+        echo "<td align=center>" . $rowt["trainingdate"] . "</td>";
+        echo "<td align=center>" . $rowt["closingdate"] . "</td>";
+        echo "<td align=center>" . $rowt["fyear"] . "</td>";
+        echo "<td align=center>" . $rowt["trainingvenue"] . "</td>";
+        echo "<td>" . $rowt["facilitator"] . "</td>";
+        echo "<td align=center>" . $rowt["remark"] . "</td>";
+        }
+        else
+        {
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td>-</td>";
+            echo "<td>-</td>";
+        }
+        $totalobtmarkp2=0;
+        $QueryP2 = "SELECT regularatten, creative, written, planning,trainingdate, closingdate, fyear, trainingvenue, facilitator,remark FROM tbltpd where tcode='$teachercode' and tpdstep='P2'";
+	    $ExecQueryP2 = MySQLi_query($conn, $QueryP2);
+        if ($rowt = MySQLi_fetch_array($ExecQueryP2)) 
+   		{
+            echo "<td align=center>" . $rowt["regularatten"] . "</td>";
+            echo "<td align=center>" . $rowt["creative"] . "</td>";
+            echo "<td align=center>" . $rowt["written"] . "</td>";
+            echo "<td align=center>" . $rowt["planning"] . "</td>";
+            $totalobtmarkp2=$rowt["regularatten"]+$rowt["creative"]+$rowt["written"]+$rowt["planning"];
+            echo "<td align=center>" . $totalobtmarkp2 . "</td>";
+            $percentage=$totalobtmarkp2/100 * 100;
+            echo "<td align=center>" . $percentage . "</td>";
+            echo "<td align=center>";
+            if($percentage>80)
+            {
+                echo "Distinction";        
+            }
+            elseif($percentage>=60)
+            {
+            echo "First";
+            }
+            elseif($percentage>=60)
+            {
+            echo "Second";
+            }
+            elseif($percentage>=60)
+            {
+            echo "Third";
+            }
+            else
+            {
+            echo "Failed";
+            }
+        echo "</td>";
+        echo "<td align=center>";
+            if($percentage>40)
+            {
+                echo "Passed";        
+            }
+            else
+            {
+                echo "Failed";
+            }
+            echo "</td>";
+        echo "<td align=center>" . $rowt["trainingdate"] . "</td>";
+        echo "<td align=center>" . $rowt["closingdate"] . "</td>";
+        echo "<td align=center>" . $rowt["fyear"] . "</td>";
+        echo "<td align=center>" . $rowt["trainingvenue"] . "</td>";
+        echo "<td>" . $rowt["facilitator"] . "</td>";
+        echo "<td align=center>" . $rowt["remark"] . "</td>";
+        }
+        else
+        {
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td align=center>-</td>";
+            echo "<td>-</td>";
+            echo "<td align=center>-</td>";
+        }
+        $grandtotal = $totalobtmark + $totalobtmarkp2;
+
+        echo "<td align=center>" . $grandtotal . "</td>";
+        $gpercent=$grandtotal/100 * 100;
+        echo "<td align=center>" . $gpercent . "</td>";
+            
+           
+            echo "<td align=center>";
+            if($gpercent>80)
+            {
+                echo "Distinction";        
+            }
+            elseif($gpercent>=60)
+            {
+            echo "First";
+            }
+            elseif($gpercent>=60)
+            {
+            echo "Second";
+            }
+            elseif($gpercent>=60)
+            {
+            echo "Third";
+            }
+            else
+            {
+            echo "Failed";
+            }
+        echo "</td>";
+        echo "<td align=center>";
+        if($gpercent>40)
+        {
+            echo "Passed";        
+        }
+        else
+        {
+            echo "Failed";
+        }
+        echo "</td>";
+        echo "<td>-</td>";
+		echo "</tr>";
+		}
+	}
+?>
+</table>

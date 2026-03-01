@@ -1,0 +1,279 @@
+.bg
+{
+  background-image: linear-gradient(#05DAFA,#0376F8);
+}
+
+.logintable
+{
+width:100%;
+background-image: linear-gradient(#FFFFFF,#0376F8);
+box-shadow: 10px 10px 5px #888888;
+border:0px solid black;
+padding: 0 px;
+font-size:16px;
+	font-family:Arial Black;
+	font-weight:Normal;
+	color:#FFFFFF;
+	background-color:#01B5DB;
+	font-Style:Bold;
+}
+
+.maintable
+{
+width:100%;
+  background-image: linear-gradient(#FFFFFF,#0376F8);
+  box-shadow: 10px 10px 5px #888888;
+border:0px solid black;
+  padding: 0px;
+font-size:20px;
+	font-family:Arial;
+	font-weight:Bold;
+	color:#000000;
+	 border-radius: 0px;
+}
+
+table
+{
+padding: 5px;
+}
+.subtable
+{
+width:95%;
+ /* background-image: linear-gradient(#33CCCC,#0376F8);*/
+  background: #FFFFFF;
+  box-shadow: 10px 10px 5px #888888;
+border:2px solid black;
+  padding: 0px;
+  font-size:12px;
+	font-family:Arial;
+	font-weight:Bold;
+	color:#000000;
+	 border-radius: 10px;
+}
+
+.tdradius
+{
+ border-radius: 5px;
+}
+ 
+.tablestyle tr:hover td
+{
+	background-color:#05DAFA;
+}
+.tablestyle table
+{
+ border:1px solid black;
+ }
+
+.tablestyle td
+{
+ vertical-align:middle;
+
+	background-color:#0819FA;
+
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:10px;
+
+	font-size:16px;
+	font-family:Arial;
+	font-weight:Normal;
+	color:#FFFFFF;
+}
+
+.dtable tr:hover td
+{
+background-image: linear-gradient(#33CCCC,#0376F8);
+  box-shadow: 10px 10px 5px #888888;
+border:2px solid black;
+	background-color:#33FFCC;
+}
+
+.dtable table
+{
+ border:1px solid black;
+ }
+
+ .dtable td
+{
+ vertical-align:middle;
+
+	background-color: white;
+
+	border:1px solid #000000;
+	border-width: 0px 1px 1px 0px;
+	text-align:left;
+	padding : 5px;
+
+	font-size: 16px;
+	font-family:Arial;
+	font-weight:Normal;
+	color: #000000;
+}
+
+input[type=text] {
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size:16px;
+  border: 2px solid #000000;
+  border-radius: 2px;
+  height: 30px;
+}
+
+input[type=password] {
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size:16px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  height: 50px;
+}
+input[type=submit] {
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size:16px;
+  height:40px;
+}
+input[type=reset] {
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size:16px;
+}
+input[type=Radio] {
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size:16px;
+  width: 25px;
+  height: 25px;
+}
+input[type=Checkbox] {
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size:16px;
+  width: 25px;
+  height: 25px;
+}
+
+select {
+  padding: 5px 10px 5px 5px;
+  margin: 5px 0px;
+  box-sizing: border-box;
+  font-size:16px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  height:30px;
+}
+.button {
+  background-color: #0510FA;
+  border: 2px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 150px;
+  height:40px;
+}
+a:link
+{
+font-size:16px;
+color:#FFFFFF;
+text-decoration: none;
+}
+a:visited {
+  color: #FFFFFF;
+}
+
+
+a:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+
+a:active {
+  color: #FFFFFF;
+}
+
+.teacherdetails{
+  background-image: linear-gradient(#FFFFFF,#F4F4F8);
+  padding: 20px;
+
+font-size:20px;
+	font-family:Arial;
+	font-weight:Normal;
+	color:#000000;
+	width: 90%;
+	border-collapse: separate;
+  border-spacing: 5px 10px;
+
+}
+
+.tdetails{
+  background-image: linear-gradient(#FFFFFF,#F4F4F8);
+  padding: 20px;
+
+font-size:16px;
+	font-family:Arial;
+	font-weight:Normal;
+	color:#000000;
+	width: 90%;
+	border-collapse: separate;
+  border-spacing: 0px 0px;
+  border: 1px solid;
+
+}
+
+.tdetails th
+{
+ vertical-align:middle;
+ align-content: center;
+
+	background-color:cornflowerblue;
+
+	border:1px solid #000000;
+	border-width: 1px 1px 1px 1px;
+	text-align:center;
+	padding : 5px;
+
+	font-size: 16px;
+	font-family:Arial;
+	font-weight:bold;
+	color: #000000;
+}
+
+.tdetails td
+{
+ vertical-align:middle;
+
+	background-color: white;
+
+	border:1px solid #000000;
+	border-width: 1px 1px 1px 1px;
+	padding : 5px;
+
+	font-size: 16px;
+	font-family:Arial;
+	font-weight:Normal;
+	color: #000000;
+}
+
+.heading{
+  box-shadow: 10px 10px 5px grey;
+}
+.paragraph {
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
