@@ -1,6 +1,7 @@
 <?php
 session_start();
 ob_start();
+include("../php_processing/db_connection.php");
 ?>
 
 <table width="100%">
@@ -10,52 +11,36 @@ ob_start();
 <?php
 	 if($_SESSION['level']=="वालविकास केन्द्र")
 	 	{
-	 	$sql="select queid, subject, queby, topic, question, ondate, remark from tblsixque where level='$_SESSION[level]'";
-	 	$rownum=$conn_1->query($sql);
+	 	$sql="select queid, subject, queby, topic, question, ondate, remark from tblecdque where level='$_SESSION[level]'";
+	 	$rownum=$conn->query($sql);
 		}
-	elseif($_SESSION['level']=="आधारभूत (१ –५)")
+	elseif($_SESSION['level']=="आधारभूत (१ –५)" OR $_SESSION['level']=="प्रधानाध्यापक (आधारभूत)")
 		{
-	 	$sql="select queid, subject, queby, topic, question, ondate, remark from tblsevenque where level='$_SESSION[level]'";
-	 	$rownum=$conn_1->query($sql);
+	 	$sql="select queid, subject, queby, topic, question, ondate, remark from tblprimeryque where level='$_SESSION[level]'";
+	 	$rownum=$conn->query($sql);
 		}
-	elseif($_SESSION['level']=="आधारभूत (६ –८)")
+	elseif($_SESSION['level']=="आधारभूत (६ –८)" OR $_SESSION['level']=="माध्यमिक(९ –१०)" OR $_SESSION['level']=="प्रधानाध्यापक (माध्यमिक)")
 		{
-	 	$sql="select queid, subject, queby, topic, question, ondate, remark  from tbleightque where level='$_SESSION[level]'";
-	 	$rownum=$conn_1->query($sql);
-		}
-	elseif($_SESSION['level']=="माध्यमिक(९ –१०)")
-		{
-	 	$sql="select queid, subject, queby, topic, question, ondate, remark  from tblhigherque where level='$_SESSION[level]'";
-	 	$rownum=$conn_1->query($sql);
+	 	$sql="select queid, subject, queby, topic, question, ondate, remark  from tblsecondaryque where level='$_SESSION[level]'";
+	 	$rownum=$conn->query($sql);
 		}
 	elseif($_SESSION['level']=="माध्यमिक(११ –१२)")
 		{
-	 	$sql="select queid, subject, queby, topic, question, ondate, remark  from tbltenque where level='$_SESSION[level]'";
-	 	$rownum=$conn_1->query($sql);
-		}
-	elseif($_SESSION['level']=="प्रधानाध्यापक (आधारभूत)")
-		{
-	 	$sql="select queid, subject, queby, topic, question, ondate, remark  from tblelevenque where level='$_SESSION[level]'";
-	 	$rownum=$conn_1->query($sql);
-		}
-	elseif($_SESSION['level']=="प्रधानाध्यापक (माध्यमिक)")
-		{
-	 	$sql="select queid, subject, queby, topic, question, ondate, remark  from tbltwelveque where level='$_SESSION[level]'";
-	 	$rownum=$conn_1->query($sql);
-		}
-	elseif($_SESSION['level']=="अन्य")
-		{
-	 	$sql="select queid, subject, queby, topic, question, ondate, remark  from tbltwelveque where level='$_SESSION[level]'";
-	 	$rownum=$conn_1->query($sql);
+	 	$sql="select queid, subject, queby, topic, question, ondate, remark  from tblhigherque where level='$_SESSION[level]'";
+	 	$rownum=$conn->query($sql);
 		}
 	 $i=0;
 	?>
 <table width="100%" align="center">
+	<tr>
+		<th colspan="2">Question</td>
+</tr>
 <?php
 if($rownum->num_rows>0)
 {
 	while($data=$rownum->fetch_assoc())
 		{
+			echo "dfsdfd";
 		echo "<tr>";
 		echo "<td bgcolor=#FFFFCC><b>" . $_SESSION['level'] . " \ "  . $data["subject"] . " \ " . $data["topic"] . "--Post By:" . $data["queby"] . "</b></td>";
 		$_SESSION['topic']=$data["topic"];

@@ -4,20 +4,62 @@ if($_SESSION['username']=="")
 	{
 		header('Location: admin_application.php');
 	}
-include("processing/db_connection.php");
+include("../php_processing/db_connection.php");
 if($_GET['id'])
 	{
 		$id=$_GET['id'];
-		$sql="Select id, categoryid, levelid, subjectid,contentdetails,subheading, ondate from tbl_contents where topicid='$id'";
+		$topic="";
+		$subject="";
+		$category="";
+		$level="";
+		$faculty="";
+		$postby="";
+		$source="";
+		$sql="Select id, categoryid,topicid, levelid, subjectid,contentdetails,subheading, ondate from tbl_contents where id='$id'";
 		$result=$conn->query($sql);
 		if($data=$result->fetch_assoc())
 			{
-			$subject=$data["subject"];
-			$level=$data["source"];
-			$category=$data["category"];
-			$heading=$data["subheading"]
+			$heading=$data["subheading"];
 			$details=$data["contentdetails"];
+			$sql="Select content_topic from tbltopic where id='$data[topicid]'";
+			$rownum=$conn->query($sql);
+			if($rownum->num_rows>0)
+				{
+				if($data1=$rownum->fetch_assoc())
+					{
+						$topic=$data1["content_topic"];
+						
+					}
+				}
 			}
+			$sql1="Select id, categoryname from tbl_catagory where id='$data[categoryid]'";
+			$resultc=$conn->query($sql1);
+			if($resultc->num_rows>0)
+				{
+					if($datac=$resultc->fetch_assoc())
+						{
+							$category=$datac["categoryname"];
+						}
+				}
+			$sql1="Select levelid, levelname from tbllevel where levelid='$data[levelid]'";
+			$resultl=$conn->query($sql1);
+			if($resultl->num_rows>0)
+				{
+					if($datal=$resultl->fetch_assoc())
+						{
+							$level=$datal["levelname"];
+						}
+				}
+            $sql1="Select subjectid, subject from tblsubject where subjectid='$data[subjectid]'";
+            $resultc=$conn->query($sql1);
+            if($resultc->num_rows>0)
+                {
+                if($datac=$resultc->fetch_assoc())
+                    {
+                        $subject=$datac["subject"];
+                        
+                    }
+                }
 	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -58,7 +100,7 @@ if($_GET['id'])
 <td colspan="4" align="center">
 <?php
 include("../fckeditor/fckeditor.php") ;
-  $oFCKeditor = new FCKeditor(txtdetails);
+  $oFCKeditor = new FCKeditor('txtdetails');
   $oFCKeditor->BasePath = "../FCKeditor/";
   $oFCKeditor->Value    = $details;
   $oFCKeditor->Width    = 800;

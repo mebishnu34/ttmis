@@ -4,14 +4,14 @@ session_start();
 include("db_connection.php");
 $lname=$_POST['txtlname'];
 $pass=$_POST['txtpass'];
-$sql1="Select username from tbl_user where loginname='$lname' and password='$pass'";
+$sql1="Select fname from tblmember where lname='$lname' and lpass='$pass'";
 $result = $conn->query($sql1);
 if($result->num_rows > 0)
    {
    		if($row1=$result->fetch_assoc())
 			{
 				$_SESSION['memlname']=$lname;
-				$_SESSION['username']=$row1["username"];		
+				$_SESSION['username']=$row1["fname"];		
 				header('Location: ../user_application.php');
 			}
 	}

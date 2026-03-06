@@ -15,6 +15,7 @@ $description=$_POST['txtdescription'];
 //echo $filename;
 //echo "hello";
 //echo $extension;
+//echo $level;
 //echo $destination;
 //exit;
 if (file_exists($destination))
@@ -27,7 +28,7 @@ if (file_exists($destination))
 }
 else
 {
-if(!in_array($extension, ['mp4', 'avi','mp3'])) 
+if(!in_array($extension, ['mp4','MP4', 'avi','AVI','mp3','MP3'])) 
 	{
     header('Location: ../admin_application.php?msg="Your file extension must be .mp4, or .avi"');
      //echo "Your file extension must be .mp3, or .wav";

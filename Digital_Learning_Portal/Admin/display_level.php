@@ -1,7 +1,7 @@
 <?php
 include("../php_processing/db_connection.php");
 //echo $_SESSION['level'];
-$sql="Select id, levelname from tbllevel ORDER BY id";
+$sql="Select levelid, levelname from tbllevel ORDER BY levelid";
 $result=$conn->query($sql);
 $i=0;
 ?>
@@ -18,7 +18,7 @@ while($data=$result->fetch_assoc())
 echo "<tr>";
 echo "<td align=center>" . ($i+1). "</td>";
 echo "<td>" . $data["levelname"] . "</td>";
-echo "<td align=center><a href=level_edit.php?subid=". $data["id"] . " Target=_blank> Edit </a></td>";
+echo "<td align=center><a href=level_edit.php?subid=". $data["levelid"] . " Target=_blank> Edit </a></td>";
 echo "</tr>";
 $i++;
 }

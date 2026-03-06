@@ -7,12 +7,12 @@ if($_SESSION['usertype']<>"Administrator")
 		header('Location: admin_application.php?msg="You have not previllage"');
 	}
 $id=$_GET['subid'];
-$sql="Select id, subjectname from tbl_subject where id='$id'";
+$sql="Select subjectid, subject from tblsubject where subjectid='$id'";
 $result=$conn->query($sql);
 if($data=$result->fetch_assoc())
 {
-$id= $data["id"];
-$subject= $data["subjectname"];
+$id= $data["subjectid"];
+$subject= $data["subject"];
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

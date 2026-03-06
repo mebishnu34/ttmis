@@ -1,4 +1,5 @@
 <?php
+$k=0;
 $sql="Select id, categoryid, levelid, subjectid,vdescription,vfilename,destination, ondate from tbl_video where topicid='$id'";
 $result=$conn->query($sql);
 if($result->num_rows>0)

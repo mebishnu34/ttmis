@@ -8,10 +8,10 @@ include("../php_processing/db_connection.php");
 $sql2="Select id,categoryname from tbl_catagory";
 $result1=$conn->query($sql2);
 $i=0;
-$sql1="Select id, levelname from tbllevel";
+$sql1="Select levelid, levelname from tbllevel";
 $result=$conn->query($sql1);
 $j=0;
-$sql="Select id, subjectname from tbl_subject";
+$sql="Select subjectid, subject from tblsubject";
 $rownum=$conn->query($sql);
 ?>
 <form action="processing/save_topic.php" method="post"  enctype="multipart/form-data" ID="normal_form">
@@ -43,7 +43,7 @@ if($result->num_rows>0)
 	while($data=$result->fetch_assoc())
 	{
 	?>
-	<option value="<?php echo $data["id"];?>"><?php echo $data["levelname"];?></option>
+	<option value="<?php echo $data["levelid"];?>"><?php echo $data["levelname"];?></option>
 	
 <?php
 	}
@@ -60,7 +60,7 @@ if($rownum->num_rows>0)
 {
 	while($data1=$rownum->fetch_assoc())
 		{
-			echo "<option value=". $data1[id].">" . $data1["subjectname"] . "</option>";
+			echo "<option value=". $data1[subjectid].">" . $data1["subject"] . "</option>";
 		}
 }
 ?>

@@ -7,13 +7,13 @@ if($_GET['subid'])
 		$sql="Select id, levelid,content_topic from tbltopic where subjectid='$id'";
 		$result=$conn->query($sql);
 		$i=0;
-		$sql="Select id, subjectname from tbl_subject where id='$id'";
+		$sql="Select subjectid, subject from tblsubject where subjectid='$id'";
 		$rownum=$conn->query($sql);
 		if($rownum->num_rows>0)
 			{
 				if($data1=$rownum->fetch_assoc())
 					{
-						$subject=$data1["subjectname"];
+						$subject=$data1["subject"];
 					}
 			}
 	?>
@@ -29,7 +29,7 @@ Name of Subject: <?php echo $subject;?>
 <?php
 		while($data=$result->fetch_assoc())
 		{
-			$sql1="Select id, levelname from tbllevel where id='$data[levelid]'";
+			$sql1="Select levelid, levelname from tbllevel where levelid='$data[levelid]'";
 			$result2=$conn->query($sql1);
 			if($result2->num_rows>0)
 				{
@@ -42,7 +42,7 @@ Name of Subject: <?php echo $subject;?>
 			echo "<td align=center>" . ($i+1). "</td>";
 			echo "<td>" . $level . "</td>";
 			echo "<td>" . $data["content_topic"] . "</td>";
-			echo "<td align=center><a href=topic_edit.php?topid=".  $data["id"] . ">Edit</a>&nbsp<a href=display_topic_contents.php?topid=".  $data["id"] . ">Details</a></td>";
+			echo "<td align=center><a href=topic_edit.php?topid=".  $data["id"] . ">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=display_topic_contents.php?topid=".  $data["id"] . ">Details</a></td>";
 			echo "</tr>";
 			$i++;
 		}

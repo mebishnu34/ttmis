@@ -4,7 +4,7 @@
 //$database="ttmisbagamatigov_digitallearning_db";
 $dbuser="root";
 $dbpassword="";
-$database="bagamati_eduportaldb";
+$database="bagamati_portaldb";
 $host = "localhost";
 
 //$ado=new data($host,$dbuser,$dbpassword,$database);

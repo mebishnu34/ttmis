@@ -7,11 +7,11 @@ if($_SESSION['usertype']<>"Administrator")
 		header('Location: admin_application.php?msg="You have not previllage"');
 	}
 $id=$_GET['subid'];
-$sql="Select id, levelname from tbllevel where id='$id'";
+$sql="Select levelid, levelname from tbllevel where levelid='$id'";
 $result=$conn->query($sql);
 if($data=$result->fetch_assoc())
 {
-$id= $data["id"];
+$id= $data["levelid"];
 $subject= $data["levelname"];
 }
 ?>

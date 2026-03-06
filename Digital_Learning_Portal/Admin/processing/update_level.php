@@ -11,7 +11,7 @@ if($result->num_rows>0)
 	}
 else
 	{
-		$sql="Update tbllevel set levelname='$subject' where id='$id'";
+		$sql="Update tbllevel set levelname='$subject' where levelid='$id'";
 		if(!mysqli_query($conn,$sql))
 			{
 				header('Location: ../admin_application.php?msg=' . mysqli_error($conn));

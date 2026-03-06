@@ -43,7 +43,7 @@ Name of Subject: <?php echo $topic;?>:Text Material
 							$category=$datac["categoryname"];
 						}
 				}
-			$sql1="Select id, levelname from tbllevel where id='$data[levelid]'";
+			$sql1="Select levelid, levelname from tbllevel where levelid='$data[levelid]'";
 			$resultl=$conn->query($sql1);
 			if($resultl->num_rows>0)
 				{
@@ -52,13 +52,13 @@ Name of Subject: <?php echo $topic;?>:Text Material
 							$level=$datal["levelname"];
 						}
 				}
-            $sql1="Select id, subjectname from tbl_subject where id='$data[subjectid]'";
+            $sql1="Select subjectid, subject from tblsubject where subjectid='$data[subjectid]'";
             $resultc=$conn->query($sql1);
             if($resultc->num_rows>0)
                 {
                 if($datac=$resultc->fetch_assoc())
                     {
-                        $subject=$datac["subjectname"];
+                        $subject=$datac["subject"];
                         
                     }
                 }
@@ -106,7 +106,7 @@ Name of Subject: <?php echo $topic;?>:Vedio
 							$category=$datac["categoryname"];
 						}
 				}
-			$sql1="Select id, levelname from tbllevel where id='$data[levelid]'";
+			$sql1="Select levelid, levelname from tbllevel where levelid='$data[levelid]'";
 			$resultl=$conn->query($sql1);
 			if($resultl->num_rows>0)
 				{
@@ -115,13 +115,13 @@ Name of Subject: <?php echo $topic;?>:Vedio
 							$level=$datal["levelname"];
 						}
 					}
-            $sql1="Select id, subjectname from tbl_subject where id='$data[subjectid]'";
+            $sql1="Select subjectid, subject from tblsubject where subjectid='$data[subjectid]'";
             $resultc=$conn->query($sql1);
             if($resultc->num_rows>0)
                 {
                 if($datac=$resultc->fetch_assoc())
                     {
-                        $subject=$datac["subjectname"];
+                        $subject=$datac["subject"];
                         
                     }
                 }
@@ -177,7 +177,7 @@ Name of Subject: <?php echo $topic;?>:Audio
 							$category=$datac["categoryname"];
 						}
 				}
-			$sql1="Select id, levelname from tbllevel where id='$data[levelid]'";
+			$sql1="Select levelid, levelname from tbllevel where levelid='$data[levelid]'";
 			$resultl=$conn->query($sql1);
 			if($resultl->num_rows>0)
 				{
@@ -186,13 +186,13 @@ Name of Subject: <?php echo $topic;?>:Audio
 							$level=$datal["levelname"];
 						}
 				}
-            $sql1="Select id, subjectname from tbl_subject where id='$data[subjectid]'";
+            $sql1="Select subjectid, subject from tblsubject where subjectid='$data[subjectid]'";
             $resultc=$conn->query($sql1);
             if($resultc->num_rows>0)
                 {
                 if($datac=$resultc->fetch_assoc())
                     {
-                        $subject=$datac["subjectname"];
+                        $subject=$datac["subject"];
                         
                     }
                 }
@@ -249,7 +249,7 @@ Name of Subject: <?php echo $topic;?>:Reference
 							$category=$datac["categoryname"];
 						}
 				}
-			$sql1="Select id, levelname from tbllevel where id='$data[levelid]'";
+			$sql1="Select levelid, levelname from tbllevel where levelid='$data[levelid]'";
 			$resultl=$conn->query($sql1);
 			if($resultl->num_rows>0)
 				{
@@ -258,13 +258,13 @@ Name of Subject: <?php echo $topic;?>:Reference
 						$level=$datal["levelname"];
 					}
 				}
-            $sql1="Select id, subjectname from tbl_subject where id='$data[subjectid]'";
+            $sql1="Select subjectid, subject from tblsubject where subjectid='$data[subjectid]'";
             $resultc=$conn->query($sql1);
             if($resultc->num_rows>0)
                 {
                 if($datac=$resultc->fetch_assoc())
                     {
-                        $subject=$datac["subjectname"];
+                        $subject=$datac["subject"];
                         
                     }
                 }

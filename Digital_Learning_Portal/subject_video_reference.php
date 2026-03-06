@@ -71,13 +71,13 @@ include("php_processing/db_connection.php");
                  <font size="3" color="yellow"><b><u>   Teacher Professional Development </u> </b></font>
                 <div class="droplist">
                     <?php
-                    $sql="Select id, subjectname from tbl_subject ORDER BY subjectname";
+                    $sql="Select subjectid, subject from tblsubject ORDER BY subject";
                     $result=$conn->query($sql);
                     while($data=$result->fetch_assoc())
                         {
-                        $id=$data["id"];
+                        $id=$data["subjectid"];
                     ?>
-                        <li><?php echo $data["subjectname"];?></li>
+                        <li><?php echo $data["subject"];?></li>
                         <ul class="list-categories">
                             <?php
                             $sql1="Select id, levelid,content_topic from tbltopic where subjectid='$id' and categoryid=3";
@@ -101,13 +101,13 @@ include("php_processing/db_connection.php");
                     
                     <div class="droplist">
                     <?php
-                    $sql="Select id, subjectname from tbl_subject ORDER BY subjectname";
+                    $sql="Select subjectid, subject from tblsubject ORDER BY subject";
                     $result=$conn->query($sql);
                     while($data=$result->fetch_assoc())
                         {
-                        $id=$data["id"];
+                        $id=$data["subjectid"];
                     ?>
-                        <li><?php echo $data["subjectname"];?></li>
+                        <li><?php echo $data["subject"];?></li>
                         <ul class="list-categories">
                             <?php
                             $sql1="Select id, levelid,content_topic from tbltopic where subjectid='$id' and categoryid=4";
@@ -131,13 +131,13 @@ include("php_processing/db_connection.php");
                 
                 <div class="droplist">
                     <?php
-                    $sql="Select id, subjectname from tbl_subject ORDER BY subjectname";
+                    $sql="Select subjectid, subject from tbl_subject ORDER BY subject";
                     $result=$conn->query($sql);
                     while($data=$result->fetch_assoc())
                         {
-                        $id=$data["id"];
+                        $id=$data["subjectid"];
                     ?>
-                        <li><?php echo $data["subjectname"];?></li>
+                        <li><?php echo $data["subject"];?></li>
                         <ul class="list-categories">
                             <?php
                             $sql1="Select id, levelid,content_topic from tbltopic where subjectid='$id' and categoryid=5";
