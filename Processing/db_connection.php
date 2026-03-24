@@ -1,8 +1,8 @@
 <?php
 //$dbuser="ttmisbagamatigov_bishnu";
 $dbuser="root";
-$dbpassword="";
-$database="bagamati_eduttmisdb";
+$dbpassword="Ttmis123@Edu2083";
+$database="ttmis";
 $host = "localhost";
 
 //$ado=new data($host,$dbuser,$dbpassword,$database);
@@ -11,6 +11,7 @@ $conn = mysqli_connect($host, $dbuser, $dbpassword, $database);
 //echo "Initial character set is: " . $conn -> character_set_name();
 // Change character set to utf8
 $conn -> set_charset("utf8");
+
 //echo "Current character set is: " . $conn -> character_set_name();
 
 if (!$conn) 
@@ -20,7 +21,8 @@ if (!$conn)
 /*
 else
 {
-    mysqli_set_charset( $conn, 'UTF-8');
+   // mysqli_set_charset( $conn, 'UTF-8');
+echo "Hello";
 }
 */
 

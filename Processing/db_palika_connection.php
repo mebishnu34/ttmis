@@ -1,7 +1,7 @@
 <?php
-$dbuser="ttmisbagamatigov_bishnu";
-$dbpassword=")eSfJe,TtUGB";
-$database="ttmisbagamatigov_portaldb";
+$dbuser="root";
+$dbpassword="Ttmis123@Edu2083";
+$database="bagamati_ttmisportaldb";
 $host = "localhost";
 /*$dbuser="ttmisbagamatigov_bishnu";
 $dbpassword=")eSfJe,TtUGB";

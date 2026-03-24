@@ -3,8 +3,8 @@
 //$dbpassword=")eSfJe,TtUGB";
 //$database="ttmisbagamatigov_digitallearning_db";
 $dbuser="root";
-$dbpassword="";
-$database="bagamati_portaldb";
+$dbpassword="Ttmis123@Edu2083";
+$database="bagamati_ttmisportaldb";
 $host = "localhost";
 
 //$ado=new data($host,$dbuser,$dbpassword,$database);
