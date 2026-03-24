@@ -1,0 +1,32 @@
+.div_certificate{
+ width: 80%;
+ height: 80%;
+  /*border: 15px solid red;*/
+  padding: 0px;
+  margin-left: 100px;
+  margin-top: 50px;
+  align-self: center;
+  
+}
+.certificate_border{
+ /* background-color:white;*/
+ background: url("../Image/certificate_border.png");
+ background-repeat: no-repeat;
+ background-size:1150px 800px;
+  width: 100%;
+  height: 800px;
+  /*border: 15px solid red;*/
+  padding: 10px;
+  margin: 0px;
+  margin-left: 50px;
+  
+}
+
+#div_certificate{
+ padding: 2px;/* This is the width of the border :p */
+ background: url("../bg3.png");
+ width: 1000px;
+}
+#inner{
+    background: #fff;
+}

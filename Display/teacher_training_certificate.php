@@ -55,7 +55,7 @@ if ($result->num_rows > 0)
 <th>Contact</th>
 <th>School Code</th>
 <th>Municipality/Rural</th>
-<th><a href=all_certificate_display.php?trainingid=<?php echo $_SESSION['trainingid']; ?> target=blank>Print All</a></th>
+<th bgcolor="blue"><a href=all_certificate_display.php?trainingid=<?php echo $_SESSION['trainingid']; ?> target=blank>Print All</a></th>
 </tr>
 <?php
 $sn=1;
@@ -89,7 +89,14 @@ if ($result->num_rows > 0)
          echo "<td align=center>" . $contact . "</td>";
          echo "<td align=center>" . $scode . "</td>";
          echo "<td align=center>" . $mun . "</td>";
-         echo "<td align=center bgcolor=blue><a href=certificate_display.php?tid=". $teacherid. " target=blank>Certificate</a></td>";
+         //echo "<th align=center bgcolor=blue><a href=certificate_display.php?tid=". $teacherid. " target=blank>Print Certificate</a></th>";
+         //echo "<th align=center bgcolor=blue><a href=sewa_prabesh_certificate_1.php?tid=". $teacherid. " target=blank>Print Certificate</a></th>";
+         //echo "<th align=center bgcolor=blue><a href=sewa_prabesh_certificate_2.php?tid=". $teacherid. " target=blank>Print Certificate</a></th>";
+         //echo "<th align=center bgcolor=blue><a href=one_month_certificate_1.php?tid=". $teacherid. " target=blank>Print Certificate</a></th>";
+         //echo "<th align=center bgcolor=blue><a href=one_month_certificate_2.php?tid=". $teacherid. " target=blank>Print Certificate</a></th>";
+         //echo "<th align=center bgcolor=blue><a href=tpd_certificate_1.php?tid=". $teacherid. " target=blank>Print Certificate</a></th>";
+         //echo "<th align=center bgcolor=blue><a href=tpd_certificate_2.php?tid=". $teacherid. " target=blank>Print Certificate</a></th>";
+         echo "<th align=center bgcolor=blue><a href=select_certificate.php?tid=". $teacherid. " target=blank>Print Certificate</a></th>";
          echo "</tr>";
          $sn++;
     }

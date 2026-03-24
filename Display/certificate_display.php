@@ -11,7 +11,8 @@ if(isset($_GET['trainingid']))
  $teacherid=$_SESSION['teacherid']; 
  $trainingid=$_GET['trainingid']; 
 }
-echo $teacherid;
+$district="काभ्रेपलाञ्चोक";
+$municipality="धुलिखेल";
 $scode=0;
 $startdate="";
 $enddate="";
@@ -96,19 +97,20 @@ if ($result2->num_rows > 0)
 <HEAD>
  <TITLE>TTMIS</TITLE>
  <link rel="stylesheet" href="../CSS/border.css">
+<link rel="stylesheet" href="../CSS/certificate.css">
 </HEAD>
 <BODY>
-<div align="center" id="b5">
+<div align="center" class="certificate_border">
 <br />
 <table width="90%">
 <tr>
 <td align="center" width="10%"><img src="..\Image\logo.svg" width="150" height="150"></td>
 <td align="center" width="80%">
-    <font size="3" color="red">प्रदेश सरकार</font>
+    <font size="3" color="red">बागमती प्रदेश सरकार</font>
     <br>
     <font size="5" color="red">सामाजिक विकास मन्त्रालय</font><br>
 <font size="7" color="red">शिक्षा तालिम केन्द्र</font><br>
-<font size="5" color="red">धुलिखेल , काभ्रेपलाञ्चोक</font><br><font color="red" size="5">  बागमती प्रदेश</font>
+<font size="5" color="red">धुलिखेल , काभ्रेपलाञ्चोक</font>
 
  </td>
  <td align="center" width="10%">&nbsp;</td>
@@ -123,8 +125,11 @@ if ($result2->num_rows > 0)
 <td align="center" colspan="3">&nbsp;</td>
 </tr>
 <tr>
-<td align="center" colspan="3"><p align="Justify"><font size="5">
-शिक्षा तालिम केन्द्र, धुलिखेलको आयोजनामा मिति</font> <font size="5"><b><?php echo $startdate;?></b></font><font size="5"> गतेदेखि मिति </font><font size="5"><b><?php echo $enddate;?></b></font><font size="5"> गतेसम्म </font><font size="5"><b><?php echo $venu;?> </b></font> <font size="5"> मा सञ्चालन भएको</font><font size="5"><b> <?php echo $subject;?></b></font><font size="5"> संग सम्बन्धित विषयका शिक्षकहरूका लागि </font><font size="5"><b><?php echo $trainingdays;?></b></font> <font size="5"> दिने</font> <font size="5"><b><?php echo $training;?></b></font><font size="5"> तालिममा सहभागि हुनु भएको हुँदा श्री </font><font size="5"> <b><?php echo $schoolname;?></b></font><font size="5">का शिक्षक तपाइ श्री </font><font size="5"> <b><?php echo $teachername;?></b></font><font size="5">लाइ सधन्यवाद यो प्रमाणा पत्र प्रदान गरिएको छ ।</font>
+<td align="center" colspan="3"><p align="Justify" style="line-height: 2;"><font size="5">
+    
+शिक्षा तालिम केन्द्र, धुलिखेल, काभ्रेपलाञ्चोकको आयोजनामा मिति <font size="5"><b><?php echo $startdate;?></b></font> देखि <font size="5"><b><?php echo $enddate;?></b></font> सम्म तालिम केन्द्रमा आधारित १५ कार्य दिन र सो पश्चात विद्यालयमा आधारित १५ दिन गरी जम्मा ३० कार्य दिनको आधारभूत/माध्यमिक तहको सेवा प्रवेश तालिम <?php echo $district;?> जिल्ला,<?php echo $municipality;?> म.न.पा/उ.प.न.पा./न.पा./गा.पा. स्थित <font size="5"> <b><?php echo $schoolname;?></b></font> का शिक्षक तपाइ श्री <font size="5"> <b><?php echo $teachername;?></b></font><font size="5"> ले सफलतापूर्वक सम्पन्न गर्नुभएकाले स–धन्यवाद यो प्रमाणपत्र प्रदान गरिएको छ ।</font>
+
+
  </font></td>
  <tr>
  <td align="center" colspan="3"><font face="Kantipur" size="5">&nbsp</font></td>
@@ -132,26 +137,24 @@ if ($result2->num_rows > 0)
   <tr>
  <td align="center" colspan="3"><font face="Kantipur" size="5">&nbsp</font></td>
   </tr>
- <tr>
- <td align="center" colspan="3"><font face="Kantipur" size="5">&nbsp</font></td>
-  </tr>
   <tr>
   <td colspan="3">
   <table width="100%" border="0">
   <tr>
-  <td align="center" width="30%"><font size="5"><?php echo $coordinator;?></font></td>
-  <td align="center"><font face="Kantipur" size="5">&nbsp;</font></td>
- <td align="center" width="25%"><font size="5"></font></td>
+  <td align="center" width="30%"><font size="5">.......................</font></td>
+  <td align="center"><font face="Kantipur" size="5">.......................</font></td>
+ <td align="center" width="25%"><font size="5">.......................</font></td>
   
    
  </tr>
  <tr>
- <td align="center"><font size="5">सहज कर्ता/संयोजक</font></td>
-  <td align="center"><font face="Kantipur" size="5"></font></td>
- <td align="center"><font size="5">तालिम प्रमुख्र </font></td>
- 
-   
+ <td align="center"><font size="5">तयार गर्ने</font></td>
+  <td align="center"><font face="Kantipur" size="5">रुजु गर्ने</font></td>
+ <td align="center"><font size="5">प्रमाणित गर्ने</font></td>
  </tr>
+ <tr>
+ <td align="center" colspan="3"><font face="Kantipur" size="5">&nbsp</font></td>
+  </tr>
  </table>
  </td>
  </tr>

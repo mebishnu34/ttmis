@@ -30,7 +30,7 @@ if ($result->num_rows > 0)
          echo "<td align=center>" . $row["startdate"] . "</td>";
          echo "<td align=center>" . $row["enddate"] . "</td>";
          echo "<td align=center>" . $row["venue"] . "</td>";
-         echo "<td align=center><a href=../Display/teacher_training_certificate.php?tid=$row[trainingid] target=_blank>Certificate</a></td>";
+         echo "<th align=center bgcolor=blue><a href=../Display/teacher_training_certificate.php?tid=$row[trainingid] target=_blank>Certificate</a></th>";
          echo "</tr>";
          $sn++;
     }
