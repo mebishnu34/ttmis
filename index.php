@@ -59,6 +59,8 @@ session_start();
     </head>
 <link rel="stylesheet" href="CSS/main_table.css">
 <link rel="stylesheet" href="CSS/table_css.css">
+<link rel="stylesheet" href="CSS/div_column.css">
+<link rel="stylesheet" href="CSS/form.css">
 <BODY class="bg">
 <center>
 <table width="100%", border=0 class="logintable">
@@ -74,45 +76,75 @@ session_start();
 </table>
 <table width="100%", border="0" bgcolor="#FFFFFF">
           <tr >
-                    <td align="Center" width="70%" valign="top">
+                    
                         <?php
                         if(isset($_GET['accountid']))
                             {
+                                echo "<td align=Center width=70% valign=top>";
                                 if($_GET['accountid']=="newteacher")
                                     {
                                 include("school/teacher_reg_request_outer.php");
                                     }
-                                if($_GET['accountid']=="newschool")
+                                elseif($_GET['accountid']=="newschool")
                                     {
                                         include("municipality/school_registration_1_outer.php");
                                     }
+                                elseif($_GET['accountid']=="application_form")
+                                    {
+                                        include("training_application_form.php");
+                                    }
+                                elseif($_GET['accountid']=="roster_form")
+                                    {
+                                        include("trainer_application_form.php");
+                                    }
+                            echo "</td>";
                             }
+
                         else
                             {
                         ?>
-                        <table width="100%", border=0 class="logintable">
+                        <td align="Center" width="30%" valign="top">
+                        <table width="100%", border="0" class="logintable" cellpadding="5s">
                             <tr >
-                                <td bgcolor="#0066FF"><font size="+2">
-                                <ul>
-                                    <font size="+2">
-                                    <li><a href="Digital_Learning_Portal/index.php" target="_blank">DIGITAL LEARNING PORTAL</a></li>
-                                    <li><a href="https://cgs.mosd.bagamati.gov.np/" target="_blank">वृत्ति मार्गनिर्देशन</a></li>
-                                </ul>
-                                    </font>
+                                <td bgcolor="#FFFFFF" align="center"><font size="+1" face="Kantipur" color="#000000">
+                            <p align="justify"><b>तालिम लिन इच्छुक शिक्षकहरुले तलको आवेदन फाराम लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरेर आवेदन दिनु होला । प्राप्त आवेदकहरुबाट तालिमको लागि छनोट गरिने छ।</b></p><br>
+                                </td>   
+                            </tr>
+                            <tr>
+                            <td bgcolor="#920808" align="center">
+                                <a href="index.php?accountid=application_form"><b>आवेदन फाराम</b></a>
                                 </td>
                             </tr>
-                        </table>
-                        <table width="100%", border=0>
-                            <tr >
-                                <td align="center"><font size="+2"> Notice</td>
+                            <tr>
+                                <td>&nbsp;</td>
                             </tr>
+                            <tr >
+                                <td bgcolor="#FFFFFF" align="center"><font size="+1" face="Kantipur" color="#000000">
+            
+<p align="justify"><b>शिक्षा तालिम केन्द्र धुलिखेल वा विस्तारित शिक्षा तालिम इकाइ वा स्थानीय तहसगको सहकार्यमा सञ्चालन हुने विभिन्न प्रकृतिको तालिम क्षमता विकास कार्यक्रममा तपाइकाे योग्यता र अनुभव वमोजिम रोष्टर प्रशिक्षक/ विज्ञको सूचिमा सूचिकृत हुन इच्छुक हुनेहरूले तलकाे आवेदन फाराममा क्लिक गरि  फाराम भर्न अनुरोध छ ।</b></p><br>
+
+                                </td>   
+                            </tr>
+                            <tr>
+                            <td bgcolor="#920808" align="center">
+                                <a href="index.php?accountid=roster_form"><b>आवेदन फाराम</b></a>
+                                </td>
+                            </tr>
+                            <tr>
+                            <td bgcolor="#FFFFFF" align="center">
+                                &nbsp;
+                                </td>
+                            </tr>
+                            
                         </table>
+                        </td>
+                        <td align="center" valign="Top" width="40%">
+                        <img src="Image/working_staff.jpg" width="600" height="400" class="imagestyle">
+                        </td>
                     <?php
                             }
                         ?>
-        			</td>
-
-                    <td align="Right" valign="Top" width="30%">
+        			<td align="Right" valign="Top" width="30%">
                        <table width="100%" class="combinelogintable">
                             <tr>
                             <td align="center"><P class="pevent" onclick="teacher_login()">TEACHER LOGIN</P>
@@ -181,6 +213,16 @@ session_start();
                 </div>
                 </td>
                  </tr>
+                 <tr >
+                                <td bgcolor="#0066FF"><font size="+2">
+                                <ul>
+                                    <font size="+2">
+                                    <li><a href="Digital_Learning_Portal/index.php" target="_blank">DIGITAL LEARNING PORTAL</a></li>
+                                    <li><a href="https://cgs.mosd.bagamati.gov.np/" target="_blank">वृत्ति मार्गनिर्देशन</a></li>
+                                </ul>
+                                    </font>
+                                </td>
+                            </tr>
                 </table>
                </td>
            </tr>

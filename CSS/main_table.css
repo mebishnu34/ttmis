@@ -205,6 +205,8 @@ a:link
 font-size:16px;
 color:#FFFFFF;
 text-decoration: none;
+font-weight: bold;
+text-shadow: 2px 2px 5px gray;
 }
 a:visited {
   color: #FFFFFF;
@@ -212,8 +214,10 @@ a:visited {
 
 
 a:hover {
-  color: #000000;
+  color: #F4F4F8;
   text-decoration: underline;
+  font-weight: bold;
+text-shadow: 2px 2px 5px red;
 }
 
 
@@ -303,3 +307,14 @@ font-size:16px;
     cursor: pointer;
   }
 
+.imagestyle
+{
+  border: 6px solid #7f7788;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+
+}
+.imagestyle:hover
+{
+  transform: scale(1.5);
+}

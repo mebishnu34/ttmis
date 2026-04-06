@@ -97,7 +97,7 @@ elseif($id==11)
  }
  elseif($id==17)
  {
- include("../Input/add_participate_in_training.php");
+ include("../Input/select_financial_year.php");
  }
  elseif($id==18)
  {

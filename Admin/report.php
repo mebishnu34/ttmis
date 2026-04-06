@@ -30,6 +30,32 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <td valign="Top" align="center" width="250">
 <table class="tablestyle" width="100%">
 <tr>
+<td width="100%"><ul id="menu"><li>Application
+                                <ul>
+								 	<li><a href="report.php?linkid=201TA">Application List</a></li>
+                                    <li><a href="report.php?linkid=202TA">Selected Applicant</a></li>
+                                    <li><a href="report.php?linkid=204TA">Trainer List</a></li>
+                                    <li><a href="report.php?linkid=203TA">Training Certificate</a></li>
+								</ul>
+                                </li>
+                                </ul>
+</td>
+</tr>
+<tr>
+<td width="100%"><ul id="menu"><li>Display Application
+                                <ul>
+								 	<li><a href="report.php?linkid=301TA">From District</a></li>
+                                    <li><a href="report.php?linkid=302TA">From Palika</a></li>
+                                    <li><a href="report.php?linkid=303TA">From Category</a></li>
+                                    <li><a href="report.php?linkid=304TA">From Subject</a></li>
+                                    <li><a href="report.php?linkid=305TA">From Training Date</a></li>
+								</ul>
+                                </li>
+                                </ul>
+</td>
+</tr>
+
+<tr>
 <td width="100%"><ul id="menu"><li>Display Teacher
                                 <ul>
 								 	<li><a href="report.php?linkid=101ts">Teacher From Subject</a></li>
@@ -177,7 +203,43 @@ elseif($id=='101ts')
  {
  include("../Display/teacher_subject.php");
  }
-
+elseif($id=='201TA')
+ {
+ include("../Display/teacher_application_list.php");
+ }
+elseif($id=='202TA')
+ {
+ include("../Display/selected_trainee_for_training.php");
+ }
+elseif($id=='203TA')
+ {
+ include("../Display/passout_trainee.php");
+ }
+ elseif($id=='204TA')
+ {
+ include("../Display/trainee_application_list.php");
+ }
+ 
+ elseif($id=='301TA')
+ {
+ include("../Display/applicant_from_district.php");
+ }
+elseif($id=='302TA')
+ {
+ include("../Display/applicant_from_palika.php");
+ }
+ elseif($id=='303TA')
+ {
+ include("../Display/applicant_from_category.php");
+ }
+ elseif($id=='304TA')
+ {
+ include("../Display/applicant_from_subject.php");
+ }
+ elseif($id=='305TA')
+ {
+ include("../Display/training_date.php");
+ }
 elseif($id=='101all')
  {
  include("../Display/all_teacher.php");

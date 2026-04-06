@@ -1,8 +1,28 @@
+<?php
+session_start();
+if($_SESSION['token']<>"Run")
+{
+header('Location: ../admin_login.php?msg= "Please Login"');
+}
+?>
+<HTML>
+<HEAD>
+ <TITLE>TTMIS Bagamati</TITLE>
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="../CSS/main_table.css">
 <link rel="stylesheet" type="text/css" href="../CSS/table_css.css">
+</HEAD>
+<BODY class="bg">
+<div align="center">
 <?php
    include("../Processing/db_connection.php");
    include("title.htm");
+   $financial_year=$_POST["cmbyear"];
+   $sdate="";
+   $edate="";
+   include("../financial_year.php");
 ?>
+<p><h1>Running Training on Financial <?php echo $financial_year;?></h1></p>
 <table width="100%" class="table_design">
 <tr>
 <th>S.No</th>
@@ -19,7 +39,7 @@
 <?php
 $i=1;
 $activeuser="";
-$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where trainingname='शिक्षक पेशागत विकास' and remark='Running' ORDER BY subject";
+$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where startdate>='".$sdate."' and enddate<='".$edate."' and trainingname='शिक्षक पेशागत विकास' and remark='Running' ORDER BY subject";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -38,11 +58,11 @@ if ($result->num_rows > 0)
                //  echo "<td>". $row["venue"]."</td>";
                if($activeuser==$_SESSION['lname'])
                {
-                echo "<td bgcolor=blue align=center><a href=../Input/school_code.php?id=$row[id] target=_blank>Add Participate</a> // <a href=../Input/student_code.php?id=$row[id] target=_blank>Teacher</a></td>";
+                echo "<td bgcolor=blue align=center><a href=../Input/school_code.php?id=$row[id] target=_blank>sdfdAdd Participate</a> // <a href=../Input/student_code.php?id=$row[id] target=_blank>Teacher</a>// <a href=../Input/applicant_list.php?id=$row[id] target=_blank>Applicant</a></td>";
                }
                else
                {
-                 echo "<td>&nbsp;</td>";
+                 echo "<td bgcolor=blue align=center><a href=../Input/applicant_list.php?id=$row[id] target=_blank>Applicant</a></td>";
                }
 					$i++;
                 echo "</tr>";
@@ -54,7 +74,7 @@ if ($result->num_rows > 0)
 </tr>
 <?php
 $i=1;
-$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where trainingname='पुनर्ताजगी' and remark='Running' ORDER BY subject";
+$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where startdate>='".$sdate."' and enddate<='".$edate."' and trainingname='पुनर्ताजगी' and remark='Running' ORDER BY subject";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -73,11 +93,11 @@ if ($result->num_rows > 0)
                 // echo "<td>". $row["venue"]."</td>";
                 if($activeuser==$_SESSION['lname'])
                 {
-                 echo "<td bgcolor=blue align=center><a href=../Input/school_code.php?id=$row[id] target=_blank>Add Participate</a> // <a href=../Input/student_code.php?id=$row[id] target=_blank>Teacher</a></td>";
+                 echo "<td bgcolor=blue align=center><a href=../Input/school_code.php?id=$row[id] target=_blank>Add Participate</a> // <a href=../Input/student_code.php?id=$row[id] target=_blank>Teacher</a>//<a href=../Input/applicant_list.php?id=$row[id] target=_blank>Applicant</a></td>";
                 }
                 else
                 {
-                  echo "<td>&nbsp;</td>";
+                  echo "<td bgcolor=blue align=center><a href=../Input/applicant_list.php?id=$row[id] target=_blank>Applicant</a></td>";
                 }
 					$i++;
                 echo "</tr>";
@@ -89,7 +109,7 @@ if ($result->num_rows > 0)
 </tr>
 <?php
 $i=1;
-$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where trainingname='नेतृत्व तथा व्यवस्थापन' and remark='Running' ORDER BY subject";
+$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where startdate>='".$sdate."' and enddate<='".$edate."' and trainingname='नेतृत्व तथा व्यवस्थापन' and remark='Running' ORDER BY subject";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -124,7 +144,7 @@ if ($result->num_rows > 0)
 </tr>
 <?php
 $i=1;
-$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where trainingname='सेवा प्रवेश' and remark='Running' ORDER BY subject";
+$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where startdate>='".$sdate."' and enddate<='".$edate."' and trainingname='सेवा प्रवेश' and remark='Running' ORDER BY subject";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -156,3 +176,6 @@ if ($result->num_rows > 0)
 	?>
 
     </table>
+</div>
+<body>
+</html>

@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <link rel="stylesheet" type="text/css" href="../CSS/table_css.css">
 <?php
    include("../Processing/db_connection.php");

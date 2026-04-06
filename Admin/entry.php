@@ -27,6 +27,9 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <td valign="Top" align="center" width="20%">
 <table class="tablestyle" width="100%">
 <tr>
+<td><a href="entry.php?linkid=7">Mark of Selected Trainee</a></td>
+</tr>
+<tr>
 <td><a href="entry.php?linkid=8">Mark Entry</a></td>
 </tr>
 <tr>
@@ -55,7 +58,11 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 if(isset($_GET['linkid']))
 {
  $id=$_GET['linkid'];
- if($id==8)
+ if($id==7)
+ {
+ include("../Input/mark_entry_trainee.php");
+ }
+ elseif($id==8)
  {
  include("../Input/select_training_for_mark_entry.php");
  }

@@ -4,6 +4,15 @@
 	border: 2px solid #000000;
 	background-color:#FFFFFF;
 }
+.table_design_trainer
+{
+	font-family: Arial, Helvetica, sans-serif;
+	border: 2px solid #000000;
+	background-color:#FFFFFF;
+  padding: 12px;
+  width:1000px;
+  
+}
 td {
   border-bottom: 2px solid #CCCCCC;
 }
