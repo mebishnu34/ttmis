@@ -97,6 +97,30 @@ session_start();
                                     {
                                         include("trainer_application_form.php");
                                     }
+                                elseif($_GET['accountid']=="customize_training")
+                                    {
+                                        include("customize_training_application_form.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form_1")
+                                    {
+                                        include("customize_training_application_form_1.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form_2")
+                                    {
+                                        include("customize_training_application_form_2.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form_1B")
+                                    {
+                                        include("customize_training_application_form_1B.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form_1C")
+                                    {
+                                        include("customize_training_application_form_1C.php");
+                                    }
+                                elseif($_GET['accountid']=="application_formmoreinfo")
+                                    {
+                                        include("customize_training_application_form_moreinfo.php");
+                                    }
                             echo "</td>";
                             }
 
@@ -128,6 +152,22 @@ session_start();
                             <tr>
                             <td bgcolor="#920808" align="center">
                                 <a href="index.php?accountid=roster_form"><b>आवेदन फाराम</b></a>
+                                </td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr >
+                                <td bgcolor="#FFFFFF" align="center"><font size="+1" face="Kantipur" color="#000000">
+            
+<p align="justify"><b>Customized (क्षमता विकास ) तालिम आवश्यकता माग फाराम ।</b></p><br>
+
+                                </td>   
+                            </tr>
+                            <tr>
+                            <td bgcolor="#920808" align="center">
+                                <a href="index.php?accountid=customize_training"><b>आवेदन फाराम</b></a>
                                 </td>
                             </tr>
                             <tr>
