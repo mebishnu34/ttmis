@@ -10,7 +10,7 @@
         <label class="label_text">प्रत्यक्ष (Face-to-Face)<span class="star">*</span></label>
     </div>
   <div>
-    <select name="cmbprioritymode" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
+    <select name="cmbmode1" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
   <option value="">प्राथमिकता छान्नुहोस्</option>
   <option value="पहिलो प्राथमिकता">1 (पहिलो प्राथमिकता)</option>
   <option value="दोस्रो प्राथमिकता">2 (दोस्रो प्राथमिकता)</option>
@@ -20,7 +20,7 @@
         <label class="label_text">अनलाइन (Online)<span class="star">*</span></label>
     </div>
    <div>
-        <select name="cmbprioritymode" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
+        <select name="cmbmode2" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
   <option value="">प्राथमिकता छान्नुहोस्</option>
   <option value="पहिलो प्राथमिकता">1 (पहिलो प्राथमिकता)</option>
   <option value="दोस्रो प्राथमिकता">2 (दोस्रो प्राथमिकता)</option>
@@ -32,23 +32,23 @@
 <div align="left">
      <label class="label_text">तालिम अवधि (Preferred Duration) <span class="star">*</span></label>
 </div>
-      <div><input type="Radio" name="" value="१–३ दिन"> १–३ दिन &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="Radio" name="" value="४–७ दिन"> ४–७ दिन&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="Radio" name="" value="१ हप्ता भन्दा बढी"> १ हप्ता भन्दा बढी
+      <div><input type="Radio" name="optduration" value="१–३ दिन"> १–३ दिन &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="Radio" name="optduration" value="४–७ दिन"> ४–७ दिन&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="Radio" name="optduration" value="१ हप्ता भन्दा बढी"> १ हप्ता भन्दा बढी
     </div>
  <br><br>
 <div align="left">
     <label class="label_text">अपेक्षित उपलब्धि (Expected Outcomes): <span class="star">*</span></label>
 </div>
 <div>
-        <textarea cols="100" rows="5" name="" placeholder="तपाईंका अपेक्षाहरू लेख्नुहोस्"></textarea>
+        <textarea cols="100" rows="5" name="txtexpected" placeholder="तपाईंका अपेक्षाहरू लेख्नुहोस्"></textarea>
 </div>
 <br><br>
 <div align="left">
     <label class="label_text">अतिरिक्त सुझाव (Additional Suggestions) <span class="star">*</span></label>
 </div>
 <div>
-        <textarea cols="100" rows="5" name="" placeholder="थप केही सुझाव भए लेख्नुहोस्"></textarea>
+        <textarea cols="100" rows="5" name="txtsuggestion" placeholder="थप केही सुझाव भए लेख्नुहोस्"></textarea>
 </div>
 </div>
 </div>

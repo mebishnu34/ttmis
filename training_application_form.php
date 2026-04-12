@@ -1,3 +1,49 @@
+<script>
+function district1(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","dropdistrict_1.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+function schooldistrict(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHintschool").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","dropdistrict_school.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+
+</script>
+
 <form method="Post" Action="Object/save_teacher_application.php" enctype="multipart/form-data">
 <div>
      <h2 class="">शिक्षक तालिम आवेदन फाराम</h2>
@@ -12,15 +58,16 @@
         <label class="label_text">शिक्षकको नाम <span class="star">*</span></label>
     </div>
     <div>
-        <input class="custom-input" placeholder="पूरा नाम लेख्नुहोस्" name="txtteacherName" required>
+        <input class="custom-input" size="40" placeholder="पूरा नाम लेख्नुहोस्" name="txtteacherName" required>
     </div>
     <div class="label_column">
         <label class="label_text">बाबुको नाम थर<span class="star">*</span></label>
     </div>
     <div>
-        <input class="custom-input" placeholder="बाबुको नाम लेख्नुहोस्" name="txtfatherName" required>
+        <input class="custom-input" size="40" placeholder="बाबुको नाम लेख्नुहोस्" name="txtfatherName" required>
     </div>
 </div>
+<br>
 <div class="custom-grid">
     <div class="label_column">
         <label class="label_text">प्रदेश <span class="star">*</span></label>
@@ -38,32 +85,28 @@
         </select>
       </div>
 </div>
+<br>
 <div class="custom-grid">
       <div class="label_column">
           <label class="label_text">जिल्ला <span class="star">*</span></label>
       </div>
       <div>
-          <select name="cmbdistrict" class="custom-combo" required>
-          <option value="">जिल्ला छनौट गर्नुहोस्</option>
-          <option value="भत्तपुरू">भत्तपुरू</option>
-          </select>
+      <?php include("district_list_1.htm");?>
+          
       </div>
       <div class="label_column">
         <label class="label_text">स्थानीय तह <span class="star">*</span></label>
       </div>
-      <div>
-           <select name="cmblocalLevel" class="custom-combo" required>
-           <option value="">स्थानीय तह छनौट गर्नुहोस्</option>
-           <option value="भत्तपुरू">भत्तपुरू</option>
-           </select>
-      </div>
-      <div class="label_column">
+      
+        <div id="txtHint">Municipality/Rural</div>
+          <div class="label_column">
           <label class="label_text">वडा <span class="star">*</span></label>
       </div>
       <div>
           <input class="custom-input" placeholder="वडा" name="txtward" required>
       </div>
     </div>
+  <br>
 <div class="custom-grid">
       <div class="label_column">
         <label class="label_text">मोबाइल नं <span class="star">*</span></label>
@@ -75,9 +118,10 @@
       <label class="label_text">इमेल ठेगाना <span class="star">*</span></label>
       </div>
       <div>
-      <input class="custom-input" placeholder="इमेल ठेगाना" name="txtemail" required>
+      <input class="custom-input" size="50" placeholder="इमेल ठेगाना" name="txtemail" required>
       </div>
   </div>
+  <br>
 <div class="custom-grid">
     <div class="label_column">
       <label class="label_text">नागरिकता नं <span class="star">*</span></label>
@@ -92,6 +136,7 @@
       <input class="custom-input" placeholder="जिल्लाको नाम लेख्नुहोस्" name="citizenshipIssuedDistrict" required>
     </div>
   </div>
+  <br>
 <div class="custom-grid">
     <div class="label_column">
       <label class="label_text">नियुक्ति भएको साल <span class="star">*</span></label>
@@ -121,14 +166,17 @@
       <label class="label_text"> दिन <span class="star">*</span></label><input type="text" name="txtday" size="5" placeholder="दिन">
     </div>
   </div>
+  <br>
 <div class="custom-grid">
     <div class="label_column">
       <label class="label_text">नियुक्ति भएको जिल्ला <span class="star">*</span></label>
     </div>
     <div>
-      <input class="custom-input" placeholder="जिल्लाको नाम लेख्नुहोस्" name="cmbappointdistrict" required>
-    </div>
+      <?php
+          include("normal_district.htm");?>
+      </div>
 </div>
+<br>
 <div class="custom-grid">
     <div class="label_column">
     <label class="label_text">नियुक्ति भएको तह <span class="star">*</span></label>
@@ -149,12 +197,13 @@
     <input class="custom-input" placeholder="विषय लेख्नुहोस्" name="cmbappointsubject" required>
   </div>
 </div>
+<br>
 <div class="custom-grid">
   <div class="label_column">
     <label class="label_text">बैंकको नाम <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" placeholder="बैंकको नाम" name="txtbankname" required>
+    <input class="custom-input" size="50" placeholder="बैंकको नाम" name="txtbankname" required>
   </div>
   <div class="label_column">
     <label class="label_text">खाता नं <span class="star">*</span></label>
@@ -163,6 +212,7 @@
    <input class="custom-input" placeholder="खाता नं" name="txtbankacno" required>
   </div>
 </div>
+<br>
 <div class="custom-grid">
 <div class="label_column">  
 <label class="label_text">पान नं <span class="star">*</span></label>
@@ -177,10 +227,10 @@
     <label class="label_text">विद्यालयको नाम <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" placeholder="विद्यालयको पूरा नाम" name="txtschoolname" required>
+    <input class="custom-input" size="50" placeholder="विद्यालयको पूरा नाम" name="txtschoolname" required>
   </div>
 </div>
-
+<br>
 <div class="custom-grid">
     <div class="label_column">
       <label class="label_text">प्रदेश <span class="star">*</span></label>
@@ -197,25 +247,23 @@
     <option value="सुदूरपश्चिम">सुदूरपश्चिम</option>
     </select>
   </div>
-  <div class="label_column">
+</div>
+<br>
+<div class="custom-grid">
+    <div class="label_column">
     <label class="label_text">जिल्ला <span class="star">*</span></label>
   </div>
   <div>
-    <select name="cmbschooldistrict" class="custom-custom" required>
-      <option value="">जिल्ला छनौट गर्नुहोस्</option>
-      <option value="भत्तपुरू">भत्तपुरू</option>
-    </select>
+    <?php include("school_district_list_1.htm");?>
+    
   </div>
-</div>
-<div class="custom-grid">
+
   <div class="label_column">
       <label class="label_text">स्थानीय तह <span class="star">*</span></label>
   </div>
   <div>
-      <select name="cmbschoollocallevel" class="custom-custom" required>
-        <option value="">स्थानीय तह छनौट गर्नुहोस्</option>
-        <option value="भत्तपुरू">भत्तपुरू</option>
-      </select>
+    <div id="txtHintschool">Municipality/Rural</div>
+      
   </div>
   <div class="label_column">
     <label class="label_text">वडा <span class="star">*</span></label>
@@ -235,6 +283,7 @@
   ?>  
 </div>
 </div>
+<br>
 <div class="custom-grid">
 <div class="label_column">
 <label class="label_text">कुन विषयको तालिम लिने हो <span class="star">*</span></label>
@@ -275,6 +324,7 @@
     </script>
 </div>
 </div>
+<br>
 <div class="custom-grid">
   <div class="label_column">
   <label class="label_text">तालिम लिने मोड (प्राथमिकता १) <span class="star">*</span></label>
@@ -287,6 +337,7 @@
   </select>
 </div>
 </div>
+<br>
 <div class="custom-grid">
   <div class="label_column">
   <label class="label_text">तालिम लिने मोड (प्राथमिकता २) <span class="star">*</span></label>
@@ -317,6 +368,7 @@
 </div>
 </div>
 <h3>अपलोड गर्नुपर्ने कागजातहरू(PDF, JPG वा PNG (Max 5MB)</h3>
+<br>
 <div class="custom-grid">
   <div class="label_column">
     <label class="label_text">नियुक्ति पत्र <span class="star">*</span></label>
@@ -331,6 +383,7 @@
     <input  type="file" name="filecitizenship" required>
 </div>
 </div>
+<br>
 <div class="custom-grid">
   <div class="label_column">
     <label class="label_text">विद्यालयको सिफारिस पत्र <span class="star">*</span></label>

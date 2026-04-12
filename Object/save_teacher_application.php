@@ -1,4 +1,5 @@
 <?php
+session_start();
 //include("object_include.php");
 include("../Processing/db_connection.php");
 $citizen=$_POST['txtcitizenshipNo'];
@@ -29,7 +30,8 @@ $sql1 = "SELECT citizenshipno FROM tblapplication where citizenshipno='".$citize
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
     {
-      header('Location: error.php?msg= "Saved Successfully"');      
+      $_SESSION['response']="Found Duplicate";
+                    header('Location: ../index.php?accountid=application_form');
     }
   else
     {
@@ -93,7 +95,7 @@ if ($result->num_rows > 0)
                 '".$_POST['txtappointdate']."',
                 '".$_POST['cmbappointmonth']."',
                 '".$_POST['txtday']."',
-                '".$_POST['cmbappointdistrict']."',
+                '".$_POST['cmbdistrictnormal']."',
                 '".$_POST['cmbappointlevel']."',
                 '".$_POST['cmbappointsubject']."',
                 '".$_POST['txtbankname']."',
@@ -101,8 +103,8 @@ if ($result->num_rows > 0)
                 '".$_POST['txtpanNo']."',
                 '".$_POST['txtschoolname']."',
                 '".$_POST['cmbschoolprovince']."',
-                '".$_POST['cmbschooldistrict']."',
-                '".$_POST['cmbschoollocallevel']."',
+                '".$_POST['cmbdistrict1']."',
+                '".$_POST['cmbmvschool']."',
                 '".$_POST['txtschoolward']."',
                 '".$_POST['cmbtrainingcategory']."',
                 '".$_POST['cmbsubject']."',
@@ -114,7 +116,8 @@ if ($result->num_rows > 0)
                 '')";
                 if (mysqli_query($conn, $sql))
                   {
-			              header('Location: ../index.php?msg= "Saved Successfully"');
+			              $_SESSION['response']="Save Successfully";
+                    header('Location: ../index.php?accountid=application_form');
                   }
                 else
                   {

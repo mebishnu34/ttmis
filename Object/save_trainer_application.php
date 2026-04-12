@@ -1,4 +1,5 @@
 <?php
+session_start();
 //include("object_include.php");
 include("../Processing/db_connection.php");
 //$citizen=$_POST['txtcitizenshipno'];
@@ -44,7 +45,8 @@ $sql1 = "SELECT mobileno FROM tbltrainee where mobileno='".$mobileno."'";
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
     {
-      header('Location: error.php?msg= "Alerady Exist"');      
+      $_SESSION['response']="Found Duplicate";
+                    header('Location: ../index.php?accountid=roster_form');
     }
   else
     {
@@ -245,7 +247,8 @@ if ($result->num_rows > 0)
                                 }
                       }
 
-			              header('Location: ../index.php?msg= "Saved Successfully"');
+			              $_SESSION['response']="Save Successfully";
+                    header('Location: ../index.php?accountid=roster_form');
                   }
                 else
                   {

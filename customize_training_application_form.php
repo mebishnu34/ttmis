@@ -1,9 +1,34 @@
-<form method="Post" Action="index.php" enctype="multipart/form-data">
+<script>
+    function schooldistrict(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHintschool").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","dropdistrict_school.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+
+</script>
+
+<form method="Post" Action="Object/save_customize_training_needs.php" enctype="multipart/form-data">
 <div>
      <h2 class="">Customized (क्षमता विकास ) तालिम आवश्यकता माग फाराम</h2>
      <p class="icon">कृपया तलका विवरणहरू ध्यानपूर्वक भर्नुहोस्।</p>
 </div>
-<div class="custom-grid">
+<div align="left">
    <label class="label_text"> क परिचय खण्ड</label>
 </div>
 
@@ -13,8 +38,10 @@
     </div>
 
     <div>
-        <input type="text" class="custom-input" placeholder="नाम लेख्नुहोस्" name="txtname" required>
+        <input type="text" class="custom-input" placeholder="नाम लेख्नुहोस्" size="40" name="txtname" required>
     </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="label_column">
         <label class="label_text"> पद <span class="star">*</span></label>
     </div>
@@ -28,12 +55,13 @@
         </select>
     </div>
 </div>
+<br>
 <div class="custom-grid">
       <div class="label_column">
           <label class="label_text">नियुक्ति भएको तह: <span class="star">*</span></label>
       </div>
       <div>
-          <select name="appointmentLevel">
+          <select name="cmblevel">
             <option value="">तह छान्नुहोस्</option>
             <option value="प्रारम्भिक वालविकास र शिक्षा">प्रारम्भिक वालविकास र शिक्षा</option>
             <option value="आधारभूत तह कक्षा १-५">आधारभूत तह कक्षा १-५</option>
@@ -46,6 +74,8 @@
             <option value="८ औं तह">८ औं तह</option>
           </select>
 </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <div class="label_column">
         <label class="label_text">विषय:<span class="star">*</span></label>
     </div>
@@ -53,7 +83,7 @@
         <input type="text" class="custom-input" placeholder="तपाईंको विषय" name="txtsubject" required>
     </div>
 </div>
-
+<br>
 <div class="custom-grid">
     <div class="label_column">
         <label class="label_text">अनुभव (वर्ष): <span class="star">*</span></label>
@@ -61,57 +91,153 @@
     <div>
         <input type="text" class="custom-input" placeholder="वर्षमा" name="txtexperence" required>
       </div>
-</div>
-<div class="custom-grid">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="label_column">
         <label class="label_text">माेबाइल नम्बर <span class="star">*</span></label>
     </div>
     <div>
         <input type="text" class="custom-input" placeholder="माेबाइल नम्बर लेख्नुहोस्" name="txtmobileno" required>
     </div>
+</div>
+<br>
+<div class="custom-grid">
+    
     <div class="label_column">
         <label class="label_text"> इमेल<span class="star">*</span></label>
     </div>
     <div>
-        <input type="text" class="custom-input" placeholder="इमाेल ठेगाना लेख्नुहोस्" name="txtemail" required>
+        <input type="text" size="40" class="custom-input" placeholder="इमाेल ठेगाना लेख्नुहोस्" name="txtemail" required>
     </div>
 </div>
-
-<div class="custom-grid">
+<br>
+<div align="left">
        <label class="label_text">विद्यालय/ सस्थाको विवरण</label>
       
 </div>
+<br>
 <div class="custom-grid">
-<div class="label_column"><label >कार्यालय/विद्यालयको नाम: </label></div>
-<div>
-<input placeholder="कार्यालय वा विद्यालयको नाम लेख्नुहोस्" type="text" value="" name="officeSchoolDetails">
-</div
-><div ><label >जिल्ला: </label></div>
-<div>
-<input type="text" value="" name="cmbdistrict"></div>
-<div>
-  <label>स्थानीय तह: </label>
-  <input type="text" value="" name="localLevel"></div>
-  <div ><label>वडा न: </label>
-  <input type="text" value="" name="wardNo">
+    <div class="label_column"><label class="label_text">विद्यालयको नाम: </label></div>
+    <div>
+        <input placeholder="कार्यालय वा विद्यालयको नाम लेख्नुहोस्" type="text" value="" name="txtschool" size="60">
+    </div>
 </div>
+<br>
+<div class="custom-grid">
+        <div class="label_column"><label class="label_text">जिल्ला: </label></div>
+        <div>
+            <?php include("school_district_list_1.htm");?>
+        </div>
+     <div class="label_column"> <label class="label_text">स्थानीय तह: </label></div>
+        <div>
+            <div id="txtHintschool">Municipality/Rural</div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="label_column"><label class="label_text">वडा न: </label></div>
+        <div>
+            <input type="text" value="" name="txtwardno" size="10">
+        </div>
 </div>
+<br>
+<div class="custom-grid">
+    <div class="label_column">
+        <label class="label_text">प्रत्यक्ष (Face-to-Face)<span class="star">*</span></label>
+    </div>
+  <div>
+    <select name="cmbmode1" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
+  <option value="">प्राथमिकता छान्नुहोस्</option>
+  <option value="पहिलो प्राथमिकता">1 (पहिलो प्राथमिकता)</option>
+  <option value="दोस्रो प्राथमिकता">2 (दोस्रो प्राथमिकता)</option>
+  </select>
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="label_column">
+        <label class="label_text">अनलाइन (Online)<span class="star">*</span></label>
+    </div>
+   <div>
+        <select name="cmbmode2" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
+  <option value="">प्राथमिकता छान्नुहोस्</option>
+  <option value="पहिलो प्राथमिकता">1 (पहिलो प्राथमिकता)</option>
+  <option value="दोस्रो प्राथमिकता">2 (दोस्रो प्राथमिकता)</option>
+  </select>
+    </div>
+    
+</div>
+<br>
+<div class="custom-grid">
+     <div class="label_column"><label class="label_text">तालिम अवधि (Preferred Duration) <span class="star">*</span></label></div>
+
+      <div>
+        <input type="Radio" name="optduration" value="१–३ दिन"> १–३ दिन &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="Radio" name="optduration" value="४–७ दिन"> ४–७ दिन&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="Radio" name="optduration" value="१ हप्ता भन्दा बढी"> १ हप्ता भन्दा बढी
+    </div>
+</div>
+<br>
+<div align="left">
+    <label class="label_text">अपेक्षित उपलब्धि (Expected Outcomes): <span class="star">*</span></label>
+</div>
+<br>
+<div class="custom-grid">
+        <div>
+        <textarea cols="100" rows="5" name="txtexpected" placeholder="तपाईंका अपेक्षाहरू लेख्नुहोस्"></textarea>
+        </div>
+</div>
+<br>
+<div align="left">
+    <label class="label_text">अतिरिक्त सुझाव (Additional Suggestions) <span class="star">*</span></label>
+</div>
+<br>
+<div class="custom-grid">
+        <textarea cols="100" rows="5" name="txtsuggestion" placeholder="थप केही सुझाव भए लेख्नुहोस्"></textarea>
+</div>
+
 <h2>ख. Customized (क्षमता विकास ) तालिम आवश्यकता खण्ड</h2>
 <p>(कृपया आफूलाई आवश्यकता पर्ने एक विकल्प छान्नुहोस्। अन्य विकल्पहरू स्वतः हट्नेछन्।)</p>
-<div >
-
-  <input type="radio" value="ecd" checked="" name="selectedCategory" onclick="updateLink()"><span>A ECD शिक्षकका लागि</span><br>
-  <input type="radio" value="teacher" name="selectedCategory" onclick="updateLink()"><span>B विद्यालयतहका शिक्षकका लागि</span><br>
-  <input type="radio" value="principal" name="selectedCategory" onclick="updateLink()"><span >C प्रअ तथा कर्मचारीहरुका लागि</span>
-
+<div class="box_1">
+<div class="box">
+  <input type="radio" value="ecd" name="selectedCategory" onclick="updateLink()" Required> &nbsp;&nbsp;&nbsp; ECD शिक्षकका लागि 
+</div>
+<div class="box">
+  <input type="radio" value="teacher" name="selectedCategory" onclick="updateLink()" Required>&nbsp;&nbsp;&nbsp; विद्यालयतहका शिक्षकका लागि <br>
+</div>
+<div class="box">
+  <input type="radio" value="principal" name="selectedCategory" onclick="updateLink()" Required>&nbsp;&nbsp;&nbsp; प्रअ तथा कर्मचारीहरुका लागि
+</div>
+<input type="hidden" name="txtcategory" size="40" id="categoryid">
 </div>
 <br>
-<br>
-
-<br><br>
-<div style="background-color: blue; padding: 10px">
-<a href="#" id="myLink"><b>अर्काे खण्ड</b></a>
+<!--<a href="#" id="myLink"><b>अर्काे खण्ड</b></a>--> <input type="Submit" value="अर्काे खण्ड" name="btnsave">
+</form>
+<form method="Post" Action="Object/save_customize_training_needs.php" enctype="multipart/form-data">
+    <p style="color:red;font-weight:bold;">माथिको परिचय खण्ड भरिसक्नु हुनेले परिचय खण्डमा राखिएको मोबाइल नम्बर तलको बक्समा टाइप गरेर अर्को खण्डमा जानुहोस् ।</p>
+    <h2>ख. Customized (क्षमता विकास ) तालिम आवश्यकता खण्ड</h2>
+<p>(कृपया आफूलाई आवश्यकता पर्ने एक विकल्प छान्नुहोस्। अन्य विकल्पहरू स्वतः हट्नेछन्।)</p>
+<div class="box_1">
+<div class="box">
+  <input type="radio" value="ecd" name="selectedCategory" onclick="updateLink()" Required> &nbsp;&nbsp;&nbsp; ECD शिक्षकका लागि 
 </div>
+<div class="box">
+  <input type="radio" value="teacher" name="selectedCategory" onclick="updateLink()" Required>&nbsp;&nbsp;&nbsp; विद्यालयतहका शिक्षकका लागि <br>
+</div>
+<div class="box">
+  <input type="radio" value="principal" name="selectedCategory" onclick="updateLink()" Required>&nbsp;&nbsp;&nbsp; प्रअ तथा कर्मचारीहरुका लागि
+</div>
+<input type="hidden" name="txtcategory" size="40" id="categoryid">
+</div>
+<br>
+    <div class="custom-grid">
+    <div class="label_column">
+        <label class="label_text">माेबाइल नम्बर <span class="star">*</span></label>
+    </div>
+    <div>
+        <input type="text" class="custom-input" placeholder="माेबाइल नम्बर लेख्नुहोस्" name="txtpremobileno" required>
+    </div>
+</div>
+    <input type="Submit" value="अर्काे खण्ड" name="btnnext">
+</form>
 <script>
         function updateLink()
         {
@@ -126,17 +252,24 @@
                 }
             }
             const link = document.getElementById("myLink");
+            
             if(selectedValue === "ecd")
             {
+                document.getElementById("categoryid").value="ECD शिक्षकका लागि";
                 link.href="index.php?accountid=application_form_1";
+                
             }
             else if(selectedValue ==="teacher")
             {
+                document.getElementById("categoryid").value="विद्यालयतहका शिक्षकका लागि";
                 link.href="index.php?accountid=application_form_1B";
+                
             }
             else if(selectedValue ==="principal")
             {
-                link.href="index.php?accountid=application_form_1C";
+                document.getElementById("categoryid").value="प्रअ तथा कर्मचारीहरुका लागि";
+              link.href="index.php?accountid=application_form_1C";
+                
             }
             
         }

@@ -35,6 +35,9 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 								 	<li><a href="report.php?linkid=201TA">Application List</a></li>
                                     <li><a href="report.php?linkid=202TA">Selected Applicant</a></li>
                                     <li><a href="report.php?linkid=204TA">Trainer List</a></li>
+                                    <!--<li><a href="report.php?linkid=205TA">Demand Training Needs</a></li>-->
+                                    <li><a href="../Display/training_require_demand_details.php" target="blank">Demand Training Needs</a></li>
+                                    
                                     <li><a href="report.php?linkid=203TA">Training Certificate</a></li>
 								</ul>
                                 </li>
@@ -205,7 +208,7 @@ elseif($id=='101ts')
  }
 elseif($id=='201TA')
  {
- include("../Display/teacher_application_list.php");
+ include("application_year.htm");
  }
 elseif($id=='202TA')
  {
@@ -219,7 +222,10 @@ elseif($id=='203TA')
  {
  include("../Display/trainee_application_list.php");
  }
- 
+ elseif($id=='205TA')
+ {
+ include("../Display/training_require_demand_details.php");
+ }
  elseif($id=='301TA')
  {
  include("../Display/applicant_from_district.php");

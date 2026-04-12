@@ -3,21 +3,23 @@
      <h2 class="">रोष्टर/ विज्ञ सूचिमा सूचिकृतका लागि आवेदन फाराम</h2>
      <p class="icon">कृपया तलका विवरणहरू ध्यानपूर्वक भर्नुहोस्।</p>
 </div>
+<br>
 <div class="custom-grid">
     <div class="label_column">
         <label class="label_text">पूरा नाम (देवनागरीमा) <span class="star">*</span></label>
     </div>
 
     <div>
-        <input type="text" class="custom-input" placeholder="नाम लेख्नुहोस्" name="txtname" required>
+        <input type="text" size="40" class="custom-input" placeholder="नाम लेख्नुहोस्" name="txtname" required>
     </div>
     <div class="label_column">
         <label class="label_text"> पूरा नाम (अंग्रेजीमा)<span class="star">*</span></label>
     </div>
     <div>
-        <input type="text" class="custom-input" placeholder="थर लेख्नुहोस्" name="txtengname" required>
+        <input type="text" size="40" class="custom-input" placeholder="थर लेख्नुहोस्" name="txtengname" required>
     </div>
 </div>
+<br>
 <div class="custom-grid">
       <div class="label_column">
           <label class="label_text">लिङ्ग <span class="star">*</span></label>
@@ -32,6 +34,7 @@
         <input type="text" class="custom-input" placeholder="नागरिकता नम्बर लेख्नुहोस्" name="txtcitizenshipno" required>
     </div>-->
 </div>
+<br>
 <div class="custom-grid">
     <div class="label_column">
         <label class="label_text">माेबाइल नम्बर <span class="star">*</span></label>
@@ -43,24 +46,25 @@
         <label class="label_text"> इमेल<span class="star">*</span></label>
     </div>
     <div>
-        <input type="text" class="custom-input" placeholder="इमाेल ठेगाना लेख्नुहोस्" name="txtemail" required>
+        <input type="text" size="40" class="custom-input" placeholder="इमाेल ठेगाना लेख्नुहोस्" name="txtemail" required>
     </div>
 </div>
-
+<br>
 <div class="custom-grid">
     <div class="label_column">
         <label class="label_text">स्थायी ठेगाना <span class="star">*</span></label>
     </div>
     <div>
-        <input type="text" class="custom-input" placeholder="पुरा ठेगाना लेख्नुहोस्" name="txtaddress" required>
+        <input type="text" size="50" class="custom-input" placeholder="पुरा ठेगाना लेख्नुहोस्" name="txtaddress" required>
       </div>
 </div>
+<br>
 <div class="custom-grid">
       <div class="label_column">
           <label class="label_text">हालको वसोवासको ठेगाना <span class="star">*</span></label>
       </div>
       <div>
-          <input type="text" class="custom-input" placeholder="हालकाे ठेगाना लेख्नुहोस्" name="txtcurrentaddress" required>
+          <input type="text" size="50" class="custom-input" placeholder="हालकाे ठेगाना लेख्नुहोस्" name="txtcurrentaddress" required>
       </div>
 </div>
 <br>
@@ -70,8 +74,7 @@
       
 </div>
 <div>
-      
-           <table class="table_design_trainer" id="tablequalification">
+      <table class="table_design_trainer" id="tablequalification">
           <tr>
            <th>क्र.सं.</th>
             <th>योग्यता</th>
@@ -83,16 +86,16 @@
           <tr>
             <td align="center">1</td>
             <td align="center"><input type="text" name="txtqualification[]" size="30"></td>
-            <td align="center"><input type="text" name="txtsubject[]" size="30"></td>
-            <td align="center"><input type="text" name="txtboard[]" size="30"></td>
+            <td align="center"><input type="text" name="txtsubject[]" size="20"></td>
+            <td align="center"><input type="text" name="txtboard[]" size="20"></td>
             <td align="center"><input type="text" name="txtyear[]" size="5"></td>
             <td align="center"><input type="text" name="txtgrade[]" size="5"></td>
         </tr>
         <tr>
             <td align="center">2</td>
             <td align="center"><input type="text" name="txtqualification[]" size="30"></td>
-            <td align="center"><input type="text" name="txtsubject[]" size="30"></td>
-            <td align="center"><input type="text" name="txtboard[]" size="30"></td>
+            <td align="center"><input type="text" name="txtsubject[]" size="20"></td>
+            <td align="center"><input type="text" name="txtboard[]" size="20"></td>
             <td align="center"><input type="text" name="txtyear[]" size="5"></td>
             <td align="center"><input type="text" name="txtgrade[]" size="5"></td>
         </tr>
@@ -119,22 +122,22 @@
           <tr>
             <td align="center">1</td>
             <td align="center"><input type="text" name="txttraining[]" size="30"></td>
-            <td align="center"><input type="text" name="txtperiod[]" size="30"></td>
-            <td align="center"><input type="text" name="txttrainerorg[]" size="30"></td>
+            <td align="center"><input type="text" name="txtperiod[]" size="10"></td>
+            <td align="center"><input type="text" name="txttrainerorg[]" size="20"></td>
             <td align="center"><input type="text" name="txttraineryear[]" size="5"></td>
         </tr>
         <tr>
             <td align="center">2</td>
             <td align="center"><input type="text" name="txttraining[]" size="30"></td>
-            <td align="center"><input type="text" name="txtperiod[]" size="30"></td>
-            <td align="center"><input type="text" name="txttrainerorg[]" size="30"></td>
+            <td align="center"><input type="text" name="txtperiod[]" size="10"></td>
+            <td align="center"><input type="text" name="txttrainerorg[]" size="20"></td>
             <td align="center"><input type="text" name="txttraineryear[]" size="5"></td>
         </tr>
          <tr>
             <td align="center">3</td>
             <td align="center"><input type="text" name="txttraining[]" size="30"></td>
-            <td align="center"><input type="text" name="txtperiod[]" size="30"></td>
-            <td align="center"><input type="text" name="txttrainerorg[]" size="30"></td>
+            <td align="center"><input type="text" name="txtperiod[]" size="10"></td>
+            <td align="center"><input type="text" name="txttrainerorg[]" size="20"></td>
             <td align="center"><input type="text" name="txttraineryear[]" size="5"></td>
         </tr>
           </table>
@@ -154,8 +157,8 @@
        //Add content
       cell1.innerHTML="";
       cell2.innerHTML='<input type="text" name="txttraining[]" size="30">';
-      cell3.innerHTML='<input type="text" name="txtperiod[]" size="30">';
-      cell4.innerHTML='<input type="text" name="txttrainerorg[]" size="30">';
+      cell3.innerHTML='<input type="text" name="txtperiod[]" size="10">';
+      cell4.innerHTML='<input type="text" name="txttrainerorg[]" size="20">';
       cell5.innerHTML='<input type="text" name="txttraineryear[]" size="5">';
       
 
@@ -190,16 +193,16 @@
           <tr>
             <td align="center">1</td>
             <td align="center"><input type="text" name="txtprogram[]" size="30"></td>
-            <td align="center"><input type="text" name="txtroll[]" size="30"></td>
-            <td align="center"><input type="text" name="txtprogramsubject[]" size="30"></td>
+            <td align="center"><input type="text" name="txtroll[]" size="20"></td>
+            <td align="center"><input type="text" name="txtprogramsubject[]" size="20"></td>
             <td align="center"><input type="text" name="txtorg[]" size="5"></td>
             <td align="center"><input type="text" name="txtprogramyear[]" size="5"></td>
         </tr>
         <tr>
           <td align="center">2</td>
             <td align="center"><input type="text" name="txtprogram[]" size="30"></td>
-            <td align="center"><input type="text" name="txtroll[]" size="30"></td>
-            <td align="center"><input type="text" name="txtprogramsubject[]" size="30"></td>
+            <td align="center"><input type="text" name="txtroll[]" size="20"></td>
+            <td align="center"><input type="text" name="txtprogramsubject[]" size="20"></td>
             <td align="center"><input type="text" name="txtorg[]" size="5"></td>
             <td align="center"><input type="text" name="txtprogramyear[]" size="5"></td>
         </tr>
@@ -260,6 +263,13 @@
    <input type="checkbox" name="optspecialist[]" value="MGML"> MGML &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="शासन प्रशासन व्यवस्थापन"> शासन प्रशासन व्यवस्थापन &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="अनुसन्धान"> अनुसन्धान &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+   <input type="checkbox" name="optspecialist[]" value="नेतृत्व"> नेतृत्व &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="खेलकुद"> खेलकुद &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="संगीत"> संगीत &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="मातृभाषा"> मातृभाषा &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="गुरु"> गुरु &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
    <input type="checkbox" name="optspecialist[]" value="अन्य" id="specialistother">अन्य &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="text" size="100" name="optspecialist[]" placeholder="अन्य विज्ञता लेख्नुहाेस" id="txtspecialist" style="display:none;">
 </div>
@@ -341,6 +351,7 @@
     <input type="file" name="filecitizenship" required>
   </div>
 </div>
+<br>
 <div class="custom-grid">
   <div class="label_column">
     <label>प्रमाणित CV <span class="star">*</span></label>
@@ -349,6 +360,7 @@
     <input type="file" name="filecv" required>
   </div>
 </div>
+<br>
 <div class="custom-grid">
   <div class="label_column">
     <label>माथिल्लो योग्यताको शैक्षिक योग्यताको प्रमाण पत्र <span class="star">*</span></label>
@@ -357,6 +369,7 @@
     <input  type="file" name="filequalification" required>
 </div>
 </div>
+<br>
 <div class="custom-grid">
   <div class="label_column">
     <label>फोटो <span class="star">*</span></label>
