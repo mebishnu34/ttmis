@@ -51,6 +51,7 @@ if ($result->num_rows > 0)
       expectedoutcome,
       suggestion,
       regdate,
+      financialyear,
       remark)
       values('".$_POST['txtname']."',
       '".$_POST['cmbpost']."',
@@ -60,8 +61,8 @@ if ($result->num_rows > 0)
       '".$_POST['txtmobileno']."',
       '".$_POST['txtemail']."',
       '".$_POST['txtschool']."',
-      '".$_POST['cmbdistrict1']."',
-      '".$_POST['cmbmvschool']."',
+      '".$_POST['cmbdistrictbagamati_1']."',
+      '".$_POST['cmbmunbagamati_1']."',
       '".$_POST['txtwardno']."',
       '".$_POST['cmbmode1']."',
       '".$_POST['cmbmode2']."',
@@ -69,6 +70,7 @@ if ($result->num_rows > 0)
       '".$_POST['txtexpected']."',
       '".$_POST['txtsuggestion']."',
       now(),
+      '".$_POST['txtfyear']."',
       'Request')";
       if (mysqli_query($conn, $sql))
         {

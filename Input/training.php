@@ -13,24 +13,18 @@
     <tr>
     <td align="right">Name of Training</td>
     <td><select name="cmbtraining">
-                         <option>शिक्षक पेशागत विकास</option>
-                        <option>पुनर्ताजगी</option>
-                        <option>नेतृत्व तथा व्यवस्थापन</option>
-                        <option>सेवाकालिन</option>
+        <?php
+                         include("../training_category.html");
+                ?>
                 </select>
     </td>
     </tr>
         <tr>
     <td align="right">Level</td>
     <td><select name="cmblevel">
-         <option>वालविकास केन्द्र</option>
-         <option>आधारभूत (१ –५)</option>
-         <option>आधारभूत (६ –८)</option>
-         <option>माध्यमिक(९ –१०)</option>
-         <option>माध्यमिक(११ –१२)</option>
-         <option>प्रधानाध्यापक (आधारभूत)</option>
-          <option>प्रधानाध्यापक (माध्यमिक)</optionn>
-         <option>अन्य</option>
+        <?php
+        include("..//level.htm");
+        ?>
 </select>
      </td>
     </tr>

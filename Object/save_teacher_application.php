@@ -3,6 +3,7 @@ session_start();
 //include("object_include.php");
 include("../Processing/db_connection.php");
 $citizen=$_POST['txtcitizenshipNo'];
+$mobileno=$_POST['txtmobileNo'];
 $filename = $_FILES['fileletter']['name'];
 $temp_file=$citizen .'_' . $filename;
 $letter=$temp_file;
@@ -26,7 +27,7 @@ $folderrecomend = '../application_document/' . $temp_file;
 $extensionrecomend = pathinfo($filenamerecomend, PATHINFO_EXTENSION);
 $filerecomend = $_FILES['fileschoolrecommend']['tmp_name'];
 $sizerecomend = $_FILES['fileschoolrecommend']['size'];
-$sql1 = "SELECT citizenshipno FROM tblapplication where citizenshipno='".$citizen."'";
+$sql1 = "SELECT citizenshipno FROM tblapplication where citizenshipno='".$citizen."' OR mobileno='".$mobileno."'";
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
     {
@@ -80,22 +81,23 @@ if ($result->num_rows > 0)
                 appointletter,
                 citizenship,
                 schoolrecommend,
+                financialyear,
                 remark) values('".$_POST['txtteacherName']."',
                 '0',
                 'None',
                 '".$_POST['txtfatherName']."',
                 '".$_POST['cmbprovince']."',
-                '".$_POST['cmbdistrict']."',
-                '".$_POST['cmblocalLevel']."',
+                '".$_POST['cmbdistrictnp']."',
+                '".$_POST['cmbmunnp']."',
                 '".$_POST['txtward']."',
                 '".$_POST['txtmobileNo']."',
                 '".$_POST['txtemail']."',
                 '".$_POST['txtcitizenshipNo']."',
-                '".$_POST['citizenshipIssuedDistrict']."',
+                '".$_POST['cmbctzissuedistrict']."',
                 '".$_POST['txtappointdate']."',
                 '".$_POST['cmbappointmonth']."',
                 '".$_POST['txtday']."',
-                '".$_POST['cmbdistrictnormal']."',
+                '".$_POST['cmbappointdistrict']."',
                 '".$_POST['cmbappointlevel']."',
                 '".$_POST['cmbappointsubject']."',
                 '".$_POST['txtbankname']."',
@@ -103,8 +105,8 @@ if ($result->num_rows > 0)
                 '".$_POST['txtpanNo']."',
                 '".$_POST['txtschoolname']."',
                 '".$_POST['cmbschoolprovince']."',
-                '".$_POST['cmbdistrict1']."',
-                '".$_POST['cmbmvschool']."',
+                '".$_POST['cmbdistrictbagamati']."',
+                '".$_POST['cmbmunbagamati']."',
                 '".$_POST['txtschoolward']."',
                 '".$_POST['cmbtrainingcategory']."',
                 '".$_POST['cmbsubject']."',
@@ -113,6 +115,7 @@ if ($result->num_rows > 0)
                 '".$letter."',
                 '".$citizenship."',
                 '".$recommend."',
+                '".$_POST['txtfyear']."';
                 '')";
                 if (mysqli_query($conn, $sql))
                   {

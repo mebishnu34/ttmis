@@ -51,32 +51,36 @@ function level(str) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><BODY>
 <form method="Post" Action="../Object/save_run_training.php">
     <table class="subtable"  cellpadding="10">
+    
            <tr>
           <td colspan="2" align="center">Teacher Training</td>
+        </tr>
+        <tr>
+        <td align="right">Financial Year*</td>
+        <td>
+                <select name="cmbyear" requierd>
+                    <?php
+                        include("../financialyear.htm");
+                    ?>
+</select>
+</td>
         </tr>
               <tr>
                <td align="right">Name of Training*</td>
                <td>
                 <Select name="cmbtraining" onchange="training(this.value)" class="normaltext">
-                 <option>शिक्षक पेशागत विकास</option>
-                        <option>पुनर्ताजगी</option>
-                        <option>नेतृत्व तथा व्यवस्थापन</option>
-                        <option>सेवाकालिन</option>
+                 <?php
+                    include("../training_category.html");
+                    ?>  
                 </select>
                 </td>
            </tr>
            <tr>
     <td align="right">Training Level*</td>
     <td><select name="cmblevel" onchange="level(this.value)" class="normaltext">
-        <option>Select Level</option>
-         <option>वालविकास केन्द्र</option>
-         <option>आधारभूत (१ –५)</option>
-         <option>आधारभूत (६ –८)</option>
-         <option>माध्यमिक(९ –१०)</option>
-         <option>माध्यमिक(११ –१२)</option>
-         <option>प्रधानाध्यापक (आधारभूत)</option>
-          <option>प्रधानाध्यापक (माध्यमिक)</option>
-		  <option>अन्य</option>
+        <?php
+            include("../level.htm");
+        ?>
 </select>
      </td>
     </tr>
@@ -87,11 +91,11 @@ function level(str) {
     </tr>
                <tr>
                <td align="right">Start Date*</td>
-               <td><input type="text" name="txtsdate" class="normaltext"> End Date*<input type="text" name="txtedate" class="normaltext"></td>
+               <td><input type="text" name="txtsdate" size="10" class="normaltext"> End Date*<input type="text" name="txtedate" size="10" class="normaltext"></td>
            </tr>
             <tr>
                <td align="right">Number of Days*</td>
-               <td><input type="text" name="txtdays" class="normaltext"></td>
+               <td><input type="text" name="txtdays" size="5" class="normaltext"></td>
            </tr>
            <tr>
                <td align="right">Training Venue*</td>
@@ -107,8 +111,23 @@ function level(str) {
            </tr>
             <tr>
                <td align="right">Training Time</td>
-               <td><input type="text" name="txttime" size="60"></td>
-           </tr>           
+               <td><input type="text" name="txttime" size="20"></td>
+           </tr>   
+           <tr>
+               <td align="right">Budget Source</td>
+               <td>
+                <select name="cmbsource">
+                        <option value="संघिय ससर्त">संघिय ससर्त</option>
+                        <option value="प्रदेश चालु">प्रदेश चालु</option>
+                        <option value="अन्य">अन्य</option>
+
+                    </select>
+               </td>
+           </tr>     
+           <tr>
+               <td align="right">Amount</td>
+               <td><input type="text" name="txtamount" size="20"></td>
+           </tr>             
 		   <tr>
                <td align="right">Remark</td>
                <td><input type="text" name="txtremark" size="60"></td>

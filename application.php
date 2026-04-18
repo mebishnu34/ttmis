@@ -9,8 +9,10 @@ include("print_function.php");
 <HTML>
 <HEAD>
  <TITLE>TTMIS:Bagamati</TITLE>
-  <link rel="stylesheet" href="CSS/main_table.css">
-  <link rel="stylesheet" type="text/css" href="CSS/table_css.css">
+<link rel="stylesheet" href="CSS/main_table.css">
+<link rel="stylesheet" href="CSS/table_css.css">
+<link rel="stylesheet" href="CSS/div_column.css">
+<link rel="stylesheet" href="CSS/form.css">
 </HEAD>
 <BODY class="bg">
 <div align="center">
@@ -34,6 +36,9 @@ if($_SESSION['utype']=="Teacher")
 ?>
 <tr>
 <td><a href="application.php?linkid=1001">Update Personal Information</a></td>
+</tr>
+<tr>
+<td><a href="application.php?linkid=1014">Update Application</a></td>
 </tr>
 
 <?php
@@ -142,6 +147,7 @@ include("Display/display_saved_document_teacher.php");
  }
  elseif($id==1014)
  {
+	include("update_application.php");
  }
 }
 if(isset($_GET['msg']))

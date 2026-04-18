@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['financial_year']="2082/083";
    $_SESSION['application']="";
    $_SESSION['csrf']="";
    $_SESSION['token']="Stop";
@@ -7,7 +8,7 @@ session_start();
 <HTML>
     <Head>
         <title>TTMIS</title>
-         <script>
+                     <script>
                                     function teacher_login()
                                     {
                                         var div=document.getElementById("teacher");
@@ -96,6 +97,7 @@ session_start();
                                 elseif($_GET['accountid']=="application_form")
                                     {
                                         include("training_application_form.php");
+                                        //include("customize_training_application_form.php");
                                     }
                                 elseif($_GET['accountid']=="roster_form")
                                     {
@@ -156,7 +158,7 @@ session_start();
                             </tr>
                             <tr>
                             <td bgcolor="#920808" align="center">
-                                <a href="index.php?accountid=roster_form"><b>विज्ञ राेष्टर सूची दर्ता फाराम</b></a>
+                                <a href="index.php?accountid=roster_form"><b>विज्ञ / राेष्टर सूची दर्ता फाराम</b></a>
                                 </td>
                             </tr>
                             <tr>
@@ -166,7 +168,7 @@ session_start();
                             <tr >
                                 <td bgcolor="#FFFFFF" align="center">
             
-<p align="justify"><b><font size="+1" color="#000000">Customized</font></b><font size="+1" color="#000000"><b>/क्षमता विकास सम्बन्धी ५ दिने तालिम आवश्यकता माग फाराम ।</font></b></p><br>
+<p align="justify"><b><font size="+1" color="#000000">Customized</font></b><font size="+1" color="#000000"><b> / क्षमता विकास सम्बन्धी ( औषत ५ दिनको ) तालिम लिन इच्छुक बाल शिक्षक, शिक्षक, प्रधानाध्यापमक तथा स्थानीय तहका शिक्षा सेवाका आठौ तह सम्मका कर्मचारीहरुले तलको लिंकमा क्लिक गरी विवरणहरु भर्नुहुन अनुरोध छ ।</font></b></p><br>
 
                                 </td>   
                             </tr>
@@ -206,7 +208,7 @@ session_start();
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">
-                                        <a href="index.php?accountid=newteacher">New Account </a><input type="submit" value="Login" class="button" name="btnteacher"> </td>
+                                       <!-- <a href="index.php?accountid=newteacher">New Account </a>--><input type="submit" value="Login" class="button" name="btnteacher"> </td>
                                 </tr>
                             </table>
                             </form>

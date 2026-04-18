@@ -2,6 +2,7 @@
 session_start();
 //include("object_include.php");
 include("../Processing/db_connection.php");
+$fyear=$_POST['cmbyear'];
 $id=$_POST['txtid'];
 $training=$_POST['cmbtraining'];
 $level=$_POST['cmblevel'];
@@ -12,6 +13,8 @@ $venue=$_POST['txtvenu'];
 $days=$_POST['txtdays'];
 $coordinator=$_POST['txtcoordinator'];
 $cmobileno=$_POST['txtmobile'];
+$source=$_POST['cmbsource'];
+$expamount=$_POST["txtamount"];
 $remark=$_POST['txtremark'];
 $time=$_POST['txttime'];
 
@@ -42,10 +45,10 @@ else
 		 echo $traid;
 		 		  echo "<br>";
 				 */
-     $sql = "UPDATE tblruntraining set trainingname='$training',trainingid='$traid', level='$level', subject='$subject', startdate='$sdate', enddate='$edate', trainingdays='$days',venue='$venue',coordinator='$coordinator', mobileno='$cmobileno',starttime='$time', remark='$remark', user='$_SESSION[lname]' where id='$id'";
+     $sql = "UPDATE tblruntraining set financialyear='".$fyear."', trainingname='$training',trainingid='$traid', level='$level', subject='$subject', startdate='$sdate', enddate='$edate', trainingdays='$days',venue='$venue',coordinator='$coordinator', mobileno='$cmobileno',starttime='$time',budgetsource='".$source."',budgetamount='".$expamount."', remark='$remark', user='$_SESSION[lname]' where id='$id'";
 	 if(mysqli_query($conn, $sql))
          {
-           header('Location: ../success.php?msg= "Saved Successfully"');
+           header('Location: ../success.php?msg= "Update Successfully"');
           }
       else
           {

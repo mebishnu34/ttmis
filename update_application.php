@@ -1,58 +1,85 @@
+<?php
+include("Processing/db_connection.php");
+$letter="";$citizenship="";$recomand="";
+
+$province=""; $month="";$ayear="";$amonth="";$aday="";$bank="";$acno="";$pan="";$schoolname="";
+$schooldistrict="";$schoolpalika="";$schoolward="";$mode="";$letter="";
+$citizenship="";$recomand="";$category="";$training="";
+   $sql1 = "SELECT * FROM tblteacher where teacherid='$_SESSION[tid]'";
+   $result1 = $conn->query($sql1);
+   if ($result1->num_rows > 0)
+      {
+      while($row = $result1->fetch_assoc())
+         {
+            $tname=$row['tname'];
+            $tcode=$row['teachercode'];
+            $gender=$row['gender'];
+            $cast=$row['cast'];
+            $mothertong=$row['mothertong'];
+            $citizen=$row['citizenship'];
+            $rollno=$row['sheetroll'];
+            $stream=$row['stream'];
+            $fathername=$row['fathername'];
+            $dob=$row['dob'];
+            $a=$row['address'];
+            $email=$row['email'];
+            $d=$row['district'];
+            $vdc=$row['munvdc'];
+            $ward=$row['wardno'];
+            $tc=$row['tcontact'];
+            $adate=$row['appointdate'];
+            $atype=$row['appointtype'];
+            $level=$row['workinglevel'];
+            $scode=$row['scode'];
+            $tlevel=$row['teachinglevel'];
+            $qualification=$row['qualification'];
+            $faculty=$row['faculty'];
+            $msubject=$row['majorsubject'];
+            $tsubject=$row['teachingsubject'];
+           $apsubject=$row['subject'];
+        $sql2 = "SELECT tname, mobileno, citizenshipno, bankname, bankacno, panno, schoolname,province,schooldistrict, schoollocallevel,schoolward, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model,appointdate, appointmonth, appointday FROM tblapplication where teachercode='".$tcode ."'";
+        $result2 = $conn->query($sql2);
+       if ($result2->num_rows > 0)
+            {
+            if($row2 = $result2->fetch_assoc())
+              {
+                $schoolname= $row2["schoolname"];
+                $schooldistrict= $row2["schooldistrict"];
+                $schoolpalika=$row2["schoollocallevel"];
+                $schoolward=$row2["schoolward"];
+                $mode= $row2["priority1model"];
+                $letter=$row2["appointletter"];
+                $citizenship=$row2["citizenship"];
+                $recomand=$row2["schoolrecommend"];
+                $province=$row2["province"];
+                $ayear=$row2["appointdate"];
+                $amonth=$row2["appointmonth"];
+                $aday=$row2["appointday"];
+                $bank=$row2["bankname"];
+                $acno=$row2["bankacno"];
+                $pan=$row2["panno"];
+                $category=$row2["trainingcategory"];
+                $training=$row2["trainingsubject"];
+              }
+            }
+      }
+    }
+  mysqli_close($conn);
+?>
 <!-- Including our scripting file. -->
  <script src="script/nepdistrict.js"></script>
-<script>
-  /*
-function district1(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","dropdistrict_1.php?q="+str,true);
-        xmlhttp.send();
-    }
-}
-function schooldistrict(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHintschool").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","dropdistrict_school.php?q="+str,true);
-        xmlhttp.send();
-    }
-}
-*/
-</script>
-
-<form method="Post" Action="Object/save_teacher_application.php" enctype="multipart/form-data">
+<table width="95%" border="1" cellpadding="10" bgcolor="#FFFFFF">
+  <tr>
+    <td align="center">
+<form method="Post" Action="Object/update_teacher_application.php" enctype="multipart/form-data">
 <div>
      <h2 class="">शिक्षक तालिम आवेदन फाराम-<?php echo $_SESSION['financial_year'];?></h2>
      <p class="icon">कृपया तलका विवरणहरू ध्यानपूर्वक भर्नुहोस्।</p>
-     
 </div>
+</td>
+</tr>
+<tr>
+  <td>
 <form class="">
 <div class="">
 <h3>क) शिक्षकसँग सम्वन्धित विवरण</h3>
@@ -60,16 +87,25 @@ function schooldistrict(str) {
 </div>
 <div class="custom-grid">
     <div class="label_column">
+        <label class="label_text">शिक्षक काेड <span class="star">*</span></label>
+    </div>
+    <div>
+        <input type="text" size="20"  value="<?php echo $tcode;?>" name="txtcode" readonly="True" required>
+    </div>
+  </div>
+<br>
+<div class="custom-grid">
+    <div class="label_column">
         <label class="label_text">शिक्षकको नाम <span class="star">*</span></label>
     </div>
     <div>
-        <input class="custom-input" size="40" placeholder="पूरा नाम लेख्नुहोस्" name="txtteacherName" required>
+        <input type="text" class="custom-input" size="40" placeholder="पूरा नाम लेख्नुहोस्" value="<?php echo $tname;?>" name="txtteacherName" required>
     </div>
     <div class="label_column">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      <label class="label_text">बाबुको नाम थर<span class="star">*</span></label>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label_text">बाबुको नाम थर<span class="star">*</span></label>
     </div>
     <div>
-        <input class="custom-input" size="40" placeholder="बाबुको नाम लेख्नुहोस्" name="txtfatherName" required>
+        <input type="text" class="custom-input" value="<?php echo $fathername;?>" size="40" placeholder="बाबुको नाम लेख्नुहोस्" name="txtfatherName" required>
     </div>
 </div>
 <br>
@@ -77,33 +113,37 @@ function schooldistrict(str) {
 <table width="90%" border="0" style="background-color:lightblue;">
   <tr>
     <td><label class="label_text">प्रदेश <span class="star">*</span></label></td>
-    <td><select class="custom-combo" name="cmbprovince" id="cmbprovince" required></select></td>
+    <td><select class="custom-combo" name="cmbprovince" id="cmbprovince" required>
+        <option value="<?php echo $province;?>"><?php echo $province ;?></option>
+
+    </select></td>
     <td><label class="label_text">जिल्ला <span class="star">*</span></label></td>
     <td><select class="custom-combo" name="cmbdistrictnp" id="cmbdistrictnp" required>
+      <option value="<?php echo $d;?>"><?php echo $d ;?></option>
                          </select></td>
 </tr>
 <tr>
     <td><label class="label_text">स्थानीय तह <span class="star">*</span></label></td>
     <td><select class="custom-combo" name="cmbmunnp" id="cmbmunnp" required>
+      <option value="<?php echo $vdc;?>"><?php echo $vdc ;?></option>
 						</select></td>
     <td><label class="label_text">वडा <span class="star">*</span></label></td>
-    <td><input class="custom-input" placeholder="वडा" size="5" name="txtward" required></td>
+    <td><input type="text"  value="<?php echo $ward;?>" placeholder="वडा" size="5" name="txtward" required></td>
 </tr>
 </table>
-
   <br>
 <div class="custom-grid">
       <div class="label_column">
         <label class="label_text">मोबाइल नं <span class="star">*</span></label>
       </div>
       <div>
-          <input class="custom-input" placeholder="मोबाइल नं (१० अंक)" name="txtmobileNo" required>
+          <input type="text" class="custom-input" value="<?php echo $tc;?>" placeholder="मोबाइल नं (१० अंक)" name="txtmobileNo" required>
       </div>
       <div class="label_column">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label_text">इमेल ठेगाना <span class="star">*</span></label>
       </div>
       <div>
-      <input class="custom-input" size="50" placeholder="इमेल ठेगाना" name="txtemail" required>
+      <input type="text" class="custom-input" size="50" value="<?php echo $email;?>" placeholder="इमेल ठेगाना" name="txtemail" required>
       </div>
   </div>
   <br>
@@ -112,10 +152,10 @@ function schooldistrict(str) {
       <label class="label_text">नागरिकता नं <span class="star">*</span></label>
     </div>
     <div>
-      <input class="custom-input" placeholder="नागरिकता नं" name="txtcitizenshipNo" required>
+      <input type="text" class="custom-input" value="<?php echo $citizen;?>" readonly="True" placeholder="नागरिकता नं" name="txtcitizenshipNo" required>
     </div>
     <div class="label_column">
-      <label class="label_text">नागरिकता जारी गर्ने जिल्ला <span class="star">*</span></label>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label_text">जारी गर्ने जिल्ला <span class="star">*</span></label>
     </div>
     <div>
       <select class="custom-combo" name="cmbctzissuedistrict">
@@ -129,7 +169,7 @@ function schooldistrict(str) {
       <label class="label_text">नियुक्ति भएको साल <span class="star">*</span></label>
     </div>
     <div>
-      <input maxlength="4" placeholder="नियुक्ति साल" size="10" type="text" name="txtappointdate" required>
+      <input maxlength="4" type="text" placeholder="नियुक्ति साल" value="<?php echo $ayear;?>" size="10" type="text" name="txtappointdate" required>
     </div>
     <div class="label_column">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label_text"> महिना <span class="star">*</span></label>
@@ -137,7 +177,7 @@ function schooldistrict(str) {
     
     <div>
     <select class="custom-combo" name="cmbappointmonth" required>
-        <option value="">महिना</option>
+      <option value="<?php echo $amonth;?>"><?php echo $amonth;?></option>
         <option value="बैशाख">बैशाख</option>
         <option value="जेठ">जेठ</option>
         <option value="असार">असार</option>
@@ -151,7 +191,7 @@ function schooldistrict(str) {
         <option value="फागुन">फागुन</option>
         <option value="चैत">चैत</option>
       </select>
-      <label class="label_text"> दिन <span class="star">*</span></label><input type="text" name="txtday" size="5" placeholder="दिन" >
+      <label class="label_text"> दिन <span class="star">*</span></label><input type="text" name="txtday" value="<?php echo $aday;?>" size="5" placeholder="दिन" >
     </div>
   </div>
   <br>
@@ -172,6 +212,7 @@ function schooldistrict(str) {
     </div>
   <div>
   <select name="cmbappointlevel" class="custom-combo" required>
+    <option value="<?php echo $level;?>"><?php echo $level;?></option>
     <option value="ECD">प्रारम्भिक बालविकास तथा शिक्षा</option>
     <option value="Primary">प्राथमिक तह</option>
     <option value="LowerSecondary">निम्न माध्यमिक तह</option>
@@ -183,7 +224,7 @@ function schooldistrict(str) {
     <label class="label_text">नियुक्ति भएको विषय <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" placeholder="विषय लेख्नुहोस्" name="cmbappointsubject" required>
+    <input class="custom-input" type="text" placeholder="विषय लेख्नुहोस्" value="<?php echo $apsubject;?>" name="cmbappointsubject" required>
   </div>
 </div>
 <br>
@@ -192,13 +233,13 @@ function schooldistrict(str) {
     <label class="label_text">बैंकको नाम <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" size="50" placeholder="बैंकको नाम" name="txtbankname" required>
+    <input class="custom-input" type="text" size="50" value="<?php echo $bank;?>" placeholder="बैंकको नाम" name="txtbankname" required>
   </div>
   <div class="label_column">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label_text">खाता नं <span class="star">*</span></label>
 </div>
   <div>
-   <input class="custom-input" placeholder="खाता नं" name="txtbankacno" required>
+   <input class="custom-input" type="text" value="<?php echo $acno;?>" placeholder="खाता नं" name="txtbankacno" required>
   </div>
 </div>
 <br>
@@ -207,7 +248,7 @@ function schooldistrict(str) {
 <label class="label_text">पान नं <span class="star">*</span></label>
 </div>
 <div>
-  <input class="custom-input" placeholder="पान नं" name="txtpanNo" required>
+  <input class="custom-input" type="text" placeholder="पान नं" value="<?php echo $pan;?>" name="txtpanNo" required>
 </div>
 </div>
  <h3 class="text-xl font-bold text-slate-800">ख) हाल कार्यरत रहेकाे विद्यालयसगँ सम्वन्धित विवरण</h3>
@@ -216,7 +257,7 @@ function schooldistrict(str) {
     <label class="label_text">विद्यालयको नाम <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" size="50" placeholder="विद्यालयको पूरा नाम" name="txtschoolname" required>
+    <input class="custom-input"  type="text" value="<?php echo $schoolname;?>" size="50" placeholder="विद्यालयको पूरा नाम" name="txtschoolname" required>
   </div>
 </div>
 <br>
@@ -237,6 +278,7 @@ function schooldistrict(str) {
   <div>
     <?php //include("school_district_list_1.htm");?>
     <select class="custom-combo" name="cmbdistrictbagamati" id="cmbdistrictbagamati" required>
+      <option value="<?php echo $schooldistrict;?>"><?php echo $schooldistrict;?></option>
                          </select>
     </div>
 
@@ -247,6 +289,7 @@ function schooldistrict(str) {
     <!--<div id="txtHintschool">Municipality/Rural</div>-->
     <div>
     <select class="custom-combo" name="cmbmunbagamati" id="cmbmunbagamati" required>
+      <option value="<?php echo $schoolpalika;?>"><?php echo $schoolpalika;?></option>
                          </select>
 </div>
   </div>
@@ -254,7 +297,7 @@ function schooldistrict(str) {
     <label class="label_text">वडा <span class="star">*</span></label>
   </div>
     <div class="label_column">
-      <input class="custom-input" placeholder="वडा" name="txtschoolward" required>
+      <input class="custom-input" type="text" placeholder="वडा" value="<?php echo $schoolward;?>" name="txtschoolward" required>
     </div>
 </div>
 <h3>ग) तालिम आवश्यकता सम्वन्धी विवरण</h3>
@@ -265,6 +308,7 @@ function schooldistrict(str) {
   </div>
   <div class="content">
     <select id="trainingcategory" name="cmbtrainingcategory" class="custom-combo" required onchange="handleChange()">
+      <option value="<?php echo $category;?>"><?php echo $category;?></option>
   <?php
     include("training_category.html");
   ?>  
@@ -278,6 +322,7 @@ function schooldistrict(str) {
 </div>
 <div class="content">
     <select id="trainingsubject" name="cmbsubject" class="custom-combo">
+      <option value="<?php echo $training;?>"><?php echo $training;?></option>
     <option value="प्रारम्भिक बालविकास र शिक्षा">प्रारम्भिक बालविकास र शिक्षा</option>
     <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
     <option value="नेपाली">नेपाली</option>
@@ -323,6 +368,7 @@ function schooldistrict(str) {
 </div>
 <div class="content">
   <select name="cmbprioritymode" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
+    <option value="<?php echo $mode;?>"><?php echo $mode;?></option>
   <option value="">छनौट गर्नुहोस्</option>
   <option value="अनलाइन">अनलाइन</option>
   <option value="आमनेसामने">आमनेसामने</option>
@@ -366,7 +412,15 @@ function schooldistrict(str) {
     <label class="label_text">नियुक्ति पत्र <span class="star">*</span></label>
   </div>
   <div class="content">
-    <input type="file" name="fileletter" required>
+    <input type="file" name="fileletter">
+    <?php
+    if($letter<>"")
+      {
+        ?>
+        <a href="application_document\<?php echo $letter;?>" target="_blank"><img src="image/eye.png" width="20" height="15"></a>
+      <?php
+      }
+    ?>
   </div>
 </div>
 <br>
@@ -375,7 +429,15 @@ function schooldistrict(str) {
     <label class="label_text">नागरिकता प्रमाणपत्र <span class="star">*</span></label>
   </div>
   <div class="content">
-    <input  type="file" name="filecitizenship" required>
+    <input  type="file" name="filecitizenship">
+    <?php
+    if($citizenship<>"")
+      {
+        ?>
+        <a href="application_document\<?php echo $citizenship;?>" target="_blank"><img src="image/eye.png" width="20" height="15"></a>
+      <?php
+      }
+    ?>
 </div>
 </div>
 <br>
@@ -384,16 +446,30 @@ function schooldistrict(str) {
     <label class="label_text">विद्यालयको सिफारिस पत्र <span class="star">*</span></label>
   </div>
   <div class="content">
-    <input  type="file" name="fileschoolrecommend" required>
+    <input  type="file" name="fileschoolrecommend">
+    <?php
+    if($recomand<>"")
+      {
+        ?>
+        <a href="application_document\<?php echo $recomand;?>" target="_blank"><img src="image/eye.png" width="20" height="15"></a>
+      <?php
+      }
+    ?>
 </div>
 </div>
+</td>
+</tr>
+<tr>
+  <td align="center">
 <div>
   <h4>घोषणा</h4>
     <p><!-- <input type="checkbox" value="Verify" name="accept" id="accept" onclick="checkfunction()"> --> मैले यस फाराममा भरेका सबै विवरणहरू सत्य छन्। यदि कुनै विवरण गलत ठहरिएमा मेरो आवेदन रद्द हुने कुरामा म मञ्जुर छु।</p></div></div></section>
               <!-- <input type="button" value="आवेदन पेश गर्नुहोस्" name="btnclientsubmit" disabled="disabled" id="btnclientsubmit" onClick="confSubmit(this.form);">-->
-              <input type="submit" value="आवेदन पेश गर्नुहोस्" name="btnsave">
+              <input type="submit" value="अपडेट गर्नुहोस्" name="btnsave">
 </form>
-      
+</td>
+</tr>
+</table>      
 <script type="text/javascript">
 function confSubmit(form) 
 	{

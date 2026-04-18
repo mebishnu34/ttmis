@@ -83,6 +83,7 @@ if ($result->num_rows > 0)
                 cvfilename,
                 qualifilename,
                 trainerphoto,
+                financialyear,
                 remark) values('".$_POST['txtname']."',
                 '".$_POST['txtengname']."',
                 '".$_POST['optgender']."',
@@ -104,6 +105,7 @@ if ($result->num_rows > 0)
                 '".$cv."',
                 '". $qualifile ."',
                 '". $photo ."',
+                '".$_POST['txtfyear']."',
                 '')";
                 if (mysqli_query($conn, $sql))
                   {

@@ -7,12 +7,22 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 ?>
 <HTML>
 <HEAD>
- <TITLE>TTMIS Bagamati</TITLE>
- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<link rel="stylesheet" href="../CSS/main_table.css">
-<link rel="stylesheet" type="text/css" href="../CSS/table_css.css">
+ <TITLE>TTMIS</TITLE>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+   <link rel="stylesheet" href="../CSS/main_table.css">
+  <link rel="stylesheet" href="../CSS/sidemenu.css">
+  <link rel="stylesheet" href="../CSS/table_css.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/div_column.css">
 </HEAD>
 <BODY class="bg">
+<div align="center">
+<table class="maintable">
+<tr>
+<td valign="buttom" align="center" bgcolor="#FFFFFF"><img src="..\Image\logo.jpg" width="150" height="130"></td>
+<td  valign="top" bgcolor="#FFFFFF"><img src="..\Image\banner.jpg" height="130" width="100%"></td>
+<td valign="buttom" align="center" bgcolor="#FFFFFF"><img src="..\Image/np_flag.gif" width="150" height="130"></td>
+</tr>
+</table>
 <div align="center">
 <?php
    include("../Processing/db_connection.php");
@@ -61,7 +71,7 @@ if ($result->num_rows > 0)
                  echo "<td>". $row["startdate"]."</td>";
                  echo "<td>". $row["enddate"]."</td>";
                //  echo "<td>". $row["venue"]."</td>";
-                echo "<td bgcolor=blue align=center><a href=../Input/school_code.php?id=$row[id] target=_blank>Add Participate</a> // <a href=../Input/student_code.php?id=$row[id] target=_blank>Teacher</a>// <a href=../Input/applicant_list.php?id=$row[id] target=_blank>Applicant</a></td>";
+                echo "<td bgcolor=blue align=center><a href=../Input/mark_entry_trainee.php?id=$row[id] target=_blank>Score</a>";
               	$i++;
                 echo "</tr>";
                 }

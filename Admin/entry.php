@@ -60,7 +60,8 @@ if(isset($_GET['linkid']))
  $id=$_GET['linkid'];
  if($id==7)
  {
- include("../Input/mark_entry_trainee.php");
+ //include("../Input/mark_entry_trainee.php");
+ include("../Input/financial_year_for_score.php");
  }
  elseif($id==8)
  {

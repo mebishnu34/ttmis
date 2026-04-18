@@ -1,33 +1,10 @@
-<script>
-    function schooldistrict(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHintschool").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","dropdistrict_school.php?q="+str,true);
-        xmlhttp.send();
-    }
-}
-
-</script>
-
+<script src="script/nepdistrict_1.js"></script>
 <form method="Post" Action="Object/save_customize_training_needs.php" enctype="multipart/form-data">
 <div>
-     <h2 class="">Customized (क्षमता विकास ) तालिम आवश्यकता माग फाराम</h2>
+     <h2 class="">Customized (क्षमता विकास ) तालिम आवश्यकता माग फाराम-<?php echo $_SESSION['financial_year'];?></h2>
      <p class="icon">कृपया तलका विवरणहरू ध्यानपूर्वक भर्नुहोस्।</p>
 </div>
+<input type="hidden" value="<?php echo $_SESSION['financial_year'];?>" name="txtfyear">
 <div align="left">
    <label class="label_text"> क परिचय खण्ड</label>
 </div>
@@ -126,11 +103,15 @@
 <div class="custom-grid">
         <div class="label_column"><label class="label_text">जिल्ला: </label></div>
         <div>
-            <?php include("school_district_list_1.htm");?>
+            <?php //include("school_district_list_1.htm");?>
+             <select class="custom-combo" name="cmbdistrictbagamati_1" id="cmbdistrictbagamati_1" required>
+                         </select>
         </div>
      <div class="label_column"> <label class="label_text">स्थानीय तह: </label></div>
         <div>
-            <div id="txtHintschool">Municipality/Rural</div>
+            <!--<div id="txtHintschool">Municipality/Rural</div>-->
+            <select class="custom-combo" name="cmbmunbagamati_1" id="cmbmunbagamati_1" required>
+                         </select>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -15,10 +15,11 @@
 }
 
 .custom-combo {
-  width: 100%; /* w-full */
+  width:fit-content; /* w-full */
+  height: 40px;
   padding-left: 0.55rem;  /* px-4 */
   padding-right: 0.51rem;
-  padding-top: 0.25rem;  /* py-3 */
+  padding-top: 0.75rem;  /* py-3 */
   padding-bottom: 0.50rem;
   border-radius: 0.55rem; /* rounded-xl */
   border: 2px solid grey; /* border-slate-200 */

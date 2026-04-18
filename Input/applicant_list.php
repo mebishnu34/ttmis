@@ -27,8 +27,6 @@ if($result1->num_rows>0)
 				$mobileno=$data["mobileno"];
 			}
 	}
-$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject FROM tblapplication where remark<>'Selected' ORDER BY appid";
-$result1 = $conn->query($sql1);
 ?>
 
 <!DOCTYPE html>
@@ -42,12 +40,12 @@ $result1 = $conn->query($sql1);
 <table class="maintable">
 <tr>
 <td width="150" valign="buttom" align="center" bgcolor="#FFFFFF"><img src="..\Image\logo.jpg" width="150" height="130"></td>
-<td width="80%" valign="top" bgcolor="#FFFFFF"><img src="..\Image\banner.jpg" height="130"></td>
+<td width="80%" valign="top" bgcolor="#FFFFFF"><img src="..\Image\banner.jpg" height="130" width="100%"></td>
 <td width="150" valign="buttom" align="center" bgcolor="#FFFFFF"><img src="..\Image/np_flag.gif" width="150" height="130"></td>
 </tr>
 <tr>
     <td bgcolor="#0000FF" align="Right"><font color="#FFFFFF"><a href="..\admin_login.php">Log Off</a></font></td>
-<td valign="buttom" align="center" bgcolor="#0000FF"><font face="Verdana, Arial, Helvetica, sans-serif" size="+3" color="#FFFFFF"><b>Teacher Training Management System(TTMIS)</b></font></td>
+<td valign="buttom" align="center" bgcolor="#0000FF"><font face="Verdana, Arial, Helvetica, sans-serif" size="+1" color="#FFFFFF"><b>Teacher Training Management System(TTMIS)</b></font></td>
 <td bgcolor="#0000FF"><font color="#FFFFFF" size="2"><div align="right"><?php echo $_SESSION['uname'];?></div></font></td>
 </tr>
 </table>
@@ -78,17 +76,22 @@ SMS<Select name="optsms">
 </td>
     
  </tr>
+</table>
+<table class="tablestyle_1" border="1">
  <tr>
-<th>S.No</th>
+<th>सि.नं.</th>
 <th>शिक्षककाे नाम</th>
 <th>माेबाइल न‌‍</th>
+<th>तह</th>
+<th>विषय</th>
 <th>बिद्यालय</th>
 <th>Tick</th>
 </tr>
 <?php
 $i=1;
 //$q = intval($_GET['q']); //for numerice value
-	
+$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointlocallevel,appointsubject FROM tblapplication where remark<>'Selected' ORDER BY appid";
+$result1 = $conn->query($sql1);	
       if ($result1->num_rows > 0)
       {
          while($row1 = $result1->fetch_assoc())
@@ -96,6 +99,7 @@ $i=1;
             $teacherid=$row1["appid"];
 		$tname=$row1["tname"];
 		 $contact=$row1["mobileno"];
+        $level=$row1["appointlocallevel"];
          $ctnno= $row1["citizenshipno"];
          $school=$row1["schoolname"];
          $applicantdate=$row1["appointdate"];
@@ -108,6 +112,8 @@ $i=1;
 <td align="center"><?php echo $i; ?><input type="Hidden" name="id" value="<?php echo $i; ?>" readonly="true" size="5"><input size="10" readonly="True" type="hidden" name="tid1[]" value="<?php echo $teacherid;?>"></td>
 <td><?php echo $tname;?><input type="Hidden" name="tname1[]" value="<?php echo $tname;?>" readonly="True"></td>
 <td><?php echo $contact;?><input type="Hidden" name="tcon[]" value="<?php echo $contact;?>" readonly="True"></td>
+<td><?php echo $level;?>
+<td><?php echo $subject;?>
 <td><?php echo $school;?></td>
 <td align="center"><input type="checkbox" name="rem[]" value="<?php echo $teacherid;?>"></td>
 <!--<td bgcolor="#0000FF"><?php echo "<a href=../Input/teacher_update_1.php?tid=$teacherid target=_blank>Edit</a>";?></td>-->
@@ -121,10 +127,8 @@ $i=1;
 ?>
 
 
-<tr>
-<td colspan="5" align="center"><input type="Submit" value="Save" class="button"> </td>
-</tr>
 </table>
+<center><input type="Submit" value="Save" class="button"> </center>
 </form>
 </body>
 </html>

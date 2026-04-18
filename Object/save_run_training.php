@@ -2,6 +2,7 @@
 session_start();
 //include("object_include.php");
 include("../Processing/db_connection.php");
+$year=$_POST['cmbyear'];
 $training=$_POST['cmbtraining'];
 $level=$_POST['cmblevel'];
 $subject=$_POST['cmbsubject'];
@@ -13,6 +14,8 @@ $coordinator=$_POST['txtcoordinator'];
 $cmobileno=$_POST['txtmobile'];
 //$remark=$_POST['txtremark'];
 $time=$_POST['txttime'];
+$source=$_POST['cmbsource'];
+$expamt=$_POST['txtamount'];
 
 //echo $subject;
 //$teachertrainingobject->saveteachertraining($tid, $traid, $tn, $sd, $ed, $r);
@@ -41,7 +44,7 @@ if ($result->num_rows > 0)
              {
                 $traid=$row1['ID'];
              }
-		  }	
+		    }	
 		  /*echo $training;
 		  echo "<br>";
 		  echo "Level".$level;
@@ -51,7 +54,7 @@ if ($result->num_rows > 0)
 		 echo $traid;
 		 		  echo "<br>";
 				 */
-     $sql = "INSERT INTO tblruntraining(trainingname,trainingid, level, subject, startdate, enddate, trainingdays,venue,coordinator, mobileno,starttime, remark, user) values('$training','$traid', '$level', '$subject', '$sdate','$edate','$days','$venue','$coordinator','$cmobileno','$time','Running','$_SESSION[lname]')";
+     $sql = "INSERT INTO tblruntraining(financialyear,trainingname,trainingid, level, subject, startdate, enddate, trainingdays,venue,coordinator, mobileno,starttime,budgetsource, budgetamount, remark, user) values('".$year."','".$training."','".$traid."', '".$level."', '".$subject."', '".$sdate."','".$edate."','".$days."','".$venue."','".$coordinator."','".$cmobileno."','".$time."','".$source."','".$expamt."','Running','$_SESSION[lname]')";
       if (mysqli_query($conn, $sql))
          {
            header('Location: ../Admin/create.php?msg= "Saved Successfully"');

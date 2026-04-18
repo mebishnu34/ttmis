@@ -18,7 +18,7 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <table class="maintable">
 <tr>
 <td valign="buttom" align="center" bgcolor="#FFFFFF"><img src="..\Image\logo.jpg" width="150" height="130"></td>
-<td  valign="top" bgcolor="#FFFFFF"><img src="..\Image\banner.jpg" height="130"></td>
+<td  valign="top" bgcolor="#FFFFFF"><img src="..\Image\banner.jpg" height="130" width="100%"></td>
 <td valign="buttom" align="center" bgcolor="#FFFFFF"><img src="..\Image/np_flag.gif" width="150" height="130"></td>
 </tr>
 <tr>
@@ -216,7 +216,8 @@ elseif($id=='202TA')
  }
 elseif($id=='203TA')
  {
- include("../Display/passout_trainee.php");
+ //include("../Display/passout_trainee.php");
+ include("certificate_year.php");
  }
  elseif($id=='204TA')
  {
@@ -256,7 +257,7 @@ elseif($id=='101all')
   }
  elseif($id==102)
  {
-  include("../Display/running.php");
+  include("../Display/financial_year_runing.php");
  }
   elseif($id==302)
  {

@@ -19,7 +19,7 @@ if(empty($_SESSION['key']))
 <table width="100%", border=0 height="100%" class="logintable">
 <tr>
 <td width="150" valign="buttom" align="center" bgcolor="#FFFFFF"><img src="Image\logo.jpg" width="150" height="130"></td>
-<td width="80%" valign="top" bgcolor="#FFFFFF"><img src="Image\banner.jpg" height="130"></td>
+<td width="80%" valign="top" bgcolor="#FFFFFF"><img src="Image\banner.jpg" height="130" width="100%"></td>
 <td width="150" valign="buttom" align="center" bgcolor="#FFFFFF"><img src="Image/np_flag.gif" width="150" height="130"></td>
 </tr
 <tr>

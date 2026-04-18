@@ -34,8 +34,8 @@ if ($result->num_rows > 0)
 <th>Name of Teacher</th>
 <th>Contact No.</th>
 <th>Name of School</th>
-<th>Local Government</th>
 <th>District</th>
+<th>Local Government</th>
 <th>Login Name</th>
 <th>Password</th>
 <th>Remark</th>
@@ -59,7 +59,7 @@ if ($result->num_rows > 0)
 	$loginname="";
 	$pass="";
 	$scode=$row["schoolcode"];
-		$sqlt = "SELECT tname,tcontact,loginname, tpass FROM tblteacher where (teacherid='$tcode' or teachercode='$tcode')";
+		$sqlt = "SELECT tname,tcontact,district, munvdc,loginname, tpass FROM tblteacher where (teacherid='$tcode' or teachercode='$tcode')";
 		$resultt = $conn->query($sqlt);
 		if($resultt->num_rows > 0)
    		{
@@ -67,6 +67,8 @@ if ($result->num_rows > 0)
     	   {
 		   $contact=$rowt["tcontact"];
 		   $tname=$rowt["tname"];
+		   $mun=$rowt["munvdc"];
+			   $district=$rowt["district"];
 		   $loginname=$rowt["loginname"];
 		   $password=$rowt["tpass"];
 		   }
@@ -88,8 +90,8 @@ if ($result->num_rows > 0)
 	echo "<td align=left>" . $tname . "</td>";
 	echo "<td align=center>" . $contact . "</td>";
     echo "<td align=left>" . $sname . "</td>";
-	echo "<td align=left>" . $mun . "</td>";
 	echo "<td>" . $district . "</td>";
+	echo "<td align=left>" . $mun . "</td>";
 	echo "<td>" . $loginname . "</td>";
     echo "<td>" . $password . "</td>";
 	if($activeuser==$_SESSION['lname'])

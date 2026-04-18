@@ -1,6 +1,6 @@
 <?php
 session_start();
-//include("object_include.php");
+//include("object_include.php");s
 include("../Processing/db_connection.php");
 $trainingid=$_POST['trainingid'];
 $tid=$_POST['teacherid'];
@@ -9,20 +9,24 @@ $i=0;
 foreach($trainingid as $trainingids)
   {
     $traid[$i]=$trainingids;
+//    echo $traid[$i];
     $i++;
   }
 $j=0;
   foreach($tid as $tids)
   {
     $teacher[$j]=$tids;
+    //echo $teacher[$j];
     $j++;
   }
 $k=0;
   foreach($obtmark as $obtmarks)
   {
     $mark[$k]=$obtmarks;
+    //echo $mark[$k];
     $k++;
   }
+  exit;
 for($d=0;$d<$k;$d++)
   {
     

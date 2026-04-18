@@ -13,13 +13,17 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <body>
 <?php
 include("../Processing/db_connection.php");
+
 if(isset($_GET['t']))
 {
+      
 $_SESSION['$t']=$_GET['t'];
 }
 if(isset($_GET['l']))
 {
 $l = $_GET['l'];
+//echo $_SESSION['$t'];
+//echo $l;
 $sql="SELECT DISTINCT subject FROM tbltraining where trainingname='".$_SESSION['$t']."' and level='".$l."' ORDER BY subject";
 $result = mysqli_query($conn,$sql);
 echo "<Select name=cmbsubject>";
