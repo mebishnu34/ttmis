@@ -2,7 +2,8 @@
 //$dbuser="ttmisbagamatigov_bishnu";
 $dbuser="root";
 $dbpassword="Ttmis123@Edu2083";
-$database="ttmis";
+//$database="ttmis";
+$database="bagamati_eduttmisdb";
 $host = "localhost";
 
 //$ado=new data($host,$dbuser,$dbpassword,$database);
