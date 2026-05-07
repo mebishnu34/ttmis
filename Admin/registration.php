@@ -26,35 +26,7 @@ include("../Processing/db_connection.php");
 </tr>
 <tr>
 <td valign="Top" align="center">
-<table class="tablestyle" width="100%">
-<tr>
-<td><a href="registration.php?linkid=1">Organization</a></td>
-</tr>
-<tr>
-<td><a href="registration.php?linkid=13">Local Government</a></td>
-</tr>
-<tr>
-<td><a href="registration.php?linkid=4">School Registration</a></td>
-</tr>
-<!--
-<tr>
-<td><a href="registration.php?linkid=3">Other Registration</a></td>
-</tr>
--->
-<tr>
-<td><a href="registration.php?linkid=14">Teacher Short Info. Registration</a></td>
-</tr>
-
-<tr>
-<td><a href="registration.php?linkid=2">Teacher Registration</a></td>
-</tr>
-<tr>
-<td><a href="registration.php?linkid=5">Approve Teacher Training</a></td>
-</tr>
-<tr>
-<td><a href="registration.php?linkid=6">Display Request Letter</a></td>
-</tr>
-</table>
+&nbsp;
 </td>
 <td valign="Top" align="center" colspan="2">
 <?php

@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors',1);
 //include("object_include.php");
 include("../Processing/db_connection.php");
 $citizen=$_POST['txtcitizenshipNo'];
@@ -50,6 +52,8 @@ if ($result->num_rows > 0)
             {
               $sql = "INSERT INTO tblapplication(tname,
                 teachercode,
+		runtrainingid,
+		groupnumber,
                 gender,
                 fathername,
                 province,
@@ -84,6 +88,8 @@ if ($result->num_rows > 0)
                 financialyear,
                 remark) values('".$_POST['txtteacherName']."',
                 '0',
+		'0',
+		'0',
                 'None',
                 '".$_POST['txtfatherName']."',
                 '".$_POST['cmbprovince']."',
@@ -115,7 +121,7 @@ if ($result->num_rows > 0)
                 '".$letter."',
                 '".$citizenship."',
                 '".$recommend."',
-                '".$_POST['txtfyear']."';
+                '".$_POST['txtfyear']."',
                 '')";
                 if (mysqli_query($conn, $sql))
                   {

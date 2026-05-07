@@ -56,7 +56,7 @@ if ($co->num_rows > 0)
    $munvdc="............";
    
    
-$sql1 = "SELECT * FROM tblteacher where teachercode='$teacherid'";
+$sql1 = "SELECT tname,munvdc FROM tblteacher where teachercode='$teacherid'";
 $result1 = $conn->query($sql1);
 if ($result1->num_rows > 0)
    {

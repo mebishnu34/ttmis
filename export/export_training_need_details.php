@@ -1,11 +1,12 @@
 <?php
+session_start();
 include("../Processing/db_connection.php");
 $ecd="";
 $teacher="";
 $principal="";
 $output='';
 $output .='
- <font size="+2"><b>Customized (क्षमता विकास ) तालिम आवश्यकता माग फाराम</b></font>
+ <font size="+2"><b>Customized (क्षमता विकास ) तालिम आवश्यकता माग फाराम-'.$_SESSION['appyear'].'</b></font>
  <table width="500%" border="1" bgcolor="#FFFFFF" cellpadding="5" cellspacing="0">
  <tr>
 <th>क्र स</th>
@@ -36,7 +37,7 @@ $output .='
 <th>पेश गरिएकाे मिति</th>
 </tr>';
 $i = 1;
-$sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed ORDER BY regdate DESC";
+$sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();

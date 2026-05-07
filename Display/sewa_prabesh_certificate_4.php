@@ -56,22 +56,18 @@ if ($co->num_rows > 0)
    $munvdc="............";
    
    
-$sql1 = "SELECT tname, munvdc,schoolname,schooldistrict, schoollocallevel, schoolward FROM tblapplication where appid='$teacherid'";
+$sql1 = "SELECT tname FROM tblteacher where teachercode='$teacherid'";
 $result1 = $conn->query($sql1);
 if ($result1->num_rows > 0)
    {
     if($row1 = $result1->fetch_assoc())
     {
-        $munvdc= $row1["munvdc"];
         $teachername= $row1["tname"];
-        $schoolname= $row1["schoolname"];
-        $schooladdress= $row1["schooldistrict"].", ". $row1["schoollocallevel"].", ". $row1["schoolward"]; 
-        $district=$row1["schooldistrict"];
-        $municipality=$row1["schoollocallevel"];
+        
          
     }
     }
-$sql2 = "SELECT * FROM tblschool where schoolcode='$scode'";
+$sql2 = "SELECT schoolname,address, munvdc, schoolname, district, wardno FROM tblschool where schoolcode='$scode'";
 $result2 = $conn->query($sql2);
 if ($result2->num_rows > 0)
    {
@@ -79,9 +75,15 @@ if ($result2->num_rows > 0)
     {
         $schoolname= $row2["schoolname"];
         $schooladdress= $row2["address"];
+        $munvdc= $row2["munvdc"];
+        $schoolname= $row2["schoolname"];
+        $schooladdress= $row2["district"].", ". $row2["munvdc"].", ". $row2["wardno"]; 
+        $district=$row2["district"];
+        $municipality=$row2["munvdc"];
 
     }
     }
+
 $printdate="2082/12/10";
 ?>
 

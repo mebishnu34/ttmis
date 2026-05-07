@@ -58,7 +58,7 @@ if ($co->num_rows > 0)
    $munvdc="............";
    
    
-$sql1 = "SELECT tname, munvdc, fathername,province, district,wardno,citizenshipno FROM tblapplication where appid='$teacherid'";
+$sql1 = "SELECT tname, munvdc, fathername,province, district,wardno,citizenship FROM tblteacher where teachercode='$teacherid'";
 $result1 = $conn->query($sql1);
 if ($result1->num_rows > 0)
    {
@@ -74,7 +74,7 @@ if ($result1->num_rows > 0)
          
     }
     }
-$sql2 = "SELECT * FROM tblschool where schoolcode='$scode'";
+$sql2 = "SELECT schoolname, address FROM tblschool where schoolcode='$scode'";
 $result2 = $conn->query($sql2);
 if ($result2->num_rows > 0)
    {

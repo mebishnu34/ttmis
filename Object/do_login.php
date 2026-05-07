@@ -14,20 +14,20 @@ $_SESSION['$tdate']=$_POST['txtdate'];
 if(isset($_POST['login']))
 {
     
-   if($_SESSION['csrf']==$_POST['csrf1'])
+ if($_SESSION['csrf']==$_POST['csrf1'])
   //  if($t=="@123")
         {
-        if($ln=="" and $up=="")
+	if($ln=="" and $up=="")
             {
                 header('Location: ../index.php?msg= "Fields Are Required"');
             }
         else
             {
-                $sql1 = "SELECT utype,uname, upass,remark FROM tbluser where loginname='$ln' and upass='$up'";
+		$sql1 = "SELECT utype,uname, upass,remark FROM tbluser where loginname='$ln' and upass='$up'";
                 $result = $conn->query($sql1);
                 if ($result->num_rows > 0)
                     {
-                    if($row1 = $result->fetch_assoc())
+		      if($row1 = $result->fetch_assoc())
                         {
                             $_SESSION['utype']=$row1['utype'];
                             $_SESSION['uname']=$row1['uname'];
@@ -39,11 +39,12 @@ if(isset($_POST['login']))
                             //echo $_SESSION['token'];
                             //echo "Do Login";
                             //echo $_SESSION['$a'];
-                            if($_SESSION['utype']=="Administrator")
+			
+			 if($_SESSION['utype']=="Administrator")
                                 {
-				                mysqli_query($conn,"INSERT INTO tbllogin(username,loginuser,ldate,remark) values('$_SESSION[uname]','$_SESSION[utype]',now(),'')");
+				mysqli_query($conn,"INSERT INTO tbllogin(username,loginuser,ldate,remark) values('$_SESSION[uname]','$_SESSION[utype]',now(),'')");
                                header('Location: ../Admin/admin_application.php');
-                                }
+				}
                             else
                             {
 				                mysqli_query($conn,"INSERT INTO tbllogin(username,loginuser,ldate,remark) values('$_SESSION[uname]','$_SESSION[utype]',now(),'')");

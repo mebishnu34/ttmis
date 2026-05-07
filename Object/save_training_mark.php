@@ -23,10 +23,9 @@ $k=0;
   foreach($obtmark as $obtmarks)
   {
     $mark[$k]=$obtmarks;
-    //echo $mark[$k];
+    echo $mark[$k];
     $k++;
   }
-  exit;
 for($d=0;$d<$k;$d++)
   {
     
@@ -58,8 +57,8 @@ for($d=0;$d<$k;$d++)
           else
             {
               $message= "Save_Mark:" . $sql . "<br>" . mysqli_error($conn);
-		          $mobileno="9851001482";
-		          include("sms_code.php");
+		          //$mobileno="9851001482";
+		         // include("sms_code.php");
               echo $message;
 		       // header('Location: ../Input/teacher_training_running.php?msg= "Sorry, Try Later..."');
             }

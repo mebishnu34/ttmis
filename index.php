@@ -107,6 +107,10 @@ $_SESSION['financial_year']="2082/083";
                                     {
                                         include("customize_training_application_form.php");
                                     }
+                                elseif($_GET['accountid']=="customize_training_extra")
+                                    {
+                                        include("customize_training_application_form_extra.php");
+                                    }
                                 elseif($_GET['accountid']=="application_form_1")
                                     {
 

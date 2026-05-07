@@ -1,6 +1,8 @@
 <?php
 session_start();
 //include("object_include.php");
+error_reporting(E_ALL);
+ini_set('display_errors',1);
 include("../Processing/db_connection.php");
 $tid=$_POST['txtneedid'];
 $ecd=$_POST['checkoption'];
@@ -35,11 +37,11 @@ for($d=0;$d<$i;$d++)
         {
           $topicid=$row["topicid"];
           $indexno=$row["optindexno"];
-         $insertsql = "INSERT INTO tbltopicselectiondetails(category, needid,topicid,selectionid,optindexno,extramsg,submitdate,ondate,remark) values('".$category."','".$tid."','".$topicid."','".$selectoption[$d]."','".$indexno."','','0000/00/00',now(),'Submit')";
+         $insertsql = "INSERT INTO tbltopicselectiondetails(category, needid,topicid,selectionid,optindexno,extramsg,submitdate,ondate,remark) values('".$category."','".$tid."','".$topicid."','".$selectoption[$d]."','".$indexno."','','2083-01-23',now(),'Submit')";
         if (mysqli_query($conn, $insertsql))
           {
-            $_SESSION['response']="Save Successfully";
-            header('Location: ../index.php?accountid=customize_training');
+             //header('Location: ../index.php?accountid=customize_training');
+            header('Location: ../index.php?accountid=customize_training_extra');
           }
         else
           {
@@ -51,7 +53,7 @@ for($d=0;$d<$i;$d++)
          
       }
 }
- mysqli_query($conn,"INSERT INTO tbltopicselectiondetails(category, needid,topicid,selectionid,optindexno,extramsg,submitdate,ondate,remark) values('".$category."','".$tid."','0','0','0','".$other."','0000/00/00',now(),'Submit')");
+ mysqli_query($conn,"INSERT INTO tbltopicselectiondetails(category, needid,topicid,selectionid,optindexno,extramsg,submitdate,ondate,remark) values('".$category."','".$tid."','0','0','0','".$other."','2083-01-23',now(),'Submit')");
 }
 mysqli_close($conn);
 ?>

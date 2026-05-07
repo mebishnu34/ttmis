@@ -35,9 +35,7 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 								 	<li><a href="report.php?linkid=201TA">Application List</a></li>
                                     <li><a href="report.php?linkid=202TA">Selected Applicant</a></li>
                                     <li><a href="report.php?linkid=204TA">Trainer List</a></li>
-                                    <!--<li><a href="report.php?linkid=205TA">Demand Training Needs</a></li>-->
-                                    <li><a href="../Display/training_require_demand_details.php" target="blank">Demand Training Needs</a></li>
-                                    
+                                    <li><a href="report.php?linkid=205TA">Demand Training Needs</a></li>
                                     <li><a href="report.php?linkid=203TA">Training Certificate</a></li>
 								</ul>
                                 </li>
@@ -57,7 +55,9 @@ header('Location: ../admin_login.php?msg= "Please Login"');
                                 </ul>
 </td>
 </tr>
-
+<tr>
+<td><a href="report.php?linkid=701PC">Print Certificate</a></td>
+</tr>
 <tr>
 <td width="100%"><ul id="menu"><li>Display Teacher
                                 <ul>
@@ -225,7 +225,7 @@ elseif($id=='203TA')
  }
  elseif($id=='205TA')
  {
- include("../Display/training_require_demand_details.php");
+ include("trainingneed_year.htm");
  }
  elseif($id=='301TA')
  {
@@ -271,6 +271,11 @@ elseif($id=='101all')
  {
   include("../Display/teacher_level_request.php");
  }
+ elseif($id=='701PC')
+ {
+  include("search_trainer.php");
+ }
+ 
  elseif($id==502)
  {
   include("../Display/school_level_requesst.php");

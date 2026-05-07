@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors',1);
 //include("object_include.php");
 include("../Processing/db_connection.php");
 if(isset($_POST['btnnext']))
@@ -22,10 +24,10 @@ if($category=="ecd")
   }
 else
   {
-$mobileno=$_POST['txtmobileno'];
-$_SESSION['mobileno']=$mobileno;
+$mobile=$_POST['txtmobileno'];
+$_SESSION['mobileno']=$mobile;
 $category=$_POST['selectedCategory'];
-$sql1 = "SELECT mobileno FROM tbltrainingneed where mobileno='".$mobileno."'";
+$sql1 = "SELECT mobileno FROM tbltrainingneed where mobileno='".$mobile."'";
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
     {
@@ -64,11 +66,11 @@ if ($result->num_rows > 0)
       '".$_POST['cmbdistrictbagamati_1']."',
       '".$_POST['cmbmunbagamati_1']."',
       '".$_POST['txtwardno']."',
-      '".$_POST['cmbmode1']."',
-      '".$_POST['cmbmode2']."',
-      '".$_POST['optduration']."',
-      '".$_POST['txtexpected']."',
-      '".$_POST['txtsuggestion']."',
+      '',
+      '',
+      '',
+      '',
+      '',
       now(),
       '".$_POST['txtfyear']."',
       'Request')";

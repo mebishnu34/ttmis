@@ -48,7 +48,7 @@ if ($co->num_rows > 0)
    $munvdc="............";
    
    
-$sql1 = "SELECT tname, munvdc, fathername,province, district,wardno,citizenshipno FROM tblapplication where appid='$teacherid'";
+$sql1 = "SELECT tname, munvdc, fathername,province, district,wardno,citizenship FROM tblteacher where teachercode='$teacherid'";
 $result1 = $conn->query($sql1);
 if ($result1->num_rows > 0)
    {
@@ -60,7 +60,7 @@ if ($result1->num_rows > 0)
         $district=$row1["district"];
         $province=$row1["province"];
         $wardno=$row1["wardno"];
-        $citizenshipno=$row1["citizenshipno"];
+        $citizenshipno=$row1["citizenship"];
          
     }
     }

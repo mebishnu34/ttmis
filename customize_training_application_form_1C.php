@@ -12,6 +12,7 @@ if ($result->num_rows > 0)
         {
             $needid=$row["needid"];
             $tname=$row["needname"];
+            $_SESSION['trainername']=$tname;
 
 
 ?>

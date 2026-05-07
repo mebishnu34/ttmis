@@ -28,6 +28,7 @@ header('Location: ../admin_login.php?msg= "Please Login"');
    include("../Processing/db_connection.php");
    include("title.htm");
    $financial_year=$_POST["cmbyear"];
+   $_SESSION['fyear']=$financial_year;
    $sdate="";
    $edate="";
    include("../financial_year.php");

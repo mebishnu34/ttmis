@@ -1,5 +1,8 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
 //include("object_include.php");
 include("../Processing/db_connection.php");
 //$citizen=$_POST['txtcitizenshipno'];
@@ -10,7 +13,7 @@ $photo="";
 $filename = $_FILES['filecitizenship']['name'];
 $temp_file=$mobileno .'_' . $filename;
 $ctz=$temp_file;
-$folderctz = '../application_document/' . $temp_file;
+$f = '../application_document/' . $temp_file;
 $extensionctz = pathinfo($filename, PATHINFO_EXTENSION);
 $filectz = $_FILES['filecitizenship']['tmp_name'];
 $sizectz = $_FILES['filecitizenship']['size'];
@@ -20,7 +23,7 @@ $sizectz = $_FILES['filecitizenship']['size'];
 $filename = $_FILES['filecv']['name'];
 $temp_file=$mobileno .'_' . $filename;
 $cv=$temp_file;
-$foldercv = '../application_document/' . $temp_file;
+$f1 = '../application_document/' . $temp_file;
 $extensioncv = pathinfo($filename, PATHINFO_EXTENSION);
 $filecv = $_FILES['filecv']['tmp_name'];
 $sizecv = $_FILES['filecv']['size'];
@@ -28,7 +31,7 @@ $sizecv = $_FILES['filecv']['size'];
 $filename = $_FILES['filequalification']['name'];
 $temp_file=$mobileno .'_' . $filename;
 $qualifile=$temp_file;
-$folderqualification = '../application_document/' . $temp_file;
+$f2 = '../application_document/' . $temp_file;
 $extensionqualification = pathinfo($filename, PATHINFO_EXTENSION);
 $filequalification = $_FILES['filequalification']['tmp_name'];
 $sizequalification = $_FILES['filequalification']['size'];
@@ -36,11 +39,10 @@ $sizequalification = $_FILES['filequalification']['size'];
 $filename = $_FILES['filephpto']['name'];
 $temp_file=$mobileno .'_' . $filename;
 $photo=$temp_file;
-$folderphoto = '../application_document/' . $temp_file;
+$f3 = '../application_document/' . $temp_file;
 $extensionphoto = pathinfo($filename, PATHINFO_EXTENSION);
 $filephoto = $_FILES['filephpto']['tmp_name'];
 $sizephoto = $_FILES['filephpto']['size'];
-
 $sql1 = "SELECT mobileno FROM tbltrainee where mobileno='".$mobileno."'";
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
@@ -60,8 +62,8 @@ if ($result->num_rows > 0)
     	  }
       else
         {
-          if (copy($ctz, $folderctz) and copy($filecv, $foldercv) and copy($filequalification, $folderqualification) and copy($photo, $folderphoto))
-            {
+          if (copy($filectz, $f) and copy($filecv, $f1) and copy($filequalification, $f2) and copy($filephoto, $f3))
+	    {
               $sql = "INSERT INTO tbltrainee(traineename,
                  trainerengname,
                  trainergender,
@@ -91,11 +93,11 @@ if ($result->num_rows > 0)
                 '".$_POST['txtemail']."',
                 '".$_POST['txtaddress']."',
                 '".$_POST['txtcurrentaddress']."',
-                '".$_POST['txtpublished']."',
                 '',
                 '',
                 '',
-                '".$citizen."',
+                '',
+                '',
                 '',
                 '',
                 '',
@@ -106,7 +108,7 @@ if ($result->num_rows > 0)
                 '". $qualifile ."',
                 '". $photo ."',
                 '".$_POST['txtfyear']."',
-                '')";
+                '0')";
                 if (mysqli_query($conn, $sql))
                   {
                     $sql = "SELECT traineeid FROM tbltrainee where citizenshipno='".$citizen."'";
@@ -246,6 +248,26 @@ if ($result->num_rows > 0)
                           for($d=0;$d<$i;$d++)
                                 {
                                   mysqli_query($conn,"INSERT INTO tblspecialist(trainerid,specialist, remark) values('".$trainerid."','".$trainerspecialist[$d]."','')");
+                                }
+
+                        //publish
+                        $title=$_POST["txttitle"];
+                        $pubdate=$_POST["txtpublishdate"];
+                          $i=0;
+                          foreach($title as $titles)
+                            {
+                                $publishtitle[$i]=$titles;
+                                $i++;
+                            }
+                            $j=0;
+                            foreach($pubdate as $pubdates)
+                              {
+                                $publishdate[$j]=$pubdates;
+                                $j++;
+                              }
+                          for($d=0;$d<$i;$d++)
+                                {
+                                  mysqli_query($conn,"INSERT INTO tbltrainerpublish(trainerid,publishtitle, publishdate, remark) values('".$trainerid."','".$publishtitle[$d]."','".$publishdate[$d]."','Publish')");
                                 }
                       }
 

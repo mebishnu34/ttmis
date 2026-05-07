@@ -4,6 +4,10 @@ if($_SESSION['token']<>"Run")
 {
 header('Location: ../admin_login.php?msg= "Please Login"');
 }
+if(isset($_POST["cmbapplicationyear"]))
+      {
+$_SESSION['appyear']=$_POST['cmbapplicationyear'];
+      }
 ?>
 <HTML>
 <HEAD>
@@ -87,13 +91,13 @@ include("../print_function.php");
             <th><input type="Checkbox"  id="chklevel" name="chklevel" value="level"> Level</div>
             <th><input type="Checkbox" id="chkcategory" name="chksubject" value="subject"> Subject</div>
             <th>
-		<input type="Submit" value="Display" name="btndisplay">
+		<input type="Submit" value="Display" name="btndisplay1">
 </th>
 </tr>
 </table>
 </form>
 <?php
-if(isset($_POST["btndisplay"]))
+if(isset($_POST["btndisplay1"]))
       {
       $district="";$palika="";$level="";$subject="";$districtcheck="";$palikacheck="";$levelcheck="";$subjectcheck="";
       if(isset($_POST["cmbdistrict"]))
@@ -135,7 +139,7 @@ $principal="";
 ?>
 <form method="post" action="../export/export_training_need_details.php">
 <div id="pdata">
-      <font size="+2"><b>Customized (क्षमता विकास ) तालिम आवश्यकता माग फाराम</b></font>
+      <font size="+2"><b>Customized (क्षमता विकास ) तालिम आवश्यकता माग फाराम-<?php echo $_SESSION['appyear'];?></b></font>
  <table width="800%" border="1" bgcolor="#FFFFFF" cellpadding="5" cellspacing="0">
  <tr>
 <th>क्र स</th>
@@ -165,51 +169,51 @@ $principal="";
 $i=1;
 if($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level" and $subjectcheck="subject")
         {
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and district='".$district."' and munvdc='".$palika."' and needsubject='".$subject."' ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and district='".$district."' and munvdc='".$palika."' and needsubject='".$subject."' and financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 
         }
 elseif($districtcheck=="district")
         {
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and district='".$district."' and munvdc='".$palika."' and needsubject='".$subject."' ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where district='".$district."' and financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 
         }
 elseif($districtcheck=="district" and $palikacheck=="palika")
         {
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and district='".$district."' and munvdc='".$palika."' and needsubject='".$subject."' ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where district='".$district."' and munvdc='".$palika."' and financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 
         }
 elseif($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level")
         {
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and district='".$district."' and munvdc='".$palika."' and needsubject='".$subject."' ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and district='".$district."' and munvdc='".$palika."' and financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 
         }
 elseif($levelcheck=="level")
         {
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 
         }
 elseif($subjectcheck=="subject")
         {
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where needsubject='".$subject."' ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where needsubject='".$subject."' and financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 
         }
 elseif($levelcheck=="level" and $subjectcheck="subject")
         {
             
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and  needsubject='".$subject."' ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where appointlevel='".$level."' and  needsubject='".$subject."' and financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 
         }
 elseif($districtcheck=="district" and $levelcheck=="level" and $subjectcheck="subject")
         {
             
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where district='".$district."' and needsubject='".$subject."' ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where district='".$district."' and needsubject='".$subject."' and financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
 
         }
 
 else
         {
             
-            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed ORDER BY regdate DESC";
+            $sql = "SELECT needid, needname,needpost,appointlevel,needsubject,experenceyear,mobileno,email,schoolname,district,munvdc,wardno,trainingmode1,trainingmode2,trainingduration,expectedoutcome,suggestion,regdate,remark FROM tbltrainingneed where financialyear='".$_SESSION['appyear']."' ORDER BY regdate DESC";
            
         }
       

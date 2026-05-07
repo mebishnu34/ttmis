@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../Processing/db_connection.php");
 include("title.htm");
 include("../Processing/db_connection.php");
@@ -21,7 +22,7 @@ include("../Processing/db_connection.php");
 <td valign="buttom" align="center" bgcolor="#FFFFFF"><img src="..\Image/np_flag.gif" width="150" height="130"></td>
 </tr>
 </table>
-
+Year:<?php echo $_SESSION['fyear'];?>
 <form method="Post" Action="../Object/save_training_mark.php">
  <table width="60%" border="1" bgcolor="#FFFFFF" cellpadding="2" cellspacing="0">
 <tr>

@@ -335,7 +335,7 @@ function schooldistrict(str) {
   <label class="label_text">तालिम लिने मोड (प्राथमिकता २) <span class="star">*</span></label>
   </div>
   <div class="content">
-    <input type="Text" name="cmbpriority2mode" id="txtmode2" disabled>
+    <input type="Text" name="cmbpriority2mode" id="txtmode2" readonly>
     </div>
     <script>
         function updatetextbox()
