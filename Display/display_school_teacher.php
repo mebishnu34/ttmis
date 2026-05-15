@@ -87,7 +87,7 @@ if($schoolname=="All")
          echo "<td>".$row["loginname"]."</td>";
          echo "<td>".$row["tpass"]."</td>";
          echo "<td>".$row["tcontact"]."</td>";
-         echo "<td bgcolor=blue><a href=../Input/teacher_short_info_update.php?tid=$row[ID] target=_blank>Edit</a></td>";
+         echo "<td bgcolor=blue><a href=../Input/teacher_short_info_update.php?tid=$row[teacherid] target=_blank>Edit</a></td>";
         echo "</tr>";
          $i++;
          }

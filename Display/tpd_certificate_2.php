@@ -14,6 +14,7 @@ if(isset($_GET['trainingid']))
  $teacherid=$_SESSION['teacherid']; 
  $trainingid=$_GET['trainingid']; 
 }
+$province="बागमती";
 $district="काभ्रेपलाञ्चोक";
 $municipality="धुलिखेल";
 $scode=0;
@@ -73,6 +74,10 @@ if ($result1->num_rows > 0)
          
     }
     }
+if($province=="")
+    {
+        $province="बागमती";
+    }
 if($fathername=="")
     {
         $fathername="बुबाकाे नाम हुनु पर्ने";
@@ -127,7 +132,7 @@ $printdate="2082/12/10";
  <br>
      <div align="justify" style="line-height: 2;">
         <font size="5">
-         <font color="white">   श्री </font> <b><?php echo $fathername;?></b> <font color="white"> को छोरा/ छोरी </font><b><?php echo $district;?> </b> <font color="white"> जिल्ला </font><b><?php echo $munvdc;?></b> <font color="white"> गा.पा./न.पा. नं. </font><b><?php echo $wardno;?></b> <font color="white"> बस्ने श्री </font><b><?php echo $teachername;?> </b> <font color="white"> ले शिक्षक पेसागत तालिम सम्पन्न गरी ३० कार्य दिनको तालिम </font><b><font face="Fontacy Himali"><?php echo $traingyear;?> </font></b> <font color="white"> सालमा पूरा गर्नु भएकोले यो प्रमाण–पत्र प्रदान गरिएको छ ।</font>
+         <font color="white">   श्री </font> <b><?php echo $fathername;?></b> <font color="white"> को छोरा/ छोरी </font><b><?php echo $province;?> </b><font color="white"> प्रदेश </font><b><?php echo $district;?> </b> <font color="white"> जिल्ला </font><b><?php echo $munvdc;?></b> <font color="white"> गा.पा./न.पा. नं. </font><b><?php echo $wardno;?></b> <font color="white"> बस्ने श्री </font><b><?php echo $teachername;?> </b> <font color="white"> ले शिक्षक पेसागत तालिम सम्पन्न गरी ३० कार्य दिनको तालिम </font><b><font face="Fontacy Himali"><?php echo $traingyear;?> </font></b> <font color="white"> सालमा पूरा गर्नु भएकोले यो प्रमाण–पत्र प्रदान गरिएको छ ।</font>
 </font>    
     </div>
 <br>

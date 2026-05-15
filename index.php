@@ -4,6 +4,35 @@ $_SESSION['financial_year']="2082/083";
    $_SESSION['application']="";
    $_SESSION['csrf']="";
    $_SESSION['token']="Stop";
+   include("Processing/db_connection.php");
+   $sql = "SELECT * FROM tblcontents where contenttitle='Training Application'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+   {
+    if($row = $result->fetch_assoc())
+    {
+         $_SESSION['application']=$row['remark'];
+    }
+   }
+   $sql = "SELECT remark FROM tblcontents where contenttitle='Customize Training'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+   {
+    if($row = $result->fetch_assoc())
+    {
+         $_SESSION['customize']=$row['remark'];
+    }
+   }
+   $sql = "SELECT remark FROM tblcontents where contenttitle='Roster'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+   {
+    if($row = $result->fetch_assoc())
+    {
+         $_SESSION['roster']=$row['remark'];
+    }
+   }
+
 ?>
 <HTML>
     <Head>
@@ -139,7 +168,11 @@ $_SESSION['financial_year']="2082/083";
                             {
                         ?>
                         <td align="Center" width="30%" valign="top">
-                        <table width="100%", border="0" class="logintable" cellpadding="5s">
+                        <table width="100%", border="0" class="logintable" cellpadding="5">
+                            <?php 
+                            if($_SESSION['application']=='Enable')
+                                {
+                            ?>
                             <tr >
                                 <td bgcolor="#FFFFFF" align="center"><font size="+1" color="#000000">
                             <p align="justify"><b>बाल शिक्षक र शिक्षकका लागि एक महिने प्रमाणीकरण तालिम (TPD) वा सेवा प्रवेश तालिम वा प्र.अ. नेतृत्व क्षमता विकास तालिम (३० दिनकाे ) लिन इच्छुक  बाल  शिक्षक/शिक्षक/प्र.अ.हरुले तलको आवेदन फारामकाे लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरी आवेदन पेश गर्नु हुन अनुराेध छ।</b></p><br>
@@ -150,9 +183,16 @@ $_SESSION['financial_year']="2082/083";
                                 <a href="index.php?accountid=application_form"><b>TPD / सेवा प्रवेश / प्र.अ. नेतृत्व क्षमता <br> तालिम आवेदन फाराम</b></a>
                                 </td>
                             </tr>
+                            <?php
+                                }
+                                ?>
                             <tr>
                                 <td>&nbsp;</td>
                             </tr>
+                            <?php
+                            if($_SESSION['roster']=='Enable')
+                                {
+                            ?>
                             <tr >
                                 <td bgcolor="#FFFFFF" align="center"><font size="+1" color="#000000">
             
@@ -160,15 +200,22 @@ $_SESSION['financial_year']="2082/083";
 
                                 </td>   
                             </tr>
+                            
                             <tr>
                             <td bgcolor="#920808" align="center">
                                 <a href="index.php?accountid=roster_form"><b>विज्ञ / राेष्टर सूची दर्ता फाराम</b></a>
                                 </td>
                             </tr>
-                            <tr>
+                            
                             <tr>
                                 <td>&nbsp;</td>
                             </tr>
+                            <?php
+                                }
+                                
+                            if($_SESSION['customize']=='Enable')
+                                {
+                                    ?>
                             <tr >
                                 <td bgcolor="#FFFFFF" align="center">
             
@@ -181,6 +228,9 @@ $_SESSION['financial_year']="2082/083";
                                 <a href="index.php?accountid=customize_training"><b>Customized / क्षमता विकास तालिम माग फाराम</b></a>
                                 </td>
                             </tr>
+                            <?php
+                                }
+                                ?>
                             <tr>
                             <td bgcolor="#FFFFFF" align="center">
                                 &nbsp;

@@ -43,7 +43,7 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <td align="right" height="100" colspan="4"><a href="../teacher_contact.php" target="blank">Teacher Contact</a></td>
 </tr>
 <tr>
-<td align="center"><a href="registration.php"><img src="..\Image\register.jpg"></a></td>
+<td align="center"><a href="registration_1.php"><img src="..\Image\register.jpg"></a></td>
 <td align="center"><a href="create.php"><img src="..\Image\create.jpg"></a></td>
 <td align="center"><a href="entry.php"><img src="..\Image\entry.jpg"></a></td>
 <td align="center"><a href="report.php"><img src="..\Image\report.jpg"></a></td>

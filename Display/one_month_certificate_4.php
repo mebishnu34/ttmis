@@ -14,82 +14,7 @@ if(isset($_GET['trainingid']))
  $teacherid=$_SESSION['teacherid']; 
  $trainingid=$_GET['trainingid']; 
 }
-$district="काभ्रेपलाञ्चोक";
-$municipality="धुलिखेल";
-$scode=0;
-$startdate="";
-$enddate="";
-$venu="";
-$subject="";
-$trainingdays="";
-$training="";
-$schoolname="";
-$teachername="";
-$traingyear=2082;
-$sql = "SELECT * FROM tblruntraining where trainingid='$trainingid'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0)
-   {
-    if($row = $result->fetch_assoc())
-    {
-        $training= $row["trainingname"];
-        $level= $row["level"];
-         $subject=$row["subject"];
-         $startdate=$row["startdate"];
-         $enddate= $row["enddate"];
-         $venu=$row["venue"];
-         $trainingdays=$row["trainingdays"];
-        
-        }
-    }
-$cosql = "SELECT coordinator, schoolcode, sdate FROM tblttraining where trainingid='$trainingid' and teacherid='$teacherid'";
-$co = $conn->query($cosql);
-if ($co->num_rows > 0)
-   {
-    if($corow = $co->fetch_assoc())
-    {
-         $coordinator=$corow["coordinator"];
-         $scode=$corow["schoolcode"];
-         $traingyear=$corow["sdate"];
-    }
-    }
-    $schoolname="........................................";
-   $teachername="....................................................";
-   $munvdc="............";
-   
-   
-$sql1 = "SELECT tname, munvdc, fathername,province, district,wardno,citizenship FROM tblteacher where teachercode='$teacherid'";
-$result1 = $conn->query($sql1);
-if ($result1->num_rows > 0)
-   {
-    if($row1 = $result1->fetch_assoc())
-    {
-        $munvdc= $row1["munvdc"];
-        $teachername= $row1["tname"];
-        $fathername=$row1["fathername"];
-        $district=$row1["district"];
-        $province=$row1["province"];
-        $wardno=$row1["wardno"];
-        $citizenshipno=$row1["citizenship"];
-         
-    }
-    }
-if($fathername=="")
-    {
-        $fathername="बुबाकाे नाम हुनु पर्ने";
-    }
-$sql2 = "SELECT * FROM tblschool where schoolcode='$scode'";
-$result2 = $conn->query($sql2);
-if ($result2->num_rows > 0)
-   {
-    while($row2 = $result2->fetch_assoc())
-    {
-        $schoolname= $row2["schoolname"];
-        $schooladdress= $row2["address"];
-
-    }
-    }
-$printdate="2082/12/10";
+  
 ?>
 
 <html>
@@ -118,21 +43,53 @@ $printdate="2082/12/10";
 <center><font size="+1" color="blue"><b><font size="6" color="blue">एक महिने प्रमाणीकरण तालिम</font></b></font></center>
  <center><b><font size="7" color="red">&sext;&sext; <u>प्रमाण पत्र</u> &sext;&sext;</font></b></center>
 -->
-<br><br><br><br><br><br><br><br>
- <br>
- <br>
- <br>
-     <div align="justify" style="line-height: 2;">
-        <font size="5"><b>
-            <font color="white">श्री </font><?php echo $fathername;?> <font color="white"> को छोरा/छोरी </font> <?php echo $province;?> <font color="white"> प्रदेश </font><?php echo $district;?> <font color="white"> जिल्ला </font><?php echo $munvdc;?>  <font color="white"> म.न.पा।/उ.म.न.पा./न.पा./गा.पा. वडा नं. </font> <?php echo $wardno;?> <font color="white"> स्थायी ठेगाना एवम् नागरिकता प्रमाणपत्र नं. </font> <?php echo $citizenshipno;?>  <font color="white"> भएको श्री </font> <?php echo $teachername;?> <font color="white"> ले </font><?php echo $traingyear;?> <font color="white"> सालमा </font><?php echo $training;?> <font color="white"> को एक महिने प्रमाणीकरण तालिम (३० कार्यदिन) सम्पन्न गर्नु भएकाले यो प्रमाण पत्र प्रदान गरिएको छ ।</font>
-</b></font>    
-    </div>
-<br>
-<br>
-<br>
-<br>
-  <table width="100%" border="0">
+<div class="cnumber">
+<?php echo $certificateno;?> 
+</div>
+<div class="school_district">
+<?php 
+if($regno<>"")
+    {
+        echo $schooldistrict . ':-'. $regno;
+    }
+else
+    {
+        echo $schooldistrict;
+    }
+?> 
+</div>
+<div class="onemonth_fathername">
+<?php echo $fathername;?> 
+</div>
+<div class="onemonth_province">
+<?php echo $province;?> 
+</div>
+<div class="onemonth_district">
+<?php echo $district;?>
+</div>
+<div class="onemonth_munvdc">
+<?php echo $munvdc;?>
+</div>
+<div class="onemonth_ward">
+<?php echo $wardno;?>
+</div>
+<div class="onemonth_citizenshipno">
+<?php echo $citizenshipno;?>
+</div>
+<div class="onemonth_name">
+<?php echo $teachername;?>
+</div>
+<div class="onemonth_year">
+<?php echo $traingyear;?>
+</div>
+<div class="onemonth_trainingname">
+<?php 
+echo $level;
+//echo $training;?>
+</div>
     <!--
+  <table width="100%" border="0">
+
   <tr>
   <td align="center" width="30%"><font size="5">.......................</font></td>
   <td align="center"><font size="5">..................</font></td>
@@ -148,12 +105,16 @@ $printdate="2082/12/10";
  <tr>
     <td colspan="3">&nbsp;</td>
 </tr>
--->
+
  <tr>
  <td align="center" colspan="4"><font face="Fontasy Himali" size="4" color="white">मिति </font><font face="Fontasy Himali" size="4"><b><?php echo $printdate;?></b></font></td>
   </tr>
 
  </table>
+ -->
+ <div class="onemonth_printdate">
+<?php echo $printdate;?>
+</div>
 </div>
 </body>
 </html>

@@ -89,7 +89,7 @@ if ($result->num_rows > 0)
             echo "<td align=center>". $mobileno."</td>";
             echo "<td>".$schoolname."</td>";
             echo "<td>".$trainingname."</td>";
-            echo "<th align=center bgcolor=blue><a href=../Display/select_certificate_1.php?tid=".$row1["ID"]. " target=blank>Certificate</a></th>";
+            echo "<th align=center bgcolor=blue><a href=../Display/select_certificate_2.php?tid=".$row1["ID"]. " target=blank>Certificate</a></th>";
             echo "</tr>";
          $i++;
          }

@@ -14,77 +14,6 @@ if(isset($_GET['trainingid']))
  $teacherid=$_SESSION['teacherid']; 
  $trainingid=$_GET['trainingid']; 
 }
-$district="काभ्रेपलाञ्चोक";
-$municipality="धुलिखेल";
-$scode=0;
-$startdate="";
-$enddate="";
-$venu="";
-$subject="";
-$trainingdays="";
-$training="";
-$schoolname="";
-$teachername="";
-$sql = "SELECT * FROM tblruntraining where trainingid='$trainingid'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0)
-   {
-    if($row = $result->fetch_assoc())
-    {
-        $training= $row["trainingname"];
-        $level= $row["level"];
-         $subject=$row["subject"];
-         $startdate=$row["startdate"];
-         $enddate= $row["enddate"];
-         $venu=$row["venue"];
-         $trainingdays=$row["trainingdays"];
-        
-        }
-    }
-$cosql = "SELECT * FROM tblttraining where trainingid='$trainingid' and teacherid='$teacherid'";
-$co = $conn->query($cosql);
-if ($co->num_rows > 0)
-   {
-    if($corow = $co->fetch_assoc())
-    {
-         $coordinator=$corow["coordinator"];
-         $scode=$corow["schoolcode"];
-    }
-    }
-    $schoolname="........................................";
-   $teachername="....................................................";
-   $munvdc="............";
-   
-   
-$sql1 = "SELECT tname FROM tblteacher where teachercode='$teacherid'";
-$result1 = $conn->query($sql1);
-if ($result1->num_rows > 0)
-   {
-    if($row1 = $result1->fetch_assoc())
-    {
-        $teachername= $row1["tname"];
-        
-         
-    }
-    }
-$sql2 = "SELECT schoolname,address, munvdc, schoolname, district, wardno FROM tblschool where schoolcode='$scode'";
-$result2 = $conn->query($sql2);
-if ($result2->num_rows > 0)
-   {
-    while($row2 = $result2->fetch_assoc())
-    {
-        $schoolname= $row2["schoolname"];
-        $schooladdress= $row2["address"];
-        $munvdc= $row2["munvdc"];
-        $schoolname= $row2["schoolname"];
-        $schooladdress= $row2["district"].", ". $row2["munvdc"].", ". $row2["wardno"]; 
-        $district=$row2["district"];
-        $municipality=$row2["munvdc"];
-
-    }
-    }
-
-$printdate="2082/12/10";
 ?>
 
 <html>
@@ -95,6 +24,7 @@ $printdate="2082/12/10";
 <body>
 <div class="page">
 <div class="div_certificate">
+    
 <!--
 <table width="100%" align="center">
     <tr>
@@ -112,18 +42,29 @@ $printdate="2082/12/10";
 <br>
  <center><font size="+3" color="Red"><b><font size="7" color="red">&sext;&sext; <u>प्रमाण पत्र</u> &sext;&sext;</font></b></font></center>
 -->
- <br>
- <br><br><br><br><br><br><br><br><br>
- <br>
-     <div align="justify" style="line-height: 2;">
-        <font size="+1">
-           <font color="white">शिक्षा तालिम केन्द्र, धुलिखेल, काभ्रेपलाञ्चोकको आयोजनामा मिति </font><font size="5"><b><?php echo $startdate;?></b></font> <font color="white"> देखि </font> <font size="5"><b><?php echo $enddate;?></b></font> <font color="white">सम्म तालिम केन्द्रमा आधारित १५ कार्य दिन र सो पश्चात विद्यालयमा आधारित १५ दिन गरी जम्मा ३० कार्य दिनको आधारभूत/माध्यमिक तहको सेवा प्रवेश तालिम </font><font size="5"><?php echo $district;?></font> <font color="white"> जिल्ला,</font><font size="5"><?php echo $municipality;?> <font color="white"> म.न.पा/उ.प.न.पा./न.पा./गा.पा. स्थित </font><font size="5"> <b><?php echo $schoolname;?></b></font> <font color="white">का शिक्षक तपाइ श्री </font><font size="5"> <b><?php echo $teachername;?></b></font><font size="5" color="white">ले सफलतापूर्वक सम्पन्न गर्नुभएकाले स–धन्यवाद यो प्रमाणपत्र प्रदान गरिएको छ ।</font>
-        </font>    
-    </div>
-<br>
-<br><br><br><br><br><br><br><br><br><br>
+<div class="school_district">
+<?php echo $schooldistrict;?> 
+</div>
+<div class="sewa_sdate">
+    <?php echo $startdate;?>
+</div> 
+<div class="sewa_edate">
+    <?php echo $enddate;?>
+</div>
+<div class="sewa_district">
+<?php echo $district;?>
+</div>
+<div class="sewa_munvdc">
+<?php echo $municipality;?> 
+</div>
+<div class="sewa_school">
+<?php echo $schoolname;?>
+</div>
+<div class="sewa_name">
+<?php echo $teachername;?>
+</div>
 
-  <table width="100%" border="0">
+<table width="100%" border="0">
     <!--
   <tr>
   <td align="center" width="30%"><font size="5">.......................</font></td>
@@ -140,11 +81,15 @@ $printdate="2082/12/10";
  <tr>
     <td colspan="3">&nbsp;</td>
 </tr>
--->
+
   <tr>
  <td align="center" colspan="4"><font face="Fontasy Himali" size="4" color="white">मिति </font><font face="Fontasy Himali" size="4"><b><?php echo $printdate;?></b></font></td>
   </tr>
  </table>
+ -->
+ <div class="sewa_printdate">
+    <?php echo $printdate;?>
+</div>
 </div>
 </body>
 </html>

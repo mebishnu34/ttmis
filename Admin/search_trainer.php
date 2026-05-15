@@ -4,6 +4,7 @@ include("../Processing/db_connection.php");
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
    <!-- Including our scripting file. -->
    <script type="text/javascript" src="../script/search_for_certificate.js"></script>
+   <script type="text/javascript" src="../script/search_for_certificate_mobile.js"></script>
  <table width="100%">
     <tr>
         <td bgcolor="blue"><a href="registration.php?linkid=14" target="_blank">New Teacher</a> </td>

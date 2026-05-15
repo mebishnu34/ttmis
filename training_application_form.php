@@ -87,7 +87,7 @@ function schooldistrict(str) {
     <td><select class="custom-combo" name="cmbmunnp" id="cmbmunnp" required>
 						</select></td>
     <td><label class="label_text">वडा <span class="star">*</span></label></td>
-    <td><input class="custom-input" placeholder="वडा" size="5" name="txtward" required></td>
+    <td><input class="custom-input_number" placeholder="वडा" size="5" name="txtward" required></td>
 </tr>
 </table>
 
@@ -151,7 +151,7 @@ function schooldistrict(str) {
         <option value="फागुन">फागुन</option>
         <option value="चैत">चैत</option>
       </select>
-      <label class="label_text"> दिन <span class="star">*</span></label><input type="text" name="txtday" size="5" placeholder="दिन" >
+      <label class="label_text"> दिन <span class="star">*</span></label><input class="custom-input_number" type="text" name="txtday" size="5" placeholder="दिन" >
     </div>
   </div>
   <br>
@@ -254,7 +254,7 @@ function schooldistrict(str) {
     <label class="label_text">वडा <span class="star">*</span></label>
   </div>
     <div class="label_column">
-      <input class="custom-input" placeholder="वडा" name="txtschoolward" required>
+      <input class="custom-input_number" placeholder="वडा" name="txtschoolward" required>
     </div>
 </div>
 <h3>ग) तालिम आवश्यकता सम्वन्धी विवरण</h3>

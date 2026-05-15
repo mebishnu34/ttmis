@@ -39,7 +39,7 @@ include("../Input/organization.php");
 }
 elseif($id==14)
 {
-include("../Input/teacher_short_info_registration.php");
+include("../Input/registration_for_certificate.php");
 }
 elseif($id==2)
 {

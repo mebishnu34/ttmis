@@ -3,11 +3,11 @@ $count=0;
 //Including Database configuration file.
 include("../Processing/db_connection.php");
 //Getting value of "search" variable from "script.js".
-if (isset($_POST['search'])) {
+if (isset($_POST['searchmobile'])) {
 
-    $Name = trim($_POST['search']);
+    $mobileno = trim($_POST['searchmobile']);
 
-    if ($Name != "") {
+    if ($mobileno != "") {
 
         // Prepared statement for security + speed
         $stmt = $conn->prepare("
@@ -23,11 +23,11 @@ if (isset($_POST['search'])) {
             FROM tblteacher t
             LEFT JOIN tblschool s 
                 ON t.scode = s.schoolcode
-            WHERE t.tname LIKE CONCAT(?, '%')
-            LIMIT 20
+            WHERE t.tcontact LIKE CONCAT(?, '%')
+            LIMIT 5
         ");
 
-        $stmt->bind_param("s", $Name);
+        $stmt->bind_param("s", $mobileno);
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -69,3 +69,4 @@ if (isset($_POST['search'])) {
     }
 }
 ?>
+

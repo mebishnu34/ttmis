@@ -53,6 +53,7 @@ if(isset($_GET['id']))
 <th>Subject</th>
 <th>Start Date</th>
 <th>End Date</th>
+<th>Printed On </th>
 <th></th>
 </tr>
 <?php
@@ -79,12 +80,22 @@ if ($result->num_rows > 0)
                   $edate=$crow["enddate"];
                }
          }
-				 echo "<td>". $i . "</td>";
+         $pdate="";
+         $psql = "SELECT printdate FROM tblprintdetails where trainingid='".$row["ID"]."'";
+         $presult = mysqli_query($conn, $psql);
+         if($prow = mysqli_fetch_assoc($presult)) 
+	         {
+               $pdate=$prow['printdate'];
+	         }
+
+				 echo "<td align=center>". $i . "</td>";
                  echo "<td>". $trainingname. "-". $coordinate ."</td>";
-                 echo "<td>". $level ."</td>";
-                 echo "<td>". $subject ."</td>";
-                 echo "<td>". $sdate."</td>";
-                 echo "<td>". $edate."</td>";
+                 echo "<td align=center>". $level ."</td>";
+                 echo "<td align=center>". $subject ."</td>";
+                 echo "<td align=center>". $sdate."</td>";
+                 echo "<td align=center>". $edate."</td>";
+                 echo "<td align=center>". $pdate."</td>";
+                 echo "<td align=center bgcolor=blue><a href=../Input/update_certificate_number.php?tid=".$row["ID"]. " target=blank>C.Number</a></td>";
                  echo "<td align=center bgcolor=blue><a href=../Display/select_certificate_2.php?tid=".$row["ID"]. " target=blank>Certificate</a></td>";
               	$i++;
                 echo "</tr>";

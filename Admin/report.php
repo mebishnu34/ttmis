@@ -59,6 +59,9 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <td><a href="report.php?linkid=701PC">Print Certificate</a></td>
 </tr>
 <tr>
+<td><a href="report.php?linkid=702PD">Print Details</a></td>
+</tr>
+<tr>
 <td width="100%"><ul id="menu"><li>Display Teacher
                                 <ul>
 								 	<li><a href="report.php?linkid=101ts">Teacher From Subject</a></li>
@@ -274,6 +277,11 @@ elseif($id=='101all')
  elseif($id=='701PC')
  {
   include("search_trainer.php");
+ }
+
+ elseif($id=='702PD')
+ {
+  include("../Display/display_print_details.php");
  }
  
  elseif($id==502)

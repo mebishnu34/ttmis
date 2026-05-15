@@ -30,3 +30,351 @@
 #inner{
     background: #fff;
 }
+
+.tpd_fathername
+{
+    position:absolute;
+/* Distance from top */
+    top:10.2cm;
+
+    /* Distance from left */
+    left:3cm;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+.tpd_province
+{
+    position:absolute;
+/* Distance from top */
+    top:10.2cm;
+
+    /* Distance from left */
+    left:20.5cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+
+}
+.tpd_district
+{
+    position:absolute;
+/* Distance from top */
+    top:11.5cm;
+
+    /* Distance from left */
+    left:2cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+.tpd_munvdc
+{
+    position:absolute;
+/* Distance from top */
+    top:11.5cm;
+
+    /* Distance from left */
+    left:9cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+
+.tpd_ward
+{
+    position:absolute;
+/* Distance from top */
+    top:11.5cm;
+
+    /* Distance from left */
+    left:25cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+
+.tpd_name
+{
+position:absolute;
+
+    /* Distance from top */
+    top:13cm;
+
+    /* Distance from left */
+    left:4.5cm;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+.tpd_year
+{
+ position:absolute;
+/* Distance from top */
+    top:14.5cm;
+
+    /* Distance from left */
+    left:7.5cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+.tpd_printdate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:18.5cm;
+    /* Distance from left */
+    left:11cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+
+.sewa_sdate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:8.5cm;
+    /* Distance from left */
+    left:19.2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_edate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:9.5cm;
+    /* Distance from left */
+    left:2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_district
+{
+position:absolute;
+
+    /* Distance from top */
+    top:11cm;
+    /* Distance from left */
+    left:19cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_munvdc
+{
+position:absolute;
+
+    /* Distance from top */
+    top:12cm;
+    /* Distance from left */
+    left:2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_school
+{
+position:absolute;
+
+    /* Distance from top */
+    top:12.2cm;
+    /* Distance from left */
+    left:16cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_name
+{
+position:absolute;
+
+    /* Distance from top */
+    top:13.5cm;
+    /* Distance from left */
+    left:7cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_printdate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:18.5cm;
+    /* Distance from left */
+    left:9cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_fathername
+{
+position:absolute;
+
+    /* Distance from top */
+    top:9.5cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_province
+{
+position:absolute;
+
+    /* Distance from top */
+    top:9.5cm;
+    /* Distance from left */
+    left:17.2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_district
+{
+position:absolute;
+
+    /* Distance from top */
+    top:9.5cm;
+    /* Distance from left */
+    left:22.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.onemonth_munvdc
+{
+position:absolute;
+
+    /* Distance from top */
+    top:10.5cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_ward
+{
+position:absolute;
+
+    /* Distance from top */
+    top:10.5cm;
+    /* Distance from left */
+    left:20.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_citizenshipno
+{
+position:absolute;
+
+    /* Distance from top */
+    top:12cm;
+    /* Distance from left */
+    left:9cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_name
+{
+position:absolute;
+
+    /* Distance from top */
+    top:12cm;
+    /* Distance from left */
+    left:18cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_year
+{
+position:absolute;
+
+    /* Distance from top */
+    top:13.5cm;
+    /* Distance from left */
+    left:3cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_trainingname
+{
+position:absolute;
+
+    /* Distance from top */
+    top:13.5cm;
+    /* Distance from left */
+    left:9.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_printdate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:18cm;
+    /* Distance from left */
+    left:10.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.school_district
+{
+position:absolute;
+
+    /* Distance from top */
+    top:2cm;
+    /* Distance from left */
+    left:2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.cnumber
+{
+position:absolute;
+
+    /* Distance from top */
+    top:2cm;
+    /* Distance from left */
+    left:23.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.regnumber
+{
+position:absolute;
+
+    /* Distance from top */
+    top:2cm;
+    /* Distance from left */
+    left:1.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
