@@ -87,6 +87,15 @@ else
 echo $level;
 //echo $training;?>
 </div>
+<div class="onemonth_prepaired">
+<?php echo $prepairedby;?>
+</div>
+<div class="onemonth_check">
+<?php echo $checkby;?>
+</div>
+<div class="onemonth_approved">
+<?php echo $approvedby;?>
+</div>
     <!--
   <table width="100%" border="0">
 

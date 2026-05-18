@@ -70,7 +70,7 @@ else
       username,
       teachertype,
       stream,
-      rank,
+      trank,
       position,
       contact) 
       values('".$_POST['txtteacherName']."',
@@ -139,7 +139,8 @@ else
       }
     else
         {
-        header('Location: ../error.php?msg='. die("Database Connection Error" .mysqli_error()));
+        //header('Location: ../error.php?msg='. die("Database Connection Error" .mysqli_error()));
+        echo mysqli_error();
         }
   }
 else

@@ -6,7 +6,8 @@ include("../Processing/db_connection.php");
   $sdate=""    ;
   $edate="";
 include("../financial_year.php");
- $sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where startdate>='".$sdate."' and enddate<='".$edate."' and remark='Running' ORDER BY starttime";
+ //$sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where startdate>='".$sdate."' and enddate<='".$edate."' and remark='Running' ORDER BY starttime";
+ $sql = "SELECT id, trainingname, level, subject, coordinator, startdate, enddate,venue,user from tblruntraining where financialyear='".$financial_year."' and remark='Running' ORDER BY starttime";
   $result = $conn->query($sql);
   ?>
   <select id="trainingsubject" name="cmbtrainingid" class="custom-combo">

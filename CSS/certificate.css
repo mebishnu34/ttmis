@@ -35,10 +35,10 @@
 {
     position:absolute;
 /* Distance from top */
-    top:10.2cm;
+    top:9.2cm;
 
     /* Distance from left */
-    left:3cm;
+    left:4.2cm;
 
     font-size:22px;
     font-weight:bold;
@@ -48,7 +48,7 @@
 {
     position:absolute;
 /* Distance from top */
-    top:10.2cm;
+    top:9.2cm;
 
     /* Distance from left */
     left:20.5cm;
@@ -62,7 +62,7 @@
 {
     position:absolute;
 /* Distance from top */
-    top:11.5cm;
+    top:10.8cm;
 
     /* Distance from left */
     left:2cm;
@@ -75,10 +75,10 @@
 {
     position:absolute;
 /* Distance from top */
-    top:11.5cm;
+    top:10.8cm;
 
     /* Distance from left */
-    left:9cm;
+    left:9.2cm;
 
     font-size:22px;
     font-weight:bold;
@@ -89,7 +89,7 @@
 {
     position:absolute;
 /* Distance from top */
-    top:11.5cm;
+    top:10.8cm;
 
     /* Distance from left */
     left:25cm;
@@ -104,10 +104,10 @@
 position:absolute;
 
     /* Distance from top */
-    top:13cm;
+    top:12cm;
 
     /* Distance from left */
-    left:4.5cm;
+    left:5.5cm;
 
     font-size:22px;
     font-weight:bold;
@@ -117,10 +117,10 @@ position:absolute;
 {
  position:absolute;
 /* Distance from top */
-    top:14.5cm;
+    top:13.2cm;
 
     /* Distance from left */
-    left:7.5cm;
+    left:8.5cm;
 
     font-size:22px;
     font-weight:bold;
@@ -131,14 +131,47 @@ position:absolute;
 position:absolute;
 
     /* Distance from top */
-    top:18.5cm;
+    top:17.5cm;
     /* Distance from left */
     left:11cm;
     font-size:22px;
     font-weight:bold;
 }
 
+.tpd_prepaired
+{
+position:absolute;
 
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.tpd_check
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:13cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.tpd_approved
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:22cm;
+    font-size:22px;
+    font-weight:bold;
+}
 
 .sewa_sdate
 {
@@ -223,6 +256,42 @@ position:absolute;
     font-size:22px;
     font-weight:bold;
 }
+.sewa_prepaired
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_check
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:13cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.sewa_approved
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:22cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
 
 .onemonth_fathername
 {
@@ -342,13 +411,48 @@ position:absolute;
     font-size:22px;
     font-weight:bold;
 }
+.onemonth_prepaired
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_check
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:13cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.onemonth_approved
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:22cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
 
 .school_district
 {
 position:absolute;
 
     /* Distance from top */
-    top:2cm;
+    top:1.5cm;
     /* Distance from left */
     left:2cm;
     font-size:22px;
@@ -360,7 +464,7 @@ position:absolute;
 position:absolute;
 
     /* Distance from top */
-    top:2cm;
+    top:1.5cm;
     /* Distance from left */
     left:23.5cm;
     font-size:22px;
@@ -372,7 +476,7 @@ position:absolute;
 position:absolute;
 
     /* Distance from top */
-    top:2cm;
+    top:1.5cm;
     /* Distance from left */
     left:1.5cm;
     font-size:22px;

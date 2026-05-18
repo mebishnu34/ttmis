@@ -23,7 +23,7 @@ $traingyear=2082;
    $teachername="....................................................";
    $munvdc="............";
 $rid=0;
-$cosql = "SELECT ID,coordinator, schoolcode, sdate, runid,certificatenumber,registernumber FROM tblttraining where ID='".$_SESSION['trainingid']."'";
+$cosql = "SELECT ID,coordinator, schoolcode, sdate, runid,certificatenumber,registernumber,prepairedby, checkby,approvedby FROM tblttraining where ID='".$_SESSION['trainingid']."'";
 $co = $conn->query($cosql);
 if ($co->num_rows > 0)
    {
@@ -35,6 +35,9 @@ if ($co->num_rows > 0)
          $traingyear=substr($corow["sdate"],0,4);
          $certificateno=$corow["certificatenumber"];
          $regno=$corow["registernumber"];
+         $prepairedby=$corow["prepairedby"];
+         $checkby=$corow["checkby"];
+         $approvedby=$corow["approvedby"];
 
     }
 }

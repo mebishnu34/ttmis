@@ -22,12 +22,16 @@ if(isset($_GET['tid']))
   {
   $id=$_GET['tid'];
   
-   $sql="SELECT ID,certificatenumber,registernumber FROM tblttraining where ID='".$id."'";
+   $sql="SELECT ID,certificatenumber,registernumber,prepairedby, checkby,approvedby FROM tblttraining where ID='".$id."'";
 $result = mysqli_query($conn,$sql);
 while($row = mysqli_fetch_array($result))
       {
          $cnumber=$row['certificatenumber'];
       $regno=$row['registernumber'];
+      $prepared=$row['prepairedby'];
+      $checkby=$row['checkby'];
+      $approveby=$row['approvedby'];
+      
        }
 
 ?>
@@ -63,6 +67,18 @@ while($row = mysqli_fetch_array($result))
                <td><input type="Text" name="txtregno" value="<?php echo $regno; ?>" size="20"></td>
            </tr>
            <tr>
+               <td align="right">Prepaired By</td>
+               <td><input type="text" name="txtprepaired" value="<?php echo $prepared;?>" size="20"></td>
+           </tr>
+           <tr>
+               <td align="right">Checked By</td>
+               <td><input type="Text" name="txtcheckby" value="<?php echo $checkby; ?>" size="20"></td>
+           </tr>
+           <tr>
+               <td align="right">Approved By</td>
+               <td><input type="Text" name="txtapproved" value="<?php echo $approveby; ?>" size="20"></td>
+           </tr>
+           <tr>
                <td colspan="2" align="center"><input type="submit" value="Update" name="btnupdate"></td>
            </tr>
     </table>
@@ -73,7 +89,7 @@ while($row = mysqli_fetch_array($result))
 <?php
 if(isset($_POST['btnupdate']))
     {
-        mysqli_query($conn,"UPDATE tblttraining set certificatenumber='".$_POST['txtcnumber']."',registernumber='".$_POST['txtregno']."'  where ID='".$_POST['txtid']."'");
+        mysqli_query($conn,"UPDATE tblttraining set certificatenumber='".$_POST['txtcnumber']."',registernumber='".$_POST['txtregno']."',prepairedby='".$_POST['txtprepaired']."', checkby='".$_POST['txtcheckby']."',approvedby='".$_POST['txtapproved']."'  where ID='".$_POST['txtid']."'");
         ?>
         <script>
             window.close();

@@ -63,7 +63,15 @@ if(isset($_GET['trainingid']))
 <div class="sewa_name">
 <?php echo $teachername;?>
 </div>
-
+<div class="sewa_prepaired">
+<?php echo $prepairedby;?>
+</div>
+<div class="sewa_check">
+<?php echo $checkby;?>
+</div>
+<div class="sewa_approved">
+<?php echo $approvedby;?>
+</div>
 <table width="100%" border="0">
     <!--
   <tr>

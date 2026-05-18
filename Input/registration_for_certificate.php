@@ -84,7 +84,7 @@
   <br>
 <div class="custom-grid">
       <div class="label_column">
-        <label class="label_text">मोबाइल नं <span class="star">*</span></label>
+        <label class="label_text">मोबाइल नं (In Eng)<span class="star">*</span></label>
       </div>
       <div>
           <input class="custom-input" placeholder="मोबाइल नं (१० अंक)" name="txtmobileNo" required>

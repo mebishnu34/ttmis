@@ -72,7 +72,7 @@ if($results->num_rows>0)
           }
           else
             {
-             $sql = "INSERT INTO tblteacher(teachercode,citizenship,sheetroll,tname, gender,cast,mothertong,subject,loginname, tpass,dob,fathername, address, email,district, munvdc, wardno,tcontact, appointdate, appointtype,workinglevel, scode,schoolname,schooladdress,province,category, teachinglevel, qualification, faculty, majorsubject, teachingsubject, remark, importno,username,teachertype,stream,rank,position,contact) values('$tid','$citizen','$rollno','$tname', '$gender','$cast','$tong','$apsubject','$tid','$tid','$dob','$fname','$a','$email','$d','$vdc', '$ward','$tc', '$adate','$atype','$level','$scode','$schoolname','','','Teacher','$tlevel', '$qualification', '$faculty', '$msubject', '$tsubject','Approved','0','','','','','','')";
+             $sql = "INSERT INTO tblteacher(teachercode,citizenship,sheetroll,tname, gender,cast,mothertong,subject,loginname, tpass,dob,fathername, address, email,district, munvdc, wardno,tcontact, appointdate, appointtype,workinglevel, scode,schoolname,schooladdress,province,category, teachinglevel, qualification, faculty, majorsubject, teachingsubject, remark, importno,username,teachertype,stream,trank,position,contact) values('$tid','$citizen','$rollno','$tname', '$gender','$cast','$tong','$apsubject','$tid','$tid','$dob','$fname','$a','$email','$d','$vdc', '$ward','$tc', '$adate','$atype','$level','$scode','$schoolname','','','Teacher','$tlevel', '$qualification', '$faculty', '$msubject', '$tsubject','Approved','0','','','','','','')";
              if (mysqli_query($conn, $sql))
               {
 			  $message="TTMIS::Login Name:-".$ln." and Password:-".$tid;

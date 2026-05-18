@@ -79,6 +79,16 @@ else
 <div class="tpd_year">
 <?php echo $traingyear;?>
 </div>
+<div class="tpd_prepaired">
+<?php echo $prepairedby;?>
+</div>
+<div class="tpd_check">
+<?php echo $checkby;?>
+</div>
+<div class="tpd_approved">
+<?php echo $approvedby;?>
+</div>
+
     <!--
 <table width="100%" border="0">
 
