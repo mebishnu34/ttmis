@@ -9,7 +9,7 @@ $tid=$_POST['txtid'];
     $result = $conn->query($sql1);
     if ($result->num_rows==0)
     {
-   mysqli_query($conn,"INSERT INTO tblschool(schoolname, schoolcode, address, munvdc, wardno, contact, mobileno, email, website, district, authorizeperson,loginname, spass, remark,importno) values('".$_POST['txtschoolname']."','".$_POST['txtschoolcode']."','".$_POST['cmbdistrictbagamati'].','.$_POST['cmbmunbagamati'].'-'.$_POST['txtschoolward']."','".$_POST['cmbmunbagamati']."','".$_POST['txtschoolward']."','".$_POST['txtmobileNo']."','".$_POST['txtmobileNo']."','".$_POST['txtemail']."','','".$_POST['cmbdistrictbagamati']."','','".$_POST['txtschoolcode']."','".$_POST['txtschoolcode']."','Running','0')");
+      mysqli_query($conn,"INSERT INTO tblschool(schoolname, schoolcode, address, munvdc, wardno, contact, mobileno, email, website, district, authorizeperson,loginname, spass, remark,importno) values('".$_POST['txtschoolname']."','".$_POST['txtschoolcode']."','".$_POST['cmbdistrictbagamati'].','.$_POST['cmbmunbagamati'].'-'.$_POST['txtschoolward']."','".$_POST['cmbmunbagamati']."','".$_POST['txtschoolward']."','".$_POST['txtmobileNo']."','".$_POST['txtmobileNo']."','".$_POST['txtemail']."','','".$_POST['cmbdistrictbagamati']."','','".$_POST['txtschoolcode']."','".$_POST['txtschoolcode']."','Running','0')");
     }
     $sid = "SELECT schoolcode FROM tblschool where schoolname='".$_POST['txtschoolname']."' and district='".$_POST['cmbdistrictbagamati']."' and munvdc='".$_POST['cmbmunbagamati']."'";
     $reid = $conn->query($sid);
@@ -46,7 +46,12 @@ $tid=$_POST['txtid'];
       username='".$_SESSION['uname']."' WHERE teacherid='".$tid."'";
      if (mysqli_query($conn, $sql))
       {
-        echo "Update Successfully";
+        //echo "Update Successfully";
+        ?>
+        <script>
+          window.close();
+        </script>
+      <?php
       }
     else
         {
@@ -55,7 +60,7 @@ $tid=$_POST['txtid'];
   }
 else
   {
-  header('Location: ../error.php?msg="School Not exist"');
+    header('Location: ../error.php?msg="School Not exist"');
   }
    
 mysqli_close($conn);

@@ -1,5 +1,16 @@
 <?php
 session_start();
+   include("../Processing/db_connection.php");
+$sid = "SELECT max(ID) FROM tblschool";
+   $reid = $conn->query($sid);
+         if ($reid->num_rows > 0)
+         {
+    // output data of each row
+	   if($row1 = $reid->fetch_assoc())
+               {
+               $scode=$row1['max(ID)']+1;
+                 }
+   		}
 ?>
 <!DOCTYPE html>
 <html>
@@ -81,7 +92,7 @@ if(isset($_GET['tid']))
         <label class="label_text">शिक्षक काेड <span class="star">*</span></label>
     </div>
     <div>
-        <input class="custom-input" name="txtid" value=<?php echo $tid;?> readonly>
+        <input class="custom-input" name="txtid" value=<?php echo $tid;?> readonly><input type="hidden" name="txtschoolcode" value=<?php echo $scode;?> readonly>
     </div>
     
 </div>
