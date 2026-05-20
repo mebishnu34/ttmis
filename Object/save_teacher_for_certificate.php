@@ -124,7 +124,7 @@ else
             {
               if($row1 = $result1->fetch_assoc())
                   {
-                      mysqli_query($conn,"INSERT INTO tblttraining(teacherid, trainingid,runid, schoolcode,munid ,gnumber, coordinator, mobileno, sdate, edate, remark) values('".$_POST['txtcode']."','0','".$trainingrunid."','$scode','0', '1', '".$row1['coordinator']."','".$row1['mobileno']."','".$row1['startdate']."','".$row1['enddate']."','completed')");
+                      mysqli_query($conn,"INSERT INTO tblttraining(teacherid, trainingid,runid, schoolcode,munid ,gnumber, coordinator, mobileno, sdate, edate, remark,certificate,certificatenumber,registernumber,prepairedby, checkby,approvedby) values('".$_POST['txtcode']."','0','".$trainingrunid."','$scode','0', '1', '".$row1['coordinator']."','".$row1['mobileno']."','".$row1['startdate']."','".$row1['enddate']."','completed','','','','','','')");
                       
                   }
             }

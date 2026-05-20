@@ -61,7 +61,7 @@ if($result1->num_rows > 0)
                  	}
     	          	else
                 	{
-                		$sql = "INSERT INTO tblttraining(teacherid, trainingid,runid, schoolcode,munid ,gnumber, coordinator, mobileno, sdate, edate, remark) values('$tcode','$trainingid','$rnid','$scode','$munid', '$gn', '$coordinator','$mobileno','$sdate','$edate','Running')";
+                		$sql = "INSERT INTO tblttraining(teacherid, trainingid,runid, schoolcode,munid ,gnumber, coordinator, mobileno, sdate, edate, remark,certificate,certificatenumber,registernumber,prepairedby, checkby,approvedby) values('$tcode','$trainingid','$rnid','$scode','$munid', '$gn', '$coordinator','$mobileno','$sdate','$edate','Running','','','','','','')";
                 		if (mysqli_query($conn, $sql))
                 		{
 						if($sms=="YESSMS")

@@ -42,9 +42,6 @@ if(isset($_GET['trainingid']))
 <br>
  <center><font size="+3" color="Red"><b><font size="7" color="red">&sext;&sext; <u>प्रमाण पत्र</u> &sext;&sext;</font></b></font></center>
 -->
-<div class="school_district">
-<?php echo $schooldistrict;?> 
-</div>
 <div class="sewa_sdate">
     <?php echo $startdate;?>
 </div> 

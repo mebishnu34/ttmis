@@ -76,8 +76,11 @@ else
 <div class="tpd_name">
 <?php echo $teachername;?>
 </div>
+
 <div class="tpd_year">
+    <font face="Fontasy Himali">
 <?php echo $traingyear;?>
+</font>
 </div>
 <div class="tpd_prepaired">
 <?php echo $prepairedby;?>

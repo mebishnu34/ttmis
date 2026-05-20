@@ -168,7 +168,7 @@ for($d=0; $d<$k;$d++)
 								$traresult = $conn->query($trasql1);
 								if ($traresult->num_rows==0)
 									{
-									mysqli_query($conn,"INSERT INTO tblttraining(teacherid, trainingid,runid, schoolcode,munid ,gnumber, coordinator, mobileno, sdate, edate, remark) values('$tcode','$trainingid','$rnid','$scode','$munid', '$gn', '$coordinator','$mobileno','$sdate','$edate','Running')");
+									mysqli_query($conn,"INSERT INTO tblttraining(teacherid, trainingid,runid, schoolcode,munid ,gnumber, coordinator, mobileno, sdate, edate, remark,certificate,certificatenumber,registernumber,prepairedby, checkby,approvedby) values('$tcode','$trainingid','$rnid','$scode','$munid', '$gn', '$coordinator','$mobileno','$sdate','$edate','Running','','','','','','')");
 									//$mobileno=$tmobileno[$d];
 									//$message="TTMIS::Training:-".$training."/Level:-".$level . "/Subject:-".$subject ."/Start Date:-".$sdate ."/End Date:-".$edate ."/Venue:-".$venue ."/Group No.:-" . $gn. "/Co-Ordinator:-". $coordinator ."/Mobile No :-".$mobileno;
 									//include("../Object/sms_code.php");
