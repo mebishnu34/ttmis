@@ -80,7 +80,9 @@ else
 <?php echo $teachername;?>
 </div>
 <div class="onemonth_year">
+<font face="Fontasy Himali">
 <?php echo $traingyear;?>
+</font>
 </div>
 <div class="onemonth_trainingname">
 <?php 
