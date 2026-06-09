@@ -124,7 +124,7 @@ foreach($rem as $rems)
 					echo "<br>";
 					*/
 					//echo "hello";
-                	$sql = "INSERT INTO tblttraining(teacherid, trainingid,runid, schoolcode,munid ,gnumber, coordinator, mobileno, sdate, edate, remark) values('$teacherid[$d]','$trainingid','$rnid','$scode','$munid', '$gn', '$coordinator','$mobileno','$sdate','$edate','Running')";
+                	$sql = "INSERT INTO tblttraining(teacherid, trainingid,runid, schoolcode,munid,teacherdistrict ,gnumber, coordinator, mobileno, sdate, edate, remark) values('$teacherid[$d]','$trainingid','$rnid','$scode','$munid','', '$gn', '$coordinator','$mobileno','$sdate','$edate','Running')";
 	                if (mysqli_query($conn, $sql))
     		            {
 						if($sms=="YESSMS")

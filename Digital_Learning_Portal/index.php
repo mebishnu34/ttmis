@@ -118,7 +118,7 @@
             </form>
             <p class="text_style1">                   
             <img src="image\training_chief.jpeg" width="180" height="230" style="border-radius: 10%;"><br>
-                                Rudrahari Bhandari<br>Head of Training</p>
+                                Ghanshyam Khanal<br>Retd. Executive Director</p>
             </div>
             </header>
         </div>

@@ -77,7 +77,7 @@ foreach($rem as $rems)
                  }
               else
                 {
-                $sql = "INSERT INTO tblttraining(teacherid, trainingid, schoolcode,munid ,gnumber, coordinator, mobileno, sdate, edate, remark) values('$teacherid[$d]','$trainingid','$scode','$munid', '$gn', '$coordinator','$mobileno','$sdate','$edate','Running')";
+                $sql = "INSERT INTO tblttraining(teacherid, trainingid, schoolcode,munid,teacherdistrict ,gnumber, coordinator, mobileno, sdate, edate, remark) values('$teacherid[$d]','$trainingid','$scode','$munid','', '$gn', '$coordinator','$mobileno','$sdate','$edate','Running')";
                 if (mysqli_query($conn, $sql))
                 {
                 $mobileno=$mobileno;
