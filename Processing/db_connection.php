@@ -1,6 +1,7 @@
 <?php
 //$dbuser="ttmisbagamatigov_bishnu";
 $dbuser="root";
+//$dbpassword="";
 $dbpassword="Ttmis123@Edu2083";
 //$database="ttmis";
 $database="bagamati_eduttmisdb";

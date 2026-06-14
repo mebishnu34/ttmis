@@ -266,7 +266,7 @@ function schooldistrict(str) {
   <div class="content">
     <select id="trainingcategory" name="cmbtrainingcategory" class="custom-combo" required onchange="handleChange()">
   <?php
-    include("training_category.html");
+    include("training_category_1.html");
   ?>  
   </select>
   </div>
@@ -324,8 +324,8 @@ function schooldistrict(str) {
 <div class="content">
   <select name="cmbprioritymode" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
   <option value="">छनौट गर्नुहोस्</option>
-  <option value="अनलाइन">अनलाइन</option>
-  <option value="आमनेसामने">आमनेसामने</option>
+  <option value="अनलाइन">अनलाइन (Online)</option>
+  <option value="आमनेसामने">आमनेसामने (Face To Face)</option>
   </select>
 </div>
 </div>
@@ -335,11 +335,7 @@ function schooldistrict(str) {
   <label class="label_text">तालिम लिने मोड (प्राथमिकता २) <span class="star">*</span></label>
   </div>
   <div class="content">
-<<<<<<< HEAD
     <input type="Text" name="cmbpriority2mode" id="txtmode2" readonly>
-=======
-    <input type="Text" name="cmbpriority2mode" id="txtmode2">
->>>>>>> fe7aeb1 (Update Changes)
     </div>
     <script>
         function updatetextbox()
@@ -385,10 +381,10 @@ function schooldistrict(str) {
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
-    <label class="label_text">विद्यालयको सिफारिस पत्र <span class="star">*</span></label>
+    <label class="label_text">विद्यालय/स्थानीय तहकाे सिफारिस पत्र</label>
   </div>
   <div class="content">
-    <input  type="file" name="fileschoolrecommend" required>
+    <input  type="file" name="fileschoolrecommend">
 </div>
 </div>
 <div>
