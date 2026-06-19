@@ -23,6 +23,13 @@
     </td>
     </tr>
     <tr>
+    <td align="right">AI Training</td>
+    <td>
+        <input type="Radio" name="optai" value="Enable" Checked>Enable &nbsp;&nbsp; 
+        <input type="Radio" name="optai" value="Disable">Disable
+    </td>
+    </tr>
+    <tr>
     <td colspan="2" align="center"><input type="submit" name="btnupdate" value="Update" class="button"></td>
     </tr>
     </table>

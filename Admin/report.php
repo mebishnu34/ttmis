@@ -34,8 +34,9 @@ header('Location: ../admin_login.php?msg= "Please Login"');
                                 <ul>
 								 	<li><a href="report.php?linkid=201TA">Application List</a></li>
                                     <li><a href="report.php?linkid=202TA">Selected Applicant</a></li>
-                                    <li><a href="report.php?linkid=204TA">Trainer List</a></li>
+                                    <li><a href="report.php?linkid=204TA">Speciallist List</a></li>
                                     <li><a href="report.php?linkid=205TA">Demand Training Needs</a></li>
+                                    <li><a href="report.php?linkid=206TA">AI Training Demand</a></li>
                                     <li><a href="report.php?linkid=203TA">Training Certificate</a></li>
 								</ul>
                                 </li>
@@ -229,6 +230,10 @@ elseif($id=='203TA')
  elseif($id=='205TA')
  {
  include("trainingneed_year.htm");
+ }
+ elseif($id=='206TA')
+ {
+ include("../Display/ai_demand_list.php");
  }
  elseif($id=='301TA')
  {

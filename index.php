@@ -32,6 +32,15 @@ if ($result->num_rows > 0)
          $_SESSION['roster']=$row['remark'];
     }
    }
+$sql = "SELECT remark FROM tblcontents where contenttitle='AI Training'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+   {
+    if($row = $result->fetch_assoc())
+    {
+         $_SESSION['AI']=$row['remark'];
+    }
+   }
 
 ?>
 <HTML>
@@ -161,6 +170,10 @@ if ($result->num_rows > 0)
                                     {
                                         include("customize_training_application_form_moreinfo.php");
                                     }
+                                elseif($_GET['accountid']=="ai_training")
+                                    {
+                                        include("ai_training_application_form.php");
+                                    }
                             echo "</td>";
                             }
 
@@ -174,8 +187,8 @@ if ($result->num_rows > 0)
                                 {
                             ?>
                             <tr >
-                                <td bgcolor="#FFFFFF" align="center"><font size="+1" color="#000000">
-                            <p align="justify"><b>बाल शिक्षक र शिक्षकका लागि एक महिने प्रमाणीकरण तालिम (TPD) वा सेवा प्रवेश तालिम वा प्र.अ. नेतृत्व क्षमता विकास तालिम (३० दिनकाे ) लिन इच्छुक  बाल  शिक्षक/शिक्षक/प्र.अ.हरुले तलको आवेदन फारामकाे लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरी आवेदन पेश गर्नु हुन अनुराेध छ।</b></p><br>
+                                <td bgcolor="#FFFFFF" align="center"><font size="3" color="#000000">
+                            <p align="justify"><b>बाल शिक्षक र शिक्षकका लागि एक महिने प्रमाणीकरण तालिम (TPD) वा सेवा प्रवेश तालिम वा प्र.अ. नेतृत्व क्षमता विकास तालिम (३० दिनकाे ) लिन इच्छुक  बाल  शिक्षक/शिक्षक/प्र.अ.हरुले तलको आवेदन फारामकाे लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरी आवेदन पेश गर्नु हुन अनुराेध छ।</b></p>
                                 </td>   
                             </tr>
                             <tr>
@@ -186,17 +199,15 @@ if ($result->num_rows > 0)
                             <?php
                                 }
                                 ?>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
+
                             <?php
                             if($_SESSION['roster']=='Enable')
                                 {
                             ?>
                             <tr >
-                                <td bgcolor="#FFFFFF" align="center"><font size="+1" color="#000000">
+                                <td bgcolor="#FFFFFF" align="center"><font size="3" color="#000000">
             
-<p align="justify"><b>शिक्षा तालिम केन्द्र धुलिखेल वा विस्तारित शिक्षा तालिम इकाइ वा स्थानीय तहसगको सहकार्यमा सञ्चालन हुने विभिन्न प्रकृतिको तालिममा विज्ञता र अनुभव प्रस्तुति गरी सहजिकरणका लागि रोष्टर/प्रशिक्षक/विज्ञको सूचिमा सूचिकृत हुन तल उल्लेख गरिएकाे फाराममा क्लिक गरि  विवरण भरी सहयाेग गर्नु हुन अनुरोध छ ।</b></p><br>
+<p align="justify"><b>शिक्षा तालिम केन्द्र धुलिखेल वा विस्तारित शिक्षा तालिम इकाइ वा स्थानीय तहसगको सहकार्यमा सञ्चालन हुने विभिन्न प्रकृतिको तालिममा विज्ञता र अनुभव प्रस्तुति गरी सहजिकरणका लागि रोष्टर/प्रशिक्षक/विज्ञको सूचिमा सूचिकृत हुन तल उल्लेख गरिएकाे फाराममा क्लिक गरि  विवरण भरी सहयाेग गर्नु हुन अनुरोध छ ।</b></p>
 
                                 </td>   
                             </tr>
@@ -207,9 +218,6 @@ if ($result->num_rows > 0)
                                 </td>
                             </tr>
                             
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
                             <?php
                                 }
                                 
@@ -219,13 +227,32 @@ if ($result->num_rows > 0)
                             <tr >
                                 <td bgcolor="#FFFFFF" align="center">
             
-<p align="justify"><b><font size="+1" color="#000000">Customized</font></b><font size="+1" color="#000000"><b> / क्षमता विकास सम्बन्धी ( औषत ५ दिनको ) तालिम लिन इच्छुक बाल शिक्षक, शिक्षक, प्रधानाध्यापमक तथा स्थानीय तहका शिक्षा सेवाका आठौ तह सम्मका कर्मचारीहरुले तलको लिंकमा क्लिक गरी विवरणहरु भर्नुहुन अनुरोध छ ।</font></b></p><br>
+<b><font size="3" color="#000000">Customized</font></b><font size="3" color="#000000"><b> / क्षमता विकास सम्बन्धी ( औषत ५ दिनको ) तालिम लिन इच्छुक बाल शिक्षक, शिक्षक, प्रधानाध्यापमक तथा स्थानीय तहका शिक्षा सेवाका आठौ तह सम्मका कर्मचारीहरुले तलको लिंकमा क्लिक गरी विवरणहरु भर्नुहुन अनुरोध छ ।</font></b></p>
 
                                 </td>   
                             </tr>
                             <tr>
                             <td bgcolor="#920808" align="center">
                                 <a href="index.php?accountid=customize_training"><b>Customized / क्षमता विकास तालिम माग फाराम</b></a>
+                                </td>
+                            </tr>
+
+                            <?php
+                                }
+                            
+                            if($_SESSION['AI']=='Enable')
+                                {
+                                    ?>
+                            <tr >
+                                <td bgcolor="#FFFFFF" align="center">
+            
+<b><font size="+1" color="#000000"></b><font size="3" color="#000000"><b> अनलाइनमा आधारित AI Based Digital Learning Training का लागि </font></b></p>
+
+                                </td>   
+                            </tr>
+                            <tr>
+                            <td bgcolor="#920808" align="center">
+                                <a href="index.php?accountid=ai_training"><b>आवेदन फाराम</b></a>
                                 </td>
                             </tr>
                             <?php
@@ -329,6 +356,7 @@ if ($result->num_rows > 0)
            </tr>
 </table>
 <center>
+    <font color="red" size="+2">
 <?php
 if(isset($_GET['msg']))
 	{
@@ -336,6 +364,7 @@ if(isset($_GET['msg']))
 	}
 
 ?>
+</font>
 </center>
 
 </BODY>
