@@ -95,6 +95,12 @@ if ($result->num_rows > 0)
                                         }
                                     }
                             </script>
+                            <style>
+.arrow {
+    font-size: 40px;
+    color: black;
+}
+</style>
     </head>
 <link rel="stylesheet" href="CSS/main_table.css">
 <link rel="stylesheet" href="CSS/table_css.css">
@@ -187,8 +193,8 @@ if ($result->num_rows > 0)
                                 {
                             ?>
                             <tr >
-                                <td bgcolor="#FFFFFF" align="center"><font size="3" color="#000000">
-                            <p align="justify"><b>बाल शिक्षक र शिक्षकका लागि एक महिने प्रमाणीकरण तालिम (TPD) वा सेवा प्रवेश तालिम वा प्र.अ. नेतृत्व क्षमता विकास तालिम (३० दिनकाे ) लिन इच्छुक  बाल  शिक्षक/शिक्षक/प्र.अ.हरुले तलको आवेदन फारामकाे लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरी आवेदन पेश गर्नु हुन अनुराेध छ।</b></p>
+                                <td bgcolor="#FFFFFF" align="center"><font size="2" color="#000000">
+                            <p align="justify"><b>बाल शिक्षक र शिक्षकका लागि एक महिने प्रमाणीकरण तालिम(TPD) वा सेवा प्रवेश तालिम वा प्र.अ. नेतृत्व क्षमता विकास तालिम (३० दिनकाे)लिन इच्छुक  बाल  शिक्षक/शिक्षक/प्र.अ.हरुले तलको आवेदन फारामकाे लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरी आवेदन पेश गर्नु हुन अनुराेध छ।</b><font size="2" color="red">&#11015;</font></p>
                                 </td>   
                             </tr>
                             <tr>
@@ -198,36 +204,14 @@ if ($result->num_rows > 0)
                             </tr>
                             <?php
                                 }
-                                ?>
-
-                            <?php
-                            if($_SESSION['roster']=='Enable')
-                                {
-                            ?>
-                            <tr >
-                                <td bgcolor="#FFFFFF" align="center"><font size="3" color="#000000">
-            
-<p align="justify"><b>शिक्षा तालिम केन्द्र धुलिखेल वा विस्तारित शिक्षा तालिम इकाइ वा स्थानीय तहसगको सहकार्यमा सञ्चालन हुने विभिन्न प्रकृतिको तालिममा विज्ञता र अनुभव प्रस्तुति गरी सहजिकरणका लागि रोष्टर/प्रशिक्षक/विज्ञको सूचिमा सूचिकृत हुन तल उल्लेख गरिएकाे फाराममा क्लिक गरि  विवरण भरी सहयाेग गर्नु हुन अनुरोध छ ।</b></p>
-
-                                </td>   
-                            </tr>
-                            
-                            <tr>
-                            <td bgcolor="#920808" align="center">
-                                <a href="index.php?accountid=roster_form"><b>विज्ञ / राेष्टर सूची दर्ता फाराम</b></a>
-                                </td>
-                            </tr>
-                            
-                            <?php
-                                }
-                                
+                                                             
                             if($_SESSION['customize']=='Enable')
                                 {
                                     ?>
                             <tr >
                                 <td bgcolor="#FFFFFF" align="center">
             
-<b><font size="3" color="#000000">Customized</font></b><font size="3" color="#000000"><b> / क्षमता विकास सम्बन्धी ( औषत ५ दिनको ) तालिम लिन इच्छुक बाल शिक्षक, शिक्षक, प्रधानाध्यापमक तथा स्थानीय तहका शिक्षा सेवाका आठौ तह सम्मका कर्मचारीहरुले तलको लिंकमा क्लिक गरी विवरणहरु भर्नुहुन अनुरोध छ ।</font></b></p>
+<b><font size="2" color="#000000">Customized</font></b><font size="2" color="#000000"><b> / क्षमता विकास सम्बन्धी ( औषत ५ दिनको ) तालिम लिन इच्छुक बाल शिक्षक, शिक्षक, प्रधानाध्यापमक तथा स्थानीय तहका शिक्षा सेवाका आठौ तह सम्मका कर्मचारीहरुले तलको लिंकमा क्लिक गरी विवरणहरु भर्नुहुन अनुरोध छ ।</font></b><font size="+1" color="red">&#11015;</font></p>
 
                                 </td>   
                             </tr>
@@ -246,7 +230,7 @@ if ($result->num_rows > 0)
                             <tr >
                                 <td bgcolor="#FFFFFF" align="center">
             
-<b><font size="+1" color="#000000"></b><font size="3" color="#000000"><b> अनलाइनमा आधारित AI Based Digital Learning Training का लागि </font></b></p>
+<font size="2" color="#000000"><b> अनलाइनमा आधारित AI Based Digital Learning Training का लागि </font></b><font size="+1" color="red">&#11015;</font></p>
 
                                 </td>   
                             </tr>
@@ -255,6 +239,28 @@ if ($result->num_rows > 0)
                                 <a href="index.php?accountid=ai_training"><b>आवेदन फाराम</b></a>
                                 </td>
                             </tr>
+                            <?php
+                                }
+                                ?>
+                            
+                            <?php
+                            if($_SESSION['roster']=='Enable')
+                                {
+                            ?>
+                            <tr >
+                                <td bgcolor="#FFFFFF" align="center"><font size="2" color="#000000">
+            
+<p align="justify"><b>शिक्षा तालिम केन्द्र धुलिखेल वा विस्तारित शिक्षा तालिम इकाइ वा स्थानीय तहसगको सहकार्यमा सञ्चालन हुने विभिन्न प्रकृतिको तालिममा विज्ञता र अनुभव प्रस्तुति गरी सहजिकरणका लागि रोष्टर/प्रशिक्षक/विज्ञको सूचिमा सूचिकृत हुन तल उल्लेख गरिएकाे फाराममा क्लिक गरि  विवरण भरी सहयाेग गर्नु हुन अनुरोध छ ।</b><font size="+1" color="red">&#11015;</font></p>
+
+                                </td>   
+                            </tr>
+                            
+                            <tr>
+                            <td bgcolor="#920808" align="center">
+                                <a href="index.php?accountid=roster_form"><b>विज्ञ / राेष्टर सूची दर्ता फाराम</b></a>
+                                </td>
+                            </tr>
+                            
                             <?php
                                 }
                                 ?>
