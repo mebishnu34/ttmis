@@ -115,7 +115,7 @@ if ($result->num_rows > 0)
 <td width="150" valign="buttom" align="center" bgcolor="#FFFFFF"><img src="Image/np_flag.gif" width="150" height="130"></td>
 </tr>
 <tr>
-<td valign="buttom" align="center" bgcolor="264F8B"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2" color="#FFFFFF"><b><a href="index.php?home=home">Home</a></b></font></td>
+<td valign="buttom" align="center" bgcolor="#264F8B"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2" color="#FFFFFF"><b><a href="index.php?home=home">Home</a></b></font></td>
 <td colspan="2" valign="buttom" align="center" bgcolor="264F8B"><font face="Verdana, Arial, Helvetica, sans-serif" size="+1" color="#FFFFFF"><b>Teacher Training Management Information System(TTMIS)</b></font></td>
 </tr>
 </table>
@@ -194,11 +194,11 @@ if ($result->num_rows > 0)
                             ?>
                             <tr >
                                 <td bgcolor="#FFFFFF" align="center"><font size="2" color="#000000">
-                            <p align="justify"><b>बाल शिक्षक र शिक्षकका लागि एक महिने प्रमाणीकरण तालिम(TPD) वा सेवा प्रवेश तालिम वा प्र.अ. नेतृत्व क्षमता विकास तालिम (३० दिनकाे)लिन इच्छुक  बाल  शिक्षक/शिक्षक/प्र.अ.हरुले तलको आवेदन फारामकाे लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरी आवेदन पेश गर्नु हुन अनुराेध छ।</b><font size="2" color="red">&#11015;</font></p>
+                            <p align="justify"><b>बाल शिक्षक र शिक्षकका लागि एक महिने प्रमाणीकरण तालिम(TPD) वा सेवा प्रवेश तालिम वा प्र.अ. नेतृत्व क्षमता विकास तालिम (३० दिनकाे)लिन इच्छुक  बाल  शिक्षक/शिक्षक/प्र.अ.हरुले तलको आवेदन फारामकाे लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरी आवेदन पेश गर्नु हुन अनुराेध छ।</b><font size="3" color="red">&#11015;</font></p>
                                 </td>   
                             </tr>
                             <tr>
-                            <td bgcolor="#920808" align="center">
+                            <td bgcolor="#0A5751" align="center">
                                 <a href="index.php?accountid=application_form"><b>TPD / सेवा प्रवेश / प्र.अ. नेतृत्व क्षमता <br> तालिम आवेदन फाराम</b></a>
                                 </td>
                             </tr>
@@ -216,7 +216,7 @@ if ($result->num_rows > 0)
                                 </td>   
                             </tr>
                             <tr>
-                            <td bgcolor="#920808" align="center">
+                            <td bgcolor="#264F8B" align="center">
                                 <a href="index.php?accountid=customize_training"><b>Customized / क्षमता विकास तालिम माग फाराम</b></a>
                                 </td>
                             </tr>
@@ -235,7 +235,7 @@ if ($result->num_rows > 0)
                                 </td>   
                             </tr>
                             <tr>
-                            <td bgcolor="#920808" align="center">
+                            <td bgcolor="#148539" align="center">
                                 <a href="index.php?accountid=ai_training"><b>आवेदन फाराम</b></a>
                                 </td>
                             </tr>
