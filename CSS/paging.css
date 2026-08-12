@@ -1,0 +1,8 @@
+P.breakhere
+{
+page-break-before: always;
+}
+@page { size 8.5in 6in; margin: 0.5cm }
+div.page { page-break-after: always }
+@page1 { size 8.5in 6in; margin: 2cm }
+div.page1 { page-break-after: always }

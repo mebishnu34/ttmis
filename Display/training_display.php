@@ -1,0 +1,64 @@
+<HTML>
+<head>
+<?php
+   include("../Input/title.htm")
+?>
+</head>
+<BODY>
+    <form method="Post" Action="../Display/subject_training.php" target="_blank">
+    <table class="subtable" cellpadding="10">
+    <tr>
+    <td colspan="2" align="center">Training</td>
+    </tr>
+    <tr>
+    <td align="right">Name of Training</td>
+    <td><select name="cmbtraining">
+                         <option>शिक्षक पेशागत विकास</option>
+                        <option>पुनर्ताजगी</option>
+                        <option>नेतृत्व तथा व्यवस्थापन</option>
+                </select>
+    </td>
+    </tr>
+        <tr>
+    <td align="right">Level</td>
+    <td><select name="cmblevel">
+         <option>वालविकास केन्द्र</option>
+         <option>आधारभूत (१ –५)</option>
+         <option>आधारभूत (६ –८)</option>
+         <option>माध्यमिक(९ –१०)</option>
+         <option>माध्यमिक(११ –१२)</option>
+         <option>प्रधानाध्यापक (आधारभूत)</option>
+          <option>प्रधानाध्यापक (माध्यमिक)</optionn>
+         <option>अन्य</option>
+</select>
+     </td>
+    </tr>
+    <td align="right">Subject</td>
+    <td>
+	<select name="cmbsubject">
+	<?php
+include("../Processing/db_connection.php");
+//$d = $_GET['t'];
+//$array=array();
+$sql1 = "SELECT * FROM tbltraining";
+$result = $conn->query($sql1);
+if ($result->num_rows > 0)
+   {
+    while($row = $result->fetch_assoc())
+    {
+	?>
+    <option><?php echo $row["subject"];?></option>
+	<?php
+	}
+	}
+	?>
+	</select>
+     </td>
+    </tr>
+<tr>
+    <td colspan="2" align="center"><input type="submit" name="btnsave" value="Display" ></td>
+    </tr>
+    </table>
+    </form>
+</BODY>
+</HTML>

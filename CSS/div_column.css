@@ -1,0 +1,221 @@
+.column1
+{
+    float: left;
+}
+.column2
+{
+    float: left;
+}
+
+.column3
+{
+    float: left;
+}
+.column_gap
+{
+    float: left;
+    width:50px;
+}
+
+.row:after
+    {
+        display:table;
+        clear:both;
+    }
+
+.custom-grid {
+  background-color: lightblue;
+  border: 1px solid black;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 5px;
+  margin: 2px;
+  width: 95%;
+}
+/* md (min-width: 768px) */
+@media (min-width: 100px) {
+  .custom-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+  }
+}
+
+/* lg (min-width: 1024px) */
+@media (min-width: 100px) {
+  .custom-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* lg:grid-cols-4 */
+  }
+}
+
+.custom-grid_1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  gap: 10px; /* gap-4 */
+  height: 130px;
+  border: 1px solid gray; /* border-slate-200 */
+  outline: none; /* outline-none */
+  padding: 5px;
+  margin: 2px;
+  width: 95%;
+  
+}
+
+.custom-twocolumn {
+  background-color: lightblue;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 5px; /* gap-4 */
+  height: 40px;
+  border: 1px solid gray; /* border-slate-200 */
+  outline: none; /* outline-none */
+  padding: 5px;
+  margin: 2px;
+  width: 95%;
+  
+}
+
+.custom-grid_2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr 1fr 1fr; /* 4 rows */
+  gap: 10px; /* gap-4 */
+  height: 260px;
+  border: 1px solid gray; /* border-slate-200 */
+  outline: none; /* outline-none */
+  padding: 5px;
+  margin: 2px;
+  width: 95%;
+  
+}
+
+.custom-grid_3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; /* 6 rows */
+  gap: 10px; /* gap-4 */
+  height: 390px;
+  border: 1px solid gray; /* border-slate-200 */
+  outline: none; /* outline-none */
+  padding: 5px;
+  margin: 2px;
+  width: 95%;
+  
+}
+.custom-grid_6 {
+  background-color: lightblue; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr; /* 6 rows */
+  gap: 10px; /* gap-4 */
+  height: 100px;
+  border: 1px solid gray; /* border-slate-200 */
+  outline: none; /* outline-none */
+  padding: 1px;
+  margin: 2px;
+  width: 95%;
+  
+}
+
+.custom-grid_4 {
+  background-color: lightblue; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr; /* 6 rows */
+  gap: 10px; /* gap-4 */
+  height: 100px;
+  border: 1px solid gray; /* border-slate-200 */
+  outline: none; /* outline-none */
+  padding: 1px;
+  margin: 2px;
+  width: 95%;
+  
+}
+.box_6 
+{
+  /*background-color: lightblue; */
+  border: px solid black;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  width: 100px;
+  
+}
+
+.box 
+{
+  background-color: lightblue;
+  border: 1px solid black;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 5px;
+  margin: 2px;
+  width: 410px;
+  
+}
+
+.box_1 
+{
+  grid-template-columns: 1fr; /* 1 columns */
+  grid-template-rows: 1fr 1fr 1fr; /* 3 rows */
+  gap: 10px; /* gap-4 */
+  justify-content: center;
+  align-items: center;
+  border: 0px solid black;
+  width: 800px;
+  height: 200px;
+  
+}
+
+.label_text
+{
+/*font-family: "Kantipur";*/
+font-size: 16px;
+font-weight: bold;
+text-shadow: 2px 2px 5px gray;
+}
+.star
+{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+color: red;
+}
+.label_column
+{
+  display: flex;
+  /*border: 2px solid green; /* border-slate-200 */
+align-items: center;
+justify-content: Left;
+width: 150px;
+}
+
+.label_column_1
+{
+  display: flex;
+  /*border: 2px solid green; /* border-slate-200 */
+align-items: center;
+justify-content: right;
+width: 300px;
+}
+.custom-twocolumn:focus {
+  border-color: blue;
+  background-color: #e6f0ff;
+}
+.content
+{
+  display: flex;
+  /*border: 2px solid green; /* border-slate-200 */
+align-items: left;
+justify-content: left;
+transition: all 0.3s ease;
+}
+
+.pevent
+{
+  font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+}

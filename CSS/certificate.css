@@ -1,0 +1,484 @@
+.div_certificate{
+ width: 80%;
+ height: 80%;
+  /*border: 15px solid red;*/
+  padding: 0px;
+  margin-left: 100px;
+  margin-top: 50px;
+  align-self: center;
+  
+}
+.certificate_border{
+ /* background-color:white;*/
+ background: url("../Image/certificate_border.png");
+ background-repeat: no-repeat;
+ background-size:1150px 800px;
+  width: 100%;
+  height: 800px;
+  /*border: 15px solid red;*/
+  padding: 10px;
+  margin: 0px;
+  margin-left: 50px;
+  
+}
+
+#div_certificate{
+ padding: 2px;/* This is the width of the border :p */
+ background: url("../bg3.png");
+ width: 1000px;
+}
+#inner{
+    background: #fff;
+}
+
+.tpd_fathername
+{
+    position:absolute;
+/* Distance from top */
+    top:10cm;
+
+    /* Distance from left */
+    left:4.2cm;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+.tpd_province
+{
+    position:absolute;
+/* Distance from top */
+    top:10cm;
+
+    /* Distance from left */
+    left:20.5cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+
+}
+.tpd_district
+{
+    position:absolute;
+/* Distance from top */
+    top:11cm;
+
+    /* Distance from left */
+    left:2cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+.tpd_munvdc
+{
+    position:absolute;
+/* Distance from top */
+    top:11cm;
+
+    /* Distance from left */
+    left:9.2cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+
+.tpd_ward
+{
+    position:absolute;
+/* Distance from top */
+    top:11cm;
+
+    /* Distance from left */
+    left:25cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+
+.tpd_name
+{
+position:absolute;
+
+    /* Distance from top */
+    top:12.5cm;
+
+    /* Distance from left */
+    left:5.5cm;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+.tpd_year
+{
+ position:absolute;
+/* Distance from top */
+    top:13.5cm;
+
+    /* Distance from left */
+    left:8.5cm;
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+.tpd_printdate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:17.5cm;
+    /* Distance from left */
+    left:11cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.tpd_prepaired
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.tpd_check
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:13cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.tpd_approved
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:22cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_sdate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:8.3cm;
+    /* Distance from left */
+    left:19.2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_edate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:9.5cm;
+    /* Distance from left */
+    left:2.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_district
+{
+position:absolute;
+
+    /* Distance from top */
+    top:10.5cm;
+    /* Distance from left */
+    left:19.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_munvdc
+{
+position:absolute;
+
+    /* Distance from top */
+    top:11.8cm;
+    /* Distance from left */
+    left:2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_school
+{
+position:absolute;
+
+    /* Distance from top */
+    top:11.8cm;
+    /* Distance from left */
+    left:17cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_name
+{
+position:absolute;
+
+    /* Distance from top */
+    top:13cm;
+    /* Distance from left */
+    left:8cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_printdate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:17.5cm;
+    /* Distance from left */
+    left:10cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.sewa_prepaired
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.sewa_check
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:13cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.sewa_approved
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:21cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+
+.onemonth_fathername
+{
+position:absolute;
+
+    /* Distance from top */
+    top:9cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_province
+{
+position:absolute;
+
+    /* Distance from top */
+    top:9cm;
+    /* Distance from left */
+    left:17.2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_district
+{
+position:absolute;
+
+    /* Distance from top */
+    top:9cm;
+    /* Distance from left */
+    left:22.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.onemonth_munvdc
+{
+position:absolute;
+
+    /* Distance from top */
+    top:10.5cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_ward
+{
+position:absolute;
+
+    /* Distance from top */
+    top:10.5cm;
+    /* Distance from left */
+    left:20.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_citizenshipno
+{
+position:absolute;
+
+    /* Distance from top */
+    top:12cm;
+    /* Distance from left */
+    left:9cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_name
+{
+position:absolute;
+
+    /* Distance from top */
+    top:12cm;
+    /* Distance from left */
+    left:18cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_year
+{
+position:absolute;
+
+    /* Distance from top */
+    top:13cm;
+    /* Distance from left */
+    left:3cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_trainingname
+{
+position:absolute;
+
+    /* Distance from top */
+    top:13cm;
+    /* Distance from left */
+    left:9.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_printdate
+{
+position:absolute;
+
+    /* Distance from top */
+    top:17.5cm;
+    /* Distance from left */
+    left:10.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.onemonth_prepaired
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:4cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.onemonth_check
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:13cm;
+    font-size:22px;
+    font-weight:bold;
+}
+.onemonth_approved
+{
+position:absolute;
+
+    /* Distance from top */
+    top:16cm;
+    /* Distance from left */
+    left:22cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+.school_district
+{
+position:absolute;
+
+    /* Distance from top */
+    top:1.5cm;
+    /* Distance from left */
+    left:2cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.cnumber
+{
+position:absolute;
+
+    /* Distance from top */
+    top:1.5cm;
+    /* Distance from left */
+    left:23.5cm;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.regnumber
+{
+position:absolute;
+
+    /* Distance from top */
+    top:1.5cm;
+    /* Distance from left */
+    left:1.5cm;
+    font-size:22px;
+    font-weight:bold;
+}

@@ -1,0 +1,29 @@
+body
+{
+    margin: 0;
+    --overlap: 10rem;
+    background-color: #2c6733;
+}
+header
+{
+    background: #2c6733;
+    color: white;
+    padding: 2rem 2rem var(--overlap)  2rem;
+}
+main
+{
+    margin: calc(var(--overlap)* -1) 2rem 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(black,2.2);
+}
+
+p{
+    text-align: justify;
+}
+
+.page-wrap
+{
+    display: grid;
+}

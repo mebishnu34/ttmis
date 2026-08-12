@@ -1,0 +1,396 @@
+<?php
+session_start();
+$_SESSION['financial_year']="2083/084";
+   $_SESSION['application']="";
+   $_SESSION['csrf']="";
+   $_SESSION['token']="Stop";
+   include("Processing/db_connection.php");
+   $sql = "SELECT * FROM tblcontents where contenttitle='Training Application'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+   {
+    if($row = $result->fetch_assoc())
+    {
+         $_SESSION['application']=$row['remark'];
+    }
+   }
+else
+   {
+         $_SESSION['application']="None";
+    }
+
+   $sql = "SELECT remark FROM tblcontents where contenttitle='Customize Training'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+   {
+    if($row = $result->fetch_assoc())
+    {
+         $_SESSION['customize']=$row['remark'];
+    }
+   }
+else
+    {
+         $_SESSION['customize']="None";
+    }
+   $sql = "SELECT remark FROM tblcontents where contenttitle='Roster'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+   {
+    if($row = $result->fetch_assoc())
+    {
+         $_SESSION['roster']=$row['remark'];
+    }
+   }
+else
+      {
+         $_SESSION['roster']="None";
+    }
+    
+$sql = "SELECT remark FROM tblcontents where contenttitle='AI Training'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+   {
+    if($row = $result->fetch_assoc())
+    {
+         $_SESSION['AI']=$row['remark'];
+    }
+    
+   }
+else
+      {
+         $_SESSION['AI']="None";
+    }  
+
+?>
+<HTML>
+    <Head>
+        <title>TTMIS</title>
+                     <script>
+                                    function teacher_login()
+                                    {
+                                        var div=document.getElementById("teacher");
+                                        if(div.style.display=="none")
+                                        {
+                                            div.style.display="block";
+                                            div.style.backgroundColor = "lightblue";
+                                            div.style.fontWeight = "bold";   // make text bold
+                                            div.style.color = "blue"; 
+                                        }
+                                        else
+                                        {
+                                            div.style.display="none";
+                                        }
+                                    }
+
+                                    function school_login()
+                                    {
+                                        var div=document.getElementById("school");
+                                        if(div.style.display=="none")
+                                        {
+                                            div.style.display="block";
+                                            div.style.backgroundColor = "lightblue";
+                                            div.style.fontWeight = "bold";   // make text bold
+                                            div.style.color = "blue"; 
+                                        }
+                                        else
+                                        {
+                                            div.style.display="none";
+                                        }
+                                    }
+
+                                    function palika_login()
+                                    {
+                                        var div=document.getElementById("palika");
+                                        if(div.style.display=="none")
+                                        {
+                                            div.style.display="block";
+                                            div.style.backgroundColor = "lightblue";
+                                            div.style.fontWeight = "bold";   // make text bold
+                                            div.style.color = "blue"; 
+                                        }
+                                        else
+                                        {
+                                            div.style.display="none";
+                                        }
+                                    }
+                            </script>
+                            <style>
+.arrow {
+    font-size: 40px;
+    color: black;
+}
+</style>
+    </head>
+<link rel="stylesheet" href="CSS/main_table.css">
+<link rel="stylesheet" href="CSS/table_css.css">
+<link rel="stylesheet" href="CSS/div_column.css">
+<link rel="stylesheet" href="CSS/form.css">
+<BODY class="bg">
+<center>
+<table width="100%", border=0 class="logintable">
+<tr>
+<td width="150" valign="buttom" align="center" bgcolor="#FFFFFF"><img src="Image\logo.jpg" width="150" height="130"></td>
+<td width="80%" valign="top" bgcolor="#FFFFFF" bg><img src="Image\banner.jpg" height="130" width="100%"></td>
+<td width="150" valign="buttom" align="center" bgcolor="#FFFFFF"><img src="Image/np_flag.gif" width="150" height="130"></td>
+</tr>
+<tr>
+<td valign="buttom" align="center" bgcolor="#264F8B"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2" color="#FFFFFF"><b><a href="index.php?home=home">Home</a></b></font></td>
+<td colspan="2" valign="buttom" align="center" bgcolor="264F8B"><font face="Verdana, Arial, Helvetica, sans-serif" size="+1" color="#FFFFFF"><b>Teacher Training Management Information System(TTMIS)</b></font></td>
+</tr>
+</table>
+<table width="100%", border="0" bgcolor="#FFFFFF">
+          <tr >
+                    
+                        <?php
+                        if(isset($_GET['accountid']))
+                            {
+                                echo "<td align=Center width=70% valign=top>";
+                                   if(isset($_SESSION['response']))
+                                            {
+                                            echo "<font size=+2 color=red><b>". $_SESSION['response'] . "</b></font>";
+                                            }
+                                if($_GET['accountid']=="newteacher")
+                                    {
+                                include("school/teacher_reg_request_outer.php");
+                                    }
+                                elseif($_GET['accountid']=="newschool")
+                                    {
+                                        include("municipality/school_registration_1_outer.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form")
+                                    {
+                                        include("training_application_form.php");
+                                        //include("customize_training_application_form.php");
+                                    }
+                                elseif($_GET['accountid']=="roster_form")
+                                    {
+                                        include("trainer_application_form.php");
+                                    }
+                                elseif($_GET['accountid']=="customize_training")
+                                    {
+                                        include("customize_training_application_form.php");
+                                    }
+                                elseif($_GET['accountid']=="customize_training_extra")
+                                    {
+                                        include("customize_training_application_form_extra.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form_1")
+                                    {
+
+                                        include("customize_training_application_form_1.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form_2")
+                                    {
+                                        include("customize_training_application_form_2.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form_1B")
+                                    {
+                                        include("customize_training_application_form_1B.php");
+                                    }
+                                elseif($_GET['accountid']=="application_form_1C")
+                                    {
+                                        include("customize_training_application_form_1C.php");
+                                    }
+                                elseif($_GET['accountid']=="application_formmoreinfo")
+                                    {
+                                        include("customize_training_application_form_moreinfo.php");
+                                    }
+                                elseif($_GET['accountid']=="ai_training")
+                                    {
+                                        include("ai_training_application_form.php");
+                                    }
+                            echo "</td>";
+                            }
+
+                        else
+                            {
+                        ?>
+                        <td align="Center" width="30%" valign="top">
+                        <table width="100%", border="0" class="logintable" cellpadding="5">
+                            <?php 
+                            if($_SESSION['application']=='Enable')
+                                {
+                            ?>
+                            <tr >
+                                <td bgcolor="#FFFFFF" align="center"><font size="2" color="#000000">
+                            <p align="justify"><b>बाल शिक्षक र शिक्षकका लागि एक महिने प्रमाणीकरण तालिम(TPD) वा सेवा प्रवेश तालिम वा प्र.अ. नेतृत्व क्षमता विकास तालिम (३० दिनकाे)लिन इच्छुक  बाल  शिक्षक/शिक्षक/प्र.अ.हरुले तलको आवेदन फारामकाे लिंकमा क्लिक गरेर आफ्नो सहि विवरणहरु भरी आवेदन पेश गर्नु हुन अनुराेध छ।</b><font size="+3" color="red"><sub>&#11015;</sub></font></p>
+                                </td>   
+                            </tr>
+                            <tr>
+                            <td bgcolor="#0A5751" align="center">
+                                <a href="index.php?accountid=application_form"><b>TPD / सेवा प्रवेश / प्र.अ. नेतृत्व क्षमता <br> तालिम आवेदन फाराम</b></a>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                                                             
+                            if($_SESSION['customize']=='Enable')
+                                {
+                                    ?>
+                            <tr >
+                                <td bgcolor="#FFFFFF" align="justify">
+            
+<b><font size="2" color="#000000">Customized</font></b><font size="2" color="#000000"><b> / क्षमता विकास सम्बन्धी ( औषत ५ दिनको ) तालिम लिन इच्छुक बाल शिक्षक, शिक्षक, प्रधानाध्यापमक तथा स्थानीय तहका शिक्षा सेवाका आठौ तह सम्मका कर्मचारीहरुले तलको लिंकमा क्लिक गरी विवरणहरु भर्नुहुन अनुरोध छ ।</font></b><font size="+3" color="red"><sub>&#11015;</sub></font></p>
+
+                                </td>   
+                            </tr>
+                            <tr>
+                            <td bgcolor="#264F8B" align="center">
+                                <a href="index.php?accountid=customize_training"><b>Customized / क्षमता विकास तालिम माग फाराम</b></a>
+                                </td>
+                            </tr>
+
+                            <?php
+                                }
+                            
+                            if($_SESSION['AI']=='Enable')
+                                {
+                                    ?>
+                            <tr >
+                                <td bgcolor="#FFFFFF" align="center">
+            
+<font size="2" color="#000000"><b> अनलाइनमा आधारित AI Based Digital Learning Training का लागि </font></b><font size="+3" color="red"><sub>&#11015;</sub></font></p>
+
+                                </td>   
+                            </tr>
+                            <tr>
+                            <td bgcolor="#148539" align="center">
+                                <a href="index.php?accountid=ai_training"><b>आवेदन फाराम</b></a>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                                ?>
+                            
+                            <?php
+                            if($_SESSION['roster']=='Enable')
+                                {
+                            ?>
+                            <tr >
+                                <td bgcolor="#FFFFFF" align="center"><font size="2" color="#000000">
+            
+<p align="justify"><b>शिक्षा तालिम केन्द्र धुलिखेल वा विस्तारित शिक्षा तालिम इकाइ वा स्थानीय तहसगको सहकार्यमा सञ्चालन हुने विभिन्न प्रकृतिको तालिममा विज्ञता र अनुभव प्रस्तुति गरी सहजिकरणका लागि रोष्टर/प्रशिक्षक/विज्ञको सूचिमा सूचिकृत हुन तल उल्लेख गरिएकाे फाराममा क्लिक गरि  विवरण भरी सहयाेग गर्नु हुन अनुरोध छ ।</b><font size="+3" color="red"><sub>&#11015;</sub></font></p>
+
+                                </td>   
+                            </tr>
+                            
+                            <tr>
+                            <td bgcolor="#920808" align="center">
+                                <a href="index.php?accountid=roster_form"><b>विज्ञ / राेष्टर सूची दर्ता फाराम</b></a>
+                                </td>
+                            </tr>
+                            
+                            <?php
+                                }
+                                ?>
+                            <tr>
+                            <td bgcolor="#FFFFFF" align="center">
+                                &nbsp;
+                                </td>
+                            </tr>
+                            
+                        </table>
+                        </td>
+                        <td align="center" valign="Top" width="40%">
+                        <img src="Image/working_staff.jpg" width="600" height="400" class="imagestyle">
+                        </td>
+                    <?php
+                            }
+                        ?>
+        			<td align="Right" valign="Top" width="30%">
+                       <table width="100%" class="combinelogintable">
+                            <tr>
+                            <td align="center"><P class="pevent" onclick="teacher_login()">TEACHER LOGIN</P>
+                            <div id="teacher" style="display:none;">
+                              <form method="Post" Action="Object/user_login.php">
+                             <table width="100%" align="center">
+                                <tr>
+                                    <td align="Right">Login Name</td>
+                                    <td><input type="text" name="txtloginname"></td>
+                                </tr>
+                                <tr>
+                                    <td align="Right">Password</td>
+                                    <td><input type="Password" name="txtpass"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                       <!-- <a href="index.php?accountid=newteacher">New Account </a>--><input type="submit" value="Login" class="button" name="btnteacher"> </td>
+                                </tr>
+                            </table>
+                            </form>
+                            </div>
+                           
+
+                       </td>
+                    </tr> 
+                    <tr>
+                        <td align="center"> 
+                           <P class="pevent" onclick="school_login()">SCHOOL LOGIN</P>
+                           <div id="school" style="display:none;">
+                           <form method="Post" Action="Object/user_login.php">
+                           <table width="100%" align="center">
+                                <tr>
+                                <td align="Right">Login Name</td>
+                                <td><input type="text" name="txtloginname"></td>
+                                </tr>
+                                <tr>
+                                <td align="Right">Password</td>
+                                <td><input type="Password" name="txtpass"></td>
+                                </tr>
+                                <tr>
+                                <td colspan="2" align="center"><a href="index.php?accountid=newschool">New Account </a><input type="submit" value="Login" class="button" name="btnschool"></td>
+                                </tr>
+                            </table>
+                            </form>
+                            </div>
+                            </td>
+                            </tr>
+                            <tr>
+                                    <td align="center"><P class="pevent" onclick="palika_login()">PALIKA LOGIN</P>
+                                            <div id="palika" style="display:none;">
+                                        <form method="Post" Action="Object/user_login.php">
+                                            <table width="100%" align="center">
+                    <tr>
+                    <td align="Right">Login Name</td>
+                    <td><input type="text" name="txtloginname"></td>
+                    </tr>
+                    <tr>
+                    <td align="Right">Password</td>
+                    <td><input type="Password" name="txtpass"></td>
+                    </tr>
+                       <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Login" class="button" name="btnpalika"></td>
+                    </tr>
+                    </table>
+                    </form>
+                </div>
+                </td>
+                 </tr>
+                 <tr >
+                                <td bgcolor="#0066FF"><font size="+2">
+                                <ul>
+                                    <font size="+2">
+                                    <li><a href="Digital_Learning_Portal/index.php" target="_blank">DIGITAL LEARNING PORTAL</a></li>
+                                    <li><a href="https://cgs.mosd.bagamati.gov.np/" target="_blank">वृत्ति मार्गनिर्देशन</a></li>
+                                </ul>
+                                    </font>
+                                </td>
+                            </tr>
+                </table>
+               </td>
+           </tr>
+</table>
+<center>
+    <font color="red" size="+2">
+<?php
+if(isset($_GET['msg']))
+	{
+		echo $_GET['msg'];
+	}
+
+?>
+</font>
+</center>
+
+</BODY>
+</HTML>
