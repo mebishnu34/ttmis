@@ -315,6 +315,7 @@ function schooldistrict(str) {
   </div>
   <div class="content">
     <select id="trainingcategory" name="cmbtrainingcategory" class="custom-combo" required onchange="handleChange()">
+      <option>तालिम लिन चाहेको विषय छान्नुहोस</option>
   <?php
     include("training_category_1.html");
   ?>  
@@ -327,8 +328,8 @@ function schooldistrict(str) {
 <label class="label_text">कुन विषयको तालिम लिने हो <span class="star">*</span></label>
 </div>
 <div class="content">
-    <select id="trainingsubject" name="cmbsubject" class="custom-combo">
-    <option value="प्रारम्भिक बालविकास र शिक्षा">प्रारम्भिक बालविकास र शिक्षा</option>
+    <select id="trainingsubject" name="cmbsubject" class="custom-combo" onchange="subjectChange()">
+    <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
     <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
     <option value="नेपाली">नेपाली</option>
     <option value="अङ्ग्रेजी">अङ्ग्रेजी</option>
@@ -339,33 +340,21 @@ function schooldistrict(str) {
     <option value="ICT मा आधारित तालिम">ICT मा आधारित तालिम</option>
     </select>
     <input type="text" name="cmbsubject" placeholder="विषय" id="trainingsubject1" style="display:none;">
-    <script>
-      function handleChange()
-      {
-        //alert("Check");
-        let category = document.getElementById("trainingcategory").value;
-        let subject = document.getElementById("trainingsubject");
-        let subject1 = document.getElementById("trainingsubject1");
-        let tpdlabel1 = document.getElementById("tpdlabel");
-      if(category === "एक महिने प्रमाणीकरण तालिम (TPD)")
-        {
-          //subject.disabled=false; // enable
-            subject.style.display="block";
-            subject1.style.display="none";
-            tpdlabel1.style.display="block";
-
-        }
-        else
-        {
-          //subject.disabled=true; // disable
-          subject.style.display="none";
-          subject1.style.display="block";
-          tpdlabel1.style.display="none";
-        }
-      }
-
-    </script>
 </div>
+</div>
+<br>
+<div class="custom-twocolumn" id="rowclassid">
+  <div class="label_column_1">
+<label class="label_text" >कक्षा<span class="star">*</span></label>
+</div>
+<div class="content">
+    <select id="trainingclassid" name="cmbclass" class="custom-combo">
+    <option value="कक्षा १ देखि ३">कक्षा १ देखि ३</option>
+    <option value="कक्षा ४ देखि ६">कक्षा ४ देखि ६</option>
+    <option value="कक्षा ७ देखि ८">कक्षा ७ देखि ८</option>
+    <option value="कक्षा ९ देखि १०">कक्षा ९ देखि १०</option>
+    </select>
+  </div>
 </div>
 <br>
 <div class="custom-twocolumn">
@@ -388,6 +377,45 @@ function schooldistrict(str) {
   <div class="content">
     <input type="Text" name="cmbpriority2mode" id="txtmode2" readonly>
     </div>
+    </div>
+</div>
+<h3>अपलोड गर्नुपर्ने कागजातहरू(PDF, JPG वा PNG (Max 5MB)</h3>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+    <label class="label_text" id="lblappointid">नियुक्ति पत्र (प्र.अ. भएमा प्र.अ.को)<span class="star">*</span></label>
+  </div>
+  <div class="content">
+    <input type="file" name="fileletter" required>
+  </div>
+</div>
+<script>
+      function handleChange()
+      {
+        //alert("Check");
+        let category = document.getElementById("trainingcategory").value;
+        let subject = document.getElementById("trainingsubject");
+        let subject1 = document.getElementById("trainingsubject1");
+        let tpdlabel1 = document.getElementById("tpdlabel");
+      if(category === "एक महिने प्रमाणीकरण तालिम (TPD)")
+        {
+           //subject.disabled=false; // enable
+            subject.style.display="block";
+            subject1.style.display="none";
+            tpdlabel1.style.display="block";
+        }
+      else
+        {
+          //subject.disabled=true; // disable
+          subject.style.display="none";
+          subject1.style.display="block";
+          tpdlabel1.style.display="none";
+          
+        }
+        
+      }
+
+    </script>
     <script>
         function updatetextbox()
         {
@@ -408,18 +436,6 @@ function schooldistrict(str) {
         }
     </script>
 
-</div>
-</div>
-<h3>अपलोड गर्नुपर्ने कागजातहरू(PDF, JPG वा PNG (Max 5MB)</h3>
-<br>
-<div class="custom-twocolumn">
-  <div class="label_column_1">
-    <label class="label_text">नियुक्ति पत्र <span class="star">*</span></label>
-  </div>
-  <div class="content">
-    <input type="file" name="fileletter" required>
-  </div>
-</div>
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
