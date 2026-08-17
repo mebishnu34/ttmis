@@ -6,6 +6,7 @@ ini_set('display_errors',1);
 include("../Processing/db_connection.php");
 $citizen=$_POST['txtcitizenshipNo'];
 $mobileno=$_POST['txtmobileNo'];
+$class=$_POST['cmbclass'];
 $filename = $_FILES['fileletter']['name'];
 $temp_file=$citizen .'_' . $filename;
 $letter=$temp_file;
@@ -22,22 +23,14 @@ $extensionctz = pathinfo($filenamectz, PATHINFO_EXTENSION);
 $filectz = $_FILES['filecitizenship']['tmp_name'];
 $sizectz = $_FILES['filecitizenship']['size'];
 
-$filenamerecomend = $_FILES['fileschoolrecommend']['name'];
-$temp_file=$citizen .'_' . $filenamerecomend;
-$recommend=$temp_file;
-$folderrecomend = '../application_document/' . $temp_file;
-$extensionrecomend = pathinfo($filenamerecomend, PATHINFO_EXTENSION);
-$filerecomend = $_FILES['fileschoolrecommend']['tmp_name'];
-$sizerecomend = $_FILES['fileschoolrecommend']['size'];
-
 $filenamephoto = $_FILES['filephoto']['name'];
 $temp_file=$citizen .'_' . $filenamephoto;
 $photo=$temp_file;
 $folderphoto= '../application_document/' . $temp_file;
-$extensionphoto = pathinfo($filenamerecomend, PATHINFO_EXTENSION);
-$filephoto = $_FILES['fileschoolrecommend']['tmp_name'];
-$sizephoto = $_FILES['fileschoolrecommend']['size'];
-
+$extensionphoto = pathinfo($filenamephoto, PATHINFO_EXTENSION);
+$filephoto = $_FILES['filephoto']['tmp_name'];
+$sizephoto = $_FILES['filephoto']['size'];
+$recommend="";
 $sql1 = "SELECT citizenshipno FROM tblapplication where citizenshipno='".$citizen."' OR mobileno='".$mobileno."'";
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
@@ -47,17 +40,39 @@ if ($result->num_rows > 0)
     }
   else
     {
-      if (!in_array($extensionletter, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionctz, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionrecomend, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionphoto, ['JPG','jpg','jpeg']))
+      if(isset($_FILES['fileschoolrecommend']))
         {
-          header('Location: ../error.php?msg= "Your file extension must be PDF, JPG वा PNG (Max 5MB"');
+          $filenamerecomend = $_FILES['fileschoolrecommend']['name'];
+          $temp_file=$citizen .'_' . $filenamerecomend;
+          $recommend=$temp_file;
+          $folderrecomend = '../application_document/' . $temp_file;
+          $extensionrecomend = pathinfo($filenamerecomend, PATHINFO_EXTENSION);
+          $filerecomend = $_FILES['fileschoolrecommend']['tmp_name'];
+          $sizerecomend = $_FILES['fileschoolrecommend']['size'];
+          if (!in_array($extensionrecomend, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']))
+            {
+              header('Location: ../error.php?msg= "Recomended file must be PDF, JPG वा PNG (Max 5MB"');
+            }
+          elseif ($sizerecomend > 5000000)
+            { // file shouldn't be larger than 1Megabyte
+             header('Location: ../error.php?msg= "File to large"');
+    	      }
+          else
+            {
+              copy($filerecomend,$folderrecomend);
+            }
         }
-      elseif ($sizeletter > 5000000 OR $sizectz>5000000 OR $sizerecomend>5000000 OR $sizephoto>5000000)
+      if (!in_array($extensionletter, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionctz, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionphoto, ['JPG','jpg','jpeg']))
+        {
+          header('Location: ../error.php?msg= "Your file extension must be PDF, JPG वा PNG (Max 5MB")');
+        }
+      elseif ($sizeletter > 5000000 OR $sizectz>5000000 OR $sizephoto>5000000)
         { // file shouldn't be larger than 1Megabyte
           header('Location: ../error.php?msg= "File to large"');
     	  }
       else
         {
-          if (copy($fileletter, $folderletter) and copy($filectz, $folderctz) and copy($filerecomend,$folderrecomend) and copy($filephoto,$folderphoto))
+          if (copy($fileletter, $folderletter) and copy($filectz, $folderctz) and copy($filephoto,$folderphoto))
             {
               $sql = "INSERT INTO tblapplication(tname,
                 teachercode,
@@ -83,6 +98,7 @@ if ($result->num_rows > 0)
                 acholdername,
                 bankacno,
                 panno,
+                teacherclass,
                 schoolname,
                 schoolprovince,
                 schooldistrict,
@@ -121,6 +137,7 @@ if ($result->num_rows > 0)
                 '".$_POST['txtaccountholder']."',
                 '".$_POST['txtbankacno']."',
                 '".$_POST['txtpanNo']."',
+                '".$_POST['$class']."',
                 '".$_POST['txtschoolname']."',
                 '".$_POST['cmbschoolprovince']."',
                 '".$_POST['cmbdistrictbagamati']."',
