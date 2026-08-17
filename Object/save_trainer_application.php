@@ -52,18 +52,18 @@ if ($result->num_rows > 0)
     }
   else
     {
-      if (!in_array($extensionctz, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensioncv, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionqualification, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionphoto, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']))
+      if (!in_array($extensionctz, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensioncv, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionphoto, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']))
         {
           header('Location: ../error.php?msg= "Your file extension must be PDF, JPG वा PNG (Max 5MB"');
         }
-      elseif ($sizectz > 5000000 OR $sizecv > 5000000 OR $sizequalification>5000000 OR $sizephoto>5000000)
+      elseif ($sizectz > 5000000 OR $sizecv > 5000000 OR $sizephoto>5000000)
         { // file shouldn't be larger than 1Megabyte
           header('Location: ../error.php?msg= "File to large"');
     	  }
       else
         {
-          if (copy($filectz, $f) and copy($filecv, $f1) and copy($filequalification, $f2) and copy($filephoto, $f3))
-	    {
+          if (isset(copy($filectz, $f) and copy($filecv, $f1) and copy($filequalification, $f2) and copy($filephoto, $f3)))
+	          {
               $sql = "INSERT INTO tbltrainee(traineename,
                  trainerengname,
                  trainergender,
