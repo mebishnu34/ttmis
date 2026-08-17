@@ -255,7 +255,7 @@ else
                             </tr>
                             <tr>
                             <td bgcolor="#148539" align="center">
-                                <a href="index.php?accountid=ai_training"><b>आवेदन फाराम</b></a>
+                                <a href="index.php?accountid=ai_training"><b>AI तालिमको लागि आवेदन फाराम</b></a>
                                 </td>
                             </tr>
                             <?php
