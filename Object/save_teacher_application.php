@@ -49,9 +49,9 @@ if ($result->num_rows > 0)
           $extensionrecomend = pathinfo($filenamerecomend, PATHINFO_EXTENSION);
           $filerecomend = $_FILES['fileschoolrecommend']['tmp_name'];
           $sizerecomend = $_FILES['fileschoolrecommend']['size'];
-          if (!in_array($extensionrecomend, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']))
+          if (!in_array($extensionrecomend, ['PDF','pdf','Pdf']))
             {
-              header('Location: ../error.php?msg= "Recomended file must be PDF, JPG वा PNG (Max 5MB"');
+              header('Location: ../error.php?msg= "Recomended file must be PDF"');
             }
           elseif ($sizerecomend > 5000000)
             { // file shouldn't be larger than 1Megabyte
@@ -62,9 +62,9 @@ if ($result->num_rows > 0)
               copy($filerecomend,$folderrecomend);
             }
         }
-      if (!in_array($extensionletter, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionctz, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionphoto, ['JPG','jpg','jpeg']))
+      if (!in_array($extensionletter, ['PDF','pdf','Pdf']) OR !in_array($extensionctz, ['PDF', 'pdf','Pdf']) OR !in_array($extensionphoto, ['JPG','jpg','jpeg','JPEG','Jpg','Jpeg']))
         {
-          header('Location: ../error.php?msg= "Your file extension must be PDF, JPG वा PNG (Max 5MB")');
+          header('Location: ../error.php?msg= "Your file extension must be PDF"');
         }
       elseif ($sizeletter > 5000000 OR $sizectz>5000000 OR $sizephoto>5000000)
         { // file shouldn't be larger than 1Megabyte
@@ -137,7 +137,7 @@ if ($result->num_rows > 0)
                 '".$_POST['txtaccountholder']."',
                 '".$_POST['txtbankacno']."',
                 '".$_POST['txtpanNo']."',
-                '".$_POST['$class']."',
+                '".$class."',
                 '".$_POST['txtschoolname']."',
                 '".$_POST['cmbschoolprovince']."',
                 '".$_POST['cmbdistrictbagamati']."',
