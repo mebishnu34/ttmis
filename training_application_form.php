@@ -46,7 +46,6 @@ function schooldistrict(str) {
 }
 */
 </script>
-
 <form method="Post" Action="Object/save_teacher_application.php" enctype="multipart/form-data">
 <div>
      <h2 class="">शिक्षक तालिम आवेदन फाराम ( <?php echo $_SESSION['financial_year'];?> )</h2>
@@ -73,6 +72,32 @@ function schooldistrict(str) {
             
     </div>
 </div>
+<br>
+<div class="custom-grid">
+     <div class="label_column">
+   <label class="label_text">जन्ममिति<span class="star">*</span></label>
+    </div>
+    <div>
+        <input type="text" name="txtdob" id="date" maxlength="10" placeholder="YYYY-MM-DD">
+<script>
+document.getElementById("date").addEventListener("input", function () {
+    let value = this.value.replace(/\D/g, ""); // Remove non-numbers
+
+    if (value.length > 4 && value.length <= 6) {
+        value = value.substring(0, 4) + "-" + value.substring(4);
+    } 
+    else if (value.length > 6) {
+        value = value.substring(0, 4) + "-" +
+                value.substring(4, 6) + "-" +
+                value.substring(6, 8);
+    }
+
+    this.value = value;
+});
+</script>
+    </div>
+</div>
+
 <br>
 <div class="custom-grid">
      <div class="label_column">
@@ -227,26 +252,26 @@ function schooldistrict(str) {
 <br>
 <div class="custom-grid">
   <div class="label_column">
-    <label class="label_text">बैंकको नाम <span class="star">*</span></label>
+    <label class="label_text">तपाईको खाता भएको बैंकको नाम <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" size="50" placeholder="बैंकको नाम" name="txtbankname" required>
+    <input class="custom-input" size="50" placeholder="Name of Bank in English" name="txtbankname" required oninput="this.value = this.value.replace(/[^A-Za-z ]/g, ''">
   </div>
   
 </div>
 <br>
 <div class="custom-grid">
   <div class="label_column">
-    <label class="label_text">खातावालाको नाम <span class="star">*</span></label>
+    <label class="label_text">तपाईको बैंक खातामा भएको नाम <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" size="50" placeholder="खातावालाको नाम" name="txtaccountholder" required>
+    <input class="custom-input" size="50" placeholder="Your name in English" name="txtaccountholder" required oninput="this.value = this.value.replace(/[^A-Za-z ]/g, ''">
   </div>
   <div class="label_column">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label_text">खाता नं <span class="star">*</span></label>
 </div>
   <div>
-   <input class="custom-input" placeholder="खाता नं" name="txtbankacno" required>
+   <input class="custom-input" placeholder="Account Number in English" name="txtbankacno" required  oninput="this.value = this.value.replace(/[^A-Za-z0-9 ]/g, ''">
   </div>
 </div>
 <br>
@@ -256,7 +281,7 @@ function schooldistrict(str) {
 <label class="label_text">पान नं <span class="star">*</span></label>
 </div>
 <div>
-  <input class="custom-input" placeholder="पान नं" name="txtpanNo" required>
+  <input class="custom-input" placeholder="Pan Number in English" name="txtpanNo" required oninput="this.value = this.value.replace(/[^A-Za-z0-9 ]/g, ''">
 </div>
 </div>
  <h3 class="text-xl font-bold text-slate-800">ख) हाल कार्यरत रहेकाे विद्यालयसगँ सम्वन्धित विवरण</h3>
@@ -429,7 +454,7 @@ function schooldistrict(str) {
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
-    <label class="label_text">नियुक्ति पत्र (प्र.अ.को तालिम लिने भएमा प्र.अ. नियुक्ति भएको पत्र)<span class="star">*</span>(pdf)</label>
+    <label class="label_text">नियुक्ति पत्र (प्र.अ.को तालिम लिने भएमा प्र.अ. नियुक्ति भएको पत्र)(pdf)<span class="star">*</span></label>
   </div>
   <div class="content">
     <input type="file" name="fileletter" class="big_file" required>
@@ -458,7 +483,7 @@ function schooldistrict(str) {
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
-    <label class="label_text">नागरिकता प्रमाणपत्र <span class="star">*</span>(pdf)</label>
+    <label class="label_text">नागरिकता प्रमाणपत्र(pdf) <span class="star">*</span></label>
   </div>
   <div class="content">
     <input  type="file" name="filecitizenship" class="big_file" required>
@@ -476,7 +501,7 @@ function schooldistrict(str) {
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
-    <label class="label_text">तपाईको पासपोर्ट साइजको फोटो(jpg) </label>
+    <label class="label_text">तपाईको पासपोर्ट साइजको फोटो(jpg) <span class="star">*</span></label>
   </div>
   <div class="content">
     <input  type="file" name="filephoto" class="big_file">
