@@ -333,7 +333,7 @@ document.getElementById("date").addEventListener("input", function () {
     </div>
 </div>
 <h3>ग) तालिम आवश्यकता सम्वन्धी विवरण</h3>
-<h4><label><i>कक्षा तीन सम्म अध्यापन गर्नु हुनेले एकीकृत पाठ्यक्रम (कक्षा १-३) छान्नुहाेस र कक्षा चार देखि माथि अध्यापन गर्नु हुनेले  विषय छान्नु हाेस ।</i></label></h4>
+<h4><label><i>TPD तालिम लिन कक्षा तीन सम्म अध्यापन गर्नु हुनेले एकीकृत पाठ्यक्रम (कक्षा १-३) छान्नुहाेस र कक्षा चार देखि माथि अध्यापन गर्नु हुनेले  विषय छान्नु हाेस ।</i></label></h4>
 <div class="custom-twocolumn">
   <div class="label_column_1">
   <label class="label_text">तालिम लिन चाहेको विषयक्षेत्र <span class="star">*</span></label>
@@ -450,7 +450,7 @@ document.getElementById("date").addEventListener("input", function () {
     </div>
     </div>
 </div>
-<h3>अपलोड गर्नुपर्ने कागजातहरू</h3>(६०० के.बी भन्दा कम साइजको फाइलमात्र अपलोड गर्नुहोला।)
+<h3>अपलोड गर्नुपर्ने कागजातहरू</h3>(२५० के.बी भन्दा कम साइजको फाइलमात्र अपलोड गर्नुहोला।)
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
@@ -501,7 +501,7 @@ document.getElementById("date").addEventListener("input", function () {
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
-    <label class="label_text">तपाईको पासपोर्ट साइजको फोटो(jpg) <span class="star">*</span></label>
+    <label class="label_text">तपाईको पासपोर्ट साइजको फोटो(jpg, png) <span class="star">*</span></label>
   </div>
   <div class="content">
     <input  type="file" name="filephoto" class="big_file">
