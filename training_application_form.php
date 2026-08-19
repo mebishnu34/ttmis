@@ -78,24 +78,10 @@ function schooldistrict(str) {
    <label class="label_text">जन्ममिति<span class="star">*</span></label>
     </div>
     <div>
-        <input type="text" name="txtdob" id="date" maxlength="10" placeholder="YYYY-MM-DD">
-<script>
-document.getElementById("date").addEventListener("input", function () {
-    let value = this.value.replace(/\D/g, ""); // Remove non-numbers
 
-    if (value.length > 4 && value.length <= 6) {
-        value = value.substring(0, 4) + "-" + value.substring(4);
-    } 
-    else if (value.length > 6) {
-        value = value.substring(0, 4) + "-" +
-                value.substring(4, 6) + "-" +
-                value.substring(6, 8);
-    }
+<input type="text" name="txtdob" id="date" maxlength="10" placeholder="YYYY-MM-DD" required>
 
-    this.value = value;
-});
-</script>
-    </div>
+</div>
 </div>
 
 <br>
