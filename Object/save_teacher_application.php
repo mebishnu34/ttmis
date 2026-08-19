@@ -62,7 +62,7 @@ if ($result->num_rows > 0)
               copy($filerecomend,$folderrecomend);
             }
         }
-      if (!in_array($extensionletter, ['PDF','pdf','Pdf']) OR !in_array($extensionctz, ['PDF', 'pdf','Pdf']) OR !in_array($extensionphoto, ['JPG','jpg','jpeg','JPEG','Jpg','Jpeg']))
+      if (!in_array($extensionletter, ['PDF','pdf','Pdf']) OR !in_array($extensionctz, ['PDF', 'pdf','Pdf']) OR !in_array($extensionphoto, ['JPG','jpg','jpeg','JPEG','Jpg','Jpeg','PNG','png','Png']))
         {
           header('Location: ../error.php?msg= "Your file extension must be PDF"');
         }
