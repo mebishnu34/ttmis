@@ -72,7 +72,7 @@
 <br>
 <div>
       
-        <label class="label_text">शैक्षिक योग्यता <span class="star">*</span></label>
+        <label class="label_text">माथिल्लो शैक्षिक योग्यता <span class="star">*</span></label>
       
 </div>
 <div>
@@ -108,7 +108,7 @@
 <br>
 <div>
     
-        <label class="label_text">तालिम तथा प्रशिक्षण लिएको विवरण <span class="star">*</span></label>
+        <label class="label_text"> तालिम तथा प्रशिक्षण लिएको विवरण <span class="star">*</span></label>
     
 </div>
   <div>
@@ -179,7 +179,7 @@
     </div>
     <br>
     <div>
-        <label class="label_text">सहजीकरण / प्रशिक्षण गरेको अनुसार ( मुख्य मुख्य कार्यक्रम )<span class="star">*</span></label>
+        <label class="label_text">सहजीकरण / प्रशिक्षण गरेको विवरण ( मुख्य मुख्य कार्यक्रम )<span class="star">*</span></label>
     </div>
       <div>
         
@@ -247,7 +247,7 @@
       
       </div>
   
- <h3 class="text-xl font-bold text-slate-800">विज्ञता क्षेत्र</h3>
+ <h3 class="text-xl font-bold text-slate-800">विज्ञता क्षेत्र ( &#9745; टिक लगाउनुहोस्)</h3>
 <div>
    <input type="checkbox" name="optspecialist[]" value="नेपाली"> नेपाली &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="अङ्ग्रेजी"> अङ्ग्रेजी &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -370,40 +370,40 @@
       
   </div>
 
-<h3>अपलोड गर्नुपर्ने कागजातहरू(PDF, JPG वा PNG (Max 5MB)</h3>
+<h3>अपलोड गर्नुपर्ने कागजातहरू</h3>(२५० के.बी भन्दा कम साइजको फाइलमात्र अपलोड गर्नुहोला।)
 <div class="custom-grid">
   <div class="label_column">
-    <label>नागरिकता <span class="star">*</span></label>
+    <label>नागरिकताको प्रमाण पत्र (pdf) <span class="star">*</span></label>
   </div>
   <div>
-    <input type="file" name="filecitizenship" required>
+    <input type="file" name="filecitizenship" required class="big_file">
   </div>
 </div>
 <br>
 <div class="custom-grid">
   <div class="label_column">
-    <label>प्रमाणित CV <span class="star">*</span></label>
+    <label>प्रमाणित बायोडाटा (pdf) <span class="star">*</span></label>
   </div>
   <div>
-    <input type="file" name="filecv" required>
+    <input type="file" name="filecv" required class="big_file">
   </div>
 </div>
 <br>
 <div class="custom-grid">
   <div class="label_column">
-    <label>माथिल्लो योग्यताको शैक्षिक योग्यताको प्रमाण पत्र <span class="star">*</span></label>
+    <label>माथिल्लो शैक्षिक योग्यताको प्रमाण पत्र (pdf)</label>
   </div>
   <div>
-    <input  type="file" name="filequalification" required>
+    <input  type="file" name="filequalification" class="big_file">
 </div>
 </div>
 <br>
 <div class="custom-grid">
   <div class="label_column">
-    <label>फोटो <span class="star">*</span></label>
+    <label>फोटो (jpg, png) <span class="star">*</span></label>
   </div>
   <div>
-    <input  type="file" name="filephpto" required>
+    <input  type="file" name="filephpto" required class="big_file">
 </div>
 
 </div>
