@@ -146,7 +146,7 @@ if ($result->num_rows > 0)
                 '".$_POST['cmbmunbagamati']."',
                 '".$_POST['txtschoolward']."',
                 '".$_POST['cmbtrainingcategory']."',
-                '".$_POST['cmbsubject']."',
+                '".$_POST['cmbsubject3']."',
                 '".$_POST['cmbprioritymode']."',
                 '".$_POST['cmbpriority2mode']."',
                 '".$letter."',

@@ -62,7 +62,7 @@ if ($result->num_rows > 0)
     	  }
       else
         {
-          if (isset(copy($filectz, $f) and copy($filecv, $f1) and copy($filequalification, $f2) and copy($filephoto, $f3)))
+          if (copy($filectz, $f) and copy($filecv, $f1) and copy($filequalification, $f2) and copy($filephoto, $f3))
 	          {
               $sql = "INSERT INTO tbltrainee(traineename,
                  trainerengname,
@@ -99,7 +99,7 @@ if ($result->num_rows > 0)
                 '',
                 '',
                 '',
-                '',
+                '".$_POST['txtworkingoffice']."',
                 '',
                 '',
                 '',
