@@ -12,13 +12,13 @@
     </div>
 
     <div>
-        <input type="text" class="custom-input" placeholder="नाम लेख्नुहोस्" name="txtname" required>
+        <input type="text" size="40" class="custom-input" placeholder="नाम लेख्नुहोस्" name="txtname" required>
     </div>
     <div class="label_column">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label_text"> पूरा नाम (अंग्रेजीमा)<span class="star">*</span></label>
     </div>
     <div>
-        <input type="text" class="custom-input" placeholder="थर लेख्नुहोस्" name="txtengname" required>
+        <input type="text" size="40" class="custom-input" placeholder="थर लेख्नुहोस्" name="txtengname" required>
     </div>
 </div>
 <br>
@@ -36,6 +36,22 @@
         <input type="text" class="custom-input" placeholder="नागरिकता नम्बर लेख्नुहोस्" name="txtcitizenshipno" required>
     </div>-->
 </div>
+<br>
+<div class="custom-grid">
+      <div class="label_column">
+          <label class="label_text">हालको अवस्था <span class="star">*</span></label>
+      </div>
+      <div>
+          <input type="Radio" class="custom-input" name="optcondition" value="कार्यरत" checked="true"> कार्यरत &nbsp;&nbsp;&nbsp; <input type="Radio" class="custom-input" value="अवकासप्राप्त" name="optcondition">अवकासप्राप्त 
+</div>
+ <!--         <div class="label_column">
+        <label class="label_text">नागरिकता नम्बर<span class="star">*</span></label>
+    </div>
+    <div>
+        <input type="text" class="custom-input" placeholder="नागरिकता नम्बर लेख्नुहोस्" name="txtcitizenshipno" required>
+    </div>-->
+</div>
+
 <br>
 <div class="custom-grid">
     <div class="label_column">
@@ -247,7 +263,7 @@
       
       </div>
   
- <h3 class="text-xl font-bold text-slate-800">विज्ञता क्षेत्र ( &#9745; टिक लगाउनुहोस्)</h3>
+ <h3 class="text-xl font-bold text-slate-800">विज्ञता क्षेत्र ( &#9745; टिक लगाउनुहोस्) <span class="star">*</span></h3>
 <div>
    <input type="checkbox" name="optspecialist[]" value="नेपाली"> नेपाली &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="अङ्ग्रेजी"> अङ्ग्रेजी &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -369,6 +385,18 @@
           <button onclick="addRowpublish()">Add</button>      
       
   </div>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+  <label class="label_text">सहजीकरण गर्ने माध्यम <span class="star">*</span></label>
+</div>
+<div class="content">
+  <select name="cmbtrainingmode" class="custom-combo" id="txtmode1" required>
+  <option value="आमनेसामने (Face To Face)">आमनेसामने (Face To Face)</option>
+  <option value="अनलाइन (Online)">अनलाइन (Online)</option>
+  </select>
+</div>
+</div>
 
 <h3>अपलोड गर्नुपर्ने कागजातहरू</h3>(२५० के.बी भन्दा कम साइजको फाइलमात्र अपलोड गर्नुहोला।)
 <div class="custom-grid">
@@ -385,16 +413,16 @@
     <label>प्रमाणित बायोडाटा (pdf) <span class="star">*</span></label>
   </div>
   <div>
-    <input type="file" name="filecv" required class="big_file">
+    <input type="file" name="filecv" required class="big_file" required>
   </div>
 </div>
 <br>
 <div class="custom-grid">
   <div class="label_column">
-    <label>माथिल्लो शैक्षिक योग्यताको प्रमाण पत्र (pdf)</label>
+    <label>माथिल्लो शैक्षिक योग्यताको प्रमाण पत्र (pdf)<span class="star">*</span></label>
   </div>
   <div>
-    <input  type="file" name="filequalification" class="big_file">
+    <input  type="file" name="filequalification" class="big_file" required>
 </div>
 </div>
 <br>
@@ -403,7 +431,7 @@
     <label>फोटो (jpg, png) <span class="star">*</span></label>
   </div>
   <div>
-    <input  type="file" name="filephpto" required class="big_file">
+    <input  type="file" name="filephpto" required class="big_file" required>
 </div>
 
 </div>

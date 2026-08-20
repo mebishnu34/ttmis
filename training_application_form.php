@@ -150,7 +150,7 @@ function schooldistrict(str) {
   <br>
 <div class="custom-grid">
     <div class="label_column">
-      <label class="label_text">नियुक्ति भएको साल <span class="star">*</span></label>
+      <label class="label_text">स्थायी नियुक्ति भएको साल <span class="star">*</span></label>
     </div>
     <div>
       <input maxlength="4" placeholder="नियुक्ति साल" size="10" type="text" name="txtappointdate" required>
