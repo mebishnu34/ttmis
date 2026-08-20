@@ -42,8 +42,9 @@
           <label class="label_text">हालको अवस्था <span class="star">*</span></label>
       </div>
       <div>
-          <input type="Radio" class="custom-input" name="optcondition" value="कार्यरत" checked="true"> कार्यरत &nbsp;&nbsp;&nbsp; <input type="Radio" class="custom-input" value="अवकासप्राप्त" name="optcondition">अवकासप्राप्त 
+          <input type="Radio" class="custom-input" name="optcondition" id="optconitionid" value="कार्यरत"> कार्यरत &nbsp;&nbsp;&nbsp; <input type="Radio" class="custom-input" value="अवकासप्राप्त" name="optcondition" checked>अवकासप्राप्त 
 </div>
+
  <!--         <div class="label_column">
         <label class="label_text">नागरिकता नम्बर<span class="star">*</span></label>
     </div>
@@ -51,7 +52,30 @@
         <input type="text" class="custom-input" placeholder="नागरिकता नम्बर लेख्नुहोस्" name="txtcitizenshipno" required>
     </div>-->
 </div>
+<br>
+<div class="custom-grid">
+    <div class="label_column">
+        <label class="label_text">कार्यरत संस्थाको नाम<span class="star">*</span></label>
+    </div>
+    <div>
+        <input type="text" size="50" class="custom-input" placeholder="संस्थाको नाम लेख्नुहोस्" name="txtworkingoffice" id="txtworkingoffice" disabled>
+      </div>
+</div>
+<script>
+document.querySelectorAll('input[name="optcondition"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
 
+        const workoffice = document.getElementById('txtworkingoffice');
+
+        if (document.getElementById('optconitionid').checked) {
+            workoffice.disabled = false;
+        } else {
+            workoffice.disabled = true;
+            workoffice.value = ""; 
+        }
+    });
+});
+</script>
 <br>
 <div class="custom-grid">
     <div class="label_column">
@@ -394,6 +418,7 @@
   <select name="cmbtrainingmode" class="custom-combo" id="txtmode1" required>
   <option value="आमनेसामने (Face To Face)">आमनेसामने (Face To Face)</option>
   <option value="अनलाइन (Online)">अनलाइन (Online)</option>
+  <option value="दुवै (Both)">दुवै (Both)</option>
   </select>
 </div>
 </div>

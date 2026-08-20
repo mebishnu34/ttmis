@@ -162,18 +162,18 @@ function schooldistrict(str) {
     <div>
     <select class="custom-combo" name="cmbappointmonth" required>
         <option value="">महिना</option>
-        <option value="बैशाख">बैशाख</option>
-        <option value="जेठ">जेठ</option>
-        <option value="असार">असार</option>
-        <option value="साउन">साउन</option>
-        <option value="भदौ">भदौ</option>
-        <option value="असोज">असोज</option>
-        <option value="कात्तिक">कात्तिक</option>
-        <option value="मंसिर">मंसिर</option>
-        <option value="पुष">पुष</option>
-        <option value="माघ">माघ</option>
-        <option value="फागुन">फागुन</option>
-        <option value="चैत">चैत</option>
+        <option value="१">१</option>
+        <option value="२">२</option>
+        <option value="३">३</option>
+        <option value="४">४</option>
+        <option value="५">५</option>
+        <option value="६">६</option>
+        <option value="७">७</option>
+        <option value="८">८</option>
+        <option value="९">९</option>
+        <option value="१०">१०</option>
+        <option value="११">११</option>
+        <option value="१२">१२</option>
       </select>
       &nbsp;&nbsp;&nbsp;<label class="label_text"> गते <span class="star">*</span></label><input class="custom-input_number" type="text" name="txtday" size="5" placeholder="दिन" >
     </div>
@@ -206,7 +206,17 @@ function schooldistrict(str) {
     <label class="label_text" style="display:none;" id="appointsublevelid">नियुक्ति भएको विषय <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" id="appointsubjectid" style="display:none;" placeholder="विषय लेख्नुहोस्" name="cmbappointsubject">
+    <select name="cmbappointsubject" id="appointsubjectid" style="display:none;" class="custom-combo">
+         <option value="अंग्रेजी">अंग्रेजी</option>
+         <option value="नेपाली">नेपाली</option>
+         <option value="गणित">गणित</option>
+         <option value="विज्ञान">विज्ञान</option>
+         <option value="सामाजिक">सामाजिक</option>
+         <option value="स्वास्थ्य शारिरीक">स्वास्थ्य शारिरीक</option>
+         <option value="लेखा">लेखा</option>
+         <option value="सबै (विषय छनोट नहुने )">सबै (विषय छनोट नहुने )</option>
+         <option value="अन्य ऐच्छिक विषय">अन्य ऐच्छिक विषय</option>
+             </select>
   </div>
 </div>
 <script>
@@ -257,7 +267,7 @@ function schooldistrict(str) {
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label_text">खाता नं <span class="star">*</span></label>
 </div>
   <div>
-   <input class="custom-input" placeholder="Account Number in English" name="txtbankacno" required  oninput="this.value = this.value.replace(/[^A-Za-z0-9 ]/g, ''">
+   <input class="custom-input" placeholder="A/C Number in English" name="txtbankacno" required  oninput="this.value = this.value.replace(/[^A-Za-z0-9 ]/g, ''">
   </div>
 </div>
 <br>
@@ -336,10 +346,10 @@ function schooldistrict(str) {
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
-<label class="label_text">कुन विषयको तालिम लिने हो <span class="star">*</span></label>
+<label class="label_text" id="lblsubjectwhatid" style="display:none;">कुन विषयको तालिम लिने हो <span class="star">*</span></label>
 </div>
 <div class="content">
-    <select id="trainingsubject" name="cmbsubject" class="custom-combo" onchange="subjectChange()">
+    <select id="trainingsubject" name="cmbsubject3" class="custom-combo" style="display:none;" onchange="subjectChange()">
     <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
     <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
     <option value="नेपाली">नेपाली</option>
@@ -350,7 +360,7 @@ function schooldistrict(str) {
     <option value="ऐच्छिक विषय">ऐच्छिक विषय</option>
     <option value="ICT मा आधारित तालिम">ICT मा आधारित तालिम</option>
     </select>
-    <input type="text" name="cmbsubject" placeholder="विषय" id="trainingsubject1" style="display:none;">
+    <input type="hidden" name="cmbsubject" placeholder="विषय" id="trainingsubject1" style="display:none;">
 </div>
 </div>
 <script>
@@ -361,10 +371,12 @@ function schooldistrict(str) {
     let subject = document.getElementById("trainingsubject");
     let subject1 = document.getElementById("trainingsubject1");
     let tpdlabel1 = document.getElementById("tpdlabel");
+    let subjectwhat = document.getElementById("lblsubjectwhatid");
       if (category === "एक महिने प्रमाणीकरण तालिम (TPD)")
     {
         subject.style.display = "block";
         subject1.style.display = "none";
+        subjectwhat.style.display = "block";
         tpdlabel1.style.display = "block";
 
         }
@@ -373,7 +385,9 @@ function schooldistrict(str) {
           //subject.disabled=true; // disable
           subject.style.display="none";
           subject1.style.display="block";
+          subjectwhat.style.display = "none";
           tpdlabel1.style.display="none";
+          
           
         }
       }
