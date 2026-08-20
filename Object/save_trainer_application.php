@@ -52,7 +52,7 @@ if ($result->num_rows > 0)
     }
   else
     {
-      if (!in_array($extensionctz, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensioncv, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']) OR !in_array($extensionphoto, ['PDF', 'JPG','png', 'PNG','pdf','jpg','jpeg']))
+      if (!in_array($extensionctz, ['PDF', 'pdf','Pdf']) OR !in_array($extensioncv, ['PDF', 'pdf','Pdf']) OR !in_array($extensionphoto, ['JPG','png', 'PNG','jpg','jpeg','Jpg','Jpeg']) OR !in_array($extensionqualification, ['PDF', 'pdf','Pdf']))
         {
           header('Location: ../error.php?msg= "Your file extension must be PDF, JPG वा PNG (Max 5MB"');
         }
@@ -67,6 +67,7 @@ if ($result->num_rows > 0)
               $sql = "INSERT INTO tbltrainee(traineename,
                  trainerengname,
                  trainergender,
+                 fcondition,
                 mobileno,
                 email,
                 traineeaddress,
@@ -81,6 +82,7 @@ if ($result->num_rows > 0)
                 panno,
                 trainingname,
                 trainingsubject,
+                trainingmode,
                 citizenship,
                 cvfilename,
                 qualifilename,
@@ -89,6 +91,7 @@ if ($result->num_rows > 0)
                 remark) values('".$_POST['txtname']."',
                 '".$_POST['txtengname']."',
                 '".$_POST['optgender']."',
+                '".$_POST['optcondition']."',
                 '".$_POST['txtmobileno']."',
                 '".$_POST['txtemail']."',
                 '".$_POST['txtaddress']."',
@@ -103,6 +106,7 @@ if ($result->num_rows > 0)
                 '',
                 '',
                 '',
+                '".$_POST['cmbtrainingmode']."',
                 '".$ctz."',
                 '".$cv."',
                 '". $qualifile ."',
