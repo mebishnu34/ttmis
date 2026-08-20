@@ -13,6 +13,7 @@ $output .='
 <th>शिक्षककाे नाम</th>
 <th>माेबाइल न‌‍</th>
 <th>तालिमको नाम</th>
+<th>विषय</th>
 <th>तह</th>
 <th>जिल्ला</th>
 <th>पालिका</th>
@@ -30,39 +31,39 @@ if($_SESSION["listtype"]=="Selected")
                      
             if($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika" and $_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika" and $_SESSION["chklevel"]=="level")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chksubject"]=="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where trainingsubject='".$_SESSION["subject"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where trainingsubject='".$_SESSION["subject"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
 
             else
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                         
                   }
       }
@@ -71,38 +72,38 @@ elseif($_SESSION["listtype"]=="NotSelected")
             
             if($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika" and $_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika" and $_SESSION["chklevel"]=="level")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chksubject"]=="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where trainingsubject='".$_SESSION["subject"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where trainingsubject='".$_SESSION["subject"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
 
             else
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                         
                   }
       }
@@ -110,38 +111,38 @@ elseif($_SESSION["listtype"]=="All")
       {
             if($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika" and $_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."'and trainingsubject='".$_SESSION["subject"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."'and trainingsubject='".$_SESSION["subject"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chkpalika"]=="palika" and $_SESSION["chklevel"]=="level")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and munvdc='".$_SESSION["munvdc"]."' and appointlocallevel='".$_SESSION["level"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chksubject"]=="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where trainingsubject='".$_SESSION["subject"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where trainingsubject='".$_SESSION["subject"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($_SESSION["chkdistrict"]=="district" and $_SESSION["chklevel"]=="level" and $_SESSION["chksubject"]="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where district='".$_SESSION["district"]."' and appointlocallevel='".$_SESSION["level"]."' and trainingsubject='".$_SESSION["subject"]."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
 
             else
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,district, munvdc,priority1model FROM tblapplication where financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                         
                   }
       }
@@ -154,6 +155,7 @@ elseif($_SESSION["listtype"]=="All")
             <td align=center>' . $i .'</td>
             <td>'.$row["tname"].'</td>
             <td align=center>'.$row["mobileno"].'</td>
+            <td align=center>'. $row["trainingcategory"].'</td>
             <td align=center>'. $row["trainingsubject"].'</td>
             <td align=center>'. $row["appointlocallevel"].'</td>
             <td align=center>'. $row["district"].'</td>
