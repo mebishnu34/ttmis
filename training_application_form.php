@@ -207,7 +207,14 @@ function schooldistrict(str) {
   </div>
   <div>
     <select name="cmbappointsubject" id="appointsubjectid" style="display:none;" class="custom-combo">
-         <option value="अंग्रेजी">अंग्रेजी</option>
+      <option value="">विषय छान्नुहोस</option>
+         <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
+         <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
+         <option value="सामाजिक अध्ययन">सामाजिक अध्ययन</option>
+         <option value="विज्ञान तथा प्रविधि">विज्ञान तथा प्रविधि</option>
+         <option value="ICT मा आधारित तालिम">ICT मा आधारित तालिम</option>
+         <option value="ऐच्छिक विषय">ऐच्छिक विषय</option>
+          <option value="अंग्रेजी">अंग्रेजी</option>
          <option value="नेपाली">नेपाली</option>
          <option value="गणित">गणित</option>
          <option value="विज्ञान">विज्ञान</option>
@@ -347,9 +354,12 @@ function schooldistrict(str) {
 <div class="custom-twocolumn">
   <div class="label_column_1">
 <label class="label_text" id="lblsubjectwhatid" style="display:none;">कुन विषयको तालिम लिने हो <span class="star">*</span></label>
+<label class="label_text" id="lblappointmiti" style="display:none;">प्र.अ./स.प्र.अ. नियुक्ति मिति<span class="star">*</span></label>
 </div>
 <div class="content">
+  <input type="text" name="txtpraappointmiti" id="txtpraappointmiti" maxlength="10" placeholder="YYYY-MM-DD" style="display:none;">
     <select id="trainingsubject" name="cmbsubject3" class="custom-combo" style="display:none;" onchange="subjectChange()">
+      <option value="">विषय छान्नुहोस</option>
     <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
     <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
     <option value="नेपाली">नेपाली</option>
@@ -363,42 +373,14 @@ function schooldistrict(str) {
     <input type="hidden" name="cmbsubject" placeholder="विषय" id="trainingsubject1" style="display:none;">
 </div>
 </div>
-<script>
-      function handleChange()
-      {
-        //alert("Check");
-         let category = document.getElementById("trainingcategory").value;
-    let subject = document.getElementById("trainingsubject");
-    let subject1 = document.getElementById("trainingsubject1");
-    let tpdlabel1 = document.getElementById("tpdlabel");
-    let subjectwhat = document.getElementById("lblsubjectwhatid");
-      if (category === "एक महिने प्रमाणीकरण तालिम (TPD)")
-    {
-        subject.style.display = "block";
-        subject1.style.display = "none";
-        subjectwhat.style.display = "block";
-        tpdlabel1.style.display = "block";
-
-        }
-      else
-        {
-          //subject.disabled=true; // disable
-          subject.style.display="none";
-          subject1.style.display="block";
-          subjectwhat.style.display = "none";
-          tpdlabel1.style.display="none";
-          
-          
-        }
-      }
-      </script>
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
-<label class="label_text" id="rowclassid" style="display:none;" >कक्षा<span class="star">*</span></label>
+<label class="label_text" id="rowclassid" style="display:none;" >तालिम लिने तह<span class="star">*</span></label>
 </div>
 <div class="content">
     <select name="cmbclass" class="custom-combo"  id="trainingclassid" style="display:none;">
+    <option value="">तह छान्नुहोस</option>
     <option value="कक्षा ४ देखि ५">कक्षा ४ देखि ५</option>
     <option value="कक्षा ६ देखि ८">कक्षा ६ देखि ८</option>
     <option value="कक्षा ९ देखि १०">कक्षा ९ देखि १०</option>
@@ -406,6 +388,50 @@ function schooldistrict(str) {
   </div>
 </div>
 <script>
+      function handleChange()
+      {
+        //alert("Check");
+         let category = document.getElementById("trainingcategory").value;
+    let subject = document.getElementById("trainingsubject");
+    let subject1 = document.getElementById("trainingsubject1");
+    let subjectwhat = document.getElementById("lblsubjectwhatid");
+      let appointmiti = document.getElementById("lblappointmiti");
+    let praappointmiti = document.getElementById("txtpraappointmiti");
+    let teachingclass1 = document.getElementById("trainingclassid");
+    let classrow1 = document.getElementById("rowclassid");
+      if (category === "एक महिने प्रमाणीकरण तालिम (TPD)")
+    {
+        
+        subject.style.display = "block";
+        subject1.style.display = "none";
+        subjectwhat.style.display = "block";
+        appointmiti.style.display = "none";
+        praappointmiti.style.display = "none";
+          }
+      else if (category === "प्रधानाध्यापक नेतृत्व सम्बन्धि एक महिने तालिम")
+        {
+          //subject.disabled=true; // disable
+          subject.style.display="none";
+          subject1.style.display="block";
+          subjectwhat.style.display = "none";
+            classrow1.style.display="none";
+            teachingclass1.style.display="none";
+          appointmiti.style.display = "block";
+        praappointmiti.style.display = "block";
+        }
+        else 
+        {
+          //subject.disabled=true; // disable
+          subject.style.display="none";
+          subject1.style.display="block";
+          subjectwhat.style.display = "none";
+            classrow1.style.display="none";
+            teachingclass1.style.display="none";
+          appointmiti.style.display = "none";
+        praappointmiti.style.display = "none";
+        }
+      }
+    
       function subjectChange()
       {
         
