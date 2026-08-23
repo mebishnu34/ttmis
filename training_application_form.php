@@ -54,7 +54,7 @@ function schooldistrict(str) {
 </div>
 <form class="">
 <div class="">
-<h3>क) शिक्षकसँग सम्वन्धित विवरण</h3>
+<h3>खण्ड - क ) शिक्षकसँग सम्वन्धित विवरण</h3>
 <input type="hidden" value="<?php echo $_SESSION['financial_year'];?>" name="txtfyear">
 </div>
 <div class="custom-grid">
@@ -287,7 +287,7 @@ function schooldistrict(str) {
   <input class="custom-input" placeholder="Pan Number in English" name="txtpanNo" required oninput="this.value = this.value.replace(/[^A-Za-z0-9 ]/g, ''">
 </div>
 </div>
- <h3 class="text-xl font-bold text-slate-800">ख) हाल कार्यरत रहेकाे विद्यालयसगँ सम्वन्धित विवरण</h3>
+ <h3 class="text-xl font-bold text-slate-800">खण्ड -ख) हाल कार्यरत रहेकाे विद्यालयसगँ सम्वन्धित विवरण</h3>
 <div class="custom-grid">
   <div class="label_column">
     <label class="label_text">विद्यालयको नाम <span class="star">*</span></label>
@@ -335,7 +335,7 @@ function schooldistrict(str) {
       <input class="custom-input_number" placeholder="वडा" name="txtschoolward" required>
     </div>
 </div>
-<h3>ग) तालिम आवश्यकता सम्वन्धी विवरण</h3>
+<h3>खण्ड - ग) तालिम आवश्यकता सम्वन्धी विवरण</h3>
 <h4><label><i>TPD तालिम लिन कक्षा तीन सम्म अध्यापन गर्नु हुनेले एकीकृत पाठ्यक्रम (कक्षा १-३) छान्नुहाेस र कक्षा चार देखि माथि अध्यापन गर्नु हुनेले  विषय छान्नु हाेस ।</i></label></h4>
 <div class="custom-twocolumn">
   <div class="label_column_1">
@@ -413,6 +413,7 @@ function schooldistrict(str) {
         subjectwhat.style.display = "block";
         appointmiti.style.display = "none";
         praappointmiti.style.display = "none";
+        teachingclassservice.style.display="none";
           }
       else if (category === "प्रधानाध्यापक नेतृत्व सम्बन्धि एक महिने तालिम")
         {
