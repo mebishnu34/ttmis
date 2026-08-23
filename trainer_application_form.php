@@ -297,7 +297,7 @@ document.querySelectorAll('input[name="optcondition"]').forEach(function(radio) 
    <input type="checkbox" name="optspecialist[]" value="ECD"> ECD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="समावेशी शिक्षा"> समावेशी शिक्षा &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="एकीकृत पाठ्यक्रम"> एकीकृत पाठ्यक्रम &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
-   <input type="checkbox" name="optspecialist[]" value="Steam Education"> Steam Education &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="STEAM Education"> STEAM Education &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="सामाजिक"> सामाजिक &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="योग शिक्षा"> योग शिक्षा &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="मनोसामाजिक परामर्श"> मनोसामाजिक परामर्श &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -412,10 +412,11 @@ document.querySelectorAll('input[name="optcondition"]').forEach(function(radio) 
 <br>
 <div class="custom-twocolumn">
   <div class="label_column_1">
-  <label class="label_text">सहजीकरण गर्ने माध्यम <span class="star">*</span></label>
+  <label class="label_text">तपाई कुन माध्यमबाट सहजीकरण/प्रशिक्षण गर्नु हुन्छ ? <span class="star">*</span></label>
 </div>
 <div class="content">
   <select name="cmbtrainingmode" class="custom-combo" id="txtmode1" required>
+    <option value="">--छान्नुहोस्--</option>
   <option value="आमनेसामने (Face To Face)">आमनेसामने (Face To Face)</option>
   <option value="अनलाइन (Online)">अनलाइन (Online)</option>
   <option value="दुवै (Both)">दुवै (Both)</option>

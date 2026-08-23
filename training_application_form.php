@@ -370,7 +370,7 @@ function schooldistrict(str) {
     <option value="ऐच्छिक विषय">ऐच्छिक विषय</option>
     <option value="ICT मा आधारित तालिम">ICT मा आधारित तालिम</option>
     </select>
-    <input type="hidden" name="cmbsubject" placeholder="विषय" id="trainingsubject1" style="display:none;">
+        <input type="hidden" name="cmbsubject" placeholder="विषय" id="trainingsubject1" style="display:none;">
 </div>
 </div>
 <br>
@@ -385,6 +385,11 @@ function schooldistrict(str) {
     <option value="कक्षा ६ देखि ८">कक्षा ६ देखि ८</option>
     <option value="कक्षा ९ देखि १०">कक्षा ९ देखि १०</option>
     </select>
+    <select name="cmbclass" class="custom-combo"  id="trainingclassidservice" style="display:none;">
+    <option value="">तह छान्नुहोस</option>
+    <option value="आधारभूत">आधारभूत</option>
+    <option value="माध्यमिक">माध्यमिक</option>
+    </select>
   </div>
 </div>
 <script>
@@ -398,6 +403,7 @@ function schooldistrict(str) {
       let appointmiti = document.getElementById("lblappointmiti");
     let praappointmiti = document.getElementById("txtpraappointmiti");
     let teachingclass1 = document.getElementById("trainingclassid");
+    let teachingclassservice= document.getElementById("trainingclassidservice");
     let classrow1 = document.getElementById("rowclassid");
       if (category === "एक महिने प्रमाणीकरण तालिम (TPD)")
     {
@@ -414,8 +420,9 @@ function schooldistrict(str) {
           subject.style.display="none";
           subject1.style.display="block";
           subjectwhat.style.display = "none";
-            classrow1.style.display="none";
+            classrow1.style.display="block";
             teachingclass1.style.display="none";
+            teachingclassservice.style.display="block";
           appointmiti.style.display = "block";
         praappointmiti.style.display = "block";
         }
@@ -425,8 +432,9 @@ function schooldistrict(str) {
           subject.style.display="none";
           subject1.style.display="block";
           subjectwhat.style.display = "none";
-            classrow1.style.display="none";
+            classrow1.style.display="block";
             teachingclass1.style.display="none";
+            teachingclassservice.style.display="block";
           appointmiti.style.display = "none";
         praappointmiti.style.display = "none";
         }

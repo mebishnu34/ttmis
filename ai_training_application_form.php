@@ -50,7 +50,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <div class="label_column">
-        <label class="label_text">विषय:<span class="star">*</span></label>
+        <label class="label_text">तपाइले पढाउने मुख्य विषय:<span class="star">*</span></label>
     </div>
     <div>
         <input type="text" class="custom-input" placeholder="तपाईंको विषय" name="txtsubject" required>
@@ -101,12 +101,14 @@
         <div>
             <?php //include("school_district_list_1.htm");?>
              <select class="custom-combo" name="cmbdistrictbagamati_1" id="cmbdistrictbagamati_1" required>
+                <option value="">--छान्नुहोस्--</option>
                          </select>
         </div>
      <div class="label_column"> <label class="label_text">स्थानीय तह: </label></div>
         <div>
             <!--<div id="txtHintschool">Municipality/Rural</div>-->
             <select class="custom-combo" name="cmbmunbagamati_1" id="cmbmunbagamati_1" required>
+                <option value="">--छान्नुहोस्--</option>
                          </select>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
