@@ -12,3 +12,32 @@
 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <div><input type="Submit" value="Display" name="btndisplay"></div>
 </form>
+
+<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label>Search By Mobile Number</label>
+&nbsp;&nbsp;
+<input type="text"
+       name="txtmobileno"
+       id="mobileno"
+       placeholder="Type Mobile Number"
+       maxlength="10">
+
+</div>
+
+<script>
+    document.getElementById("mobileno").addEventListener("input", function () {
+    let mobileno = this.value;
+    if (mobileno.length == 10) {
+        fetch("../Display/search_teacher_mobileno.php?mobileno=" + encodeURIComponent(mobileno))
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("customerdata").innerHTML = data;
+            });
+
+    } else {
+        document.getElementById("customerdata").innerHTML = "";
+    }
+});
+</script>
+<br>
+<div id="customerdata"></div>
