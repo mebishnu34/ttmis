@@ -8,7 +8,7 @@ $citizen=$_POST['txtcitizenshipNo'];
 $mobileno=$_POST['txtmobileNo'];
 $class=$_POST['cmbclass'];
 $filename = $_FILES['fileletter']['name'];
-$temp_file=$citizen .'_' . $filename;
+$temp_file=$mobileno .'_' . $filename;
 $letter=$temp_file;
 $folderletter = '../application_document/' . $temp_file;
 $extensionletter = pathinfo($filename, PATHINFO_EXTENSION);
@@ -16,7 +16,7 @@ $fileletter = $_FILES['fileletter']['tmp_name'];
 $sizeletter = $_FILES['fileletter']['size'];
 
 $filenamectz = $_FILES['filecitizenship']['name'];
-$temp_file=$citizen .'_' . $filenamectz;
+$temp_file=$mobileno .'_' . $filenamectz;
 $citizenship=$temp_file;
 $folderctz = '../application_document/' . $temp_file;
 $extensionctz = pathinfo($filenamectz, PATHINFO_EXTENSION);
@@ -24,7 +24,7 @@ $filectz = $_FILES['filecitizenship']['tmp_name'];
 $sizectz = $_FILES['filecitizenship']['size'];
 
 $filenamephoto = $_FILES['filephoto']['name'];
-$temp_file=$citizen .'_' . $filenamephoto;
+$temp_file=$mobileno .'_' . $filenamephoto;
 $photo=$temp_file;
 $folderphoto= '../application_document/' . $temp_file;
 $extensionphoto = pathinfo($filenamephoto, PATHINFO_EXTENSION);
@@ -43,7 +43,7 @@ if ($result->num_rows > 0)
       if(isset($_FILES['fileschoolrecommend']))
         {
           $filenamerecomend = $_FILES['fileschoolrecommend']['name'];
-          $temp_file=$citizen .'_' . $filenamerecomend;
+          $temp_file=$mobileno .'_' . $filenamerecomend;
           $recommend=$temp_file;
           $folderrecomend = '../application_document/' . $temp_file;
           $extensionrecomend = pathinfo($filenamerecomend, PATHINFO_EXTENSION);
