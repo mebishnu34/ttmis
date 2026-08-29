@@ -320,6 +320,19 @@ document.querySelectorAll('input[name="optcondition"]').forEach(function(radio) 
    <input type="checkbox" name="optspecialist[]" value="अभिभावक शिक्षा"> अभिभावक शिक्षा &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <input type="checkbox" name="optspecialist[]" value="Motivation"> Motivation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    
+   <input type="checkbox" name="optspecialist[]" value="वैश्विक शिक्षा"> वैश्विक शिक्षा &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="मातृभाषा" id="Lesson Study"> Lesson Study &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="EMIS"> EMIS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+   <input type="checkbox" name="optspecialist[]" value="Policy Analysis"> Policy Analysis &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+   <input type="checkbox" name="optspecialist[]" value="Soft Skills"> Soft Skills &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="आर्थिक प्रशासन"> आर्थिक प्रशासन &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="सार्ववनिक खरिद"> सार्ववनिक खरिद &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="सार्वजनिक वित्त"> सार्वजनिक वित्त &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="optspecialist[]" value="बेरुजु"> बेरुजु &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+   
    <input type="checkbox" name="optspecialist[]" value="अन्य" id="specialistother">अन्य &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    
    <input type="text" size="100" name="optspecialist[]" placeholder="अन्य विज्ञता लेख्नुहाेस" id="txtspecialist" style="display:none;">
