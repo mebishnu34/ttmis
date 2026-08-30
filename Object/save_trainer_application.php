@@ -115,7 +115,7 @@ if ($result->num_rows > 0)
                 '0')";
                 if (mysqli_query($conn, $sql))
                   {
-                    $sql = "SELECT traineeid FROM tbltrainee where citizenshipno='".$citizen."'";
+                    $sql = "SELECT traineeid FROM tbltrainee where mobileno='".$mobileno."'";
                     $result = mysqli_query($conn, $sql);       
                     if (mysqli_num_rows($result) > 0) 
                         {
