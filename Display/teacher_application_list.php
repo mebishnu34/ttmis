@@ -203,392 +203,39 @@ if($_POST["listtype"]=="Selected")
                      
             if($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level" and $subjectcheck="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district")
                    {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(appointdate,
-                              '०', '0'),
-                              '१', '1'),
-                              '२', '2'),
-                              '३', '3'),
-                              '४', '4'),
-                              '५', '5'),
-                              '६', '6'),
-                              '७', '7'),
-                              '८', '8'),
-                              '९', '9')
-                        AS UNSIGNED),
-                        CAST(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(appointmonth,
-                              '०', '0'),
-                              '१', '1'),
-                              '२', '2'),
-                              '३', '3'),
-                              '४', '4'),
-                              '५', '5'),
-                              '६', '6'),
-                              '७', '7'),
-                              '८', '8'),
-                              '९', '9')
-                        AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $palikacheck=="palika")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(appointdate,
-                              '०', '0'),
-                              '१', '1'),
-                              '२', '2'),
-                              '३', '3'),
-                              '४', '4'),
-                              '५', '5'),
-                              '६', '6'),
-                              '७', '7'),
-                              '८', '8'),
-                              '९', '9')
-                        AS UNSIGNED),
-                        CAST(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(
-                        REPLACE(appointmonth,
-                              '०', '0'),
-                              '१', '1'),
-                              '२', '2'),
-                              '३', '3'),
-                              '४', '4'),
-                              '५', '5'),
-                              '६', '6'),
-                              '७', '7'),
-                              '८', '8'),
-                              '९', '9')
-                        AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(appointdate,
-                        '०', '0'),
-                        '१', '1'),
-                        '२', '2'),
-                        '३', '3'),
-                        '४', '4'),
-                        '५', '5'),
-                        '६', '6'),
-                        '७', '7'),
-                        '८', '8'),
-                        '९', '9')
-                  AS UNSIGNED),
-                  CAST(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(appointmonth,
-                        '०', '0'),
-                        '१', '1'),
-                        '२', '2'),
-                        '३', '3'),
-                        '४', '4'),
-                        '५', '5'),
-                        '६', '6'),
-                        '७', '7'),
-                        '८', '8'),
-                        '९', '9')
-                  AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($subjectcheck=="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(appointdate,
-                        '०', '0'),
-                        '१', '1'),
-                        '२', '2'),
-                        '३', '3'),
-                        '४', '4'),
-                        '५', '5'),
-                        '६', '6'),
-                        '७', '7'),
-                        '८', '8'),
-                        '९', '9')
-                  AS UNSIGNED),
-                  CAST(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(appointmonth,
-                        '०', '0'),
-                        '१', '1'),
-                        '२', '2'),
-                        '३', '3'),
-                        '४', '4'),
-                        '५', '5'),
-                        '६', '6'),
-                        '७', '7'),
-                        '८', '8'),
-                        '९', '9')
-                  AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($levelcheck=="level" and $subjectcheck="subject")
                   {
-                        
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appointlocallevel='".$level."' and trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(appointdate,
-                        '०', '0'),
-                        '१', '1'),
-                        '२', '2'),
-                        '३', '3'),
-                        '४', '4'),
-                        '५', '5'),
-                        '६', '6'),
-                        '७', '7'),
-                        '८', '8'),
-                        '९', '9')
-                  AS UNSIGNED),
-                  CAST(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(appointmonth,
-                        '०', '0'),
-                        '१', '1'),
-                        '२', '2'),
-                        '३', '3'),
-                        '४', '4'),
-                        '५', '5'),
-                        '६', '6'),
-                        '७', '7'),
-                        '८', '8'),
-                        '९', '9')
-                  AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appointlocallevel='".$level."' and trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $levelcheck=="level" and $subjectcheck="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(appointdate,
-                        '०', '0'),
-                        '१', '1'),
-                        '२', '2'),
-                        '३', '3'),
-                        '४', '4'),
-                        '५', '5'),
-                        '६', '6'),
-                        '७', '7'),
-                        '८', '8'),
-                        '९', '9')
-                  AS UNSIGNED),
-                  CAST(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(
-                  REPLACE(appointmonth,
-                        '०', '0'),
-                        '१', '1'),
-                        '२', '2'),
-                        '३', '3'),
-                        '४', '4'),
-                        '५', '5'),
-                        '६', '6'),
-                        '७', '7'),
-                        '८', '8'),
-                        '९', '9')
-                  AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
 
             else
                   {
                                                 
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where remark='Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                         
                   }
       }
@@ -597,390 +244,38 @@ elseif($_POST["listtype"]=="NotSelected")
             
             if($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level" and $subjectcheck="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $palikacheck=="palika")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($subjectcheck=="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($levelcheck=="level" and $subjectcheck=="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $levelcheck=="level" and $subjectcheck="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
 
             else
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where remark<>'Selected' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                         
                   }
       }
@@ -988,395 +283,43 @@ elseif($_POST["listtype"]=="All")
       {
             if($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level" and $subjectcheck="subject")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and trainingsubject='".$subject."' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and trainingsubject='".$subject."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $palikacheck=="" and $levelcheck=="")
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
                   
             elseif($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($subjectcheck=="subject")
 
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where trainingcategory='".$subject."' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where trainingcategory='".$subject."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($levelcheck=="level" and $subjectcheck="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appointlocallevel='".$level."' and trainingcategory='".$subject."' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appointlocallevel='".$level."' and trainingcategory='".$subject."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
             elseif($districtcheck=="district" and $levelcheck=="level" and $subjectcheck="subject")
                   {
                         
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                   }
 
             else
                   {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where financialyear='".$_SESSION['appyear']."' 
-                        ORDER BY CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointdate,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED),
-            CAST(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(
-            REPLACE(appointmonth,
-                  '०', '0'),
-                  '१', '1'),
-                  '२', '2'),
-                  '३', '3'),
-                  '४', '4'),
-                  '५', '5'),
-                  '६', '6'),
-                  '७', '7'),
-                  '८', '8'),
-                  '९', '9')
-            AS UNSIGNED), appid";
+                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where financialyear='".$_SESSION['appyear']."' ORDER BY appid";
                         
                   }
       }
