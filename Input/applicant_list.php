@@ -6,27 +6,21 @@ session_start();
 if(isset($_GET['id']))
 {
  $_SESSION['trunid']=$_GET['id'];
- $sql = "SELECT trainingid from tblruntraining where id='$_SESSION[trunid]'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0)
-   {
-    while($row = $result->fetch_assoc())
-    {
-	$_SESSION['trainingid']= $row["trainingid"];
-	}
-	}
-}
-include("../Processing/db_connection.php");
-$sql2="SELECT coordinator, mobileno from tblruntraining where id='$_SESSION[trunid]'";
+ 
+$sql2="SELECT trainingid,coordinator, mobileno,trainingname,level from tblruntraining where id='$_SESSION[trunid]'";
 $result1=$conn->query($sql2);
 if($result1->num_rows>0)
 	{
 		while($data=$result1->fetch_assoc())
 			{
+                $_SESSION['trainingid']= $data["trainingid"];
 				$coordinator=$data["coordinator"];
 				$mobileno=$data["mobileno"];
+                $trainingname=$data["trainingname"];
+                $level=$data["level"];
 			}
 	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -81,6 +75,7 @@ SMS<Select name="optsms">
  <tr>
 <th>सि.नं.</th>
 <th>शिक्षककाे नाम</th>
+<th>नियुक्ति मिति</th>
 <th>माेबाइल न‌‍</th>
 <th>तह</th>
 <th>विषय</th>
@@ -90,7 +85,53 @@ SMS<Select name="optsms">
 <?php
 $i=1;
 //$q = intval($_GET['q']); //for numerice value
-$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointlocallevel,appointsubject FROM tblapplication where financialyear='".$_SESSION['financialyear']."' and remark<>'Selected' ORDER BY appid";
+echo $trainingname;
+echo $level;
+$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointlocallevel,appointsubject,trainingcategory FROM tblapplication where trainingcategory='".$trainingname."'and appointlocallevel='".$level."' and financialyear='".$_SESSION['financialyear']."' and remark<>'Selected' 
+ORDER BY CAST(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(appointdate,
+        '०', '0'),
+        '१', '1'),
+        '२', '2'),
+        '३', '3'),
+        '४', '4'),
+        '५', '5'),
+        '६', '6'),
+        '७', '7'),
+        '८', '8'),
+        '९', '9')
+    AS UNSIGNED),
+    CAST(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(appointmonth,
+        '०', '0'),
+        '१', '1'),
+        '२', '2'),
+        '३', '3'),
+        '४', '4'),
+        '५', '5'),
+        '६', '6'),
+        '७', '7'),
+        '८', '8'),
+        '९', '9')
+    AS UNSIGNED),appid";
 $result1 = $conn->query($sql1);	
       if ($result1->num_rows > 0)
       {
@@ -98,6 +139,7 @@ $result1 = $conn->query($sql1);
          {
             $teacherid=$row1["appid"];
 		$tname=$row1["tname"];
+        $apdate=$row1["appointdate"]."/".$row1["appointmonth"]."/".$row1["appointday"];
 		 $contact=$row1["mobileno"];
         $level=$row1["appointlocallevel"];
          $ctnno= $row1["citizenshipno"];
@@ -111,7 +153,8 @@ $result1 = $conn->query($sql1);
  <tr>
 <td align="center"><?php echo $i; ?><input type="Hidden" name="id" value="<?php echo $i; ?>" readonly="true" size="5"><input size="10" readonly="True" type="hidden" name="tid1[]" value="<?php echo $teacherid;?>"></td>
 <td><?php echo $tname;?><input type="Hidden" name="tname1[]" value="<?php echo $tname;?>" readonly="True"></td>
-<td><?php echo $contact;?><input type="Hidden" name="tcon[]" value="<?php echo $contact;?>" readonly="True"></td>
+<td align="center"><?php echo $apdate;?></td>
+<td align="center"><?php echo $contact;?><input type="Hidden" name="tcon[]" value="<?php echo $contact;?>" readonly="True"></td>
 <td><?php echo $level;?>
 <td><?php echo $subject;?>
 <td><?php echo $school;?></td>
