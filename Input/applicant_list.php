@@ -87,8 +87,8 @@ $i=1;
 //$q = intval($_GET['q']); //for numerice value
 echo $trainingname;
 echo $level;
-$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointlocallevel,appointsubject,trainingcategory FROM tblapplication where trainingcategory='".$trainingname."'and appointlocallevel='".$level."' and financialyear='".$_SESSION['financialyear']."' and remark<>'Selected' 
-ORDER BY CAST(
+$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointlocallevel,appointsubject,trainingcategory,appointletter FROM tblapplication where trainingcategory='".$trainingname."'and appointlocallevel='".$level."' and financialyear='".$_SESSION['financialyear']."' and remark<>'Selected' 
+ORDER BY appointsubject, CAST(
     REPLACE(
     REPLACE(
     REPLACE(
@@ -146,6 +146,7 @@ $result1 = $conn->query($sql1);
          $school=$row1["schoolname"];
          $applicantdate=$row1["appointdate"];
          $subject=$row1["appointsubject"];
+         $letter=$row1["appointletter"];
 
 
   ?>
@@ -153,13 +154,15 @@ $result1 = $conn->query($sql1);
  <tr>
 <td align="center"><?php echo $i; ?><input type="Hidden" name="id" value="<?php echo $i; ?>" readonly="true" size="5"><input size="10" readonly="True" type="hidden" name="tid1[]" value="<?php echo $teacherid;?>"></td>
 <td><?php echo $tname;?><input type="Hidden" name="tname1[]" value="<?php echo $tname;?>" readonly="True"></td>
-<td align="center"><?php echo $apdate;?></td>
+<td align="center"><?php echo $apdate;?>
+&nbsp;<a href="..\application_document\<?php echo $letter;?>" target="_blank"><img src="../Image/eye.png" width="20" height="15"></a>
+</td>
 <td align="center"><?php echo $contact;?><input type="Hidden" name="tcon[]" value="<?php echo $contact;?>" readonly="True"></td>
 <td><?php echo $level;?>
 <td><?php echo $subject;?>
 <td><?php echo $school;?></td>
 <td align="center"><input type="checkbox" name="rem[]" value="<?php echo $teacherid;?>"></td>
-<!--<td bgcolor="#0000FF"><?php echo "<a href=../Input/teacher_update_1.php?tid=$teacherid target=_blank>Edit</a>";?></td>-->
+<td bgcolor="#0000FF"><?php echo "<a href=../update_training_application_form.php?tid=$teacherid target=_blank>Edit</a>";?></td>
 <?php
   	echo "</tr>";
     	$i++;
