@@ -5,7 +5,7 @@ include("../Processing/db_connection.php");
 if (isset($_GET['mobileno']))
       {
       $mobileno = trim($_GET['mobileno']);
-      $sql="SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model,financialyear FROM tblapplication where mobileno LIKE ?";
+      $sql="SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model,financialyear FROM tblapplication where mobileno LIKE ?";
       $stmt = mysqli_prepare($conn, $sql);
       $search = $mobileno . "%";
       mysqli_stmt_bind_param($stmt, "s", $search);
@@ -41,6 +41,7 @@ if (isset($_GET['mobileno']))
 $i=1;
       while ($row = mysqli_fetch_assoc($result)) 
             {
+                  $teacherid = $row["appid"];
             echo "<tr>";
             echo "<td align=center>" . $i ."</td>";
             echo "<td>".$row["tname"]."</td>";
@@ -95,6 +96,7 @@ $i=1;
                   <td align="center">
                   <a href="..\application_document\<?php echo $row["schoolrecommend"];?>" target="_blank"><img src="../image/eye.png" width="20" height="15"></a>
                    </td>
+                   <td bgcolor="#0000FF"><?php echo "<a href=../update_training_application_form.php?tid=$teacherid target=_blank>Edit</a>";?></td>
                   <?php
                   }
                   else
