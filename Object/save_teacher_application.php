@@ -159,7 +159,7 @@ if ($result->num_rows > 0)
                 '')";
                 if (mysqli_query($conn, $sql))
                   {
-			              $_SESSION['response']="Save Successfully";
+			              $_SESSION['response']="दर्ता भयो । धन्यवाद";
                     header('Location: ../index.php?accountid=application_form');
                   }
                 else

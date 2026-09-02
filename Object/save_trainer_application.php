@@ -275,7 +275,7 @@ if ($result->num_rows > 0)
                                 }
                       }
 
-			              $_SESSION['response']="Save Successfully";
+			              $_SESSION['response']="दर्ता भयो । धन्यवाद";
                     header('Location: ../index.php?accountid=roster_form');
                   }
                 else
