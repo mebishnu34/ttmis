@@ -300,21 +300,14 @@ if ($result1->num_rows > 0)
   <div>
     <select name="cmbappointsubject" id="appointsubjectid" style="display:none;" class="custom-combo">
       <option value="<?php echo $appointsubject; ?>" selected><?php echo $appointsubject; ?></option>
-         <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
-         <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
-         <option value="सामाजिक अध्ययन">सामाजिक अध्ययन</option>
+        <option value="सामाजिक अध्ययन">सामाजिक अध्ययन</option>
          <option value="विज्ञान तथा प्रविधि">विज्ञान तथा प्रविधि</option>
-         <option value="ICT मा आधारित तालिम">ICT मा आधारित तालिम</option>
          <option value="ऐच्छिक विषय">ऐच्छिक विषय</option>
           <option value="अंग्रेजी">अंग्रेजी</option>
          <option value="नेपाली">नेपाली</option>
          <option value="गणित">गणित</option>
-         <option value="विज्ञान">विज्ञान</option>
-         <option value="सामाजिक">सामाजिक</option>
          <option value="स्वास्थ्य शारिरीक">स्वास्थ्य शारिरीक</option>
          <option value="लेखा">लेखा</option>
-         <option value="सबै (विषय छनोट नहुने )">सबै (विषय छनोट नहुने )</option>
-         <option value="अन्य ऐच्छिक विषय">अन्य ऐच्छिक विषय</option>
              </select>
   </div>
 </div>
