@@ -147,8 +147,35 @@ else
                                 echo "<td align=Center width=70% valign=top>";
                                    if(isset($_SESSION['response']))
                                             {
-                                            echo "<font size=+2 color=red><b>". $_SESSION['response'] . "</b></font>";
-                                            }
+                                                if($_SESSION['response']=="Found Duplicate")
+                                                {
+                                                    echo "
+                                                    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                                                        <script>
+                                                        Swal.fire({
+                                                        icon: 'success',
+                                                        title: 'Found Duplicate',
+                                                        text:'तपाईको आवेदन पहिले नै दर्ता भइसकेको छ । धन्यवाद',
+                                                        showConfirmButtonText: 'OK'
+                                                        });
+                                                        </script>";
+                                                    
+                                                }
+                                            else
+                                            {
+                                                echo "
+                                                    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                                                        <script>
+                                                        Swal.fire({
+                                                        icon: 'success',
+                                                        title: 'Save Successfully',
+                                                        text:'तपाईको आवेदन दर्ता भयो । धन्यवाद',
+                                                        showConfirmButtonText: 'OK'
+                                                        });
+                                                        </script>";
+                                               }
+                                            unset($_SESSION['response']);
+                                    }
                                 if($_GET['accountid']=="newteacher")
                                     {
                                 include("school/teacher_reg_request_outer.php");
@@ -385,7 +412,7 @@ else
 <?php
 if(isset($_GET['msg']))
 	{
-		echo $_GET['msg'];
+        echo $_GET['msg'];
 	}
 
 ?>
@@ -394,3 +421,4 @@ if(isset($_GET['msg']))
 
 </BODY>
 </HTML>
+"
