@@ -11,7 +11,9 @@ $sql1 = "SELECT mobileno FROM tblaitraining where mobileno='".$mobile."'";
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
     {
-      header('Location: ../index.php?msg= "Found Duplicate"');      
+      $_SESSION['response']="Found Duplicate";
+      header('Location: ../index.php?accountid=ai_training');
+      
     }
   else
     {
@@ -46,6 +48,7 @@ if ($result->num_rows > 0)
       'Request')";
       if (mysqli_query($conn, $sql))
         {
+          $_SESSION['response']="दर्ता भयो । धन्यवाद";
            header('Location: ../index.php?accountid=ai_training');
                   
         }
