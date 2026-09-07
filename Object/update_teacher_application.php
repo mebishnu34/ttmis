@@ -75,6 +75,7 @@ $recommend="";
 		            groupnumber='0',
                 gender='".$_POST['optgender']."',
                 teacherdob='".$_POST['txtdob']."',
+                eduquali='".$_POST['cmbqualification']."',
                 fathername='".$_POST['txtfatherName']."',
                 province='".$_POST['cmbprovince']."',
                 district='".$_POST['cmbdistrictnp']."',
