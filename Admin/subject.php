@@ -16,14 +16,11 @@ include("../Processing/db_connection.php");
 
 if(isset($_GET['t']))
 {
-      
 $_SESSION['$t']=$_GET['t'];
 }
-if(isset($_GET['l']))
+if(isset($_GET['l']) And isset($_SESSION['$t']))
 {
 $l = $_GET['l'];
-//echo $_SESSION['$t'];
-//echo $l;
 $sql="SELECT DISTINCT subject FROM tbltraining where trainingname='".$_SESSION['$t']."' and level='".$l."' ORDER BY subject";
 $result = mysqli_query($conn,$sql);
 echo "<Select name=cmbsubject>";
@@ -35,6 +32,7 @@ while($row = mysqli_fetch_array($result))
 echo "</select>";
 mysqli_close($conn);
 }
+
 ?>
 </body>
 </html>
