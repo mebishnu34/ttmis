@@ -26,6 +26,7 @@ $sql1 = "SELECT tname,
 		            groupnumber,
                 gender,
                 teacherdob,
+                eduquali,
                 fathername,
                 province,
                 district,
@@ -69,6 +70,7 @@ if ($result1->num_rows > 0)
             {
             $tname=$row["tname"];
             $dob=$row["teacherdob"];
+            $eduquali=$row["eduquali"];
             $optgender=$row["gender"];
             $fathername=$row["fathername"];
             $mobileno=$row["mobileno"];
@@ -168,8 +170,24 @@ if ($result1->num_rows > 0)
     <div>
 
 <input type="text" name="txtdob" id="date" maxlength="10" value="<?php echo $dob;?>" required>
-
 </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="label_column">
+    <label class="label_text">शैक्षिक योग्यता<span class="star">*</span></label>
+  </div>
+  <div>
+    <select name="cmbqualification">
+      <option value="<?php echo $eduquali; ?>" selected><?php echo $eduquali; ?></option>
+         <option value="एस.इ.इ">एस.इ.इ</option>
+         <option value="एस.एल.सी.">एस.एल.सी.</option>
+         <option value="+२">+२</option>
+          <option value="स्नातक">स्नातक</option>
+         <option value="स्नातकोत्तर">स्नातकोत्तर</option>
+         <option value="एम.फिल">एम.फिल</option>
+         <option value="पि.एच.डि.">पि.एच.डि.</option>
+          </select>
+  </div>
+
 </div>
 
 <br>

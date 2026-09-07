@@ -82,6 +82,23 @@ function schooldistrict(str) {
 <input type="text" name="txtdob" id="date" maxlength="10" placeholder="YYYY-MM-DD" required>
 
 </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="label_column">
+    <label class="label_text">शैक्षिक योग्यता<span class="star">*</span></label>
+  </div>
+  <div>
+    <select name="cmbqualification" class="custom-combo" required>
+      <option value="" disabled selected>शैक्षिक योग्यता छान्नुहोस</option>
+         <option value="एस.इ.इ">एस.इ.इ</option>
+         <option value="एस.एल.सी.">एस.एल.सी.</option>
+         <option value="+२">+२</option>
+          <option value="स्नातक">स्नातक</option>
+         <option value="स्नातकोत्तर">स्नातकोत्तर</option>
+         <option value="एम.फिल">एम.फिल</option>
+         <option value="पि.एच.डि.">पि.एच.डि.</option>
+          </select>
+  </div>
+
 </div>
 
 <br>
@@ -99,7 +116,7 @@ function schooldistrict(str) {
   <tr>
     <td><label class="label_text">प्रदेश <span class="star">*</span></label></td>
     <td><select class="custom-combo" name="cmbprovince" id="cmbprovince" required>
-              <option>प्रदेश छान्नुहोस</option>
+              <option value="" disabled selected>प्रदेश छान्नुहोस</option>
     </select></td>
     <td><label class="label_text">जिल्ला <span class="star">*</span></label></td>
     <td><select class="custom-combo" name="cmbdistrictnp" id="cmbdistrictnp" required>
@@ -142,7 +159,7 @@ function schooldistrict(str) {
     </div>
     <div>
       <select class="custom-combo" name="cmbctzissuedistrict">
-        <option>जिल्ला छान्नुहोस</option>
+        <option value="" disabled selected>जिल्ला छान्नुहोस</option>
       <?php include("nepali_district.htm");?>
       </select>
        </div>
@@ -161,7 +178,7 @@ function schooldistrict(str) {
     
     <div>
     <select class="custom-combo" name="cmbappointmonth" required>
-        <option value="">महिना</option>
+        <option value="" disabled selected>महिना</option>
         <option value="१">१</option>
         <option value="२">२</option>
         <option value="३">३</option>
@@ -185,7 +202,7 @@ function schooldistrict(str) {
     </div>
     <div>
       <select class="custom-combo" name="cmbappointdistrict">
-        <option>जिल्ला छान्नुहोस</option>
+        <option value="" disabled selected>जिल्ला छान्नुहोस</option>
       <?php include("nepali_district.htm");?>
       </select>
       </div>
@@ -207,7 +224,7 @@ function schooldistrict(str) {
   </div>
   <div>
     <select name="cmbappointsubject" id="appointsubjectid" style="display:none;" class="custom-combo">
-      <option value="">विषय छान्नुहोस</option>
+      <option value="" disabled selected>विषय छान्नुहोस</option>
          <option value="सामाजिक अध्ययन">सामाजिक अध्ययन</option>
          <option value="विज्ञान तथा प्रविधि">विज्ञान तथा प्रविधि</option>
          <option value="ऐच्छिक विषय">ऐच्छिक विषय</option>
@@ -307,7 +324,7 @@ function schooldistrict(str) {
   <div>
     <?php //include("school_district_list_1.htm");?>
     <select class="custom-combo" name="cmbdistrictbagamati" id="cmbdistrictbagamati" required>
-      <option>जिल्ला छान्नुहोस</option>
+      <option value="" disabled selected>जिल्ला छान्नुहोस</option>
                          </select>
     </div>
 
@@ -336,7 +353,7 @@ function schooldistrict(str) {
   </div>
   <div class="content">
     <select id="trainingcategory" name="cmbtrainingcategory" class="custom-combo" required onchange="handleChange()">
-      <option>तालिम लिन चाहेको विषय छान्नुहोस</option>
+      <option value="" disabled selected>तालिम लिन चाहेको विषय छान्नुहोस</option>
   <?php
     include("training_category_1.html");
   ?>  
@@ -352,7 +369,7 @@ function schooldistrict(str) {
 <div class="content">
   <input type="text" name="txtpraappointmiti" id="txtpraappointmiti" maxlength="10" placeholder="YYYY-MM-DD" style="display:none;">
     <select id="trainingsubject" name="cmbsubject3" class="custom-combo" style="display:none;" onchange="subjectChange()">
-      <option value="">विषय छान्नुहोस</option>
+      <option value="" disabled selected>विषय छान्नुहोस</option>
     <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
     <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
     <option value="नेपाली">नेपाली</option>
@@ -373,13 +390,13 @@ function schooldistrict(str) {
 </div>
 <div class="content">
     <select name="cmbclass" class="custom-combo"  id="trainingclassid" style="display:none;">
-    <option value="">तह छान्नुहोस</option>
+    <option value="" disabled selected>तह छान्नुहोस</option>
     <option value="कक्षा ४ देखि ५">कक्षा ४ देखि ५</option>
     <option value="कक्षा ६ देखि ८">कक्षा ६ देखि ८</option>
     <option value="कक्षा ९ देखि १०">कक्षा ९ देखि १०</option>
     </select>
     <select name="cmbclass" class="custom-combo"  id="trainingclassidservice" style="display:none;">
-    <option value="">तह छान्नुहोस</option>
+    <option value="" disabled selected>तह छान्नुहोस</option>
     <option value="आधारभूत">आधारभूत</option>
     <option value="माध्यमिक">माध्यमिक</option>
     </select>
@@ -462,7 +479,7 @@ function schooldistrict(str) {
 </div>
 <div class="content">
   <select name="cmbprioritymode" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
-  <option value="">छनौट गर्नुहोस्</option>
+  <option value="" disabled selected>छनौट गर्नुहोस्</option>
   <option value="अनलाइन (Online)">अनलाइन (Online)</option>
   <option value="आमनेसामने (Face To Face)">आमनेसामने (Face To Face)</option>
   </select>
