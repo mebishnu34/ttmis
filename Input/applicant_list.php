@@ -81,6 +81,7 @@ SMS<Select name="optsms">
 <th>विषय</th>
 <th>बिद्यालय</th>
 <th>जिल्ला</th>
+<th>तालिमको मोड</th>
 <th>Tick</th>
 </tr>
 <?php
@@ -88,7 +89,7 @@ $i=1;
 //$q = intval($_GET['q']); //for numerice value
 echo $trainingname;
 echo $level;
-$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointlocallevel,appointsubject,trainingcategory,schooldistrict,appointletter FROM tblapplication where trainingcategory='".$trainingname."'and appointlocallevel='".$level."' and financialyear='".$_SESSION['financialyear']."' and remark<>'Selected' 
+$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointlocallevel,appointsubject,trainingcategory,schooldistrict,appointletter,priority1model FROM tblapplication where trainingcategory='".$trainingname."'and appointlocallevel='".$level."' and financialyear='".$_SESSION['financialyear']."' and remark<>'Selected' 
 ORDER BY appointsubject, CAST(
     REPLACE(
     REPLACE(
@@ -149,6 +150,7 @@ $result1 = $conn->query($sql1);
          $subject=$row1["appointsubject"];
          $district=$row1["schooldistrict"];
          $letter=$row1["appointletter"];
+         $trainingmodel=$row1["priority1model"];
 
 
   ?>
@@ -164,6 +166,7 @@ $result1 = $conn->query($sql1);
 <td><?php echo $subject;?>
 <td><?php echo $school;?></td>
 <td><?php echo $district;?></td>
+<td><?php echo $trainingmodel;?></td>
 <td align="center"><input type="checkbox" name="rem[]" value="<?php echo $teacherid;?>"></td>
 <td bgcolor="#0000FF"><?php echo "<a href=../update_training_application_form.php?tid=$teacherid target=_blank>Edit</a>";?></td>
 <?php
