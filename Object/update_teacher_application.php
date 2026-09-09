@@ -98,6 +98,7 @@ $recommend="";
                 panno='".$_POST['txtpanNo']."',
                 teacherclass='".$class."',
                 schoolname='".$_POST['txtschoolname']."',
+                emiscode='".$_POST['txtemiscode']."',
                 schoolprovince='".$_POST['cmbschoolprovince']."',
                 schooldistrict='".$_POST['cmbdistrictbagamati']."',
                 schoollocallevel='".$_POST['cmbmunbagamati']."',
