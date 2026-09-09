@@ -398,6 +398,13 @@ if ($result1->num_rows > 0)
   <div>
     <input class="custom-input" size="50" value="<?php echo $sname;?>" name="txtschoolname" required>
   </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="label_column">
+    <label class="label_text">EMIS कोड </label>
+  </div>
+  <div>
+    <input class="custom-input" size="10" placeholder="EMIS कोड" name="txtemiscode" >
+  </div>
 </div>
 <br>
 <div class="custom-grid">

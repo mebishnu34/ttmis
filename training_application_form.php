@@ -303,7 +303,14 @@ function schooldistrict(str) {
     <label class="label_text">विद्यालयको नाम <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" size="50" placeholder="विद्यालयको पूरा नाम" name="txtschoolname" required>
+    <input class="custom-input" size="30" placeholder="विद्यालयको पूरा नाम" name="txtschoolname" required>
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="label_column">
+    <label class="label_text">EMIS कोड </label>
+  </div>
+  <div>
+    <input class="custom-input" size="10" placeholder="EMIS कोड" name="txtemiscode" >
   </div>
 </div>
 <br>
@@ -368,7 +375,7 @@ function schooldistrict(str) {
 </div>
 <div class="content">
   <input type="text" name="txtpraappointmiti" id="txtpraappointmiti" maxlength="10" placeholder="YYYY-MM-DD" style="display:none;">
-    <select id="trainingsubject" name="cmbsubject3" class="custom-combo" style="display:none;" onchange="subjectChange()">
+    <select id="trainingsubject" name="cmbsubject3" class="custom-combo" style="display:none;"  onchange="subjectChange()">
       <option value="" disabled selected>विषय छान्नुहोस</option>
     <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
     <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
