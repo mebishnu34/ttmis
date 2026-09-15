@@ -1,8 +1,17 @@
+<?php
+session_start();
+?>
 <HTML>
 <HEAD>
- <TITLE>New Document</TITLE>
+ <TITLE>TTMIS</TITLE>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+   <link rel="stylesheet" href="../CSS/main_table.css">
+  <link rel="stylesheet" href="../CSS/sidemenu.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/div_column.css">
 </HEAD>
-<BODY>
+<BODY class="bg">
+<div align="center">
+
 <table width="100%" class="subtable">
 <tr>
 <th>S.No</th>
@@ -14,9 +23,11 @@
 <th>Venue</th>
 </tr>
 <?php
+$year=$_POST['cmbyear'];
+$_SESSION['appyear']=$year;
 $sn=1;
 include("../Processing/db_connection.php");
-$sql = "SELECT * FROM tblruntraining ORDER BY id";
+$sql = "SELECT * FROM tblruntraining where financialyear='" . $year . "' ORDER BY id";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -38,5 +49,6 @@ if ($result->num_rows > 0)
 
 ?>
 </table>
+</div>
 </BODY>
 </HTML>
