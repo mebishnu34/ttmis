@@ -1,0 +1,42 @@
+<form action="../Display/display_all_training.php" method="POST" target="blank">
+<div class="custom-grid">
+    <div class="column_lable">Year: 
+<select name="cmbyear">
+    <option value="">Financial Year</option>
+    <option value="2083/084">2083/084</option>
+    <option value="2082/083">2082/083</option>
+    <option value="2081/082">2081/082</option>
+    <option value="2080/081">2080/081</option>
+    <option value="2079/080">2079/080</option>
+</select>
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div><input type="Submit" value="Display" name="btndisplay"></div>
+</form>
+
+<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label>Search By Mobile Number</label>
+&nbsp;&nbsp;
+<input type="text"
+       name="txtmobileno"
+       id="mobileno"
+       placeholder="Type Mobile Number"
+       maxlength="10">
+
+</div>
+<script>
+    document.getElementById("mobileno").addEventListener("input", function () {
+    let mobileno = this.value;
+    if (mobileno.length == 10) {
+        fetch("../Display/search_teacher_mobileno.php?mobileno=" + encodeURIComponent(mobileno))
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("customerdata").innerHTML = data;
+            });
+
+    } else {
+        document.getElementById("customerdata").innerHTML = "";
+    }
+});
+</script>
+<br>
+<div id="customerdata"></div>

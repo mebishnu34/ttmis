@@ -23,6 +23,8 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <td valign="buttom" align="center" bgcolor="#0000FF"><font face="Verdana, Arial, Helvetica, sans-serif" size="+1" color="#FFFFFF"><b>Teacher Training Management Information System(TTMIS)</b></font></td>
 <td bgcolor="#0000FF"><font color="#FFFFFF" size="2"><div align="right"><?php echo $_SESSION['uname'];?></div></font></td>
 </tr>
+</table>
+<table class="maintable">
 <tr>
 <td valign="Top" align="center" width="20%">
 <table class="tablestyle" width="100%">
@@ -36,7 +38,8 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <td><a href="entry.php?linkid=9">Attendance</a></td>
 </tr>
 <tr>
-<td><a href="entry.php?linkid=10">Training Complete</a></td>
+<!--<td><a href="entry.php?linkid=10">Training Complete</a></td>-->
+<td><a href="entry.php?linkid=10">Training Allowance</a></td>
 </tr>
 <tr>
 <td><a href="entry.php?linkid=12">Course Complete</a></td>
@@ -73,7 +76,8 @@ if(isset($_GET['linkid']))
  }
 elseif($id==10)
 {
-include("../Input/training_completion_tpd.php");
+//include("../Input/training_completion_tpd.php");
+include("training_year_allowance.htm");
 }
  elseif($id==12)
 {

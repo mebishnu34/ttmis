@@ -27,7 +27,7 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <td bgcolor="#0000FF"><font color="#FFFFFF" size="2"><div align="right"><?php echo $_SESSION['uname'];?></div></font></td>
 </tr>
 <tr>
-<td valign="Top" align="center" width="250">
+<td valign="Top" align="center" width="20%">
 <table class="tablestyle" width="100%">
 <tr>
 <td width="100%"><ul id="menu"><li>Application
@@ -65,13 +65,13 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 <tr>
 <td width="100%"><ul id="menu"><li>Display Teacher
                                 <ul>
-								 	<li><a href="report.php?linkid=101ts">Teacher From Subject</a></li>
+								 	<li><a href="report.php?linkid=101t">Teacher From Training</a></li>
+                                    <li><a href="report.php?linkid=101ts">Teacher From Subject</a></li>
 									<li><a href="report.php?linkid=101l">Teacher From Level</a></li>
 									<li><a href="report.php?linkid=101s">Teacher From School</a></li>
 									<li><a href="report.php?linkid=101m">Teacher From Municipality/Rural</a></li>
                                     <li><a href="report.php?linkid=101d">Teacher From District</a></li>
-                                    <li><a href="report.php?linkid=101t">Teacher From Training</a></li>
-									<li><a href="report.php?linkid=1001">District Summery</a></li>
+                                    <li><a href="report.php?linkid=1001">District Summery</a></li>
 									<li><a href="report.php?linkid=1002">District Teacher Summery</a></li>
 									<li><a href="report.php?linkid=101all">All Teacher</a></li>
 
@@ -181,7 +181,7 @@ header('Location: ../admin_login.php?msg= "Please Login"');
 </tr>
 </table>
 </td>
-<td valign="Top" align="center" colspan="2">
+<td valign="Top" align="center" colspan="2" width="80%">
 <?php
 if(isset($_GET['linkid']))
 {
@@ -196,7 +196,7 @@ if(isset($_GET['linkid']))
  }
   elseif($id=='101t')
  {
- include("../Display/display_all_training.php");
+ include("training_year.htm");
  }
   elseif($id=='101s')
  {
@@ -370,7 +370,8 @@ elseif($id=='101all')
   }
   elseif($id=='100tpdresult')
   {
-   include("../Display/all_teacher_subject_result.php");
+   //include("../Display/all_teacher_subject_result.php");
+   include("../Display/financial_year_for_result.php");
   }
 
   /*
