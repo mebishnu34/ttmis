@@ -4,16 +4,44 @@ include("../Processing/db_connection.php");
 if(isset($_GET['linkid']))
    {
    $traid=$_GET['linkid'];
-   $sql = "delete from tblttraining where ID='$traid'";
+   $sql1 = "SELECT ID,teacherid FROM tblttraining where ID='$traid'";
+$result = $conn->query($sql1);
+if ($result->num_rows > 0)
+   {
+	if($row = $result->fetch_assoc())
+    {
+	   $appid=$row["teacherid"];
+    }
+   }
+     $sql = "delete from tblttraining where ID='$traid'";
+
       if (mysqli_query($conn, $sql))
          {
            //header('Location: ../Admin/create.php?msg= "Saved Successfully"');
+         $sql = "UPDATE tblapplication SET remark = 'Out'	WHERE appid = ?";
+			$stmt = $conn->prepare($sql);
+			$stmt->bind_param("s", $appid);
+			$stmt->execute();
 		   		  ?>
-           <script>
-		   myWindow.close();
-		   </script>
+          
+			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    Swal.fire({
+        icon: 'success',
+        title: 'छनोट',
+        text: 'तालिमबाट हटाइयो ',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.close();
+        }
+    });
+});
+</script>
           <?php
-		  echo "Remove Successfully";
+		  
           }
       else
           {
