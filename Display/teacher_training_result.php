@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../Processing/db_connection.php");
+include("../print_function.php");
 if(isset($_GET['tid']))
 {
  $_SESSION['trainingid']=$_GET['tid'];
@@ -29,6 +30,7 @@ if ($result->num_rows > 0)
  <TITLE>TTMIS:TPD Result</TITLE>
  <link rel="stylesheet" href="../CSS/main_table.css">
     <link rel="stylesheet" href="../CSS/sidemenu.css">
+    
 </HEAD>
 <BODY>
 
@@ -43,6 +45,7 @@ if ($result->num_rows > 0)
 </tr>
 </table>
 <form method="post" action="../export/export_tpd_result.php">
+   <div id="pdata">
 <table width="100%">
 <tr>
 <th colspan="2">Financial Year:<?php echo $_SESSION['fyear'];?></th>
@@ -53,10 +56,13 @@ if ($result->num_rows > 0)
 <th>End Date:<?php echo $_SESSION['edate'];?></th>
 </tr>
 </table>
-<table width="120%" border="1" cellspacing="0" cellpadding="0">
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
 <tr>
 <th rowspan="2">सि.नं.</th>
 <th rowspan="2">नाम</th>
+<th rowspan="2">जिल्ला</th>
+<th rowspan="2">पालिका</th>
+<th rowspan="2">बिद्यालय</th>
 <th colspan="6">सहभागिता(50)</th>
 <th rowspan="2">जम्मा</th>
 <th colspan="3">विद्यालयमा आधारित तालिमका क्रियाकलाप(50)</th>
@@ -101,7 +107,7 @@ if ($result->num_rows > 0)
     while($row = $result->fetch_assoc())
     {
     $teacherid=$row["teacherid"];
-      $sql1 = "SELECT tname,tcontact FROM tblteacher where teachercode='$teacherid'";
+      $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, schooldistrict, schoollocallevel FROM tblapplication where appid='$teacherid'";
       $result1 = $conn->query($sql1);
       if ($result1->num_rows > 0)
       {
@@ -175,9 +181,11 @@ if ($result->num_rows > 0)
                   }
 
            }
-
-          echo "<td>";
+         echo "<td>";
           echo $row1["tname"];
+         echo "<td align=center>". $row1["schooldistrict"]."</td>";
+         echo "<td align=center>". $row1["schoollocallevel"]."</td>";
+         echo "<td>".$row1["schoolname"]."</td>";
           ?>
            </td>
           <?php
@@ -204,7 +212,8 @@ if ($result->num_rows > 0)
    }
 echo "</table>";
 ?>
-<div><center><input type="submit" value="Export In Excel" name="teacherdistrict"></center></div>
+</div>
+<div><center><input type="submit" value="Export In Excel" name="teacherdistrict">&nbsp;&nbsp;&nbsp;<input type="Button" name="btnprint" value="Print" onClick="javascript:CallPrint('pdata');"></center></div>
 </form>
 </BODY>
 </HTML>
