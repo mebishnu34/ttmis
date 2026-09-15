@@ -23,7 +23,7 @@ function training(str) {
     }
 }
 function level(str) {
-    if (str == "") {
+    if (str== "") {
         document.getElementById("txtHint").innerHTML = "";
         return;
     } else {

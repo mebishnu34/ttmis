@@ -68,8 +68,7 @@ SMS<Select name="optsms">
 <option>YESSMS</option>
 </select>
 </td>
-    
- </tr>
+</tr>
 </table>
 <table class="tablestyle_1" border="1">
  <tr>
@@ -89,7 +88,7 @@ $i=1;
 //$q = intval($_GET['q']); //for numerice value
 echo $trainingname;
 echo $level;
-$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointlocallevel,appointsubject,trainingcategory,schooldistrict,appointletter,priority1model FROM tblapplication where trainingcategory='".$trainingname."'and appointlocallevel='".$level."' and financialyear='".$_SESSION['financialyear']."' and remark<>'Selected' 
+$sql1 = "SELECT appid,tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointlocallevel,appointsubject,trainingcategory,schooldistrict,appointletter,passportphoto,priority1model FROM tblapplication where trainingcategory='".$trainingname."'and appointlocallevel='".$level."' and financialyear='".$_SESSION['financialyear']."' and remark<>'Selected' 
 ORDER BY appointsubject, CAST(
     REPLACE(
     REPLACE(
@@ -149,7 +148,8 @@ $result1 = $conn->query($sql1);
          $applicantdate=$row1["appointdate"];
          $subject=$row1["appointsubject"];
          $district=$row1["schooldistrict"];
-         $letter=$row1["appointletter"];
+         $photo=$row1["passportphoto"];
+        $letter=$row1["appointletter"];
          $trainingmodel=$row1["priority1model"];
 
 
@@ -157,7 +157,9 @@ $result1 = $conn->query($sql1);
 
  <tr>
 <td align="center"><?php echo $i; ?><input type="Hidden" name="id" value="<?php echo $i; ?>" readonly="true" size="5"><input size="10" readonly="True" type="hidden" name="tid1[]" value="<?php echo $teacherid;?>"></td>
-<td><?php echo $tname;?><input type="Hidden" name="tname1[]" value="<?php echo $tname;?>" readonly="True"></td>
+<td><?php echo $tname;?><input type="Hidden" name="tname1[]" value="<?php echo $tname;?>" readonly="True">&nbsp;<a href="..\application_document\<?php echo $photo;?>" target="_blank"><img src="../Image/eye.png" width="20" height="15"></a>
+
+</td>
 <td align="center"><?php echo $apdate;?>
 &nbsp;<a href="..\application_document\<?php echo $letter;?>" target="_blank"><img src="../Image/eye.png" width="20" height="15"></a>
 </td>
