@@ -214,6 +214,7 @@ function schooldistrict(str) {
     </div>
   <div>
   <select name="cmbappointlevel" id="applintlevelid" class="custom-combo" required onchange="levelChange()">
+    <option value="" disabled selected>तह छान्नुहोस</option>
          <?php
             include("level.htm");
         ?>
@@ -307,10 +308,10 @@ function schooldistrict(str) {
   </div>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <div class="label_column">
-    <label class="label_text">EMIS कोड </label>
+    <label class="label_text">विद्यालय EMIS कोड <span class="star">*</span></label>
   </div>
   <div>
-    <input class="custom-input" size="10" placeholder="EMIS कोड" name="txtemiscode" >
+    <input class="custom-input" size="10" placeholder="EMIS कोड" name="txtemiscode" required>
   </div>
 </div>
 <br>
