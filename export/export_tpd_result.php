@@ -37,6 +37,9 @@ $output .='
  <table width="150%" bgcolor="#FFFFFF" border="1" cellspacing="0" cellpadding="2">
 <th rowspan="2">सि.नं.</th>
 <th rowspan="2">नाम</th>
+<th rowspan="2">जिल्ला</th>
+<th rowspan="2">पालिका</th>
+<th rowspan="2">बिद्यालय</th>
 <th colspan="6">सहभागिता(50)</th>
 <th rowspan="2">जम्मा</th>
 <th colspan="3">विद्यालयमा आधारित तालिमका क्रियाकलाप(50)</th>
@@ -81,7 +84,7 @@ if ($result->num_rows > 0)
     while($row = $result->fetch_assoc())
     {
     $teacherid=$row["teacherid"];
-      $sql1 = "SELECT tname,tcontact FROM tblteacher where teachercode='$teacherid'";
+      $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, schooldistrict, schoollocallevel FROM tblapplication where appid='$teacherid'";
       $result1 = $conn->query($sql1);
       if ($result1->num_rows > 0)
       {
@@ -157,7 +160,10 @@ if ($result->num_rows > 0)
 
            }
             $output .='
-          <td>' . $row1["tname"] . '</td>
+            <td>' . $row1["tname"] . '</td>
+            <td align=center>'. $row1["schooldistrict"].'</td>
+            <td align=center>'. $row1["schoollocallevel"].'</td>
+            <td>' . $row1["schoolname"] . '</td>
            <td align=center>'. $regu .'</td>
            <td align=center>'. $creative .'</td>
            <td align=center>'. $fol .'</td>
