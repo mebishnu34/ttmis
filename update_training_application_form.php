@@ -49,6 +49,7 @@ $sql1 = "SELECT tname,
                 panno,
                 teacherclass,
                 schoolname,
+                emiscode,
                 schoolprovince,
                 schooldistrict,
                 schoollocallevel,
@@ -94,11 +95,14 @@ if ($result1->num_rows > 0)
             $class=$row["teacherclass"];
             $category= $row["trainingcategory"];
             $subject=$row["trainingsubject"];
+            $pradate=$row["praappointdate"];
             $applevel=$row["appointlocallevel"];
             $sdistrict=$row["schooldistrict"];
             $slevel=$row["schoollocallevel"];
             $model= $row["priority1model"];
+            $model2= $row["priority2model"];
             $sname=$row["schoolname"];
+            $emiscode=$row["emiscode"];
             $schoolward=$row["schoolward"];
             $ayear=$row["appointdate"];
             $amonth=$row["appointmonth"];
@@ -403,7 +407,7 @@ if ($result1->num_rows > 0)
     <label class="label_text">EMIS कोड </label>
   </div>
   <div>
-    <input class="custom-input" size="10" placeholder="EMIS कोड" name="txtemiscode" >
+    <input class="custom-input" size="10" value="<?php echo $emiscode;?>" name="txtemiscode" >
   </div>
 </div>
 <br>
@@ -440,11 +444,217 @@ if ($result1->num_rows > 0)
 </div>
   </div>
   <div class="label_column">
-    <label class="label_text">वडा <span class="star">*</span></label>
+&nbsp;&nbsp;&nbsp;    <label class="label_text">वडा <span class="star">*</span></label>
   </div>
     <div class="label_column">
       <input class="custom-input_number"  name="txtschoolward" value="<?php echo $schoolward;?>" required>
     </div>
+</div>
+<h3>खण्ड - ग) तालिम आवश्यकता सम्वन्धी विवरण</h3>
+<h4><label><i>TPD तालिम लिन कक्षा तीन सम्म अध्यापन गर्नु हुनेले एकीकृत पाठ्यक्रम (कक्षा १-३) छान्नुहाेस र कक्षा चार देखि माथि अध्यापन गर्नु हुनेले  विषय छान्नु हाेस ।</i></label></h4>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+  <label class="label_text">तालिम लिन चाहेको विषयक्षेत्र <span class="star">*</span></label>
+  </div>
+  <div class="content">
+    <select id="trainingcategory" name="cmbtrainingcategory" class="custom-combo" required onchange="handleChange()">
+      <option value="<?php echo $category;?>" selected><?php echo $category;?></option>
+  <?php
+    include("training_category_1.html");
+  ?>  
+  </select>
+  </div>
+</div>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+<label class="label_text" id="lblsubjectwhatid" style="display:none;">कुन विषयको तालिम लिने हो (<?php echo $subject;?>)<span class="star">*</span></label>
+<label class="label_text" id="lblappointmiti" style="display:none;">प्र.अ./स.प्र.अ. नियुक्ति मिति (<?php echo $pradate;?>)<span class="star">*</span></label>
+</div>
+<div class="content">
+  <input type="text" value="<?php echo $pradate;?>" name="txtpraappointmiti" id="txtpraappointmiti" maxlength="10" placeholder="YYYY-MM-DD" style="display:none;">
+    <select id="trainingsubject" name="cmbsubject3" class="custom-combo" style="display:none;"  onchange="subjectChange()">
+      <option value="<?php echo $subject;?>"selected><?php echo $subject;?></option>
+    <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
+    <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
+    <option value="नेपाली">नेपाली</option>
+    <option value="अङ्ग्रेजी">अङ्ग्रेजी</option>
+    <option value="गणित">गणित</option>
+    <option value="विज्ञान तथा प्रविधि">विज्ञान तथा प्रविधि</option>
+    <option value="सामाजिक अध्ययन">सामाजिक अध्ययन</option>
+    <option value="ऐच्छिक विषय">ऐच्छिक विषय</option>
+    <option value="ICT मा आधारित तालिम">ICT मा आधारित तालिम</option>
+    </select>
+        <input type="hidden" name="cmbsubject" placeholder="विषय" id="trainingsubject1" style="display:none;">
+</div>
+</div>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+<label class="label_text" id="rowclassid" style="display:none;" >तालिम लिने तह (<?php echo $class;?>)<span class="star">*</span></label>
+</div>
+<div class="content">
+    <select name="cmbclass" class="custom-combo"  id="trainingclassid" style="display:none;">
+    <option value="<?php echo $class;?>" selected><?php echo $class;?></option>
+    <option value="कक्षा ४ देखि ५">कक्षा ४ देखि ५</option>
+    <option value="कक्षा ६ देखि ८">कक्षा ६ देखि ८</option>
+    <option value="कक्षा ९ देखि १०">कक्षा ९ देखि १०</option>
+    </select>
+    <select name="cmbclass" class="custom-combo"  id="trainingclassidservice" style="display:none;">
+    <option value="<?php echo $class;?>" selected><?php echo $class;?></option>
+    <option value="आधारभूत">आधारभूत</option>
+    <option value="माध्यमिक">माध्यमिक</option>
+    </select>
+  </div>
+</div>
+<script>
+      function handleChange()
+      {
+        //alert("Check");
+         let category = document.getElementById("trainingcategory").value;
+    let subject = document.getElementById("trainingsubject");
+    let subject1 = document.getElementById("trainingsubject1");
+    let subjectwhat = document.getElementById("lblsubjectwhatid");
+      let appointmiti = document.getElementById("lblappointmiti");
+    let praappointmiti = document.getElementById("txtpraappointmiti");
+    let teachingclass1 = document.getElementById("trainingclassid");
+    let teachingclassservice= document.getElementById("trainingclassidservice");
+    let classrow1 = document.getElementById("rowclassid");
+      if (category === "एक महिने प्रमाणीकरण तालिम (TPD)")
+    {
+        
+        subject.style.display = "block";
+        subject1.style.display = "none";
+        subjectwhat.style.display = "block";
+        appointmiti.style.display = "none";
+        praappointmiti.style.display = "none";
+        teachingclassservice.style.display="none";
+          }
+      else if (category === "प्रधानाध्यापक नेतृत्व सम्बन्धि एक महिने तालिम")
+        {
+          //subject.disabled=true; // disable
+          subject.style.display="none";
+          subject1.style.display="block";
+          subjectwhat.style.display = "none";
+            classrow1.style.display="block";
+            teachingclass1.style.display="none";
+            teachingclassservice.style.display="block";
+          appointmiti.style.display = "block";
+        praappointmiti.style.display = "block";
+        }
+        else 
+        {
+          //subject.disabled=true; // disable
+          subject.style.display="none";
+          subject1.style.display="block";
+          subjectwhat.style.display = "none";
+            classrow1.style.display="block";
+            teachingclass1.style.display="none";
+            teachingclassservice.style.display="block";
+          appointmiti.style.display = "none";
+        praappointmiti.style.display = "none";
+        }
+      }
+    
+      function subjectChange()
+      {
+        
+        let subject = document.getElementById("trainingsubject").value;
+        let teachingclass = document.getElementById("trainingclassid");
+        let classrow = document.getElementById("rowclassid");
+        if(subject==="प्रारम्भिक बालविकास" || subject==="एकीकृत पाठ्यक्रम (कक्षा १-३)")
+          {
+            classrow.style.display="none";
+            teachingclass.style.display="none";
+        }
+      else
+        {
+          classrow.style.display="block";
+            teachingclass.style.display="block";
+          
+        }
+        
+      }
+
+    </script>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+  <label class="label_text">तालिम लिने मोड (प्राथमिकता १)<span class="star">*</span></label>
+</div>
+<div class="content">
+  <select name="cmbprioritymode" class="custom-combo" id="txtmode1" required onchange="updatetextbox()">
+  <option value="<?php echo $model;?>" selected><?php echo $model;?></option>
+  <option value="अनलाइन (Online)">अनलाइन (Online)</option>
+  <option value="आमनेसामने (Face To Face)">आमनेसामने (Face To Face)</option>
+  </select>
+</div>
+</div>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+  <label class="label_text">तालिम लिने मोड (प्राथमिकता २) <span class="star">*</span></label>
+  </div>
+  <div class="content">
+    <input type="Text" name="cmbpriority2mode" value="<?php echo $model2;?>" id="txtmode2" readonly>
+    </div>
+    </div>
+</div>
+   <script>
+        function updatetextbox()
+        {
+          //alert("Hello");
+          var mode1=document.getElementById("txtmode1").value;
+          if(mode1 === "अनलाइन (Online)")
+            {
+              document.getElementById("txtmode2").value="आमनेसामने (Face To Face)";
+            }
+          else if(mode1 === "आमनेसामने (Face To Face)")
+            {
+              document.getElementById("txtmode2").value="अनलाइन (Online)";
+            }
+          else
+          {
+            document.getElementById("txtmode2").value="";
+          }
+        }
+    </script>
+<h3>अपलोड गर्नुपर्ने कागजातहरू</h3>(२५० के.बी भन्दा कम साइजको फाइलमात्र अपलोड गर्नुहोला।)
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+    <label class="label_text">नियुक्ति पत्र (प्र.अ.को तालिम लिने भएमा प्र.अ. नियुक्ति भएको पत्र)(pdf)</label>
+  </div>
+  <div class="content">
+    <input type="file" name="fileletter" class="big_file" ><a href="application_document\<?php echo $letter;?>" target="_blank"><img src="Image/eye.png" width="20" height="15"></a>
+  </div>
+</div>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+    <label class="label_text">नागरिकता प्रमाणपत्र(pdf)</label>
+  </div>
+  <div class="content">
+    <input  type="file" name="filecitizenship" class="big_file"><a href="application_document\<?php echo $citizenship;?>" target="_blank"><img src="Image/eye.png" width="20" height="15"></a>
+</div>
+</div>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+    <label class="label_text">विद्यालय/स्थानीय तहकाे सिफारिस पत्र (pdf)</label>
+  </div>
+  <div class="content">
+    <input  type="file" name="fileschoolrecommend" class="big_file"><a href="application_document\<?php echo $recomend;?>" target="_blank"><img src="Image/eye.png" width="20" height="15"></a>
+</div>
+</div>
+<br>
+<div class="custom-twocolumn">
+  <div class="label_column_1">
+    <label class="label_text">तपाईको पासपोर्ट साइजको फोटो(jpg, png)</label>
+  </div>
+  <div class="content">
+    <input  type="file" name="filephoto" class="big_file"><a href="application_document\<?php echo $photo;?>" target="_blank"><img src="Image/eye.png" width="20" height="15"></a>
+</div>
 </div>
 <div>
    <input type="submit" value="अपडेट गर्नुहोस्" name="btnsave">
