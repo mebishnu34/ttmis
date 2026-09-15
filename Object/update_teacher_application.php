@@ -96,16 +96,129 @@ $recommend="";
                 acholdername='".$_POST['txtaccountholder']."',
                 bankacno='".$_POST['txtbankacno']."',
                 panno='".$_POST['txtpanNo']."',
-                teacherclass='".$class."',
+                teacherclass='".$_POST['cmbclass']."',
                 schoolname='".$_POST['txtschoolname']."',
                 emiscode='".$_POST['txtemiscode']."',
                 schoolprovince='".$_POST['cmbschoolprovince']."',
                 schooldistrict='".$_POST['cmbdistrictbagamati']."',
                 schoollocallevel='".$_POST['cmbmunbagamati']."',
-                schoolward='".$_POST['txtschoolward']."'
+                schoolward='".$_POST['txtschoolward']."',
+                trainingcategory='".$_POST['cmbtrainingcategory']."',
+                teacherclass='".$_POST['cmbclass']."',
+                priority1model='".$_POST['cmbprioritymode']."',
+                priority2model='".$_POST['cmbpriority2mode']."',
+                trainingsubject='".$_POST['cmbsubject']."'
                 where appid='".$_POST['txtapplicationid']."'";
+
                 if (mysqli_query($conn, $sql))
                   {
+                    if(isset($_FILES['fileletter']['name']) && $_FILES['fileletter']['name']<>'')
+                      {
+                        $filename = $_FILES['fileletter']['name'];
+                        $temp_file=$mobileno .'_' . $filename;
+                        $letter=$temp_file;
+                        $folderletter = '../application_document/' . $temp_file;
+                        $extensionletter = pathinfo($filename, PATHINFO_EXTENSION);
+                        $fileletter = $_FILES['fileletter']['tmp_name'];
+                        $sizeletter = $_FILES['fileletter']['size'];
+                        if (!in_array($extensionletter, ['PDF','pdf','Pdf']))
+                          {
+                            //header('Location: ../error.php?msg= "Recomended file must be PDF"');
+                          }
+                        elseif ($sizeletter > 5000000)
+                          { // file shouldn't be larger than 1Megabyte
+                          //header('Location: ../error.php?msg= "File to large"');
+                          }
+                        else
+                          {
+                            if(copy($fileletter,$folderletter))
+                              {
+                                mysqli_query($conn,"UPDATE tblapplication set appointletter='".$letter."' where appid='".$_POST['txtapplicationid']."'");
+          
+                              }
+                             
+                          }
+
+                      }
+                      if(isset($_FILES['filecitizenship']['name']) && $_FILES['filecitizenship']['name']<>'')
+                      {
+                        $filenamectz = $_FILES['filecitizenship']['name'];
+                        $temp_file=$mobileno .'_' . $filenamectz;
+                        $citizenship=$temp_file;
+                        $folderctz = '../application_document/' . $temp_file;
+                        $extensionctz = pathinfo($filenamectz, PATHINFO_EXTENSION);
+                        $filectz = $_FILES['filecitizenship']['tmp_name'];
+                        $sizectz = $_FILES['filecitizenship']['size'];
+                        if (!in_array($extensionctz, ['PDF','pdf','Pdf']))
+                          {
+                            //header('Location: ../error.php?msg= "Recomended file must be PDF"');
+                          }
+                        elseif ($sizectz > 5000000)
+                          { // file shouldn't be larger than 1Megabyte
+                          //header('Location: ../error.php?msg= "File to large"');
+                          }
+                        else
+                          {
+                            if(copy($filectz,$folderctz))
+                              {
+                                mysqli_query($conn,"UPDATE tblapplication set citizenship='".$citizenship."' where appid='".$_POST['txtapplicationid']."'");
+          
+                              }
+                          }
+
+                      }
+                      if(isset($_FILES['filephoto']['name']) && $_FILES['filephoto']['name']<>'')
+                      {
+                        $filenamephoto = $_FILES['filephoto']['name'];
+                        $temp_file=$mobileno .'_' . $filenamephoto;
+                        $photo=$temp_file;
+                        $folderphoto= '../application_document/' . $temp_file;
+                        $extensionphoto = pathinfo($filenamephoto, PATHINFO_EXTENSION);
+                        $filephoto = $_FILES['filephoto']['tmp_name'];
+                        $sizephoto = $_FILES['filephoto']['size'];
+                        if (!in_array($extensionphoto, ['JPG','jpg','jpeg','JPEG','Jpg','Jpeg','PNG','png','Png']))
+                          {
+                            //header('Location: ../error.php?msg= "Recomended file must be PDF"');
+                          }
+                        elseif ($sizephoto > 5000000)
+                          { // file shouldn't be larger than 1Megabyte
+                          //header('Location: ../error.php?msg= "File to large"');
+                          }
+                        else
+                          {
+                            if(copy($filephoto,$folderphoto))
+                              {
+                                mysqli_query($conn,"UPDATE tblapplication set photo='".$photo."' where appid='".$_POST['txtapplicationid']."'");
+          
+                              }
+                          }
+                      }
+                      if(isset($_FILES['fileschoolrecommend']['name']) && $_FILES['fileschoolrecommend']['name']<>'')
+                      {
+                        $filenamerecomend = $_FILES['fileschoolrecommend']['name'];
+                        $temp_file=$mobileno .'_' . $filenamerecomend;
+                        $recommend=$temp_file;
+                        $folderrecomend = '../application_document/' . $temp_file;
+                        $extensionrecomend = pathinfo($filenamerecomend, PATHINFO_EXTENSION);
+                        $filerecomend = $_FILES['fileschoolrecommend']['tmp_name'];
+                        $sizerecomend = $_FILES['fileschoolrecommend']['size'];
+                        if (!in_array($extensionrecomend, ['PDF','pdf','Pdf']))
+                          {
+                            //header('Location: ../error.php?msg= "Recomended file must be PDF"');
+                          }
+                        elseif ($sizerecomend > 5000000)
+                          { // file shouldn't be larger than 1Megabyte
+                          //header('Location: ../error.php?msg= "File to large"');
+                          }
+                        else
+                          {
+                            if(copy($filerecomend,$folderrecomend))
+                              {
+                                mysqli_query($conn,"UPDATE tblapplication set schoolrecommend='".$recommend."' where appid='".$_POST['txtapplicationid']."'");
+          
+                              }
+                          }
+                      }
 			              $_SESSION['response']="Update Successfully";
                     ?>
                     <script>
