@@ -47,11 +47,11 @@ if ($result->num_rows > 0)
 <td bgcolor="#0852FA"><font color="#FFFFFF" size="2"><div align="right"><?php echo $_SESSION['uname'];?></div></font></td>
 </tr>
 </table>
-<form method="post" action="../export/export_allowance_details.php">
+<form method="post" action="../export/export_attendance_sheet.php">
 <div id="pdata">
-<table width="100%" class="dtable">
+<table width="100%" class="dtable" border="1">
 <tr>
-<td colspan="14">
+<td colspan="7" align="center">
 <?php
 echo "Name of Tranining:-".$training . " / Level :-".$level . " / Subject :-".$subject . " / Start Date:-".$sdate. " / End Date:-". $edate . " / Venue:-". $venue;
 ?>
@@ -61,20 +61,11 @@ echo "Name of Tranining:-".$training . " / Level :-".$level . " / Subject :-".$s
 <tr>
 <th>क्र.सं.</th>
 <th>शिक्षककाे नाम</th>
-<!--<th>लिङ्ग</th>
-<th>मोबाइल नं.</th>-->
 <th>तह</th>
 <th>बिद्यालयको नाम</th>
-<th>बैंकमा भएको खातावालाको नाम</th>
-<th>बैंकको नाम</th>
-<th>खाता नं.</th>
-<th>पान नं.</th>
-<!--<th>जिल्ला</th>
-<th>गा.वि.स./न.पा.</th>
-
-<th>सहजकर्ता</th>-->
-<th>रकम</th>
-
+<th>पहिलो सीप</th>
+<th>दास्रो सीप</th>
+<th>तेस्रो सीप</th>
 </tr>
 <?php
 $sn=1;
@@ -114,20 +105,12 @@ if ($result->num_rows > 0)
          echo "<tr>";
          echo "<td align=center>". $sn . "</td>";
          echo "<td align=center>" . $tname . "</td>";
-         //echo "<td align=center>" . $gender . "</td>";
-         //echo "<td align=center>" . $mobileno . "</td>";
          echo "<td align=center>" . $level . "</td>";
          echo "<td align=center>" . $scode . "</td>";
-         echo "<td align=center>" . $acholdername . "</td>";
-         echo "<td align=center>" . $bankname . "</td>";
-                  echo "<td align=center>" . $bankac . "</td>";
-         echo "<td align=center>" . $panno . "</td>";   
-		 //         echo "<td align=center>" . $district . "</td>";
-			//	  echo "<td align=center>" . $mun . "</td>";
-         
-          //echo "<td align=center>" . $row["coordinator"] . "</td>";
-          echo "<td align=center>" . $allowance . "</td>";
-             echo "</tr>";
+         echo "<td align=center></td>";
+         echo "<td align=center></td>";
+         echo "<td align=center></td>";
+          echo "</tr>";
          $sn++;
     }
 }

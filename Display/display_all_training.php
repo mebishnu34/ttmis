@@ -41,7 +41,7 @@ if ($result->num_rows > 0)
          echo "<td align=center>" . $row["startdate"] . "</td>";
          echo "<td align=center>" . $row["enddate"] . "</td>";
          echo "<td align=center>" . $row["venue"] . "</td>";
-         echo "<td align=center bgcolor=blue><a href=../Display/teacher_training_list.php?tid=$row[trainingid] target=_blank>Teacher</a></td>";
+         echo "<td align=center bgcolor=blue><a href=../Display/teacher_training_list.php?tid=$row[trainingid] target=_blank>Allowance</a> &nbsp;&nbsp;<a href=../Display/teacher_attendance_sheet.php?tid=$row[trainingid] target=_blank>Attendance</a></td>";
          echo "</tr>";
          $sn++;
     }

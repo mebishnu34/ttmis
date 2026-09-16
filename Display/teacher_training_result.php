@@ -30,7 +30,14 @@ if ($result->num_rows > 0)
  <TITLE>TTMIS:TPD Result</TITLE>
  <link rel="stylesheet" href="../CSS/main_table.css">
     <link rel="stylesheet" href="../CSS/sidemenu.css">
-    
+<style>
+        .big_button {
+            font-size: 20px;
+            padding: 10px 20px;
+            width: 100px;
+            height: 42px;
+        }
+        </style>    
 </HEAD>
 <BODY>
 
@@ -213,7 +220,7 @@ if ($result->num_rows > 0)
 echo "</table>";
 ?>
 </div>
-<div><center><input type="submit" value="Export In Excel" name="teacherdistrict">&nbsp;&nbsp;&nbsp;<input type="Button" name="btnprint" value="Print" onClick="javascript:CallPrint('pdata');"></center></div>
+<div><center><input type="submit" value="Export In Excel" name="teacherdistrict">&nbsp;&nbsp;&nbsp;<input type="Button" name="btnprint" class="big_button" value="Print" onClick="javascript:CallPrint('pdata');"></center></div>
 </form>
 </BODY>
 </HTML>
