@@ -103,14 +103,16 @@ Year:: <?php echo $_SESSION['appyear'];?>
             <th>
                   <select name="cmbappointsubject" id="appointsubjectid" class="custom-combo" onchange="funsubject()">
       <option value="" disabled selected>विषय छान्नुहोस</option>
-         <option value="सामाजिक अध्ययन">सामाजिक अध्ययन</option>
-         <option value="विज्ञान तथा प्रविधि">विज्ञान तथा प्रविधि</option>
-         <option value="ऐच्छिक विषय">ऐच्छिक विषय</option>
-          <option value="अंग्रेजी">अंग्रेजी</option>
-         <option value="नेपाली">नेपाली</option>
-         <option value="गणित">गणित</option>
-         <option value="स्वास्थ्य शारिरीक">स्वास्थ्य शारिरीक</option>
-         <option value="लेखा">लेखा</option>
+         <option value="प्रारम्भिक बालविकास">प्रारम्भिक बालविकास</option>
+    <option value="एकीकृत पाठ्यक्रम (कक्षा १-३)">एकीकृत पाठ्यक्रम (कक्षा १-३)</option>
+    <option value="नेपाली">नेपाली</option>
+    <option value="अङ्ग्रेजी">अङ्ग्रेजी</option>
+    <option value="गणित">गणित</option>
+    <option value="विज्ञान तथा प्रविधि">विज्ञान तथा प्रविधि</option>
+    <option value="सामाजिक अध्ययन">सामाजिक अध्ययन</option>
+    <option value="ऐच्छिक विषय">ऐच्छिक विषय</option>
+    <option value="ICT मा आधारित तालिम">ICT मा आधारित तालिम</option>
+    <option></option>
          </select>
   
             </th>
