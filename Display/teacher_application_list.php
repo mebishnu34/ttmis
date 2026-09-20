@@ -246,84 +246,128 @@ $i=1;
 $_SESSION["listtype"]=$_POST["listtype"];
 if($_POST["listtype"]=="Selected")
       {
-                     
-            if($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level" and $subjectcheck="subject")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($districtcheck=="district")
-                   {
-                        
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($districtcheck=="district" and $palikacheck=="palika")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($subjectcheck=="subject")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($levelcheck=="level" and $subjectcheck="subject")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appointlocallevel='".$level."' and trainingcategor='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($districtcheck=="district" and $levelcheck=="level" and $subjectcheck="subject")
-                  {
-                        
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+                $sql1 = "
+                  SELECT 
+                        tname,
+                        mobileno,
+                        citizenshipno,
+                        schoolname,
+                        appointdate,
+                        appointmonth,
+                        appointday,
+                        appointsubject,
+                        appointletter,
+                        citizenship,
+                        schoolrecommend,
+                        trainingcategory,
+                        trainingsubject,
+                        appointlocallevel,
+                        schooldistrict,
+                        schoollocallevel,
+                        priority1model
+                  FROM tblapplication
+                  WHERE remark='Selected' AND financialyear = ?";
+                  $params = [$_SESSION['appyear']];
+                  $types  = "s";
+                  // Add filters only when selected
+                  if ($districtcheck == "district") {
+                  $sql1 .= " AND schooldistrict = ?";
+                  $params[] = $district;
+                  $types .= "s";
                   }
 
-            else
-                  {
-                                                
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where remark='Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                        
+                  if ($palikacheck == "palika") {
+                  $sql1 .= " AND schoollocallevel = ?";
+                  $params[] = $palika;
+                  $types .= "s";
                   }
+
+                  if ($levelcheck == "level") {
+                  $sql1 .= " AND appointlocallevel = ?";
+                  $params[] = $level;
+                  $types .= "s";
+                  }
+
+                  if ($trainingcheck == "training") {
+                  $sql1 .= " AND trainingcategory = ?";
+                  $params[] = $category;
+                  $types .= "s";
+                  }
+
+                  if ($subjectcheck == "subject") {
+                  $sql1 .= " AND trainingsubject = ?";
+                  $params[] = $subject;
+                  $types .= "s";
+                  }
+
+                  $sql1 .= " ORDER BY appid";
+                  $stmt = $conn->prepare($sql1);
+                  $stmt->bind_param($types, ...$params);
+                  $stmt->execute();
+                  $result1 = $stmt->get_result();
       }
 elseif($_POST["listtype"]=="NotSelected")
       {
             
-            if($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level" and $subjectcheck="subject")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($districtcheck=="district")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($districtcheck=="district" and $palikacheck=="palika")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($districtcheck=="district" and $palikacheck=="palika" and $levelcheck=="level")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and schoollocallevel='".$palika."' and appointlocallevel='".$level."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($subjectcheck=="subject")
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($levelcheck=="level" and $subjectcheck=="subject")
-                  {
-                        
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                  }
-            elseif($districtcheck=="district" and $levelcheck=="level" and $subjectcheck="subject")
-                  {
-                        
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where schooldistrict='".$district."' and appointlocallevel='".$level."' and trainingcategory='".$subject."' and remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
+            $sql1 = "
+                  SELECT 
+                        tname,
+                        mobileno,
+                        citizenshipno,
+                        schoolname,
+                        appointdate,
+                        appointmonth,
+                        appointday,
+                        appointsubject,
+                        appointletter,
+                        citizenship,
+                        schoolrecommend,
+                        trainingcategory,
+                        trainingsubject,
+                        appointlocallevel,
+                        schooldistrict,
+                        schoollocallevel,
+                        priority1model
+                  FROM tblapplication
+                  WHERE remark<>'Selected' AND financialyear = ?";
+                  $params = [$_SESSION['appyear']];
+                  $types  = "s";
+                  // Add filters only when selected
+                  if ($districtcheck == "district") {
+                  $sql1 .= " AND schooldistrict = ?";
+                  $params[] = $district;
+                  $types .= "s";
                   }
 
-            else
-                  {
-                        $sql1 = "SELECT tname, mobileno, citizenshipno, schoolname, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where remark<>'Selected' and financialyear='".$_SESSION['appyear']."' ORDER BY appid";
-                        
+                  if ($palikacheck == "palika") {
+                  $sql1 .= " AND schoollocallevel = ?";
+                  $params[] = $palika;
+                  $types .= "s";
                   }
+
+                  if ($levelcheck == "level") {
+                  $sql1 .= " AND appointlocallevel = ?";
+                  $params[] = $level;
+                  $types .= "s";
+                  }
+
+                  if ($trainingcheck == "training") {
+                  $sql1 .= " AND trainingcategory = ?";
+                  $params[] = $category;
+                  $types .= "s";
+                  }
+
+                  if ($subjectcheck == "subject") {
+                  $sql1 .= " AND trainingsubject = ?";
+                  $params[] = $subject;
+                  $types .= "s";
+                  }
+
+                  $sql1 .= " ORDER BY appid";
+                  $stmt = $conn->prepare($sql1);
+                  $stmt->bind_param($types, ...$params);
+                  $stmt->execute();
+                  $result1 = $stmt->get_result();
       }
 elseif($_POST["listtype"]=="All")
       {
@@ -348,8 +392,7 @@ elseif($_POST["listtype"]=="All")
                         schoollocallevel,
                         priority1model
                   FROM tblapplication
-                  WHERE financialyear = ?
-                  ";
+                  WHERE financialyear = ?";
                   $params = [$_SESSION['appyear']];
                   $types  = "s";
                   // Add filters only when selected
