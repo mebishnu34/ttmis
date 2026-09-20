@@ -58,6 +58,7 @@ if ($result->num_rows > 0)
 </table>
 <form method="post" action="../export/export_tpd_result.php">
    <div id="pdata">
+      <center><h1>प्रशिक्षार्थी नतिजा विवरण</h1></center>
 <table width="100%">
 <tr>
 <th colspan="2">Financial Year:<?php echo $_SESSION['fyear'];?></th>

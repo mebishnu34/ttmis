@@ -65,7 +65,7 @@ echo "Name of Tranining:-".$training . " / Level :-".$level . " / Subject :-".$s
 <th>तह</th>
 <th>बिद्यालयको नाम</th>
 <th>पहिलो सेसन</th>
-<th>दास्रो सेसन</th>
+<th>दोस्रो सेसन</th>
 <th>तेस्रो सेसन</th>
 <th>प्रमाणित गर्ने</th>
 </tr>
