@@ -49,9 +49,10 @@ if ($result->num_rows > 0)
 </table>
 <form method="post" action="../export/export_attendance_sheet.php">
 <div id="pdata">
+    <center><h1>सहभागी हाजिरी विवरण</h1></center>
 <table width="100%" class="dtable" border="1">
 <tr>
-<td colspan="7" align="center">
+<td colspan="8" align="center">
 <?php
 echo "Name of Tranining:-".$training . " / Level :-".$level . " / Subject :-".$subject . " / Start Date:-".$sdate. " / End Date:-". $edate . " / Venue:-". $venue;
 ?>
@@ -63,9 +64,10 @@ echo "Name of Tranining:-".$training . " / Level :-".$level . " / Subject :-".$s
 <th>शिक्षककाे नाम</th>
 <th>तह</th>
 <th>बिद्यालयको नाम</th>
-<th>पहिलो सीप</th>
-<th>दास्रो सीप</th>
-<th>तेस्रो सीप</th>
+<th>पहिलो सेसन</th>
+<th>दास्रो सेसन</th>
+<th>तेस्रो सेसन</th>
+<th>प्रमाणित गर्ने</th>
 </tr>
 <?php
 $sn=1;
@@ -107,6 +109,7 @@ if ($result->num_rows > 0)
          echo "<td align=center>" . $tname . "</td>";
          echo "<td align=center>" . $level . "</td>";
          echo "<td align=center>" . $scode . "</td>";
+         echo "<td align=center></td>";
          echo "<td align=center></td>";
          echo "<td align=center></td>";
          echo "<td align=center></td>";

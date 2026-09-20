@@ -37,7 +37,12 @@ if ($result->num_rows > 0)
             width: 100px;
             height: 42px;
         }
-        </style>    
+   .vertical_text {
+    writing-mode: vertical-rl;
+    transform: rotate(360deg);
+    text-align: center;
+      }
+</style>    
 </HEAD>
 <BODY>
 
@@ -63,7 +68,7 @@ if ($result->num_rows > 0)
 <th>End Date:<?php echo $_SESSION['edate'];?></th>
 </tr>
 </table>
-<table width="100%" border="1" cellspacing="0" cellpadding="0">
+<table width="100%" border="1" cellspacing="0" cellpadding="5">
 <tr>
 <th rowspan="2">सि.नं.</th>
 <th rowspan="2">नाम</th>
@@ -81,15 +86,15 @@ if ($result->num_rows > 0)
 
 </tr>
 <tr>
-<th>उपस्थिति(3)</th>
-<th>सक्रियता(6)</th>
-<th>आचारसंहिताको <br> पालना(3)</th>
-<th>तालिमप्रतिको <br> प्रतिबद्धता(3)</th>
-<th>लिखित परीक्षा(30)</th>
-<th>कार्ययोजना(5)</th>
-<th>कार्यसम्पादन(21)</th>
-<th>प्रतिवेदन(21)</th>
-<th>प्रस्तुतीकरण(8)</th>
+<th class="vertical_text">उपस्थिति(3)</th>
+<th class="vertical_text">सक्रियता(6)</th>
+<th class="vertical_text">आचारसंहिताको <br> पालना(3)</th>
+<th class="vertical_text">तालिमप्रतिको <br> प्रतिबद्धता(3)</th>
+<th class="vertical_text">लिखित परीक्षा(30)</th>
+<th class="vertical_text">कार्ययोजना(5)</th>
+<th class="vertical_text">कार्यसम्पादन(21)</th>
+<th class="vertical_text">प्रतिवेदन(21)</th>
+<th class="vertical_text">प्रस्तुतीकरण(8)</th>
 </tr>
 <?php
 $sn=1;
