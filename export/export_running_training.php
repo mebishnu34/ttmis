@@ -60,17 +60,17 @@ $output.='
                        }
                     }
                     
-                    $sqlt = "SELECT schoolname,munvdc,district FROM tblschool where schoolcode='$scode'";
-                    $resultt = $conn->query($sqlt);
-                    if($resultt->num_rows > 0)
-                           {
-                        if($rowt = $resultt->fetch_assoc())
-                           {
-                           $sname=$rowt["schoolname"];
-                           $mun=$rowt["munvdc"];
-                           $district=$rowt["district"];
-                               }
-                        }
+                $sqlt = "SELECT appid,schoolname, schoollocallevel,schooldistrict FROM tblapplication where appid='$tcode'";
+		          $resultt = $conn->query($sqlt);
+		         if($resultt->num_rows > 0)
+   			      {
+	    	         if($rowt = $resultt->fetch_assoc())
+    		            {
+			            $sname=$rowt["schoolname"];
+			            $mun=$rowt["schoollocallevel"];
+			            $district=$rowt["schooldistrict"];
+		   		      }
+			         }
             $output.='
                         <tr>
                         <td align=center>'. $sn . '</td>
