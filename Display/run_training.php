@@ -24,8 +24,7 @@ if ($result->num_rows > 0)
 </head>
 <body>
 <div align="Right">
-    					<button type="button" id="export_button" class="button">Export</button>
-						<a href="../export/export_running_training.php?id=<?php echo $traid;?>"><button type="button" class="button">Export</button></a>
+    				<a href="../export/export_running_training.php?id=<?php echo $traid;?>"><button type="button" class="button">Export</button></a>
     				</div>
 
 <table id="teacher_data" width="100%" class="table_design">
@@ -59,7 +58,7 @@ if ($result->num_rows > 0)
 	$loginname="";
 	$pass="";
 	$scode=$row["schoolcode"];
-		$sqlt = "SELECT tname,tcontact,district, munvdc,loginname, tpass FROM tblteacher where (teacherid='$tcode' or teachercode='$tcode')";
+	$sqlt = "SELECT tname,tcontact,district, munvdc,loginname, tpass FROM tblteacher where (teacherid='$tcode' or teachercode='$tcode')";
 		$resultt = $conn->query($sqlt);
 		if($resultt->num_rows > 0)
    		{
@@ -74,15 +73,15 @@ if ($result->num_rows > 0)
 		   }
 		}
 		
-		$sqlt = "SELECT schoolname,munvdc,district FROM tblschool where schoolcode='$scode'";
+		$sqlt = "SELECT appid,schoolname, schoollocallevel,schooldistrict FROM tblapplication where appid='$tcode'";
 		$resultt = $conn->query($sqlt);
 		if($resultt->num_rows > 0)
    			{
 	    	if($rowt = $resultt->fetch_assoc())
     		   {
 			   $sname=$rowt["schoolname"];
-			   $mun=$rowt["munvdc"];
-			   $district=$rowt["district"];
+			   $mun=$rowt["schoollocallevel"];
+			   $district=$rowt["schooldistrict"];
 		   		}
 			}
     echo "<tr>";
