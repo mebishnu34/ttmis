@@ -209,11 +209,11 @@ $_SESSION["chkpalika"]="";
             $_SESSION["training"]=$trainingcheck;
             }
 
-      $_SESSION["subject"]="";
+      $_SESSION["chksubject"]="";
       if(isset($_POST["chksubject"]))
          {
             $subjectcheck=$_POST["chksubject"];
-            $_SESSION["subject"]=$subjectcheck;
+            $_SESSION["chksubject"]=$subjectcheck;
             }
 
 ?>
