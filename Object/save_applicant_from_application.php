@@ -211,7 +211,7 @@ for($d=0; $d<$k;$d++)
 			/*
 			* 5. Get municipality ID
 			*/
-			$munid = "";
+			$munid = 0;
 			$sql = "SELECT ID FROM tbldistrict	WHERE munvdc = ? LIMIT 1";
 			$stmt = $conn->prepare($sql);
 			$stmt->bind_param("s", $munvdc);
@@ -256,15 +256,18 @@ for($d=0; $d<$k;$d++)
 							registernumber,
 							prepairedby,
 							checkby,
-							approvedby
+							approvedby,
+							teacherdistrict,
+							allowance
+
 						)
 						VALUES
 						(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Running',
-								'', '', '', '', '', '')";
+								'', '', '', '', '', '','','0')";
 				$stmt = $conn->prepare($sql);
 				$stmt->bind_param(
 					"ssssssssss",
-					$tcode,
+					$appid,
 					$trainingid,
 					$rnid,
 					$scode,
