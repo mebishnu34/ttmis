@@ -93,6 +93,7 @@ for($d=0; $d<$k;$d++)
 				$munvdc = $teacher['munvdc'];
 				$sql = "UPDATE tblteacher
 						SET
+							teachercode    = ?,
 							tname          = ?,
 							gender         = ?,
 							citizenship    = ?,
@@ -106,10 +107,11 @@ for($d=0; $d<$k;$d++)
 							teachingsubject = ?,
 							loginname      = ?,
 							tpass          = ?
-						WHERE teachercode = ?";
+							WHERE tcontact = ? OR citizenship = ?";
 				$stmt = $conn->prepare($sql);
 				$stmt->bind_param(
-					"ssssssssssssss",
+					"ssssssssssssssss",
+					$app['appid'],
 					$app['tname'],
 					$app['gender'],
 					$app['citizenshipno'],
@@ -123,7 +125,8 @@ for($d=0; $d<$k;$d++)
 					$app['appointsubject'],
 					$app['mobileno'],
 					$app['mobileno'],
-					$tcode
+					$app['mobileno'],
+					$app['citizenshipno']
 				);
 				$stmt->execute();
 			} 
