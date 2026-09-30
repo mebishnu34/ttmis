@@ -89,7 +89,7 @@ if ($result->num_rows > 0)
           $result1 = $conn->query($sql1);
           if ($result1->num_rows > 0)
           {
-         while($row1 = $result1->fetch_assoc())
+         if($row1 = $result1->fetch_assoc())
           {
           $tname=$row1["tname"];
           $gender=$row1["gender"];
@@ -102,11 +102,10 @@ if ($result->num_rows > 0)
           $bankac=$row1["bankacno"];
           $acholdername=$row1["acholdername"];
           $panno=$row1["panno"];
-          }
-          }
+          
          echo "<tr>";
          echo "<td align=center>". $sn . "</td>";
-         echo "<td align=center>" . $tname . "</td>";
+         echo "<td align=center>" . $tname. "</td>";
          echo "<td align=center>" . $level . "</td>";
          echo "<td align=center>" . $scode . "</td>";
          echo "<td align=center></td>";
@@ -115,6 +114,8 @@ if ($result->num_rows > 0)
          echo "<td align=center></td>";
           echo "</tr>";
          $sn++;
+         }
+          }
     }
 }
 }

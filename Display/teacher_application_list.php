@@ -429,8 +429,7 @@ if($displayoption=="Selected")
                                           $amonth=$row3["appointmonth"];
                                           $aday=$row3["appointday"];
                                           $asubject=$row3["appointsubject"];
-                                          }
-                              }
+                                          
                               echo "<td align=center>" . $sn ."</td>";
                               echo "<td>".$tname."</td>";
                               echo "<td align=center>".$mobileno."</td>";
@@ -498,7 +497,8 @@ if($displayoption=="Selected")
 
                                           echo "</tr>";
                                         $sn++;
-                                          
+                                    }
+                              }
                   
                         }
                         echo "<tr>";

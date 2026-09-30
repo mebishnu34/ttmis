@@ -109,8 +109,7 @@ if ($result->num_rows > 0)
           $bankac=$row1["bankacno"];
           $acholdername=$row1["acholdername"];
           $panno=$row1["panno"];
-          }
-          }
+          
          echo "<tr>";
          echo "<td align=center>". $sn . "</td>";
          echo "<td align=center>" . $tname . "</td>";
@@ -129,6 +128,8 @@ if ($result->num_rows > 0)
           echo "<td align=center>" . $allowance . "</td>";
              echo "</tr>";
          $sn++;
+         }
+          }
     }
 }
 }
