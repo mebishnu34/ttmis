@@ -68,7 +68,8 @@ function level(str) {
               <tr>
                <td align="right">Name of Training*</td>
                <td>
-                <Select name="cmbtraining" onchange="training(this.value)" class="normaltext">
+                <Select name="cmbtraining" onchange="training(this.value)" class="normaltext" Required>
+                    <Option value="">Select Training Category</option>
                  <?php
                     include("../training_category.html");
                     ?>  
@@ -77,7 +78,8 @@ function level(str) {
            </tr>
            <tr>
     <td align="right">Training Level*</td>
-    <td><select name="cmblevel" onchange="level(this.value)" class="normaltext">
+    <td><select name="cmblevel" onchange="level(this.value)" class="normaltext" Required>
+        <option value="">Select Level</option>
         <?php
             include("../level.htm");
         ?>

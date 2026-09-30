@@ -91,7 +91,7 @@ if ($result->num_rows > 0)
     while($row = $result->fetch_assoc())
     {
     $teacherid=$row["teacherid"];
-      $sql1 = "SELECT tname,tcontact FROM tblteacher where teachercode='$teacherid'";
+      $sql1 = "SELECT tname,mobileno FROM tblapplication where appid='$teacherid'";
       $result1 = $conn->query($sql1);
       if ($result1->num_rows > 0)
       {

@@ -27,7 +27,7 @@ $year=$_POST['cmbyear'];
 $_SESSION['appyear']=$year;
 $sn=1;
 include("../Processing/db_connection.php");
-$sql = "SELECT * FROM tblruntraining where financialyear='" . $year . "' ORDER BY id";
+$sql = "SELECT id,trainingid,trainingname, level, subject,startdate, enddate,venue, coordinator FROM tblruntraining where financialyear='" . $year . "' ORDER BY id";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -35,13 +35,13 @@ if ($result->num_rows > 0)
     {
           echo "<tr>";
          echo "<td align=center>". $sn . "</td>";
-         echo "<td align=center>" . $row["trainingname"] . "</td>";
+         echo "<td align=center>" . $row["trainingname"] ."-". $row["coordinator"]. "</td>";
          echo "<td align=center>" . $row["level"] . "</td>";
          echo "<td align=center>" . $row["subject"] . "</td>";
          echo "<td align=center>" . $row["startdate"] . "</td>";
          echo "<td align=center>" . $row["enddate"] . "</td>";
          echo "<td align=center>" . $row["venue"] . "</td>";
-         echo "<td align=center bgcolor=blue><a href=../Input/teacher_training_allowance.php?tid=$row[trainingid] target=_blank>Teacher</a></td>";
+         echo "<td align=center bgcolor=blue><a href=../Input/teacher_training_allowance.php?tid=$row[id] target=_blank>Teacher</a></td>";
          echo "</tr>";
          $sn++;
     }
