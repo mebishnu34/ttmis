@@ -207,7 +207,7 @@ if($displayoption=="Selected")
                                           $amonth=$row3["appointmonth"];
                                           $aday=$row3["appointday"];
                                           $asubject=$row3["appointsubject"];
-                                          }
+                                         
                                $output .='
                               <tr>
                               <td align=center>' . $sn .'</td>
@@ -224,6 +224,7 @@ if($displayoption=="Selected")
                               <td align=center>'.$asubject.'</td>
                               </tr>';
                               $sn++;
+                               }
                         }
                               
 

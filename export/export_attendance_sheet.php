@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../Processing/db_connection.php");
-$sql = "SELECT id, trainingname, level, subject, startdate, enddate,venue from tblruntraining where trainingid='".$_SESSION['trainingid']."' ORDER BY trainingname";
+$sql = "SELECT id, trainingname, level, subject, startdate, enddate,venue from tblruntraining where id='".$_SESSION['trainingid']."' ORDER BY trainingname";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -39,7 +39,7 @@ $mobileno="";
 $scode="";
 $district="";
 $mun="";
-$sql = "SELECT teacherid,allowance FROM tblttraining where trainingid='".$_SESSION['trainingid']."' and remark<>'Cancel' ORDER BY trainingid";
+$sql = "SELECT teacherid,allowance FROM tblttraining where runid='".$_SESSION['trainingid']."' and remark<>'Cancel' ORDER BY trainingid";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -64,8 +64,7 @@ if ($result->num_rows > 0)
           $bankac=$row1["bankacno"];
           $acholdername=$row1["acholdername"];
           $panno=$row1["panno"];
-          }
-          }
+          
       $output .='
          <tr>
          <td align=center>'. $sn . '</td>';
@@ -77,6 +76,8 @@ if ($result->num_rows > 0)
          $output .='<td align=center></td>';
          $output .='</tr>';
          $sn++;
+         }
+          }
     }
 }
 mysqli_close($conn);

@@ -53,7 +53,7 @@ if ($result->num_rows > 0)
           $result1 = $conn->query($sql1);
           if ($result1->num_rows > 0)
           {
-         while($row1 = $result1->fetch_assoc())
+         if($row1 = $result1->fetch_assoc())
           {
           $tname=$row1["tname"];
           $gender=$row1["gender"];
@@ -66,8 +66,7 @@ if ($result->num_rows > 0)
           $bankac=$row1["bankacno"];
           $acholdername=$row1["acholdername"];
           $panno=$row1["panno"];
-          }
-          }
+          
       $output .='
          <tr>
          <td align=center>'. $sn . '</td>';
@@ -81,6 +80,8 @@ if ($result->num_rows > 0)
 		   $output .='<td align=center>' . $allowance . '</td>';
              $output .='</tr>';
          $sn++;
+         }
+        }
     }
 }
 mysqli_close($conn);
