@@ -7,7 +7,7 @@ if(isset($_GET['tid']))
  $id=$_GET['tid'];
  $_SESSION['trainingid']=$id;
 
-$sql = "SELECT id, trainingname, level, subject, startdate, enddate,venue from tblruntraining where trainingid='$id' ORDER BY trainingname";
+$sql = "SELECT id, trainingname, level, subject, startdate, enddate,venue from tblruntraining where id='$id' ORDER BY trainingname";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -84,7 +84,7 @@ $mobileno="";
 $scode="";
 $district="";
 $mun="";
-$sql = "SELECT teacherid,allowance FROM tblttraining where trainingid='$id' and remark<>'Cancel' ORDER BY trainingid";
+$sql = "SELECT teacherid,allowance FROM tblttraining where runid='$id' and remark<>'Cancel' ORDER BY trainingid";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
    {
@@ -96,7 +96,7 @@ if ($result->num_rows > 0)
           $result1 = $conn->query($sql1);
           if ($result1->num_rows > 0)
           {
-         while($row1 = $result1->fetch_assoc())
+         if($row1 = $result1->fetch_assoc())
           {
           $tname=$row1["tname"];
           $gender=$row1["gender"];

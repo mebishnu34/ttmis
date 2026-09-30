@@ -30,6 +30,7 @@ if ($result->num_rows > 0)
 <table id="teacher_data" width="100%" class="table_design">
 <tr>
 <th align="center">S.No</th>
+<th align="center">Code</th>
 <th>Name of Teacher</th>
 <th>Contact No.</th>
 <th>Name of School</th>
@@ -56,7 +57,7 @@ if ($result->num_rows > 0)
 	$tname="";
 	$contact="";
 	$loginname="";
-	$pass="";
+	$password="";
 	$scode=$row["schoolcode"];
 	$sqlt = "SELECT tname,tcontact,district, munvdc,loginname, tpass FROM tblteacher where (teacherid='$tcode' or teachercode='$tcode')";
 		$resultt = $conn->query($sqlt);
@@ -64,28 +65,27 @@ if ($result->num_rows > 0)
    		{
     	if($rowt = $resultt->fetch_assoc())
     	   {
-		   $contact=$rowt["tcontact"];
-		   $tname=$rowt["tname"];
-		   $mun=$rowt["munvdc"];
-			   $district=$rowt["district"];
 		   $loginname=$rowt["loginname"];
 		   $password=$rowt["tpass"];
 		   }
 		}
 		
-		$sqlt = "SELECT appid,schoolname, schoollocallevel,schooldistrict FROM tblapplication where appid='$tcode'";
+		$sqlt = "SELECT appid,tname,mobileno,schoolname, schoollocallevel,schooldistrict FROM tblapplication where appid='$tcode'";
 		$resultt = $conn->query($sqlt);
 		if($resultt->num_rows > 0)
    			{
 	    	if($rowt = $resultt->fetch_assoc())
     		   {
-			   $sname=$rowt["schoolname"];
+				$tname=$rowt["tname"];
+				$contact=$rowt["mobileno"];
+		   		$sname=$rowt["schoolname"];
 			   $mun=$rowt["schoollocallevel"];
 			   $district=$rowt["schooldistrict"];
 		   		}
 			}
     echo "<tr>";
 	echo "<td align=center>". $sn . "</td>";
+	echo "<td align=left>" . $tcode. "</td>";
 	echo "<td align=left>" . $tname . "</td>";
 	echo "<td align=center>" . $contact . "</td>";
     echo "<td align=left>" . $sname . "</td>";

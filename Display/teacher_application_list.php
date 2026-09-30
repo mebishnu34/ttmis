@@ -149,6 +149,7 @@ Year:: <?php echo $_SESSION['appyear'];?>
 </table>
 </form>
 <?php
+$displayoption="";
 if(isset($_POST["btndisplay1"]))
       {
       $district="";$palika="";$level="";$subject="";$districtcheck="";$palikacheck="";$levelcheck="";$subjectcheck="";$trainingcheck="";
@@ -246,63 +247,10 @@ $i=1;
 $_SESSION["listtype"]=$_POST["listtype"];
 if($_POST["listtype"]=="Selected")
       {
-                $sql1 = "
-                  SELECT 
-                        tname,
-                        mobileno,
-                        citizenshipno,
-                        schoolname,
-                        appointdate,
-                        appointmonth,
-                        appointday,
-                        appointsubject,
-                        appointletter,
-                        citizenship,
-                        schoolrecommend,
-                        trainingcategory,
-                        trainingsubject,
-                        appointlocallevel,
-                        schooldistrict,
-                        schoollocallevel,
-                        priority1model
-                  FROM tblapplication
-                  WHERE remark='Selected' AND financialyear = ?";
-                  $params = [$_SESSION['appyear']];
-                  $types  = "s";
-                  // Add filters only when selected
-                  if ($districtcheck == "district") {
-                  $sql1 .= " AND schooldistrict = ?";
-                  $params[] = $district;
-                  $types .= "s";
-                  }
-
-                  if ($palikacheck == "palika") {
-                  $sql1 .= " AND schoollocallevel = ?";
-                  $params[] = $palika;
-                  $types .= "s";
-                  }
-
-                  if ($levelcheck == "level") {
-                  $sql1 .= " AND appointlocallevel = ?";
-                  $params[] = $level;
-                  $types .= "s";
-                  }
-
-                  if ($trainingcheck == "training") {
-                  $sql1 .= " AND trainingcategory = ?";
-                  $params[] = $category;
-                  $types .= "s";
-                  }
-
-                  if ($subjectcheck == "subject") {
-                  $sql1 .= " AND trainingsubject = ?";
-                  $params[] = $subject;
-                  $types .= "s";
-                  }
-
-                  $sql1 .= " ORDER BY appid";
+                  $displayoption="Selected";
+                  $sql1 = "SELECT id, trainingname,level,subject,startdate,enddate,venue,coordinator FROM tblruntraining where financialyear='" . $_SESSION['appyear'] . "'";
+                  $sql1 .= " ORDER BY id";
                   $stmt = $conn->prepare($sql1);
-                  $stmt->bind_param($types, ...$params);
                   $stmt->execute();
                   $result1 = $stmt->get_result();
       }
@@ -433,6 +381,138 @@ elseif($_POST["listtype"]=="All")
                   $result1 = $stmt->get_result();
 
       }
+if($displayoption=="Selected")
+      {
+       if ($result1->num_rows > 0)
+            {
+            while($row = $result1->fetch_assoc())
+            {
+                  $id=$row["id"];
+            $sqlcount = "SELECT teacherid,allowance FROM tblttraining where runid='$id' and remark<>'Cancel' ORDER BY trainingid";
+            $resultcount = $conn->query($sqlcount);
+            if ($resultcount->num_rows > 0)
+                  {
+            echo "<tr>";
+            echo "<td align=left colspan=15 bgcolor=blue> <B><font color=white>" . $row["trainingname"] ."-".$row["coordinator"]. "-" . $row["level"] . "-" . $row["subject"] . "-";
+            echo $row["startdate"] . "-". $row["enddate"] . "-" . $row["venue"] . "</font></b></td>";
+            echo "</tr>";
+            $sn=1;
+            $sql2 = "SELECT teacherid,allowance FROM tblttraining where runid='$id' and remark<>'Cancel' ORDER BY trainingid";
+            $result2 = $conn->query($sql2);
+            if ($result2->num_rows > 0)
+                  {
+                  while($row2 = $result2->fetch_assoc())
+                  {
+                        $teacherid=$row2["teacherid"];
+                        $allowance=$row2["allowance"];
+                        $sql3 = "SELECT tname, gender, mobileno, citizenshipno, schoolname,bankname,bankacno,acholdername, panno, appointdate,appointmonth,appointday,appointsubject,appointletter,citizenship,schoolrecommend,trainingcategory,trainingsubject,appointlocallevel,schooldistrict, schoollocallevel,priority1model FROM tblapplication where appid='$teacherid' and financialyear='".$_SESSION['appyear']."'";
+                        $result3 = $conn->query($sql3);
+                        if ($result3->num_rows > 0)
+                              {
+                                    if($row3 = $result3->fetch_assoc())
+                                          {
+                                          $tname=$row3["tname"];
+                                          $gender=$row3["gender"];
+                                          $mobileno=$row3["mobileno"];
+                                          $training=$row3["trainingcategory"];
+                                          $subject=$row3["trainingsubject"];
+                                          $level=$row3["appointlocallevel"];
+                                          $district=$row3["schooldistrict"];
+                                          $mun=$row3["schoollocallevel"];
+                                          $scode=$row3["schoolname"];
+                                          $bankname=$row3["bankname"];
+                                          $bankac=$row3["bankacno"];
+                                          $acholdername=$row3["acholdername"];
+                                          $panno=$row3["panno"];
+                                          $mode=$row3["priority1model"];
+                                          $ayear=$row3["appointdate"];
+                                          $amonth=$row3["appointmonth"];
+                                          $aday=$row3["appointday"];
+                                          $asubject=$row3["appointsubject"];
+                                          }
+                              }
+                              echo "<td align=center>" . $sn ."</td>";
+                              echo "<td>".$tname."</td>";
+                              echo "<td align=center>".$mobileno."</td>";
+                              echo "<td align=center>". $training."</td>";
+                              echo "<td align=center>". $subject."</td>";
+                              echo "<td align=center>". $level."</td>";
+                              echo "<td align=center>". $district."</td>";
+                              echo "<td align=center>". $mun."</td>";
+                              echo "<td align=center>". $mode."</td>";
+                              echo "<td>".$scode."</td>";
+                              echo "<td>".$ayear."/".$amonth."/".$aday."</td>";
+                              echo "<td align=center>".$asubject."</td>";
+                              $ctzfile=$row3["citizenship"];
+                              $appointletter=$row3["appointletter"];
+                              $recomend=$row3["schoolrecommend"];
+                              ?>
+                              <td align="center">
+                                    <?php
+                                    if($appointletter<>"")
+                                          {
+                                    ?>
+                                    <a href="..\application_document\<?php echo $appointletter;?>" target="_blank"><img src="../Image/eye.png" width="20" height="15"></a>
+                              </td>
+                              <?php
+                                          }
+                                    else
+                                          {
+                                          ?>
+                                          <td>&nbsp;</td>
+                                          <?php
+                                          }
+                                          ?>
+                              
+                                    <?php
+                                    if($ctzfile<>"")
+                                    {
+                                    ?>
+                                    <td align="center">
+                                          <a href="..\application_document\<?php echo $ctzfile;?>" target="_blank"><img src="../Image/eye.png" width="20" height="15"></a>
+                                    </td>
+                                    <?php
+                                    }
+                                    else
+                                    {
+                                          ?>
+                                          <td>&nbsp;</td>
+                                          <?php
+                                          }
+                                          ?>
+                                    <?php
+                                    if($recomend<>"")
+                                    {
+                                    ?>
+                                    <td align="center">
+                                    <a href="..\application_document\<?php echo $recomend;?>" target="_blank"><img src="../Image/eye.png" width="20" height="15"></a>
+                                    </td>
+                                    <?php
+                                    }
+                                    else
+                                          {
+                                          ?>
+                                          <td>&nbsp;</td>
+                                          <?php
+                                          }
+
+                                          echo "</tr>";
+                                        $sn++;
+                                          
+                  
+                        }
+                        echo "<tr>";
+                                          echo "<td align=left colspan=15 >&nbsp;</td>";
+                                          echo "</tr>";
+                        }
+                  }
+
+                  }
+            }
+
+      }
+else
+      {
        if ($result1->num_rows > 0)
             {
             while($row = $result1->fetch_assoc())
@@ -503,6 +583,7 @@ elseif($_POST["listtype"]=="All")
             $i++;
             }
             }
+      }
   mysqli_close($conn);
 ?>
 </table>

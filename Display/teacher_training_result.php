@@ -42,6 +42,13 @@ if ($result->num_rows > 0)
     transform: rotate(360deg);
     text-align: center;
       }
+   @media print {
+      .vertical_text{
+         writing-mode:horizontal-tb;
+      } 
+}
+
+ 
 </style>    
 </HEAD>
 <BODY>
@@ -113,7 +120,7 @@ $sn=1;
    $total='';
    $total1='';
    $gtotal ='';
-$sql1 = "SELECT teacherid FROM tblttraining where runid='$_SESSION[trainingid]' ORDER BY teacherid";
+$sql1 = "SELECT teacherid FROM tblttraining where runid='$_SESSION[trainingid]' ORDER BY trainingid";
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
    {
