@@ -77,7 +77,7 @@ $sn=1;
    $total='';
    $total1='';
    $gtotal ='';
-$sql1 = "SELECT teacherid FROM tblttraining where runid='$_SESSION[trainingid]' ORDER BY teacherid";
+$sql1 = "SELECT teacherid FROM tblttraining where runid='$_SESSION[trainingid]' ORDER BY trainingid";
 $result = $conn->query($sql1);
 if ($result->num_rows > 0)
    {

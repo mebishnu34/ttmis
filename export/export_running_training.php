@@ -53,20 +53,20 @@ $output.='
                        {
                     if($rowt = $resultt->fetch_assoc())
                        {
-                       $contact=$rowt["tcontact"];
-                       $tname=$rowt["tname"];
                        $loginname=$rowt["loginname"];
                        $password=$rowt["tpass"];
                        }
                     }
                     
-                $sqlt = "SELECT appid,schoolname, schoollocallevel,schooldistrict FROM tblapplication where appid='$tcode'";
+                $sqlt = "SELECT appid,tname,mobileno,schoolname, schoollocallevel,schooldistrict FROM tblapplication where appid='$tcode'";
 		          $resultt = $conn->query($sqlt);
 		         if($resultt->num_rows > 0)
    			      {
 	    	         if($rowt = $resultt->fetch_assoc())
     		            {
-			            $sname=$rowt["schoolname"];
+                        $tname=$rowt["tname"];  
+                        $contact=$rowt["mobileno"];
+                        $sname=$rowt["schoolname"];
 			            $mun=$rowt["schoollocallevel"];
 			            $district=$rowt["schooldistrict"];
 		   		      }
