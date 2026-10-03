@@ -62,7 +62,8 @@ if ($result->num_rows > 0)
                  echo "<td>". $row["startdate"]."</td>";
                  echo "<td>". $row["enddate"]."</td>";
                //  echo "<td>". $row["venue"]."</td>";
-                echo "<td bgcolor=blue align=center><a href=../Input/school_code.php?id=$row[id] target=_blank>Add Participate</a> // <a href=../Input/student_code.php?id=$row[id] target=_blank>Teacher</a>// <a href=../Input/applicant_list.php?id=$row[id] target=_blank>Applicant</a></td>";
+                //echo "<td bgcolor=blue align=center><a href=../Input/school_code.php?id=$row[id] target=_blank>Add Participate</a> // <a href=../Input/student_code.php?id=$row[id] target=_blank>Teacher</a>// <a href=../Input/applicant_list.php?id=$row[id] target=_blank>Applicant</a></td>";
+                echo "<td bgcolor=blue align=center><a href=../Input/applicant_list.php?id=$row[id] target=_blank>Add In Training</a></td>";
               	$i++;
                 echo "</tr>";
                 }
